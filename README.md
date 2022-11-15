@@ -16,6 +16,6 @@ To install all the dependencies run:
 
 `yarn`
 
-To run the project run
+To run the project run:
 
 `yarn start`

@@ -1,16 +1,25 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import React from 'react'
+import { AppBar, Box, Toolbar } from '@mui/material'
+import { appBarStyle } from './utils/Styles'
+import Logo from './assets/images/logo.png'
+import './App.css'
 
 function App() {
-  return <view>
-    <AppBar className='navigation-bar' position='static'>
-      <Toolbar variant='dense'>
-        <Typography variant='h6' color='inherit' component='div'>
-          Photos
-        </Typography>
+  return <>
+    <AppBar position='static'>
+      <Toolbar style={appBarStyle}>
+        <Box
+            component="img"
+            sx={{ height: 90 }}
+            alt='Logo czwartego weekendu z ginekologią'
+            src={Logo} />
+        <p className='appbar-name'>
+          IV Weekend z ginekologią<br></br>
+          Sekrety onkologii
+        </p>
       </Toolbar>
     </AppBar>
-  </view>
+  </>
 }
 
 export default App

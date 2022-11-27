@@ -1,13 +1,12 @@
 import React from 'react'
 import { AppBar, Box, Toolbar } from '@mui/material'
-import { appBarStyle } from './utils/Styles'
 import Logo from './assets/images/logo.png'
 import './App.css'
 
 function App() {
   return <>
     <AppBar position='static'>
-      <Toolbar style={appBarStyle}>
+      <Toolbar sx={{ height: 100 }}>
         <Box
             component="img"
             sx={{ height: 90 }}

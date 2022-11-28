@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
@@ -58,31 +58,43 @@ function NavigationTabs(props: {
 function NavigationBar(props: {
   route: string
 }) {
-  return <>
-    <AppBar position='fixed'>
-      <EggToolbar>
-        <div className='appbar-left'>
-          <Box
-              component="img"
-              sx={{ height: 90 }}
-              alt='Logo czwartego weekendu z ginekologią'
-              src={Logo} />
-          <p className='appbar-name'>
-            IV Weekend z ginekologią<br></br>
-            Sekrety onkologii
-          </p>
-        </div>
-        <div className='appbar-right'>
-          <div className='appbar-right-top'>
-            <p>TOP RIGHT (tutaj kiedyś coś będzie)</p>
+  const [isReady, setIsReady] = React.useState(false)
+
+  useEffect(() => {
+    const img = new Image()
+    img.onload = () => {
+      setIsReady(true)
+    }
+    img.src = Logo
+  })
+
+  if (isReady) {
+    return <>
+      <AppBar position='fixed'>
+        <EggToolbar>
+          <div className='appbar-left'>
+            <img className='appbar-logo'
+                alt='Logo czwartego weekendu z ginekologią'
+                src={Logo} />
+            <p className='appbar-name'>
+              IV Weekend z ginekologią<br></br>
+              Sekrety onkologii
+            </p>
           </div>
-          <div className='appbar-right-left'>
-            <NavigationTabs route={props.route} />
-          </div>
-        </div>        
-      </EggToolbar>
-    </AppBar>
-  </>
+          <div className='appbar-right'>
+            <div className='appbar-right-top'>
+              <p>TOP RIGHT (tutaj kiedyś coś będzie)</p>
+            </div>
+            <div className='appbar-right-left'>
+              <NavigationTabs route={props.route} />
+            </div>
+          </div>        
+        </EggToolbar>
+      </AppBar>
+    </>
+  } else {
+    return <></>
+  }
 }
 
 export default NavigationBar

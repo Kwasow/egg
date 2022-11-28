@@ -4,6 +4,13 @@
   font-weight: 300;
 }
 
+.appbar-logo {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+  padding-right: 2;
+}
+
 .appbar-left {
   display: flex;
   align-items: center;

@@ -1,10 +1,10 @@
 import React from 'react'
 import './NavigationBar.css'
 
-import { AppBar, Box, Toolbar, Tabs, Tab } from '@mui/material'
+import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
-import { navigationTabsTheme } from '../utils/MUITheme'
+import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
 
 const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
@@ -60,8 +60,8 @@ function NavigationBar(props: {
   route: string
 }) {
   return <>
-    <AppBar position='static'>
-      <Toolbar sx={{ height: 100, display: 'flex', justifyContent: 'space-between' }}>
+    <AppBar position='fixed'>
+      <EggToolbar>
         <div className='appbar-left'>
           <Box
               component="img"
@@ -81,8 +81,9 @@ function NavigationBar(props: {
             <NavigationTabs route={props.route} />
           </div>
         </div>        
-      </Toolbar>
+      </EggToolbar>
     </AppBar>
+    <EggToolbar />
   </>
 }
 

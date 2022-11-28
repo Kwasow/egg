@@ -6,6 +6,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  min-height: 100%;
+}
+
 footer {
   background-color: #c53d63;
   width: 100%;
@@ -15,6 +19,7 @@ footer {
   left: 0;
   text-align: center;
   color: white;
+  overflow: hidden;
 }
 
 p {

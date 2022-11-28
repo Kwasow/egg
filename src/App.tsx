@@ -7,6 +7,7 @@ import Sponsors from './sites/Sponsors'
 import Photos from './sites/Photos'
 import NotFound from './sites/NotFound'
 import NavigationBar from './components/NavigationBar'
+import Footer from './components/Footer'
 
 function App() {
   let currentRoute = window.location.pathname
@@ -25,6 +26,7 @@ function App() {
       <Route path='/photos' element={<Photos />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
+    <Footer />
   </>
 }
 

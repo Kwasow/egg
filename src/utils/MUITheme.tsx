@@ -10,3 +10,19 @@ export const eggTheme = createTheme({
     },
   },
 })
+
+export const navigationTabsTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#ffffff',
+    },
+    secondary: {
+      main: '#ffffff',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#ffffff',
+      disabled: '#ffffff',
+    },
+  },
+})

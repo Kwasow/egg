@@ -83,7 +83,6 @@ function NavigationBar(props: {
         </div>        
       </EggToolbar>
     </AppBar>
-    <EggToolbar />
   </>
 }
 

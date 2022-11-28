@@ -1,4 +1,5 @@
-import { createTheme } from "@mui/material/styles";
+import { Toolbar } from "@mui/material"
+import { createTheme, styled } from "@mui/material/styles"
 
 export const eggTheme = createTheme({
   palette: {
@@ -26,3 +27,9 @@ export const navigationTabsTheme = createTheme({
     },
   },
 })
+
+export const EggToolbar = styled(Toolbar)(() => ({
+  height: 100,
+  display: 'flex',
+  justifyContent: 'space-between'
+}))

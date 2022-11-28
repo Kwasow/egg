@@ -7,6 +7,9 @@ import Sponsors from './sites/Sponsors'
 import Photos from './sites/Photos'
 import NotFound from './sites/NotFound'
 import NavigationBar from './components/NavigationBar'
+import Footer from './components/Footer'
+import { EggToolbar } from './utils/MUITheme'
+import './App.css'
 
 function App() {
   let currentRoute = window.location.pathname
@@ -16,15 +19,22 @@ function App() {
 
   return <>
     <NavigationBar route={currentRoute} />
-    <Routes>
-      <Route path='/' element={<Main />} />
-      <Route path='/home' element={<Main />} />
-      <Route path='/program' element={<Program />} />
-      <Route path='/speakers' element={<SpeakersAndOrganisers />} />
-      <Route path='/sponsors' element={<Sponsors />} />
-      <Route path='/photos' element={<Photos />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+    <div className='flex-wrapper'>
+      <div>
+        {/* The toolbar is required to add the appropriate padding on top */}
+        <EggToolbar />
+        <Routes>
+          <Route path='/' element={<Main />} />
+          <Route path='/home' element={<Main />} />
+          <Route path='/program' element={<Program />} />
+          <Route path='/speakers' element={<SpeakersAndOrganisers />} />
+          <Route path='/sponsors' element={<Sponsors />} />
+          <Route path='/photos' element={<Photos />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
   </>
 }
 

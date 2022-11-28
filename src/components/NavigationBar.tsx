@@ -5,6 +5,7 @@ import { AppBar, Box, Toolbar, Tabs, Tab } from '@mui/material'
 import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
 import { navigationTabsTheme } from '../utils/MUITheme'
+import { useNavigate } from 'react-router-dom'
 
 const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
 
@@ -28,23 +29,26 @@ function checkRoute(route: string) {
 }
 
 function NavigationTabs(props: {
-  route: string
+  route: string,
 }) {
+  const [value, setValue] = React.useState(props.route)
+  const navigate = useNavigate()
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    console.log('Navigate to: ' + siteList[newValue])
-    window.location.href = siteList[newValue]
+    navigate(siteList[newValue])
+    setValue(siteList[newValue])
   }
 
   return (
     <Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <ThemeProvider theme={navigationTabsTheme}>
-          <Tabs value={checkRoute(props.route)} onChange={handleChange} >
-            <Tab label="Aktualności" {...a11yProps(0)} />
-            <Tab label="Program" {...a11yProps(1)} />
-            <Tab label="Mówcy i organizatorzy" {...a11yProps(2)} />
-            <Tab label="Sponsorzy" {...a11yProps(3)} />
-            <Tab label="Galeria" {...a11yProps(4)} />
+          <Tabs value={checkRoute(value)} onChange={handleChange} >
+            <Tab label='Aktualności' {...a11yProps(0)} />
+            <Tab label='Program' {...a11yProps(1)} />
+            <Tab label='Mówcy i organizatorzy' {...a11yProps(2)} />
+            <Tab label='Sponsorzy' {...a11yProps(3)} />
+            <Tab label='Galeria' {...a11yProps(4)} />
           </Tabs>
         </ThemeProvider>
       </Box>
@@ -74,7 +78,7 @@ function NavigationBar(props: {
             <p>TOP RIGHT (tutaj kiedyś coś będzie)</p>
           </div>
           <div className='appbar-right-left'>
-            <NavigationTabs route={props.route}/>
+            <NavigationTabs route={props.route} />
           </div>
         </div>        
       </Toolbar>

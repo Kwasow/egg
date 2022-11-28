@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-import { ThemeProvider } from '@mui/material/styles';
-import App from './App';
-import { eggTheme } from './utils/MUITheme';
+import { ThemeProvider } from '@mui/material/styles'
+import App from './App'
+import { eggTheme } from './utils/MUITheme'
+import { BrowserRouter } from 'react-router-dom'
 
 import './index.css'
 
@@ -12,8 +13,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={eggTheme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={eggTheme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

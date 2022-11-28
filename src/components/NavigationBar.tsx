@@ -62,9 +62,7 @@ function NavigationBar(props: {
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar-left'>
-          <Box
-              component="img"
-              sx={{ height: 90 }}
+          <img className='appbar-logo'
               alt='Logo czwartego weekendu z ginekologią'
               src={Logo} />
           <p className='appbar-name'>

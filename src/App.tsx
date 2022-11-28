@@ -6,6 +6,7 @@ import SpeakersAndOrganisers from './sites/SpeakersAndOrganisers'
 import Sponsors from './sites/Sponsors'
 import Photos from './sites/Photos'
 import NotFound from './sites/NotFound'
+import NavigationBar from './components/NavigationBar'
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,15 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  return <RouterProvider router={router} />
+  let currentRoute = window.location.pathname
+  if (currentRoute === '/') {
+    currentRoute = '/home'
+  }
+
+  return <>
+    <NavigationBar route={currentRoute} />
+    <RouterProvider router={router} />
+  </>
 }
 
 export default App

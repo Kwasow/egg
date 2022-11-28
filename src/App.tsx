@@ -8,8 +8,8 @@ import Photos from './sites/Photos'
 import NotFound from './sites/NotFound'
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
-import './App.css'
 import { EggToolbar } from './utils/MUITheme'
+import './App.css'
 
 function App() {
   let currentRoute = window.location.pathname

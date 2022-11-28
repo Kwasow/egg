@@ -1,11 +1,10 @@
 import React from 'react'
-import './NavigationBar.css'
-
 import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
+import './NavigationBar.css'
 
 const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
 
@@ -22,10 +21,10 @@ function checkRoute(route: string) {
   })
   
   if (index !== -1) {
-    return index;
+    return index
   }
 
-  return false;
+  return false
 }
 
 function NavigationTabs(props: {
@@ -53,7 +52,7 @@ function NavigationTabs(props: {
         </ThemeProvider>
       </Box>
     </Box>
-  );
+  )
 }
 
 function NavigationBar(props: {

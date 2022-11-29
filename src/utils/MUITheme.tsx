@@ -1,5 +1,5 @@
-import { Toolbar } from "@mui/material"
-import { createTheme, styled } from "@mui/material/styles"
+import { Toolbar } from '@mui/material'
+import { createTheme, styled } from '@mui/material/styles'
 
 export const eggTheme = createTheme({
   palette: {

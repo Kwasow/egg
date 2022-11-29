@@ -12,7 +12,7 @@ function a11yProps(index: number) {
   return {
     id: `navigation-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-  };
+  }
 }
 
 function checkRoute(route: string) {
@@ -74,8 +74,8 @@ function NavigationBar(props: {
         <EggToolbar>
           <div className='appbar-left'>
             <img className='appbar-logo'
-                alt='Logo czwartego weekendu z ginekologią'
-                src={Logo} />
+              alt='Logo czwartego weekendu z ginekologią'
+              src={Logo} />
             <p className='appbar-name'>
               IV Weekend z ginekologią<br></br>
               Sekrety onkologii

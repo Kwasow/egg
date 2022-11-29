@@ -10,6 +10,16 @@ https://nodejs.org/
 
 It is recommended to develop on Linux/macOS or the WSL.
 
+## Code style
+
+If you're using vscode it is recommended to install the `eslint` plugin which
+will enforce the code style set in `.eslintrc.json`
+
+Code style rules include:
+ - indent using spaces (2)
+ - use single quotes for strings
+ - never use semicolons
+
 ## Running
 
 To install all the dependencies run:

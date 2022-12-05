@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Main from './sites/Main'
+import HomePage from './sites/HomePage'
 import Program from './sites/Program'
 import SpeakersAndOrganisers from './sites/SpeakersAndOrganisers'
 import Sponsors from './sites/Sponsors'
@@ -21,11 +21,11 @@ function App() {
     <NavigationBar route={currentRoute} />
     <div className='flex-wrapper'>
       <div>
-        {/* The toolbar is required to add the appropriate padding on top */}
+        {/* This toolbar is required to add the appropriate padding on top */}
         <EggToolbar />
         <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/home' element={<Main />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/home' element={<HomePage />} />
           <Route path='/program' element={<Program />} />
           <Route path='/speakers' element={<SpeakersAndOrganisers />} />
           <Route path='/sponsors' element={<Sponsors />} />

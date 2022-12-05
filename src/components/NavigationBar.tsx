@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-import { AppBar, Box, Tabs, Tab } from '@mui/material'
+import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
 import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
 import './NavigationBar.css'
+import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 
 const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
 
@@ -29,6 +31,7 @@ function checkRoute(route: string) {
 
 function NavigationTabs(props: {
   route: string,
+  t: TFunction
 }) {
   const [value, setValue] = React.useState(props.route)
   const navigate = useNavigate()
@@ -43,11 +46,11 @@ function NavigationTabs(props: {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <ThemeProvider theme={navigationTabsTheme}>
           <Tabs value={checkRoute(value)} onChange={handleChange} >
-            <Tab label='Aktualności' {...a11yProps(0)} />
-            <Tab label='Program' {...a11yProps(1)} />
-            <Tab label='Mówcy i organizatorzy' {...a11yProps(2)} />
-            <Tab label='Sponsorzy' {...a11yProps(3)} />
-            <Tab label='Galeria' {...a11yProps(4)} />
+            <Tab label={props.t('navbar.HomePage')} {...a11yProps(0)} />
+            <Tab label={props.t('navbar.Program')} {...a11yProps(1)} />
+            <Tab label={props.t('navbar.SpeakersAndOrganisers')} {...a11yProps(2)} />
+            <Tab label={props.t('navbar.Sponsors')} {...a11yProps(3)} />
+            <Tab label={props.t('navbar.Photos')} {...a11yProps(4)} />
           </Tabs>
         </ThemeProvider>
       </Box>
@@ -59,6 +62,8 @@ function NavigationBar(props: {
   route: string
 }) {
   const [isReady, setIsReady] = React.useState(false)
+  const {t, i18n} = useTranslation()
+  const logoAlt = t('navbar.LogoAlt')
 
   useEffect(() => {
     const img = new Image()
@@ -74,19 +79,20 @@ function NavigationBar(props: {
         <EggToolbar>
           <div className='appbar-left'>
             <img className='appbar-logo'
-              alt='Logo czwartego weekendu z ginekologią'
+              alt={logoAlt}
               src={Logo} />
             <p className='appbar-name'>
-              IV Weekend z ginekologią<br></br>
-              Sekrety onkologii
+              {t('navbar.Title.Line1')}<br></br>
+              {t('navbar.Title.Line2')}
             </p>
           </div>
           <div className='appbar-right'>
             <div className='appbar-right-top'>
-              <p>TOP RIGHT (tutaj kiedyś coś będzie)</p>
+              <Button onClick={() => i18n.changeLanguage('en')} sx={{ color: 'blue' }}>EN</Button>
+              <Button onClick={() => i18n.changeLanguage('pl')} sx={{ color: 'blue' }}>PL</Button>
             </div>
             <div className='appbar-right-left'>
-              <NavigationTabs route={props.route} />
+              <NavigationTabs route={props.route} t={t}/>
             </div>
           </div>        
         </EggToolbar>

@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Main() {
+function HomePage() {
   return <p>Aktualności</p>
 }
 
-export default Main
+export default HomePage

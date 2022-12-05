@@ -6,5 +6,7 @@
   "navbar.Program": "Program",
   "navbar.SpeakersAndOrganisers": "Mówcy i organizatorzy",
   "navbar.Sponsors": "Sponsorzy",
-  "navbar.Photos": "Galeria"
+  "navbar.Photos": "Galeria",
+
+  "footer.copyright": "2022 © Studenckie koło naukowe położnictwa i ginekologii WUM"
 }

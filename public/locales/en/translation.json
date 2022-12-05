@@ -6,5 +6,7 @@
   "navbar.Program": "Program",
   "navbar.SpeakersAndOrganisers": "Speakers and organisers",
   "navbar.Sponsors": "Sponsors",
-  "navbar.Photos": "Photos"
+  "navbar.Photos": "Photos",
+
+  "footer.copyright": "2022 © Gynecology student association WUM"
 }

@@ -1,9 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+  const {t} = useTranslation()
+
   return <footer>
     <p>
-      2022 © Studenckie koło naukowe położnictwa i ginekologii WUM
+      {t('footer.copyright')}
     </p>
   </footer>
 }

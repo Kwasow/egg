@@ -63,6 +63,7 @@ function NavigationBar(props: {
 }) {
   const [isReady, setIsReady] = React.useState(false)
   const {t, i18n} = useTranslation()
+  const logoAlt = t('navbar.LogoAlt')
 
   useEffect(() => {
     const img = new Image()
@@ -78,7 +79,7 @@ function NavigationBar(props: {
         <EggToolbar>
           <div className='appbar-left'>
             <img className='appbar-logo'
-              alt='Logo czwartego weekendu z ginekologią'
+              alt={logoAlt}
               src={Logo} />
             <p className='appbar-name'>
               {t('navbar.Title.Line1')}<br></br>

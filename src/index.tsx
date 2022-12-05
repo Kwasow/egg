@@ -5,7 +5,7 @@ import App from './App'
 import { eggTheme } from './utils/MUITheme'
 import { BrowserRouter } from 'react-router-dom'
 
-import './i18n'
+import './utils/i18n'
 import './index.css'
 
 const root = ReactDOM.createRoot(

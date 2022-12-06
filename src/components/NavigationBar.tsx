@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'

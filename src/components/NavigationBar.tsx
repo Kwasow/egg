@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
-import Logo from '../assets/images/logo.png'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
@@ -61,46 +60,33 @@ function NavigationTabs(props: {
 function NavigationBar(props: {
   route: string
 }) {
-  const [isReady, setIsReady] = React.useState(false)
   const {t, i18n} = useTranslation()
   const logoAlt = t('navbar.LogoAlt')
 
-  useEffect(() => {
-    const img = new Image()
-    img.onload = () => {
-      setIsReady(true)
-    }
-    img.src = Logo
-  })
-
-  if (isReady) {
-    return <>
-      <AppBar position='fixed'>
-        <EggToolbar>
-          <div className='appbar-left'>
-            <img className='appbar-logo'
-              alt={logoAlt}
-              src={Logo} />
-            <p className='appbar-name'>
-              {t('navbar.Title.Line1')}<br></br>
-              {t('navbar.Title.Line2')}
-            </p>
+  return <>
+    <AppBar position='fixed'>
+      <EggToolbar>
+        <div className='appbar-left'>
+          <img className='appbar-logo'
+            alt={logoAlt}
+            src={process.env.PUBLIC_URL + '/static/images/logo.png'} />
+          <p className='appbar-name'>
+            {t('navbar.Title.Line1')}<br></br>
+            {t('navbar.Title.Line2')}
+          </p>
+        </div>
+        <div className='appbar-right'>
+          <div className='appbar-right-top'>
+            <Button onClick={() => i18n.changeLanguage('en')} sx={{ color: 'blue' }}>EN</Button>
+            <Button onClick={() => i18n.changeLanguage('pl')} sx={{ color: 'blue' }}>PL</Button>
           </div>
-          <div className='appbar-right'>
-            <div className='appbar-right-top'>
-              <Button onClick={() => i18n.changeLanguage('en')} sx={{ color: 'blue' }}>EN</Button>
-              <Button onClick={() => i18n.changeLanguage('pl')} sx={{ color: 'blue' }}>PL</Button>
-            </div>
-            <div className='appbar-right-left'>
-              <NavigationTabs route={props.route} t={t}/>
-            </div>
-          </div>        
-        </EggToolbar>
-      </AppBar>
-    </>
-  } else {
-    return <></>
-  }
+          <div className='appbar-right-left'>
+            <NavigationTabs route={props.route} t={t}/>
+          </div>
+        </div>        
+      </EggToolbar>
+    </AppBar>
+  </>
 }
 
 export default NavigationBar

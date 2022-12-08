@@ -159,7 +159,9 @@ function Organisers(props: TabPanelProps) {
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
-      return <p>Loading...</p>
+      return <div className='people-loading-container'>
+        <CircularProgress />
+      </div>
     }
   } else {
     return <></>

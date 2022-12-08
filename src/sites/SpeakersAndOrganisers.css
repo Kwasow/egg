@@ -1,0 +1,47 @@
+.people-left-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10%;
+  padding-right: 15%;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+.people-left-name {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.people-left-description {
+}
+
+.people-left-image {
+  height: 25vh;
+  width: 18vh;
+  object-fit: contain;
+  padding-inline-end: 5vh;
+}
+
+.people-right-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-left: 15%;
+  padding-right: 10%;
+}
+
+.people-right-name {
+  font-weight: bold;
+  font-size: xx-large;
+  text-align: right;
+}
+
+.people-right-description {
+  text-align: right;
+}
+
+.people-right-image {
+  height: 25vh;
+  width: 18vh;
+  object-fit: contain;
+  padding-inline-start: 5vh;
+}

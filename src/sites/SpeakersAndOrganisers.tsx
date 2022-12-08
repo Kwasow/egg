@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
+import './SpeakersAndOrganisers.css'
 
 interface TabPanelProps {
   index: number;
@@ -51,12 +52,38 @@ function PeopleListView(props: {
     return <div>
       {props.people.map(person => (
         <div key={person.position}>
-          <img
-            style={{ height: '120px', width: '70px' }}
-            alt={'A picture of ' + person.name}
-            src={process.env.PUBLIC_URL + '/' + props.dataPath + '/' + person.picture} />
-          <p>{person.name}</p>
-          <p>{person.description}</p>
+          <div className={
+            person.position % 2 == 0
+              ? 'people-right-container'
+              : 'people-left-container'
+          }>
+            <img
+              className={
+                person.position % 2 == 0
+                  ? 'people-right-image'
+                  : 'people-left-image'
+              }
+              alt={'A picture of ' + person.name}
+              src={process.env.PUBLIC_URL + '/' + props.dataPath + '/' + person.picture} />
+            <div className={person.position % 2 == 0 ? 'people-right-text-container' : ''}>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-name'
+                    : 'people-left-name'
+                }>
+                {person.name}
+              </p>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-description'
+                    : 'people-left-description'
+                }>
+                {person.description}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

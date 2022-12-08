@@ -41,6 +41,28 @@ async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {
   })
 }
 
+function PeopleListView(props: {
+  people: PersonJSON[],
+  dataPath: string
+}) {
+  if (props.people.length === 0) {
+    return <p>Empty people list</p>
+  } else {
+    return <div>
+      {props.people.map(person => (
+        <div key={person.position}>
+          <img
+            style={{ height: '120px', width: '70px' }}
+            alt={'A picture of ' + person.name}
+            src={process.env.PUBLIC_URL + '/' + props.dataPath + '/' + person.picture} />
+          <p>{person.name}</p>
+          <p>{person.description}</p>
+        </div>
+      ))}
+    </div>
+  }
+}
+
 function Speakers(props: TabPanelProps) {
   const dataPath = 'static/speakers'
   const [people, setPeople] = useState(new Array<PersonJSON>)
@@ -63,7 +85,7 @@ function Speakers(props: TabPanelProps) {
   
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <p>{people.length == 0 ? 'empty' : people.toString()}</p>
+      return <PeopleListView people={people} dataPath={dataPath} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -96,7 +118,7 @@ function Organisers(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <p>{people.length == 0 ? 'empty' : people.toString()}</p>
+      return <PeopleListView people={people} dataPath={dataPath} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {

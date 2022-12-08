@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
@@ -123,7 +124,9 @@ function Speakers(props: TabPanelProps) {
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
-      return <p>Loading...</p>
+      return <div className='people-loading-container'>
+        <CircularProgress />
+      </div>
     }
   } else {
     return <></>

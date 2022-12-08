@@ -48,3 +48,9 @@
   object-fit: contain;
   padding-inline-start: 5%;
 }
+
+.people-loading-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}

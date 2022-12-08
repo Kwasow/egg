@@ -46,6 +46,8 @@ function PeopleListView(props: {
   people: PersonJSON[],
   dataPath: string
 }) {
+  const {t} = useTranslation()
+
   if (props.people.length === 0) {
     return <p>Empty people list</p>
   } else {
@@ -63,7 +65,7 @@ function PeopleListView(props: {
                   ? 'people-right-image'
                   : 'people-left-image'
               }
-              alt={'A picture of ' + person.name}
+              alt={t('speakersAndOrganisers.personAlt') + person.name}
               src={process.env.PUBLIC_URL + '/' + props.dataPath + '/' + person.picture} />
             <div className={person.position % 2 == 0 ? 'people-right-text-container' : ''}>
               <p

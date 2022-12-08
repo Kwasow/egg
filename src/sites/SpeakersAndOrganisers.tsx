@@ -34,6 +34,11 @@ async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {
         Promise.all(requests)
           .then((results: PersonJSON[]) => {
             results.sort((a, b) => a.position - b.position)
+
+            for (let i = 0; i < results.length; i++) {
+              results[i].position = i + 1
+            }
+
             resolve(results)
           })
           .catch((reason) => reject(reason))

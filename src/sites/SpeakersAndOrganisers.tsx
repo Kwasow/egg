@@ -21,21 +21,13 @@ interface PersonJSON {
 async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {  
   return new Promise((resolve, reject) => {
     fetch(directory + '/description.json')
-      .then((res) => {
-        console.log(res)
-        return res.json()
-      })
-      .then((json) => {
-        console.log('jejeje')
-        console.log(json)
-        return JSON.parse(json)
-      })
+      .then((res) => res.json())
       .then((description: Description) => {
         const urls = description.list.map((value) => directory + '/' + value)
         const requests = urls.map((url) => {
           return fetch(url)
             .then((res) => res.json())
-            .then((json) => JSON.parse(json))
+            .catch((reason) => reject(reason))
         })
 
         Promise.all(requests)
@@ -43,15 +35,9 @@ async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {
             results.sort((a, b) => a.position - b.position)
             resolve(results)
           })
-          .catch((reason) => {
-            console.log('here1')
-            reject(reason)
-          })
+          .catch((reason) => reject(reason))
       })
-      .catch((reason) => {
-        console.log('here2')
-        reject(reason)
-      })
+      .catch((reason) => reject(reason))
   })
 }
 
@@ -66,7 +52,6 @@ function Speakers(props: TabPanelProps) {
   useEffect(() => {
     getPeopleSorted(dataPath)
       .then((res) => {
-        console.log('loaded')
         setPeople(res)
         setLoaded(1)
       })
@@ -74,11 +59,11 @@ function Speakers(props: TabPanelProps) {
         console.log(reason)
         setLoaded(2)
       })
-  })
+  }, [])
   
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <p>{people.toString()}</p>
+      return <p>{people.length == 0 ? 'empty' : people.toString()}</p>
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -100,7 +85,6 @@ function Organisers(props: TabPanelProps) {
   useEffect(() => {
     getPeopleSorted(dataPath)
       .then((res) => {
-        console.log('loaded')
         setPeople(res)
         setLoaded(1)
       })
@@ -108,11 +92,11 @@ function Organisers(props: TabPanelProps) {
         console.log(reason)
         setLoaded(2)
       })
-  })
+  }, [])
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <p>{people.toString()}</p>
+      return <p>{people.length == 0 ? 'empty' : people.toString()}</p>
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {

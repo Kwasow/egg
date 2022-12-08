@@ -5,10 +5,11 @@
   padding-right: 15%;
   padding-top: 3vh;
   padding-bottom: 3vh;
-  align-self: center;
+  align-items: center;
 }
 
 .people-left-name {
+  margin-top: 0px;
   font-weight: bold;
   font-size: xx-large;
 }
@@ -17,11 +18,10 @@
   text-align: left;
 }
 
-/* TODO: vh is not very good */
 .people-left-image {
-  width: 20vh;
+  height: 25vh;
   object-fit: contain;
-  padding-inline-end: 5vh;
+  padding-inline-end: 5%;
 }
 
 .people-right-container {
@@ -29,9 +29,11 @@
   flex-direction: row-reverse;
   padding-left: 15%;
   padding-right: 10%;
+  align-items: center;
 }
 
 .people-right-name {
+  margin-top: 0px;
   font-weight: bold;
   font-size: xx-large;
   text-align: right;
@@ -42,7 +44,7 @@
 }
 
 .people-right-image {
-  width: 18vh;
+  height: 25vh;
   object-fit: contain;
-  padding-inline-start: 5vh;
+  padding-inline-start: 5%;
 }

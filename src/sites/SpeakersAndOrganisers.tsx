@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 
@@ -63,17 +63,19 @@ function Speakers(props: TabPanelProps) {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   
-  getPeopleSorted(dataPath)
-    .then((res) => {
-      console.log('loaded')
-      setPeople(res)
-      setLoaded(1)
-    })
-    .catch((reason) => {
-      console.log(reason)
-      setLoaded(2)
-    })
-
+  useEffect(() => {
+    getPeopleSorted(dataPath)
+      .then((res) => {
+        console.log('loaded')
+        setPeople(res)
+        setLoaded(1)
+      })
+      .catch((reason) => {
+        console.log(reason)
+        setLoaded(2)
+      })
+  })
+  
   if (props.index == props.value) {
     if (loaded === 1) {
       return <p>{people.toString()}</p>
@@ -95,16 +97,18 @@ function Organisers(props: TabPanelProps) {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   
-  getPeopleSorted(dataPath)
-    .then((res) => {
-      console.log('loaded')
-      setPeople(res)
-      setLoaded(1)
-    })
-    .catch((reason) => {
-      console.log(reason)
-      setLoaded(2)
-    })
+  useEffect(() => {
+    getPeopleSorted(dataPath)
+      .then((res) => {
+        console.log('loaded')
+        setPeople(res)
+        setLoaded(1)
+      })
+      .catch((reason) => {
+        console.log(reason)
+        setLoaded(2)
+      })
+  })
 
   if (props.index == props.value) {
     if (loaded === 1) {

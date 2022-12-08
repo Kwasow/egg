@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
-import './NavigationBar.css'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
+import './NavigationBar.css'
 
 const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
 

@@ -5,6 +5,7 @@
   padding-right: 15%;
   padding-top: 3vh;
   padding-bottom: 3vh;
+  align-self: center;
 }
 
 .people-left-name {
@@ -13,11 +14,12 @@
 }
 
 .people-left-description {
+  text-align: left;
 }
 
+/* TODO: vh is not very good */
 .people-left-image {
-  height: 25vh;
-  width: 18vh;
+  width: 20vh;
   object-fit: contain;
   padding-inline-end: 5vh;
 }
@@ -40,7 +42,6 @@
 }
 
 .people-right-image {
-  height: 25vh;
   width: 18vh;
   object-fit: contain;
   padding-inline-start: 5vh;

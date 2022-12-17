@@ -1,9 +1,14 @@
 import React from 'react'
 
+import './NotFound.css'
+
 function NotFound() {
   return <>
-    <img src='static/images/ghost.svg' style={{height: '15%'}} />
-    <p>Nie znaleziono strony</p>
+    <div className='container'>
+      <img className='ghost-icon' src='static/images/ghost.svg' />
+      <p className='error-boo'>Bu!</p>
+      <p className='error-text'>Obudziłeś ducha, który mieszka na tej pustej stronie</p>
+    </div>
   </>
 }
 

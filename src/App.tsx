@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from './sites/HomePage'
 import Program from './sites/Program'
 import SpeakersAndOrganisers from './sites/SpeakersAndOrganisers'
-import Sponsors from './sites/Sponsors'
 import Photos from './sites/Photos'
 import NotFound from './sites/NotFound'
 import NavigationBar from './components/NavigationBar'
@@ -28,7 +27,6 @@ function App() {
           <Route path='/home' element={<HomePage />} />
           <Route path='/program' element={<Program />} />
           <Route path='/speakers' element={<SpeakersAndOrganisers />} />
-          <Route path='/sponsors' element={<Sponsors />} />
           <Route path='/photos' element={<Photos />} />
           <Route path='*' element={<NotFound />} />
         </Routes>

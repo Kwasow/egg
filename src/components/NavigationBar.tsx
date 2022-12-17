@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
 import './NavigationBar.css'
 
-const siteList = ['/home', '/program', '/speakers', '/sponsors', '/photos']
+const siteList = ['/home', '/program', '/speakers', '/photos']
 
 function a11yProps(index: number) {
   return {
@@ -48,7 +48,6 @@ function NavigationTabs(props: {
             <Tab label={props.t('navbar.HomePage')} {...a11yProps(0)} />
             <Tab label={props.t('navbar.Program')} {...a11yProps(1)} />
             <Tab label={props.t('navbar.SpeakersAndOrganisers')} {...a11yProps(2)} />
-            <Tab label={props.t('navbar.Sponsors')} {...a11yProps(3)} />
             <Tab label={props.t('navbar.Photos')} {...a11yProps(4)} />
           </Tabs>
         </ThemeProvider>

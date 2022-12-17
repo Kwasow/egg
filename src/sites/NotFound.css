@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.ghost-icon {
+  filter: invert(61%) sepia(0%) saturate(0%) hue-rotate(149deg) brightness(95%) contrast(83%);
+  width: 15%;
+}
+
+.error-boo {
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 0;
+}
+
+.error-text {
+  font-size: xx-large;
+  margin-top: 0;
+}

@@ -10,13 +10,46 @@ type PhotoGroup = {
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
   const photosPath = 'static/images/gallery'
+
+  // I think we need a server for this
+  return new Promise((resolve, reject) => {
+
+  })
+  // return new Promise((resolve, reject) => {
+  //   fetch(directory + '/description.json')
+  //     .then((res) => res.json())
+  //     .then((description: Description) => {
+  //       const urls = description.list.map((value) => directory + '/' + value)
+  //       const requests = urls.map((url) => {
+  //         return fetch(url)
+  //           .then((res) => res.json())
+  //           .catch((reason) => reject(reason))
+  //       })
+
+  //       Promise.all(requests)
+  //         .then((results: PersonJSON[]) => {
+  //           results.sort((a, b) => a.position - b.position)
+
+  //           for (let i = 0; i < results.length; i++) {
+  //             results[i].position = i + 1
+  //           }
+
+  //           resolve(results)
+  //         })
+  //         .catch((reason) => reject(reason))
+  //     })
+  //     .catch((reason) => reject(reason))
+  // })
 }
 
 function PhotosSection(props: {
   name: string,
   photos: Array<string>
 }) {
-  return <></>
+  return <>
+    <p>{props.name}</p>
+    <p>{props.photos.toString()}</p>
+  </>
 }
 
 function Photos() {

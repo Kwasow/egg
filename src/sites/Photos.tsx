@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Grid from '@mui/material/Unstable_Grid2'
 import { CircularProgress } from '@mui/material'
 import './Photos.css'
 
@@ -9,10 +8,10 @@ type PhotoGroup = {
 }
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const photosPath = 'static/images/gallery'
+  // const photosPath = 'static/images/gallery'
 
   // I think we need a server for this
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     resolve(new Array<PhotoGroup>())
   })
   // return new Promise((resolve, reject) => {

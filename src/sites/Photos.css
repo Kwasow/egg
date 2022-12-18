@@ -3,3 +3,9 @@
   justify-content: center;
   margin-top: 2%;
 }
+
+.section-title {
+  font-weight: bold;
+  font-size: xx-large;
+  margin-left: 2%;
+}

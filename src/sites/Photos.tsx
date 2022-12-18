@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, ImageList, ImageListItem } from '@mui/material'
 import './Photos.css'
 
 type PhotoGroup = {
@@ -12,7 +12,7 @@ type ResponseJSON = {
 };
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const phpUrl = 'php/getPhotos.php'
+  const phpUrl = 'http://192.168.86.29/php/getPhotos.php'
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl)
@@ -29,9 +29,21 @@ function PhotosSection(props: {
   name: string,
   photos: Array<string>
 }) {
+  const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
+
   return <>
-    <p>{props.name}</p>
-    <p>{props.photos.toString()}</p>
+    <p className='section-title'>{props.name}</p>
+    {/* <p>{props.photos.toString()}</p> */}
+    <ImageList
+      sx={{ paddingLeft: '5%', paddingRight: '5%', flex: 1 }}
+      cols={8}
+      rowHeight={121}>
+      {props.photos.map((photo: string, index) => (
+        <ImageListItem key={index}>
+          <img src={directory + photo} loading='lazy' />
+        </ImageListItem>
+      ))}
+    </ImageList>
   </>
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CircularProgress, ImageListItem } from '@mui/material'
+import { CircularProgress, Dialog, ImageListItem } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { PhotoGrid } from '../utils/MUITheme'
 import './Photos.css'
@@ -33,24 +33,38 @@ function PhotosSection(props: {
 }) {
   const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
   const {t} = useTranslation()
-  const rowHeight = 120
+
+  const [open, setOpen] = useState(false)
+  const [image, setImage] = useState('')
 
   return <>
     <p className='photos-section-title'>{props.name}</p>
     <PhotoGrid
       cols={8}
       gap={10}
-      rowHeight={rowHeight}>
+      rowHeight={120}>
       {props.photos.map((photo: string, index) => (
         <ImageListItem key={index}>
           <img
             className='photos-photo'
             src={directory + photo}
+            // BUG: For some reason this doesn't work when it's not inline
+            style={{ height: 120 }}
             loading='lazy'
-            alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
+            alt={t('gallery.photoAlt') + ' (' +  props.name +')'}
+            onClick={() => {
+              setImage(directory + photo)
+              setOpen(true)
+            }} />
         </ImageListItem>
       ))}
     </PhotoGrid>
+    <Dialog open={open} fullWidth={true}>
+      <img
+        src={image}
+        alt={t('gallery.photoAlt') + ' (' +  props.name +')'}
+        onClick={() => setOpen(false)} />
+    </Dialog>
   </>
 }
 

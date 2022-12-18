@@ -11,6 +11,6 @@
 }
 
 .photos-photo {
-  height: rowHeight;
   object-fit: 'cover';
+  cursor: pointer;
 }

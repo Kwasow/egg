@@ -15,7 +15,7 @@ type ResponseJSON = {
 };
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const phpUrl = 'http://192.168.86.29/php/getPhotos.php'
+  const phpUrl = 'php/getPhotos.php'
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl)
@@ -32,7 +32,7 @@ function PhotosSection(props: {
   name: string,
   photos: Array<string>
 }) {
-  const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
+  const directory = 'static/gallery/' + props.name + '/'
   const {t} = useTranslation()
 
   return <>

@@ -1,5 +1,5 @@
+import React, { useEffect, useState, SyntheticEvent } from 'react'
 import { CircularProgress } from '@mui/material'
-import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './SpeakersAndOrganisers.css'
@@ -20,9 +20,12 @@ interface PersonJSON {
   picture: string;
 }
 
-async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {  
+async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
+  const phpUrl = 'php/getPeople.php?type=' + type
+  const directory = 'static/' + type
+
   return new Promise((resolve, reject) => {
-    fetch(directory + '/description.json')
+    fetch(phpUrl)
       .then((res) => res.json())
       .then((description: Description) => {
         const urls = description.list.map((value) => directory + '/' + value)
@@ -50,9 +53,10 @@ async function getPeopleSorted(directory: string): Promise<PersonJSON[]> {
 
 function PeopleListView(props: {
   people: PersonJSON[],
-  dataPath: string
+  type: string
 }) {
   const {t} = useTranslation()
+  const directory = '/static/' + props.type + '/'
 
   if (props.people.length === 0) {
     return <p>Empty people list</p>
@@ -72,7 +76,7 @@ function PeopleListView(props: {
                   : 'people-left-image'
               }
               alt={t('speakersAndOrganisers.personAlt') + person.name}
-              src={process.env.PUBLIC_URL + '/' + props.dataPath + '/' + person.picture} />
+              src={process.env.PUBLIC_URL + directory + person.picture} />
             <div className={person.position % 2 == 0 ? 'people-right-text-container' : ''}>
               <p
                 className={
@@ -99,7 +103,7 @@ function PeopleListView(props: {
 }
 
 function Speakers(props: TabPanelProps) {
-  const dataPath = 'static/speakers'
+  const type = 'speakers'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded
@@ -107,7 +111,7 @@ function Speakers(props: TabPanelProps) {
   const [loaded, setLoaded] = useState(0)
   
   useEffect(() => {
-    getPeopleSorted(dataPath)
+    getPeopleSorted(type)
       .then((res) => {
         setPeople(res)
         setLoaded(1)
@@ -120,7 +124,7 @@ function Speakers(props: TabPanelProps) {
   
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} dataPath={dataPath} />
+      return <PeopleListView people={people} type={type} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -134,7 +138,7 @@ function Speakers(props: TabPanelProps) {
 }
 
 function Organisers(props: TabPanelProps) {
-  const dataPath = 'static/organisers'
+  const type = 'organisers'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded
@@ -142,7 +146,7 @@ function Organisers(props: TabPanelProps) {
   const [loaded, setLoaded] = useState(0)
   
   useEffect(() => {
-    getPeopleSorted(dataPath)
+    getPeopleSorted(type)
       .then((res) => {
         setPeople(res)
         setLoaded(1)
@@ -155,7 +159,7 @@ function Organisers(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} dataPath={dataPath} />
+      return <PeopleListView people={people} type={type} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -177,9 +181,9 @@ function a11yProps(index: number) {
 
 function SpeakersAndOrganisers() {
   const {t} = useTranslation()
-  const [tab, setTab] = React.useState(0)
+  const [tab, setTab] = useState(0)
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event: SyntheticEvent, newValue: number) => {
     setTab(newValue)
   }
 

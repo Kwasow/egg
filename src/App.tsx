@@ -11,10 +11,7 @@ import { EggToolbar } from './utils/MUITheme'
 import './App.css'
 
 function App() {
-  let currentRoute = window.location.pathname
-  if (currentRoute === '/') {
-    currentRoute = '/home'
-  }
+  const currentRoute = window.location.pathname
 
   return <>
     <NavigationBar route={currentRoute} />

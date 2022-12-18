@@ -13,7 +13,7 @@ async function loadPhotos(): Promise<PhotoGroup[]> {
 
   // I think we need a server for this
   return new Promise((resolve, reject) => {
-
+    resolve(new Array<PhotoGroup>())
   })
   // return new Promise((resolve, reject) => {
   //   fetch(directory + '/description.json')

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { CircularProgress, ImageList, ImageListItem } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 import './Photos.css'
 
 type PhotoGroup = {
@@ -30,17 +31,21 @@ function PhotosSection(props: {
   photos: Array<string>
 }) {
   const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
+  const {t} = useTranslation()
 
   return <>
     <p className='section-title'>{props.name}</p>
-    {/* <p>{props.photos.toString()}</p> */}
     <ImageList
-      sx={{ paddingLeft: '5%', paddingRight: '5%', flex: 1 }}
+      sx={{ paddingLeft: '5%', paddingRight: '5%' }}
       cols={8}
+      gap={10}
       rowHeight={121}>
       {props.photos.map((photo: string, index) => (
         <ImageListItem key={index}>
-          <img src={directory + photo} loading='lazy' />
+          <img
+            src={directory + photo}
+            loading='lazy'
+            alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
         </ImageListItem>
       ))}
     </ImageList>

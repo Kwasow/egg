@@ -33,16 +33,18 @@ function PhotosSection(props: {
 }) {
   const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
   const {t} = useTranslation()
+  const rowHeight = 120
 
   return <>
-    <p className='section-title'>{props.name}</p>
+    <p className='photos-section-title'>{props.name}</p>
     <PhotoGrid
       cols={8}
       gap={10}
-      rowHeight={121}>
+      rowHeight={rowHeight}>
       {props.photos.map((photo: string, index) => (
         <ImageListItem key={index}>
           <img
+            className='photos-photo'
             src={directory + photo}
             loading='lazy'
             alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />

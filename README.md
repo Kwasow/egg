@@ -29,3 +29,38 @@ To install all the dependencies run:
 To run the project run:
 
 `yarn start`
+
+## About
+
+The front-end is a client-side rendered React app. POST and GET requests are
+handled by PHP.
+
+This is indeed a weird way to design a website, but I wanted to use React as it
+significantly shortens development time and I find it easier to build visually
+pleasing interfaces with it. The problem is that React uses client-side
+rendering which makes it difficult to interact with server files (the `public`
+directory). Using PHP instead of something like nodejs allows us to use cheap
+website hosting services instead of more costly vistual servers that would allow
+us to use the latter.
+
+## Project structure
+
+Included files:
+ - `src/` - frontend, the client-side rendered React app
+ - `public/locales` - contains translations for strings (PL/EN)
+ - `public/static/images` - static assets
+ - `public/php` - backend PHP scripts
+
+Not included (placed on server):
+ - `public/static/organisers` - info about organisers, json format:
+```json
+{
+  "position": 2,
+  "name": "Jan Kowalski",
+  "description": "Lorem ipsum dolor sit amet, consectetur..",
+  "picture": "1.jpeg"
+}
+```
+ - `public/static/speakers` - same as organisers
+ - `public/static/gallery` - photos (organised in folders) to be shown in
+    the photo gallery tab

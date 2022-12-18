@@ -1,4 +1,4 @@
-import { Tab, Tabs, Toolbar } from '@mui/material'
+import { ImageList, Tab, Tabs, Toolbar } from '@mui/material'
 import { createTheme, styled } from '@mui/material/styles'
 
 const colorPrimary = '#c53d63'
@@ -45,4 +45,10 @@ export const SpeakersTab = styled(Tab)(() => ({
   '&.Mui-selected': {
     background: 'rgba(197, 61, 99, 0.15)'
   }
+}))
+
+export const PhotoGrid = styled(ImageList)(() => ({
+  paddingLeft: '5%',
+  paddingRight: '5%',
+  overflow: 'hidden'
 }))

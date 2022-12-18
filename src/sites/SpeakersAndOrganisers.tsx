@@ -56,7 +56,7 @@ function PeopleListView(props: {
   type: string
 }) {
   const {t} = useTranslation()
-  const directory = '/static/' + props.type + '/'
+  const directory = 'static/' + props.type + '/'
 
   if (props.people.length === 0) {
     return <p>Empty people list</p>

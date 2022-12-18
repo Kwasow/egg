@@ -1,53 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import { CircularProgress } from '@mui/material'
+import { useTranslation } from 'react-i18next'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 import './Photos.css'
+import 'react-photo-view/dist/react-photo-view.css'
 
 type PhotoGroup = {
   name: string;
   photos: Array<string>;
 }
 
+type ResponseJSON = {
+  folders: Array<PhotoGroup>;
+};
+
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  // const photosPath = 'static/images/gallery'
+  const phpUrl = 'php/getPhotos.php'
 
-  // I think we need a server for this
-  return new Promise((resolve, _reject) => {
-    resolve(new Array<PhotoGroup>())
+  return new Promise((resolve, reject) => {
+    fetch(phpUrl)
+      .then((res) => res.json())
+      .then((res: ResponseJSON) => {
+        res.folders.sort((a, b) => (a.name > b.name) ? -1 : 1)
+        resolve(res.folders)
+      })
+      .catch((reason) => reject(reason))
   })
-  // return new Promise((resolve, reject) => {
-  //   fetch(directory + '/description.json')
-  //     .then((res) => res.json())
-  //     .then((description: Description) => {
-  //       const urls = description.list.map((value) => directory + '/' + value)
-  //       const requests = urls.map((url) => {
-  //         return fetch(url)
-  //           .then((res) => res.json())
-  //           .catch((reason) => reject(reason))
-  //       })
-
-  //       Promise.all(requests)
-  //         .then((results: PersonJSON[]) => {
-  //           results.sort((a, b) => a.position - b.position)
-
-  //           for (let i = 0; i < results.length; i++) {
-  //             results[i].position = i + 1
-  //           }
-
-  //           resolve(results)
-  //         })
-  //         .catch((reason) => reject(reason))
-  //     })
-  //     .catch((reason) => reject(reason))
-  // })
 }
 
 function PhotosSection(props: {
   name: string,
   photos: Array<string>
 }) {
+  const directory = 'static/gallery/' + props.name + '/'
+  const {t} = useTranslation()
+
   return <>
-    <p>{props.name}</p>
-    <p>{props.photos.toString()}</p>
+    <p className='photos-section-title'>{props.name}</p>
+    <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
+      <PhotoProvider>
+        {props.photos.map((item, index) => (
+          <PhotoView key={index} src={directory + item}>
+            <img
+              style={{
+                height: 120,
+                width: '16%', objectFit: 'cover', padding: '0.33%' }}
+              src={directory + item}
+              alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
+          </PhotoView>
+        ))}
+      </PhotoProvider>
+    </div>
   </>
 }
 

@@ -3,3 +3,14 @@
   justify-content: center;
   margin-top: 2%;
 }
+
+.photos-section-title {
+  font-weight: bold;
+  font-size: xx-large;
+  margin-left: 4%;
+}
+
+.photos-photo {
+  object-fit: 'cover';
+  cursor: pointer;
+}

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { CircularProgress, Dialog, ImageListItem } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { PhotoGrid } from '../utils/MUITheme'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 import './Photos.css'
+import 'react-photo-view/dist/react-photo-view.css'
 
 type PhotoGroup = {
   name: string;
@@ -34,37 +35,22 @@ function PhotosSection(props: {
   const directory = 'http://192.168.86.29/static/gallery/' + props.name + '/'
   const {t} = useTranslation()
 
-  const [open, setOpen] = useState(false)
-  const [image, setImage] = useState('')
-
   return <>
     <p className='photos-section-title'>{props.name}</p>
-    <PhotoGrid
-      cols={8}
-      gap={10}
-      rowHeight={120}>
-      {props.photos.map((photo: string, index) => (
-        <ImageListItem key={index}>
-          <img
-            className='photos-photo'
-            src={directory + photo}
-            // BUG: For some reason this doesn't work when it's not inline
-            style={{ height: 120 }}
-            loading='lazy'
-            alt={t('gallery.photoAlt') + ' (' +  props.name +')'}
-            onClick={() => {
-              setImage(directory + photo)
-              setOpen(true)
-            }} />
-        </ImageListItem>
-      ))}
-    </PhotoGrid>
-    <Dialog open={open} fullWidth={true}>
-      <img
-        src={image}
-        alt={t('gallery.photoAlt') + ' (' +  props.name +')'}
-        onClick={() => setOpen(false)} />
-    </Dialog>
+    <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
+      <PhotoProvider>
+        {props.photos.map((item, index) => (
+          <PhotoView key={index} src={directory + item}>
+            <img
+              style={{
+                height: 120,
+                width: '16%', objectFit: 'cover', padding: '0.33%' }}
+              src={directory + item}
+              alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
+          </PhotoView>
+        ))}
+      </PhotoProvider>
+    </div>
   </>
 }
 

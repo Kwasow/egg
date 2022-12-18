@@ -43,6 +43,12 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "@typescript-eslint/no-var-requires": "warn"
+    "@typescript-eslint/no-var-requires": "warn",
+    "max-len": [
+      "error",
+      {
+        "code": 80
+      }
+    ]
   }
 }

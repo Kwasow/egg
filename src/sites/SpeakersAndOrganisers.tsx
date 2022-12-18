@@ -77,7 +77,11 @@ function PeopleListView(props: {
               }
               alt={t('speakersAndOrganisers.personAlt') + person.name}
               src={process.env.PUBLIC_URL + directory + person.picture} />
-            <div className={person.position % 2 == 0 ? 'people-right-text-container' : ''}>
+            <div className={
+              person.position % 2 == 0
+                ? 'people-right-text-container'
+                : ''
+            }>
               <p
                 className={
                   person.position % 2 == 0
@@ -197,8 +201,10 @@ function SpeakersAndOrganisers() {
         Temporary empty space
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
-      <SpeakersTab label={t('speakersAndOrganisers.speakers')} {...a11yProps(0)} />
-      <SpeakersTab label={t('speakersAndOrganisers.organisers')} {...a11yProps(1)} />
+      <SpeakersTab
+        label={t('speakersAndOrganisers.speakers')} {...a11yProps(0)} />
+      <SpeakersTab
+        label={t('speakersAndOrganisers.organisers')} {...a11yProps(1)} />
     </SpeakersTabs>
     <Speakers value={tab} index={0} />
     <Organisers value={tab} index={1} />

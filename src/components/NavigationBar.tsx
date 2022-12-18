@@ -45,10 +45,14 @@ function NavigationTabs(props: {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <ThemeProvider theme={navigationTabsTheme}>
           <Tabs value={checkRoute(value)} onChange={handleChange} >
-            <Tab label={props.t('navbar.HomePage')} {...a11yProps(0)} />
-            <Tab label={props.t('navbar.Program')} {...a11yProps(1)} />
-            <Tab label={props.t('navbar.SpeakersAndOrganisers')} {...a11yProps(2)} />
-            <Tab label={props.t('navbar.Photos')} {...a11yProps(4)} />
+            <Tab label={props.t('navbar.HomePage')}
+              {...a11yProps(0)} />
+            <Tab label={props.t('navbar.Program')}
+              {...a11yProps(1)} />
+            <Tab label={props.t('navbar.SpeakersAndOrganisers')}
+              {...a11yProps(2)} />
+            <Tab label={props.t('navbar.Photos')}
+              {...a11yProps(4)} />
           </Tabs>
         </ThemeProvider>
       </Box>
@@ -76,8 +80,16 @@ function NavigationBar(props: {
         </div>
         <div className='appbar-right'>
           <div className='appbar-right-top'>
-            <Button onClick={() => i18n.changeLanguage('en')} sx={{ color: 'blue' }}>EN</Button>
-            <Button onClick={() => i18n.changeLanguage('pl')} sx={{ color: 'blue' }}>PL</Button>
+            <Button
+              onClick={() => i18n.changeLanguage('en')}
+              sx={{ color: 'blue' }}>
+                EN
+            </Button>
+            <Button
+              onClick={() => i18n.changeLanguage('pl')}
+              sx={{ color: 'blue' }}>
+                PL
+            </Button>
           </div>
           <div className='appbar-right-left'>
             <NavigationTabs route={props.route} t={t}/>

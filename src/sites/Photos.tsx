@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { CircularProgress, ImageList, ImageListItem } from '@mui/material'
+import { CircularProgress, ImageListItem } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+import { PhotoGrid } from '../utils/MUITheme'
 import './Photos.css'
 
 type PhotoGroup = {
@@ -35,8 +36,7 @@ function PhotosSection(props: {
 
   return <>
     <p className='section-title'>{props.name}</p>
-    <ImageList
-      sx={{ paddingLeft: '5%', paddingRight: '5%' }}
+    <PhotoGrid
       cols={8}
       gap={10}
       rowHeight={121}>
@@ -48,7 +48,7 @@ function PhotosSection(props: {
             alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
         </ImageListItem>
       ))}
-    </ImageList>
+    </PhotoGrid>
   </>
 }
 

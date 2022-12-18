@@ -7,38 +7,22 @@ type PhotoGroup = {
   photos: Array<string>;
 }
 
+type ResponseJSON = {
+  folders: Array<PhotoGroup>;
+};
+
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  // const photosPath = 'static/images/gallery'
+  const phpUrl = 'php/getPhotos.php'
 
-  // I think we need a server for this
-  return new Promise((resolve, _reject) => {
-    resolve(new Array<PhotoGroup>())
+  return new Promise((resolve, reject) => {
+    fetch(phpUrl)
+      .then((res) => res.json())
+      .then((res: ResponseJSON) => {
+        res.folders.sort((a, b) => (a.name > b.name) ? -1 : 1)
+        resolve(res.folders)
+      })
+      .catch((reason) => reject(reason))
   })
-  // return new Promise((resolve, reject) => {
-  //   fetch(directory + '/description.json')
-  //     .then((res) => res.json())
-  //     .then((description: Description) => {
-  //       const urls = description.list.map((value) => directory + '/' + value)
-  //       const requests = urls.map((url) => {
-  //         return fetch(url)
-  //           .then((res) => res.json())
-  //           .catch((reason) => reject(reason))
-  //       })
-
-  //       Promise.all(requests)
-  //         .then((results: PersonJSON[]) => {
-  //           results.sort((a, b) => a.position - b.position)
-
-  //           for (let i = 0; i < results.length; i++) {
-  //             results[i].position = i + 1
-  //           }
-
-  //           resolve(results)
-  //         })
-  //         .catch((reason) => reject(reason))
-  //     })
-  //     .catch((reason) => reject(reason))
-  // })
 }
 
 function PhotosSection(props: {

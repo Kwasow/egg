@@ -35,6 +35,10 @@ function NavigationTabs(props: {
   const [value, setValue] = React.useState(props.route)
   const navigate = useNavigate()
 
+  if (value == '/') {
+    setValue('/home')
+  }
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     navigate(siteList[newValue])
     setValue(siteList[newValue])

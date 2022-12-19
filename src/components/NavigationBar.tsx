@@ -84,12 +84,18 @@ function NavigationBar(props: {
         </div>
         <div className='appbar-right'>
           <div className='appbar-right-top'>
-            <a href='https://www.facebook.com/'>
+            <a
+              href='https://www.facebook.com/'
+              target='_blank'
+              rel='noreferrer'>
               <img
                 className='appbar-right-top-svg'
                 src={imageUrl + 'facebook.svg'} />
             </a>
-            <a href='https://www.instagram.com'>
+            <a
+              href='https://www.instagram.com'
+              target='_blank'
+              rel='noreferrer'>
               <img
                 className='appbar-right-top-svg'
                 src={imageUrl + 'instagram.svg'} />

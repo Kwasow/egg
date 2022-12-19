@@ -64,6 +64,7 @@ function NavigationBar(props: {
   route: string
 }) {
   const {t, i18n} = useTranslation()
+  const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 
   return <>
     <AppBar position='fixed'>
@@ -71,7 +72,7 @@ function NavigationBar(props: {
         <div className='appbar-left'>
           <img className='appbar-logo'
             alt={t('navbar.LogoAlt') || ''}
-            src={process.env.PUBLIC_URL + '/static/images/logo.png'} />
+            src={imageUrl + 'logo.png'} />
           <p className='appbar-name'>
             {t('navbar.Title.Line1')}<br></br>
             {t('navbar.Title.Line2')}
@@ -82,23 +83,23 @@ function NavigationBar(props: {
             <a href='https://www.facebook.com/'>
               <img
                 className='appbar-right-top-svg'
-                src={process.env.PUBLIC_URL + '/static/images/facebook.svg'} />
+                src={imageUrl + 'facebook.svg'} />
             </a>
             <a href='https://www.instagram.com'>
               <img
                 className='appbar-right-top-svg'
-                src={process.env.PUBLIC_URL + '/static/images/instagram.svg'} />
+                src={imageUrl + 'instagram.svg'} />
             </a>
             {i18n.language == 'pl'
               ? <a onClick={() => i18n.changeLanguage('en')}>
                 <img
                   className='appbar-right-top-icon'
-                  src={process.env.PUBLIC_URL + '/static/images/english.png'}/>
+                  src={imageUrl + 'english.png'}/>
               </a>
               : <a onClick={() => i18n.changeLanguage('pl')}>
                 <img
                   className='appbar-right-top-icon'
-                  src={process.env.PUBLIC_URL + '/static/images/polish.png'}/>
+                  src={imageUrl + 'polish.png'}/>
               </a>
             }
           </div>

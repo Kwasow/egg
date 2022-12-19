@@ -80,6 +80,14 @@ function NavigationBar(props: {
         </div>
         <div className='appbar-right'>
           <div className='appbar-right-top'>
+            <a href='https://www.facebook.com/'>
+              <img
+                src={process.env.PUBLIC_URL + '/static/images/facebook.svg'} />
+            </a>
+            <a href='https://www.instagram.com'>
+              <img
+                src={process.env.PUBLIC_URL + '/static/images/instagram.svg'} />
+            </a>
             <Button
               onClick={() => i18n.changeLanguage('en')}
               sx={{ color: 'blue' }}>

@@ -25,9 +25,23 @@
 }
 
 .appbar-right-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   height: 50%;
 }
 
 .appbar-right-bottom {
   height: 50%;
+}
+
+.appbar-right-top-icon {
+  cursor: pointer;
+  margin-left: 10%;
+  height: 10%;
+}
+
+.appbar-right-top-svg {
+  cursor: pointer;
+  filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
 }

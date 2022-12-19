@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
+import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
@@ -64,14 +64,13 @@ function NavigationBar(props: {
   route: string
 }) {
   const {t, i18n} = useTranslation()
-  const logoAlt = t('navbar.LogoAlt')
 
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar-left'>
           <img className='appbar-logo'
-            alt={logoAlt}
+            alt={t('navbar.LogoAlt') || ''}
             src={process.env.PUBLIC_URL + '/static/images/logo.png'} />
           <p className='appbar-name'>
             {t('navbar.Title.Line1')}<br></br>
@@ -82,22 +81,26 @@ function NavigationBar(props: {
           <div className='appbar-right-top'>
             <a href='https://www.facebook.com/'>
               <img
+                className='appbar-right-top-svg'
                 src={process.env.PUBLIC_URL + '/static/images/facebook.svg'} />
             </a>
             <a href='https://www.instagram.com'>
               <img
+                className='appbar-right-top-svg'
                 src={process.env.PUBLIC_URL + '/static/images/instagram.svg'} />
             </a>
-            <Button
-              onClick={() => i18n.changeLanguage('en')}
-              sx={{ color: 'blue' }}>
-                EN
-            </Button>
-            <Button
-              onClick={() => i18n.changeLanguage('pl')}
-              sx={{ color: 'blue' }}>
-                PL
-            </Button>
+            {i18n.language == 'pl'
+              ? <a onClick={() => i18n.changeLanguage('en')}>
+                <img
+                  className='appbar-right-top-icon'
+                  src={process.env.PUBLIC_URL + '/static/images/english.png'}/>
+              </a>
+              : <a onClick={() => i18n.changeLanguage('pl')}>
+                <img
+                  className='appbar-right-top-icon'
+                  src={process.env.PUBLIC_URL + '/static/images/polish.png'}/>
+              </a>
+            }
           </div>
           <div className='appbar-right-left'>
             <NavigationTabs route={props.route} t={t}/>

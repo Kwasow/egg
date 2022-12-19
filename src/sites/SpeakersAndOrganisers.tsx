@@ -16,7 +16,8 @@ interface Description {
 interface PersonJSON {
   position: number;
   name: string;
-  description: string;
+  description_pl: string;
+  description_en: string;
   picture: string;
 }
 
@@ -55,7 +56,7 @@ function PeopleListView(props: {
   people: PersonJSON[],
   type: string
 }) {
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
   const directory = 'static/' + props.type + '/'
 
   if (props.people.length === 0) {
@@ -96,7 +97,10 @@ function PeopleListView(props: {
                     ? 'people-right-description'
                     : 'people-left-description'
                 }>
-                {person.description}
+                {i18n.language == 'pl'
+                  ? person.description_pl
+                  : person.description_en
+                }
               </p>
             </div>
           </div>

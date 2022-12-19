@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Box, Tabs, Tab, Button } from '@mui/material'
+import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
@@ -35,6 +35,10 @@ function NavigationTabs(props: {
   const [value, setValue] = React.useState(props.route)
   const navigate = useNavigate()
 
+  if (value == '/') {
+    setValue('/home')
+  }
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     navigate(siteList[newValue])
     setValue(siteList[newValue])
@@ -64,15 +68,15 @@ function NavigationBar(props: {
   route: string
 }) {
   const {t, i18n} = useTranslation()
-  const logoAlt = t('navbar.LogoAlt')
+  const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar-left'>
           <img className='appbar-logo'
-            alt={logoAlt}
-            src={process.env.PUBLIC_URL + '/static/images/logo.png'} />
+            alt={t('navbar.LogoAlt') || ''}
+            src={imageUrl + 'logo.png'} />
           <p className='appbar-name'>
             {t('navbar.Title.Line1')}<br></br>
             {t('navbar.Title.Line2')}
@@ -80,16 +84,34 @@ function NavigationBar(props: {
         </div>
         <div className='appbar-right'>
           <div className='appbar-right-top'>
-            <Button
-              onClick={() => i18n.changeLanguage('en')}
-              sx={{ color: 'blue' }}>
-                EN
-            </Button>
-            <Button
-              onClick={() => i18n.changeLanguage('pl')}
-              sx={{ color: 'blue' }}>
-                PL
-            </Button>
+            <a
+              href='https://www.facebook.com/'
+              target='_blank'
+              rel='noreferrer'>
+              <img
+                className='appbar-right-top-svg'
+                src={imageUrl + 'facebook.svg'} />
+            </a>
+            <a
+              href='https://www.instagram.com'
+              target='_blank'
+              rel='noreferrer'>
+              <img
+                className='appbar-right-top-svg'
+                src={imageUrl + 'instagram.svg'} />
+            </a>
+            {i18n.language == 'pl'
+              ? <a onClick={() => i18n.changeLanguage('en')}>
+                <img
+                  className='appbar-right-top-icon'
+                  src={imageUrl + 'english.png'}/>
+              </a>
+              : <a onClick={() => i18n.changeLanguage('pl')}>
+                <img
+                  className='appbar-right-top-icon'
+                  src={imageUrl + 'polish.png'}/>
+              </a>
+            }
           </div>
           <div className='appbar-right-left'>
             <NavigationTabs route={props.route} t={t}/>

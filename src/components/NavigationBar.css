@@ -25,9 +25,6 @@
 }
 
 .appbar-right-top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   height: 50%;
 }
 
@@ -37,10 +34,13 @@
 
 .appbar-right-top-icon {
   cursor: pointer;
+  vertical-align: middle;
   height: 75%;
 }
 
 .appbar-right-top-svg {
   cursor: pointer;
+  vertical-align: middle;
+  padding-right: 20px;
   filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
 }

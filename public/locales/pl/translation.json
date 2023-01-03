@@ -7,6 +7,13 @@
   "navbar.SpeakersAndOrganisers": "Mówcy i organizatorzy",
   "navbar.Photos": "Galeria",
 
+  "program.Date.Label": "Termin",
+  "program.Date.Value": "14-16 kwietnia",
+  "program.Venue.Label": "Adres",
+  "program.Venue.Value.Line1": "Collegium Anatomicum",
+  "program.Venue.Value.Line2": "ul. Tytusa Chałubińskiego 5, Warszawa",
+  "program.PhotoAlt": "Program w wersji obrazkowej",
+
   "speakersAndOrganisers.speakers": "Mówcy",
   "speakersAndOrganisers.organisers": "Organizatorzy",
   "speakersAndOrganisers.personAlt": "Zdjęcie osoby ",

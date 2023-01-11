@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react'
+import { Countdown } from '../components/Countdown'
 import './HomePage.css'
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28']
 const delay = 4000
 
+// TODO: Move this to a different file
 function Slideshow() {
   const [index, setIndex] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -61,7 +63,8 @@ function Slideshow() {
 
 function HomePage() {
   return <>
-    <Slideshow></Slideshow>
+    <Slideshow />
+    <Countdown date={new Date('2023-04-15T18:00:00')}/>
   </>
 }
 

@@ -16,5 +16,10 @@
 
   "gallery.photoAlt": "Photo from conference",
 
+  "countdown.Days": "Days",
+  "countdown.Hours": "Hours",
+  "countdown.Minutes": "Minutes",
+  "countdown.Seconds": "Seconds",
+
   "footer.copyright": "2022 © Gynecology student association WUM"
 }

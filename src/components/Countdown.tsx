@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 type TimeLeft = {
   days: number;
@@ -29,6 +30,7 @@ export function Countdown(props: {
   date: Date
 }) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props.date))
+  const {t, } = useTranslation()
 
   React.useEffect(() => {
     const id = setTimeout(() => {
@@ -40,19 +42,37 @@ export function Countdown(props: {
     }
   })
 
-  const timerComponents = new Array<JSX.Element>()
-
-  for (const [key, value] of Object.entries(timeLeft)) {
-    timerComponents.push(
-      <span>
-        {value} {key}{' '}
-      </span>
-    )
-  }
+  const timerComponents = new Array<JSX.Element>(4)
+  timerComponents.push(
+    <span>
+      {timeLeft.days} {t('countdown.Days')}{' '}
+    </span>
+  )
+  timerComponents.push(
+    <span>
+      {timeLeft.hours} {t('countdown.Hours')}{' '}
+    </span>
+  )
+  timerComponents.push(
+    <span>
+      {timeLeft.minutes} {t('countdown.Minutes')}{' '}
+    </span>
+  )
+  timerComponents.push(
+    <span>
+      {timeLeft.seconds} {t('countdown.Seconds')}{' '}
+    </span>
+  )
 
   return (
     <div>
-      {timerComponents.length ? timerComponents : <span>Time&apos;s up!</span>}
+      <p>
+        {
+          timerComponents.length
+            ? timerComponents
+            : <span>Time&apos;s up!</span>
+        }
+      </p>
     </div>
   )
 }

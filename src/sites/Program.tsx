@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './Program.css'
 
+
+
+function Day()
+
 function Program() {
-  const {t} = useTranslation()
+  const {t, i18n} = useTranslation()
+  const polish = i18n.language === 'pl'
 
   const programImageURL = process.env.PUBLIC_URL + '/static/images/program.png'
+  const programURL = '/static/program/program.json'
+
+  const [days, setDays] = useState([])
+
+  useEffect(() => {
+    fetch(programURL)
+      .then((res) => res.json())
+  }, [])
 
   return <>
     <div className='gray-divider'>
@@ -24,6 +37,7 @@ function Program() {
       </div>
       <img style={{ height: '400px' }} src={programImageURL}/>
     </div>
+    {}
   </>
 }
 

@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import './Countdown.css'
 
 type TimeLeft = {
   days: number;
   hours: number;
   minutes: number;
   seconds:number;
+}
+
+function getNumberString(num: number): string {
+  if (num < 10) {
+    return '0' + num
+  } else {
+    return num.toString()
+  }
 }
 
 function calculateTimeLeft(date: Date) {
@@ -29,8 +38,10 @@ function calculateTimeLeft(date: Date) {
 export function Countdown(props: {
   date: Date
 }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props.date))
-  const {t, } = useTranslation()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {t} = useTranslation()
 
   React.useEffect(() => {
     const id = setTimeout(() => {
@@ -42,37 +53,22 @@ export function Countdown(props: {
     }
   })
 
-  const timerComponents = new Array<JSX.Element>(4)
-  timerComponents.push(
-    <span>
-      {timeLeft.days} {t('countdown.Days')}{' '}
-    </span>
-  )
-  timerComponents.push(
-    <span>
-      {timeLeft.hours} {t('countdown.Hours')}{' '}
-    </span>
-  )
-  timerComponents.push(
-    <span>
-      {timeLeft.minutes} {t('countdown.Minutes')}{' '}
-    </span>
-  )
-  timerComponents.push(
-    <span>
-      {timeLeft.seconds} {t('countdown.Seconds')}{' '}
-    </span>
-  )
-
-  return (
-    <div>
-      <p>
-        {
-          timerComponents.length
-            ? timerComponents
-            : <span>Time&apos;s up!</span>
-        }
-      </p>
+  return <div className='countdown-wrapper'>
+    <div className='countdown-element'>
+      <p className='countdown-count'>{getNumberString(timeLeft.days)}</p>
+      <p className='countdown-label'>{t('countdown.Days')}</p>
     </div>
-  )
+    <div className='countdown-element'>
+      <p className='countdown-count'>{getNumberString(timeLeft.hours)}</p>
+      <p className='countdown-label'>{t('countdown.Hours')}</p>
+    </div>
+    <div className='countdown-element'>
+      <p className='countdown-count'>{getNumberString(timeLeft.minutes)}</p>
+      <p className='countdown-label'>{t('countdown.Minutes')}</p>
+    </div>
+    <div className='countdown-element'>
+      <p className='countdown-count'>{getNumberString(timeLeft.seconds)}</p>
+      <p className='countdown-label'>{t('countdown.Seconds')}</p>
+    </div>
+  </div>
 }

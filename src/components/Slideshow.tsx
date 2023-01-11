@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import i18n from '../utils/i18n'
 import './Slideshow.css'
 
-const delay = 8000
+const delay = 15000
 
 export type Slide = {
   image: string;

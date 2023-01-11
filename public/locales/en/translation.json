@@ -16,10 +16,10 @@
 
   "gallery.photoAlt": "Photo from conference",
 
-  "countdown.Days": "Days",
-  "countdown.Hours": "Hours",
-  "countdown.Minutes": "Minutes",
-  "countdown.Seconds": "Seconds",
+  "countdown.Days": "DAYS",
+  "countdown.Hours": "HOURS",
+  "countdown.Minutes": "MINUTES",
+  "countdown.Seconds": "SECONDS",
 
   "slideshow.BackgroundPhoto.Alt": "Background Photo",
 

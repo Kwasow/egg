@@ -1,0 +1,24 @@
+.countdown-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+
+.countdown-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+}
+
+.countdown-count {
+  font-weight: bolder;
+  font-size: 5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.countdown-label {
+  font-size: 1.25em;
+}

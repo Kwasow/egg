@@ -16,5 +16,12 @@
 
   "gallery.photoAlt": "Zdjęcie z konferencji",
 
+  "countdown.Days": "DNI",
+  "countdown.Hours": "GODZINY",
+  "countdown.Minutes": "MINUTY",
+  "countdown.Seconds": "SEKUNDY",
+
+  "slideshow.BackgroundPhoto.Alt": "Zdjęcie w tle",
+
   "footer.copyright": "2022 © Studenckie koło naukowe położnictwa i ginekologii WUM"
 }

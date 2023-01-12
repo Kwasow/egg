@@ -48,17 +48,20 @@ function Row(props: {
 
   if (activity.type === 'other') {
     return <TableRow>
-      <TableCell />
-      <TableCell colSpan={4}>
+      <TableCell colSpan={5} align={'center'}>
         <>
-          {decideLanguage(activity.title_pl, activity.location_en)}<br/>
-          {activity.start} - {activity.end}
+          {decideLanguage(activity.title_pl, activity.title_en)}<br/>
+          {new Date(Date.parse(activity.start)).toLocaleTimeString(
+            [], {hour: '2-digit', minute: '2-digit'})}
+          {' '}-{' '}
+          {new Date(Date.parse(activity.start)).toLocaleTimeString(
+            [], {hour: '2-digit', minute: '2-digit'})}
         </>
       </TableCell>
     </TableRow>
   } else {
     return <>
-      <TableRow>
+      <TableRow onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -111,11 +114,15 @@ function ActivityRows(props: {
     <Table aria-label='collapsible table'>
       <TableHead>
         <TableRow>
-          <TableCell />
-          <TableCell>{t('program.Activity.Time')}</TableCell>
-          <TableCell>{t('program.Activity.Name')}</TableCell>
-          <TableCell>{t('program.Activity.Speaker')}</TableCell>
-          <TableCell>{t('program.Activity.Place')}</TableCell>
+          <TableCell sx={{ width: '5%' }}/>
+          <TableCell sx={{ width: '10%' }}>
+            {t('program.Activity.Time')}</TableCell>
+          <TableCell sx={{ width: '35%' }}>
+            {t('program.Activity.Name')}</TableCell>
+          <TableCell sx={{ width: '15%' }}>
+            {t('program.Activity.Speaker')}</TableCell>
+          <TableCell sx={{ width: '35%' }}>
+            {t('program.Activity.Place')}</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -133,7 +140,7 @@ function Day(props: {
   const {day} = props
   const {t} = useTranslation()
 
-  // day.activities.sort((a1, a2) => a1.start.getTime() - a2.start.getTime())
+  day.activities.sort((a1, a2) => Date.parse(a1.start) - Date.parse(a2.start))
 
   const primaryActivities = day.activities.filter(
     (value) => value.type !== 'class')

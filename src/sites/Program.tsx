@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   CircularProgress,
+  Collapse,
   IconButton,
   Paper,
   Table,
@@ -56,34 +57,45 @@ function Row(props: {
       </TableCell>
     </TableRow>
   } else {
-    return <TableRow>
-      <TableCell>
-        <IconButton
-          aria-label="expand row"
-          size="small"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-        </IconButton>
-      </TableCell>
-      <TableCell>
-        <>
-          {new Date(Date.parse(activity.start)).toLocaleTimeString(
-            [], {hour: '2-digit', minute: '2-digit'})}<br/>
-          {new Date(Date.parse(activity.end)).toLocaleTimeString(
-            [], {hour: '2-digit', minute: '2-digit'})}
-        </>
-      </TableCell>
-      <TableCell>
-        {decideLanguage(activity.title_pl, activity.title_pl)}
-      </TableCell>
-      <TableCell>
-        {activity.speaker}
-      </TableCell>
-      <TableCell>
-        {decideLanguage(activity.location_pl, activity.location_en)}
-      </TableCell>
-    </TableRow>
+    return <>
+      <TableRow>
+        <TableCell>
+          <IconButton
+            aria-label="expand row"
+            size="small"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        <TableCell>
+          <>
+            {new Date(Date.parse(activity.start)).toLocaleTimeString(
+              [], {hour: '2-digit', minute: '2-digit'})}<br/>
+            {new Date(Date.parse(activity.end)).toLocaleTimeString(
+              [], {hour: '2-digit', minute: '2-digit'})}
+          </>
+        </TableCell>
+        <TableCell>
+          {decideLanguage(activity.title_pl, activity.title_en)}
+        </TableCell>
+        <TableCell>
+          {activity.speaker}
+        </TableCell>
+        <TableCell>
+          {decideLanguage(activity.location_pl, activity.location_en)}
+        </TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <p style={{ margin: '2%', textAlign: 'justify' }}>
+              {decideLanguage(activity.about_pl, activity.about_en)}
+            </p>
+          </Collapse>
+        </TableCell>
+      </TableRow>
+    </>
   }
 }
 

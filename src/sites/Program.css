@@ -30,3 +30,31 @@
   text-align: center;
   margin-top: 0px;
 }
+
+.day-container {
+  margin-bottom: 5%;
+}
+
+.day-text {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.seminar-text {
+  font-size: large;
+  text-align: center;
+}
+
+.no-activity-text {
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.program-loading-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}

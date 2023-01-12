@@ -1,4 +1,4 @@
-import { ImageList, Tab, Tabs, Toolbar } from '@mui/material'
+import { Button, ImageList, Tab, Tabs, Toolbar } from '@mui/material'
 import { createTheme, styled } from '@mui/material/styles'
 
 const colorPrimary = '#c53d63'
@@ -51,4 +51,11 @@ export const PhotoGrid = styled(ImageList)(() => ({
   paddingLeft: '5%',
   paddingRight: '5%',
   overflow: 'hidden'
+}))
+
+export const AppBarActionButton = styled(Button)(() => ({
+  '&:hover': {
+    backgroundColor: 'white',
+  },
+  backgroundColor: 'white'
 }))

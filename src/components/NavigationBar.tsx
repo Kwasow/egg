@@ -1,7 +1,11 @@
 import React from 'react'
 import { AppBar, Box, Tabs, Tab } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
-import { EggToolbar, navigationTabsTheme } from '../utils/MUITheme'
+import {
+  AppBarActionButton,
+  EggToolbar,
+  navigationTabsTheme
+} from '../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
@@ -69,6 +73,7 @@ function NavigationBar(props: {
 }) {
   const {t, i18n} = useTranslation()
   const imageUrl = process.env.PUBLIC_URL + '/static/images/'
+  const navigate = useNavigate()
 
   return <>
     <AppBar position='fixed'>
@@ -100,6 +105,9 @@ function NavigationBar(props: {
                 className='appbar-right-top-svg'
                 src={imageUrl + 'instagram.svg'} />
             </a>
+            <AppBarActionButton onClick={() => navigate('/register')}>
+              {t('navbar.Register')}
+            </AppBarActionButton>
             {i18n.language == 'pl'
               ? <a onClick={() => i18n.changeLanguage('en')}>
                 <img

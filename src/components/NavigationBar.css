@@ -8,7 +8,7 @@
   height: 90px;
   width: 90px;
   object-fit: cover;
-  padding-right: 2;
+  padding-right: 10px;
 }
 
 .appbar-left {
@@ -36,6 +36,7 @@
   cursor: pointer;
   vertical-align: middle;
   height: 75%;
+  padding-left: 20px;
 }
 
 .appbar-right-top-svg {

@@ -1,0 +1,263 @@
+{
+  "days": [
+    {
+      "day": 1,
+      "activities": [
+        {
+          "type": "lecture",
+          "title_pl": "O obrotach sfer niebieskich",
+          "title_en": "On the Revolutions of the Heavenly Spheres",
+          "about_pl": "[PL] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae blandit nulla. Nunc euismod nibh est, sed dapibus magna iaculis non. Quisque sagittis leo vitae egestas mollis. Mauris faucibus eros a varius volutpat. Duis auctor blandit ante quis finibus. Suspendisse lacinia mauris non tincidunt pellentesque. Curabitur lorem elit, ornare in enim eu, congue tincidunt tellus. Ut suscipit faucibus dui, ornare viverra orci eleifend a. Pellentesque pellentesque sapien ligula, vel convallis tellus cursus sed. Nullam efficitur posuere enim eget ultrices. Morbi ut justo et tellus varius ullamcorper eu sed nulla. Proin tincidunt auctor pellentesque. Integer mattis est eu nunc tincidunt, vitae aliquet est egestas. Praesent efficitur, nibh a maximus tincidunt, nibh justo placerat mauris, quis dignissim enim tellus tristique erat. Morbi vel accumsan tellus, a suscipit nisl. ",
+          "about_en": "[EN] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae blandit nulla. Nunc euismod nibh est, sed dapibus magna iaculis non. Quisque sagittis leo vitae egestas mollis. Mauris faucibus eros a varius volutpat. Duis auctor blandit ante quis finibus. Suspendisse lacinia mauris non tincidunt pellentesque. Curabitur lorem elit, ornare in enim eu, congue tincidunt tellus. Ut suscipit faucibus dui, ornare viverra orci eleifend a. Pellentesque pellentesque sapien ligula, vel convallis tellus cursus sed. Nullam efficitur posuere enim eget ultrices. Morbi ut justo et tellus varius ullamcorper eu sed nulla. Proin tincidunt auctor pellentesque. Integer mattis est eu nunc tincidunt, vitae aliquet est egestas. Praesent efficitur, nibh a maximus tincidunt, nibh justo placerat mauris, quis dignissim enim tellus tristique erat. Morbi vel accumsan tellus, a suscipit nisl. ",
+          "speaker": "Jan Kowalski",
+          "start": "2023-04-14T17:00",
+          "end": "2023-04-14T18:00",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Autostopem przez galaktykę",
+          "title_en": "The Hitchhiker's Guide to the Galaxy",
+          "about_pl": "[PL] In molestie nibh nunc, quis faucibus mi ullamcorper sit amet. Nam id ullamcorper sapien, vel efficitur mi. Phasellus auctor interdum nisl, ac maximus neque egestas eget. Nullam aliquam scelerisque dolor, a pharetra dui aliquet non. Etiam in tincidunt mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc volutpat orci ac mollis commodo. Nam quis justo nec risus consequat fermentum vel sit amet metus. Curabitur lacinia ac nunc eu euismod. Aenean at nulla egestas, finibus ligula sed, vehicula turpis. Donec vitae placerat ipsum. Nam nulla lectus, maximus quis augue quis, varius blandit magna. Donec interdum libero non nibh hendrerit, et volutpat turpis consequat. Maecenas sed nulla cursus, pharetra dui ut, vestibulum risus. Sed scelerisque ultricies rutrum. Pellentesque cursus sodales egestas.",
+          "about_en": "[EN] In molestie nibh nunc, quis faucibus mi ullamcorper sit amet. Nam id ullamcorper sapien, vel efficitur mi. Phasellus auctor interdum nisl, ac maximus neque egestas eget. Nullam aliquam scelerisque dolor, a pharetra dui aliquet non. Etiam in tincidunt mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc volutpat orci ac mollis commodo. Nam quis justo nec risus consequat fermentum vel sit amet metus. Curabitur lacinia ac nunc eu euismod. Aenean at nulla egestas, finibus ligula sed, vehicula turpis. Donec vitae placerat ipsum. Nam nulla lectus, maximus quis augue quis, varius blandit magna. Donec interdum libero non nibh hendrerit, et volutpat turpis consequat. Maecenas sed nulla cursus, pharetra dui ut, vestibulum risus. Sed scelerisque ultricies rutrum. Pellentesque cursus sodales egestas.",
+          "speaker": "Douglas Adams",
+          "start": "2023-04-14T18:15",
+          "end": "2023-04-14T19:00",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "activities": [
+        {
+          "type": "lecture",
+          "title_pl": "Oddychanie w przyrodzie",
+          "title_en": "Breathing in nature",
+          "about_pl": "[PL] Vivamus quis elit ac neque feugiat dapibus ac in leo. Etiam fringilla faucibus ipsum sed malesuada. Maecenas ut nibh fringilla, cursus lorem vel, fringilla ligula. Proin cursus elit sit amet ornare sodales. Sed ut lectus at nisl aliquam porttitor nec rutrum turpis. Nunc sed nulla ex. Etiam quis orci tincidunt nibh pharetra pretium. Pellentesque et porttitor tellus. Nullam et pulvinar dui. Aenean sit amet imperdiet mauris, vel elementum augue. Curabitur bibendum consectetur enim, eget ornare massa consectetur eget. Morbi commodo, lectus id suscipit blandit, erat orci pharetra leo, gravida molestie turpis leo eu ipsum. ",
+          "about_en": "[EN] Vivamus quis elit ac neque feugiat dapibus ac in leo. Etiam fringilla faucibus ipsum sed malesuada. Maecenas ut nibh fringilla, cursus lorem vel, fringilla ligula. Proin cursus elit sit amet ornare sodales. Sed ut lectus at nisl aliquam porttitor nec rutrum turpis. Nunc sed nulla ex. Etiam quis orci tincidunt nibh pharetra pretium. Pellentesque et porttitor tellus. Nullam et pulvinar dui. Aenean sit amet imperdiet mauris, vel elementum augue. Curabitur bibendum consectetur enim, eget ornare massa consectetur eget. Morbi commodo, lectus id suscipit blandit, erat orci pharetra leo, gravida molestie turpis leo eu ipsum. ",
+          "speaker": "John Smith",
+          "start": "2023-04-15T10:00",
+          "end": "2023-04-15T10:30",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Jak pokochałem robale",
+          "title_en": "How I came to love bugs",
+          "about_pl": "[PL] Nam euismod nunc in ex dignissim porta. Vivamus at velit vel nisi fringilla rhoncus. Sed tincidunt porta ligula, auctor tincidunt ligula maximus in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices tellus a turpis varius rhoncus. Sed efficitur massa a arcu mattis tempor. Maecenas eu odio varius, sollicitudin urna ac, egestas dolor. Vivamus sodales malesuada diam, sed commodo felis ornare ac.",
+          "about_en": "[EN] Nam euismod nunc in ex dignissim porta. Vivamus at velit vel nisi fringilla rhoncus. Sed tincidunt porta ligula, auctor tincidunt ligula maximus in. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices tellus a turpis varius rhoncus. Sed efficitur massa a arcu mattis tempor. Maecenas eu odio varius, sollicitudin urna ac, egestas dolor. Vivamus sodales malesuada diam, sed commodo felis ornare ac.",
+          "speaker": "Anna Mądra",
+          "start": "2023-04-15T10:45",
+          "end": "2023-04-15T11:15",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Sekrety kulinarne mojej babci",
+          "title_en": "My grandma's culinary secrets",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Karol Wojtyła",
+          "start": "2023-04-15T11:30",
+          "end": "2023-04-15T12:00",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Koty i magia je otaczająca",
+          "title_en": "Cats and the magic surrounding them",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Barack Obama",
+          "start": "2023-04-15T12:15",
+          "end": "2023-04-15T12:45",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "other",
+          "title_pl": "Zajęcia praktyczne (blok 1)",
+          "title_en": "Classes (block 1)",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30"
+        },
+        {
+          "type": "other",
+          "title_pl": "Zajęcia praktyczne (blok 2)",
+          "title_en": "Classes (block 2)",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30"
+        },
+        {
+          "type": "class",
+          "title_pl": "Sztuka szycia",
+          "title_en": "How to sew",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Ferdynand Wspaniały",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30",
+          "location_pl": "Katedra Fizjologii (Pawińskiego 3C) - Sala 123",
+          "location_en": "Department of Physiology (Pawińskiego 3C) - Room 123"
+        },
+        {
+          "type": "class",
+          "title_pl": "Badanie pacjenta",
+          "title_en": "Patient examination",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Reksio",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30",
+          "location_pl": "Katedra Fizjologii WUM (Pawińskiego 3C) - Sala 127",
+          "location_en": "Department of Physiology WUM (Pawińskiego 3C) - Room 127"
+        },
+        {
+          "type": "class",
+          "title_pl": "Jak ukraść księżyc",
+          "title_en": "How to steal the moon",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Jacek i Placek",
+          "start": "2023-04-15T15:45",
+          "end": "2023-04-15T16:15",
+          "location_pl": "Centrum Dydaktyczne WUM (Księcia Trojdena 2a) - Sala 16",
+          "location_en": "Teaching Center WUM (Księcia Trojdena 2a) - Room 16"
+        },
+        {
+          "type": "class",
+          "title_pl": "Jak wyżywić małą armię",
+          "title_en": "How to feed a small army",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Królewna śnieżka",
+          "start": "2023-04-15T15:45",
+          "end": "2023-04-15T16:15",
+          "location_pl": "Centrum Dydaktyczne WUM (Księcia Trojdena 2a) - Sala 42",
+          "location_en": "Teaching Center WUM (Księcia Trojdena 2a) - Room 42"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "activities": [
+        {
+          "type": "lecture",
+          "title_pl": "Oddychanie w przyrodzie",
+          "title_en": "Breathing in nature",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "John Smith",
+          "start": "2023-04-15T10:00",
+          "end": "2023-04-15T10:30",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Jak pokochałem robale",
+          "title_en": "How I came to love bugs",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Anna Mądra",
+          "start": "2023-04-15T10:45",
+          "end": "2023-04-15T11:15",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Sekrety kulinarne mojej babci",
+          "title_en": "My grandma's culinary secrets",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Karol Wojtyła",
+          "start": "2023-04-15T11:30",
+          "end": "2023-04-15T12:00",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "lecture",
+          "title_pl": "Koty i magia je otaczająca",
+          "title_en": "Cats and the magic surrounding them",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Barack Obama",
+          "start": "2023-04-15T12:15",
+          "end": "2023-04-15T12:45",
+          "location_pl": "Colegium Anatomicum - Sala wykładowa",
+          "location_en": "Colgeium Anatomicum - Lecture hall"
+        },
+        {
+          "type": "other",
+          "title_pl": "Zajęcia praktyczne (blok 1)",
+          "title_en": "Classes (block 1)",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30"
+        },
+        {
+          "type": "other",
+          "title_pl": "Zajęcia praktyczne (blok 2)",
+          "title_en": "Classes (block 2)",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30"
+        },
+        {
+          "type": "class",
+          "title_pl": "Sztuka szycia",
+          "title_en": "How to sew",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Ferdynand Wspaniały",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30",
+          "location_pl": "Katedra Fizjologii (Pawińskiego 3C) - Sala 123",
+          "location_en": "Department of Physiology (Pawińskiego 3C) - Room 123"
+        },
+        {
+          "type": "class",
+          "title_pl": "Badanie pacjenta",
+          "title_en": "Patient examination",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Reksio",
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:30",
+          "location_pl": "Katedra Fizjologii WUM (Pawińskiego 3C) - Sala 127",
+          "location_en": "Department of Physiology WUM (Pawińskiego 3C) - Room 127"
+        },
+        {
+          "type": "class",
+          "title_pl": "Jak ukraść księżyc",
+          "title_en": "How to steal the moon",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Jacek i Placek",
+          "start": "2023-04-15T15:45",
+          "end": "2023-04-15T16:15",
+          "location_pl": "Centrum Dydaktyczne WUM (Księcia Trojdena 2a) - Sala 16",
+          "location_en": "Teaching Center WUM (Księcia Trojdena 2a) - Room 16"
+        },
+        {
+          "type": "class",
+          "title_pl": "Jak wyżywić małą armię",
+          "title_en": "How to feed a small army",
+          "about_pl": "Opis wydarzenia",
+          "about_en": "Activity description",
+          "speaker": "Królewna śnieżka",
+          "start": "2023-04-15T15:45",
+          "end": "2023-04-15T16:15",
+          "location_pl": "Centrum Dydaktyczne WUM (Księcia Trojdena 2a) - Sala 42",
+          "location_en": "Teaching Center WUM (Księcia Trojdena 2a) - Room 42"
+        }
+      ]
+    }
+  ]
+}

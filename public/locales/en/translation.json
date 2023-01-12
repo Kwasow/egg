@@ -1,11 +1,12 @@
 {
-  "navbar.Title.Line1": "IV Weekend with gynecology",
+  "navbar.Title.Line1": "Weekend with gynecology",
   "navbar.Title.Line2": "Secrets of oncology",
   "navbar.LogoAlt": "The conference's logo",
   "navbar.HomePage": "Home",
   "navbar.Program": "Program",
   "navbar.SpeakersAndOrganisers": "Speakers and organisers",
   "navbar.Photos": "Photos",
+  "navbar.Register": "REGISTER",
 
   "program.Date.Label": "Date",
   "program.Date.Value": "April 14th-16th",

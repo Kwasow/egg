@@ -113,7 +113,7 @@ function ActivityRows(props: {
   >
     <Table aria-label='collapsible table'>
       <TableHead>
-        <TableRow>
+        <TableRow sx={{ backgroundColor: 'rgba(197, 61, 99, 0.30)' }}>
           <TableCell sx={{ width: '5%' }}/>
           <TableCell sx={{ width: '10%' }}>
             {t('program.Activity.Time')}</TableCell>

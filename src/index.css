@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open Sans');
 
+@font-face {
+  font-family: 'Moontime';
+  src: local('Moontime'), url('./fonts/MoonTime-Regular.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans';
 }
 
 footer {
@@ -12,8 +18,4 @@ footer {
   height: 60px;
   text-align: center;
   color: white;
-}
-
-p {
-  font-family: 'Open Sans';
 }

@@ -83,9 +83,28 @@ function NavigationBar(props: {
             <img className='appbar-logo'
               alt={t('navbar.LogoAlt') || ''}
               src={imageUrl + 'logo.png'} />
-            <p className='appbar-name'>
-              {t('navbar.Title.Line1')}
-            </p>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              height: '100%',
+            }}>
+              <p className='appbar-name' style={{
+                margin: 0
+              }}>
+                {t('navbar.Title.Line1')}
+              </p>
+              <p style={{
+                margin: 0,
+                fontFamily: 'Moontime',
+                fontSize: '1.5em',
+                position: 'absolute',
+                bottom: 0
+              }}>
+                {t('navbar.Title.Line2')}
+              </p>
+            </div>
           </div>
 
           <div className='appbar-middle'>

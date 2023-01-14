@@ -73,12 +73,13 @@ function NavigationBar(props: {
 }) {
   const {t, i18n} = useTranslation()
   const imageUrl = process.env.PUBLIC_URL + '/static/images/'
+  const navigate = useNavigate()
 
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar'>
-          <div className='appbar-left'>
+          <div className='appbar-left' onClick={() => navigate('/')}>
             <img className='appbar-logo'
               alt={t('navbar.LogoAlt') || ''}
               src={imageUrl + 'logo.png'} />

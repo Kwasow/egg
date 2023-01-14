@@ -49,7 +49,7 @@ function NavigationTabs(props: {
   }
 
   return (
-    <Box>
+    <Box sx={{ alignSelf: 'flex-end' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <ThemeProvider theme={navigationTabsTheme}>
           <Tabs value={checkRoute(value)} onChange={handleChange} >
@@ -78,17 +78,21 @@ function NavigationBar(props: {
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
-        <div className='appbar-left'>
-          <img className='appbar-logo'
-            alt={t('navbar.LogoAlt') || ''}
-            src={imageUrl + 'logo.png'} />
-          <p className='appbar-name'>
-            {t('navbar.Title.Line1')}<br></br>
-            {t('navbar.Title.Line2')}
-          </p>
-        </div>
-        <div className='appbar-right'>
-          <div className='appbar-right-top'>
+        <div className='appbar'>
+          <div className='appbar-left' onClick={() => navigate('/')}>
+            <img className='appbar-logo'
+              alt={t('navbar.LogoAlt') || ''}
+              src={imageUrl + 'logo.png'} />
+            <p className='appbar-name'>
+              {t('navbar.Title.Line1')}
+            </p>
+          </div>
+
+          <div className='appbar-middle'>
+            <NavigationTabs route={props.route} t={t}/>
+          </div>
+
+          <div className='appbar-right'>
             <a
               href='https://www.facebook.com/'
               target='_blank'
@@ -105,7 +109,8 @@ function NavigationBar(props: {
                 className='appbar-right-top-svg'
                 src={imageUrl + 'instagram.svg'} />
             </a>
-            <AppBarActionButton onClick={() => navigate('/register')}>
+            <AppBarActionButton 
+              onClick={() => window.open('https://google.com')}>
               {t('navbar.Register')}
             </AppBarActionButton>
             {i18n.language == 'pl'
@@ -121,10 +126,7 @@ function NavigationBar(props: {
               </a>
             }
           </div>
-          <div className='appbar-right-left'>
-            <NavigationTabs route={props.route} t={t}/>
-          </div>
-        </div>        
+        </div>     
       </EggToolbar>
     </AppBar>
   </>

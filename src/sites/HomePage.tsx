@@ -5,20 +5,20 @@ import './HomePage.css'
 
 const slides: Slide[] = [
   {
+    image: process.env.PUBLIC_URL + '/static/images/main0.png',
+    title_pl: 'IV Edycja - Sekrety onkologii',
+    subtitle_pl: 'Kliknij by zobaczyć program wykładów i warsztatów',
+    title_en: 'Secrets of oncology',
+    subtitle_en: 'Click to view the conference program',
+    link: '/speakers'
+  },
+  {
     image: process.env.PUBLIC_URL + '/static/images/main1.jpeg',
     title_pl: 'Lista mówców już dostępna!',
     subtitle_pl: 'Kliknij by dowiedzieć się więcej...',
     title_en: 'Speakers list is now available!',
     subtitle_en: 'Press to learn more...',
     link: '/speakers'
-  },
-  {
-    image: process.env.PUBLIC_URL + '/static/images/main2.jpeg',
-    title_pl: 'Sprawdź program konferencji',
-    subtitle_pl: 'Dostępne wykłady i seminaria',
-    title_en: 'Check the conference program',
-    subtitle_en: 'Lectures and seminars',
-    link: '/program'
   },
   {
     image: process.env.PUBLIC_URL + '/static/images/main3.jpeg',

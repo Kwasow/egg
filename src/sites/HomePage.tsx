@@ -6,7 +6,7 @@ import './HomePage.css'
 const slides: Slide[] = [
   {
     image: process.env.PUBLIC_URL + '/static/images/main0.png',
-    title_pl: 'VI Edycja - Sekrety onkologii',
+    title_pl: 'IV Edycja - Sekrety onkologii',
     subtitle_pl: 'Kliknij by zobaczyć program wykładów i warsztatów',
     title_en: 'Secrets of oncology',
     subtitle_en: 'Click to view the conference program',

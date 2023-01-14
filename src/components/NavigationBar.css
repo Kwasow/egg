@@ -5,9 +5,12 @@
 }
 
 .appbar-logo {
-  height: 50px;
+  height: 40px;
   object-fit: cover;
-  padding-right: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .appbar {

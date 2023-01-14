@@ -5,37 +5,42 @@
 }
 
 .appbar-logo {
-  height: 90px;
-  width: 90px;
+  height: 90%;
   object-fit: cover;
   padding-right: 10px;
 }
 
-.appbar-left {
+.appbar {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  height: 64px;
+}
+
+.appbar-left {
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.appbar-middle {
+  height: 100%;
+  display: flex;
 }
 
 .appbar-right {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.appbar-right-top {
-  height: 50%;
-}
-
-.appbar-right-bottom {
-  height: 50%;
+  flex-direction: row;
+  align-items: center;
 }
 
 .appbar-right-top-icon {
   cursor: pointer;
   vertical-align: middle;
-  height: 75%;
+  height: 50px;
   padding-left: 20px;
 }
 

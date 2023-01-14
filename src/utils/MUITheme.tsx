@@ -32,7 +32,6 @@ export const navigationTabsTheme = createTheme({
 })
 
 export const EggToolbar = styled(Toolbar)(() => ({
-  height: 100,
   display: 'flex',
   justifyContent: 'space-between'
 }))

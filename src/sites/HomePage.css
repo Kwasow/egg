@@ -1,0 +1,50 @@
+.news-container {
+  display: flex;
+  flex-direction: row;
+
+  height: 400px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
+.news-registration {
+  height: 400px;
+  width: 800px;
+  background-color: #c53d63;
+}
+
+.registration-photo {
+  height: 100%;
+}
+
+.registration-right {
+  height: 100%;
+}
+
+.news-other {
+
+}
+
+.sponsors-container {
+
+}
+
+.single-sponsor-container {
+  
+}
+
+.sponsor-logo {
+
+}
+
+.sponsor-subtext {
+
+}
+
+.sponsors-header {
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bolder;
+}

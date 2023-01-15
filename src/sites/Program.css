@@ -32,19 +32,27 @@
 }
 
 .day-container {
-  margin-bottom: 5%;
+  margin-bottom: 40px;
 }
 
 .day-text {
   font-size: x-large;
   font-weight: bold;
   text-align: center;
-  margin-top: 3%;
+  margin-top: 20px;
 }
 
 .seminar-text {
   font-size: large;
-  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.seminar-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .no-activity-text {

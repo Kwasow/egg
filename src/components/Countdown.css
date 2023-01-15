@@ -3,7 +3,10 @@
   flex-direction: row;
   width: 100%;
   justify-content: center;
-  background-color: aliceblue;
+  background-color: #ebebeb;
+
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
 }
 
 .countdown-element {

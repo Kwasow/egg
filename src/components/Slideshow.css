@@ -4,6 +4,7 @@
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
+  background-color: #ebebeb;
 }
 
 .slideshowSlider {
@@ -65,6 +66,7 @@
 
   cursor: pointer;
   margin: 15px 7px 0px;
+  margin-bottom: 15px;
 
   background-color: #c4c4c4;
 }

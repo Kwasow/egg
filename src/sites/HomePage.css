@@ -9,37 +9,100 @@
 }
 
 .news-registration {
+  display: flex;
   height: 400px;
-  width: 800px;
+  width: 600px;
   background-color: #c53d63;
+  flex-direction: row;
 }
 
 .registration-photo {
   height: 100%;
+  width: 40%;
+  object-fit: cover;
 }
 
 .registration-right {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.registration-title {
+  margin: 20px;
+  font-weight: bold;
+  font-size: larger;
+  color: white;
+}
+
+.registration-content {
+  margin: 20px;
+  margin-top: 0;
+  color: white;
+}
+
+.registration-date {
+  margin: 20px;
+  margin-top: 0;
+  text-align: right;
+  color: lightgray;
 }
 
 .news-other {
+  height: 400px;
+  width: 350px;
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+.other-photo {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.other-title {
+  margin: 10px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.other-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin: 10px;
+  margin-top: 0;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.other-date {
+  margin: 20px;
+  margin-top: 0;
+  text-align: right;
+  color: darkgray;
 }
 
 .sponsors-container {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .single-sponsor-container {
-  
+  display: flex;
+  flex-direction: column;
+  width: 400px;
 }
 
-.sponsor-logo {
-
-}
-
-.sponsor-subtext {
-
+.sponsor-text {
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
 }
 
 .sponsors-header {

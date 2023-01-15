@@ -1,4 +1,4 @@
-import { Button, ImageList, Tab, Tabs, Toolbar } from '@mui/material'
+import { Button, Card, ImageList, Tab, Tabs, Toolbar } from '@mui/material'
 import { createTheme, styled } from '@mui/material/styles'
 
 const colorPrimary = '#c53d63'
@@ -57,4 +57,9 @@ export const AppBarActionButton = styled(Button)(() => ({
     backgroundColor: 'white',
   },
   backgroundColor: 'white'
+}))
+
+export const NewsCard = styled(Card)(() => ({
+  marginLeft: 20,
+  marginRight: 20
 }))

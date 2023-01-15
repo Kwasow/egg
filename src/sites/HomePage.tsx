@@ -1,4 +1,6 @@
+import { Paper } from '@mui/material'
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Countdown } from '../components/Countdown'
 import { Slideshow, Slide } from '../components/Slideshow'
 import { NewsCard } from '../utils/MUITheme'
@@ -43,6 +45,14 @@ interface News {
 interface NewsJSON {
   registration: News;
   other: News[];
+}
+
+function decideLanguage(
+  language:string,
+  pl: string | undefined,
+  en: string | undefined
+) {
+  return language === 'pl' ? pl : en
 }
 
 function SponsorImage(props: {
@@ -99,6 +109,7 @@ function Sponsors() {
 function News() {
   const newsPrefix = 'static/news/'
   const newsURL = newsPrefix + 'news.json'
+  const {i18n} = useTranslation()
   const [news, setNews] = useState<NewsJSON>()
   // 0 - not loaded
   // 1 - loaded
@@ -120,50 +131,68 @@ function News() {
   }, [])
 
   if (loaded == 1) {
-    return <div className='news-container'>
-      <NewsCard>
-        <div className='news-registration'>
-          <img
-            src={newsPrefix + news?.registration.image}
-            className='registration-photo'/>
-          <div className='registration-right'>
-            <div>
-              <p className='registration-title'>
-                {news?.registration.title_pl}
-              </p>
-              <p className='registration-content'>
-                {news?.registration.text_pl}
-              </p>
+    return <Paper sx={{ overflow: 'auto' }}>
+      <div className='news-container'>
+        <NewsCard>
+          <div className='news-registration'>
+            <img
+              src={newsPrefix + news?.registration.image}
+              className='registration-photo'/>
+            <div className='registration-right'>
+              <div>
+                <p className='registration-title'>
+                  {decideLanguage(
+                    i18n.language,
+                    news?.registration.title_pl,
+                    news?.registration.title_en
+                  )}
+                </p>
+                <p className='registration-content'>
+                  {decideLanguage(
+                    i18n.language,
+                    news?.registration.text_pl,
+                    news?.registration.text_en
+                  )}
+                </p>
+              </div>
+              <p className='registration-date'>{
+                new Date(
+                  Date.parse(news?.registration.date || '')
+                ).toLocaleDateString()
+              }</p>
             </div>
-            <p className='registration-date'>{
-              new Date(
-                Date.parse(news?.registration.date || '')
-              ).toLocaleDateString()
-            }</p>
-          </div>
-        </div>
-      </NewsCard>
-      {news?.other.map((value, index) => {
-        return <NewsCard key={index}>
-          <div className='news-other'>
-            <div>
-              <img
-                src={newsPrefix + value.image}
-                className='other-photo'/>
-              <p className='other-title'>
-                {value.title_pl}
-              </p>
-              <p className='other-content'>
-                {value.text_pl}
-              </p>
-            </div>
-            <p className='other-date'>{
-              new Date(Date.parse(value.date)).toLocaleDateString()
-            }</p>
           </div>
         </NewsCard>
-      })}
-    </div>
+        {news?.other.map((value, index) => {
+          return <NewsCard key={index}>
+            <div className='news-other'>
+              <div>
+                <img
+                  src={newsPrefix + value.image}
+                  className='other-photo'/>
+                <p className='other-title'>
+                  {decideLanguage(
+                    i18n.language,
+                    value.title_pl,
+                    value.title_en
+                  )}
+                </p>
+                <p className='other-content'>
+                  {decideLanguage(
+                    i18n.language,
+                    value.text_pl,
+                    value.text_en
+                  )}
+                </p>
+              </div>
+              <p className='other-date'>{
+                new Date(Date.parse(value.date)).toLocaleDateString()
+              }</p>
+            </div>
+          </NewsCard>
+        })}
+      </div>
+    </Paper>
   } else if (loaded == 2) {
     // TODO
     return <div className='news-container'></div>

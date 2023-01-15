@@ -124,8 +124,8 @@ function Speakers(props: TabPanelProps) {
         setPeople(res)
         setLoaded(1)
       })
-      .catch((reason) => {
-        console.log(reason)
+      .catch((err) => {
+        console.error(err)
         setLoaded(2)
       })
   }, [])
@@ -159,8 +159,8 @@ function Organisers(props: TabPanelProps) {
         setPeople(res)
         setLoaded(1)
       })
-      .catch((reason) => {
-        console.log(reason)
+      .catch((err) => {
+        console.error(err)
         setLoaded(2)
       })
   }, [])

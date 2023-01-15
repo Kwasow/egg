@@ -139,6 +139,7 @@ function Day(props: {
 }) {
   const {day} = props
   const {t} = useTranslation()
+  const [open, setOpen] = useState(false)
 
   day.activities.sort((a1, a2) => Date.parse(a1.start) - Date.parse(a2.start))
 
@@ -155,13 +156,21 @@ function Day(props: {
         {t('program.Activity.NoLecturePlanned')}
       </p>
     }
-    <p className='seminar-text'>{t('program.Activity.Seminars')}</p>
-    {classActivities.length > 0
-      ? <ActivityRows activities={classActivities} />
-      : <p className='no-activity-text'>
-        {t('program.Activity.NoSeminarPlanned')}
-      </p>
-    }
+    <div onClick={() => setOpen(!open)} className='seminar-title-container'>
+      {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+      <p className='seminar-text'>{t('program.Activity.Seminars')}</p>
+      {open 
+        ? <KeyboardArrowUpIcon sx={{ visibility: 'hidden' }}/> 
+        : <KeyboardArrowDownIcon sx={{ visibility: 'hidden' }}/>}
+    </div>
+    <Collapse in={open} unmountOnExit>
+      {classActivities.length > 0
+        ? <ActivityRows activities={classActivities} />
+        : <p className='no-activity-text'>
+          {t('program.Activity.NoSeminarPlanned')}
+        </p>
+      }
+    </Collapse>
   </div>
 }
 

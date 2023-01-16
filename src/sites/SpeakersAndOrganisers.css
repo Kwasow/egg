@@ -3,13 +3,14 @@
   flex-direction: row;
   padding-left: 10%;
   padding-right: 15%;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
+  padding-top: 3%;
+  padding-bottom: 3%;
   align-items: center;
 }
 
 .people-left-name {
-  margin-top: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: bold;
   font-size: xx-large;
 }
@@ -17,7 +18,7 @@
 .people-left-description {
   text-align: justify;
   text-align-last: left;
-  width: 70%;
+  width: 60%;
 }
 
 .people-left-image {
@@ -40,7 +41,8 @@
 }
 
 .people-right-name {
-  margin-top: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: bold;
   font-size: xx-large;
   text-align: right;
@@ -49,7 +51,7 @@
 .people-right-description {
   text-align: justify;
   text-align-last: right;
-  width: 70%;
+  width: 60%;
   align-self: flex-end;
 }
 

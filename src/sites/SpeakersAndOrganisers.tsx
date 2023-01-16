@@ -1,8 +1,21 @@
 import React, { useEffect, useState, SyntheticEvent } from 'react'
-import { CircularProgress } from '@mui/material'
+import { Card, CircularProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './SpeakersAndOrganisers.css'
+
+const about_pl = 'Studenckie Koło Naukowe przy II Katedrze i Klinice \
+Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
+wspaniałe lekarki: dr hab. n. med. Ewa Romejko-Wolniewicz oraz dr Agnieszka \
+Dobrowolska-Redo. Spotykamy się co dwa tygodnie w szpitalu na ulicy Karowej 2 \
+w II Katedrze i Klinice Położnictwa i Ginekologii WUM, której kierownikiem \
+jest prof. dr hab. n. med. Krzysztof Czajkowski. Omawiane na spotkaniach \
+zagadnienia zdecydowanie wykraczają poza wiadomości przekazywane nam w trakcie \
+codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki \
+ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze \
+medycyny ratunkowej i anestezjolodzy.'
+
+const about_en = '[TODO] ' + about_pl
 
 interface TabPanelProps {
   index: number;
@@ -22,7 +35,7 @@ interface PersonJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl = 'php/getPeople.php?type=' + type
+  const phpUrl = 'http://localhost/php/getPeople.php?type=' + type
   const directory = 'static/' + type
 
   return new Promise((resolve, reject) => {
@@ -152,6 +165,7 @@ function Organisers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
+  const {i18n} = useTranslation()
   
   useEffect(() => {
     getPeopleSorted(type)
@@ -167,7 +181,66 @@ function Organisers(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} type={type} />
+      return <>
+        <Card sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: '2%',
+          backgroundColor: '#c53d63',
+        }}>
+          <div style={{
+            width: '48%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            marginLeft: '2%'
+          }}>
+            <p style={{
+              fontSize: 'x-large',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginBottom: 0,
+              color: 'white'
+            }}>O nas</p>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              color: 'white'
+            }}>
+              <img 
+                style={{
+                  height: 150,
+                  width: 150,
+                  margin: 30,
+                  marginLeft: 0,
+                  borderRadius: 20
+                }}
+                src='/static/images/logokolo.jpg'/>
+              <p style={{
+                textAlign: 'justify',
+                marginRight: '3%'
+              }}>{i18n.language === 'pl' ? about_pl : about_en}</p>
+            </div>
+            <p style={{
+              fontSize: 'x-large',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginBottom: 0,
+              color: 'white',
+              visibility: 'hidden'
+            }}>O nas</p>  
+          </div>
+          <img style={{
+            width: '50%',
+            height: 500,
+            margin: 0,
+            padding: 0,
+            objectFit: 'cover',
+          }} src='/static/images/us.jpg' />
+        </Card>
+        <PeopleListView people={people} type={type} />
+      </>
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {

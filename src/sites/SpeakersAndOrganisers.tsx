@@ -1,8 +1,21 @@
 import React, { useEffect, useState, SyntheticEvent } from 'react'
-import { CircularProgress } from '@mui/material'
+import { Card, CircularProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './SpeakersAndOrganisers.css'
+
+const about_pl = 'Studenckie Koło Naukowe przy II Katedrze i Klinice \
+Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
+wspaniałe lekarki: dr hab. n. med. Ewa Romejko-Wolniewicz oraz dr Agnieszka \
+Dobrowolska-Redo. Spotykamy się co dwa tygodnie w szpitalu na ulicy Karowej 2 \
+w II Katedrze i Klinice Położnictwa i Ginekologii WUM, której kierownikiem \
+jest prof. dr hab. n. med. Krzysztof Czajkowski. Omawiane na spotkaniach \
+zagadnienia zdecydowanie wykraczają poza wiadomości przekazywane nam w trakcie \
+codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki \
+ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze \
+medycyny ratunkowej i anestezjolodzy.'
+
+const about_en = '[TODO] ' + about_pl
 
 interface TabPanelProps {
   index: number;
@@ -22,7 +35,7 @@ interface PersonJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl = 'php/getPeople.php?type=' + type
+  const phpUrl = 'http://localhost/php/getPeople.php?type=' + type
   const directory = 'static/' + type
 
   return new Promise((resolve, reject) => {
@@ -152,6 +165,7 @@ function Organisers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
+  const {i18n} = useTranslation()
   
   useEffect(() => {
     getPeopleSorted(type)
@@ -167,7 +181,30 @@ function Organisers(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} type={type} />
+      return <>
+        <Card sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: '2%',
+          backgroundColor: '#c53d63',
+        }}>
+          <div className='about-us-card-left-container'>
+            <p className='about-us-title'>O nas</p>
+            <div className='about-us-inner-container'>
+              <img className='about-us-logo'
+                src='/static/images/logokolo.jpg'/>
+              <p className='about-us-text'>
+                {i18n.language === 'pl' ? about_pl : about_en}
+              </p>
+            </div>
+            <p className='about-us-title' style={{
+              visibility: 'hidden'
+            }}>O nas</p>  
+          </div>
+          <img className='about-us-image' src='/static/images/us.jpg' />
+        </Card>
+        <PeopleListView people={people} type={type} />
+      </>
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -199,7 +236,12 @@ function SpeakersAndOrganisers() {
     <div className='top-person-wrap'>
       <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'}/>
       <div className='top-person-text'>
-        <p className='people-left-name'>dr Elton John</p>
+        <p className='people-left-name' style={{
+          marginBottom: 0
+        }}>dr Elton John</p>
+        <p className='top-person-subtext'>
+          {t('speakersAndOrganisers.specialGuest')}
+        </p>
         {/* eslint-disable-next-line max-len */}
         <p>Donec maximus lectus quam, vel lobortis lectus aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu ullamcorper a, semper vitae diam. Suspendisse potenti.</p>
       </div>

@@ -80,8 +80,10 @@ function SponsorImage(props: {
 }
 
 function Sponsors() {
+  const {t} = useTranslation()
+
   return <>
-    <p className='sponsors-header'>Partnerzy</p>
+    <p className='sponsors-header'>{t('mainPage.Partners')}</p>
     <div className='sponsors-container'>
       <SponsorImage 
         image='/static/sponsors/wum.png'
@@ -90,7 +92,7 @@ function Sponsors() {
         image='/static/sponsors/lek.png'
         title='Wydział Lekarski Warszawskiego Uniwersytetetu Medycznego'/>
     </div>
-    <p className='sponsors-header'>Sponsorzy</p>
+    <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
     <div className='sponsors-container'>
       <SponsorImage image='/static/sponsors/stn.png'/>
       <SponsorImage image='/static/sponsors/wnl.png'/>

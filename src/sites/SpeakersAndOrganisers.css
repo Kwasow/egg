@@ -76,3 +76,9 @@
   width: 50%;
   text-align: left;
 }
+
+.top-person-subtext {
+  font-style: italic;
+  margin-top: 0;
+  color: gray;
+}

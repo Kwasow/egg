@@ -101,15 +101,14 @@
   width: 400px;
 }
 
-.sponsor-text {
-  text-align: center;
-  font-size: large;
-  font-weight: 600;
-}
-
 .sponsors-header {
   width: 100%;
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
+}
+
+.sponsor-image {
+  height: 250;
+  object-fit: contain;
 }

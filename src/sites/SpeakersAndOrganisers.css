@@ -15,7 +15,9 @@
 }
 
 .people-left-description {
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+  width: 70%;
 }
 
 .people-left-image {
@@ -32,6 +34,11 @@
   align-items: center;
 }
 
+.people-right-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .people-right-name {
   margin-top: 0px;
   font-weight: bold;
@@ -40,7 +47,10 @@
 }
 
 .people-right-description {
-  text-align: right;
+  text-align: justify;
+  text-align-last: right;
+  width: 70%;
+  align-self: flex-end;
 }
 
 .people-right-image {

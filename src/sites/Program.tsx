@@ -17,7 +17,6 @@ import { useTranslation } from 'react-i18next'
 import './Program.css'
 
 type Activity = {
-  type: string,
   title_pl: string,
   title_en: string,
   about_pl: string,
@@ -29,9 +28,20 @@ type Activity = {
   location_en: string
 }
 
+type Workshop = {
+  title_pl: string,
+  title_en: string,
+  speaker: string,
+  location_pl: string,
+  location_en: string
+}
+
 type DayObject = {
-  day: number
-  activities: Activity[]
+  day: number,
+  activities: Activity[],
+  classes_start: string,
+  classes_end: string,
+  classes: Workshop[]
 }
 
 function decideLanguage(pl: string, en: string) {
@@ -46,92 +56,123 @@ function Row(props: {
   const {activity} = props
   const [open, setOpen] = useState(false)
 
-  if (activity.type === 'other') {
-    return <TableRow>
-      <TableCell colSpan={5} align={'center'}>
+  return <>
+    <TableRow onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
+      <TableCell>
+        <IconButton
+          aria-label="expand row"
+          size="small"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+        </IconButton>
+      </TableCell>
+      <TableCell>
         <>
-          {decideLanguage(activity.title_pl, activity.title_en)}<br/>
           {new Date(Date.parse(activity.start)).toLocaleTimeString(
-            [], {hour: '2-digit', minute: '2-digit'})}
-          {' '}-{' '}
-          {new Date(Date.parse(activity.start)).toLocaleTimeString(
+            [], {hour: '2-digit', minute: '2-digit'})}<br/>
+          {new Date(Date.parse(activity.end)).toLocaleTimeString(
             [], {hour: '2-digit', minute: '2-digit'})}
         </>
       </TableCell>
+      <TableCell>
+        {decideLanguage(activity.title_pl, activity.title_en)}
+      </TableCell>
+      <TableCell>
+        {activity.speaker}
+      </TableCell>
+      <TableCell>
+        {decideLanguage(activity.location_pl, activity.location_en)}
+      </TableCell>
     </TableRow>
-  } else {
-    return <>
-      <TableRow onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell>
-          <>
-            {new Date(Date.parse(activity.start)).toLocaleTimeString(
-              [], {hour: '2-digit', minute: '2-digit'})}<br/>
-            {new Date(Date.parse(activity.end)).toLocaleTimeString(
-              [], {hour: '2-digit', minute: '2-digit'})}
-          </>
-        </TableCell>
-        <TableCell>
-          {decideLanguage(activity.title_pl, activity.title_en)}
-        </TableCell>
-        <TableCell>
-          {activity.speaker}
-        </TableCell>
-        <TableCell>
-          {decideLanguage(activity.location_pl, activity.location_en)}
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <p style={{ margin: '2%', textAlign: 'justify' }}>
-              {decideLanguage(activity.about_pl, activity.about_en)}
-            </p>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </>
-  }
+    <TableRow>
+      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <p style={{ margin: '2%', textAlign: 'justify' }}>
+            {decideLanguage(activity.about_pl, activity.about_en)}
+          </p>
+        </Collapse>
+      </TableCell>
+    </TableRow>
+  </>
 }
 
-function ActivityRows(props: {
-  activities: Activity[]
+function WorkshopsDetails(props: {
+  workshops: Workshop[]
 }) {
+  const {workshops} = props
   const {t} = useTranslation()
 
-  return <TableContainer
-    component={Paper}
-    sx={{ width: '90%', marginLeft: '5%' }}
-  >
-    <Table aria-label='collapsible table'>
-      <TableHead>
-        <TableRow sx={{ backgroundColor: 'rgba(197, 61, 99, 0.30)' }}>
-          <TableCell sx={{ width: '5%' }}/>
-          <TableCell sx={{ width: '10%' }}>
-            {t('program.Activity.Time')}</TableCell>
-          <TableCell sx={{ width: '35%' }}>
-            {t('program.Activity.Name')}</TableCell>
-          <TableCell sx={{ width: '15%' }}>
-            {t('program.Activity.Speaker')}</TableCell>
-          <TableCell sx={{ width: '35%' }}>
-            {t('program.Activity.Place')}</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {props.activities.map((value, index) => {
-          return <Row activity={value} key={index} />
-        })}
-      </TableBody>
-    </Table>
-  </TableContainer>
+  return <>
+    <table className='inner-table'>
+      <tr>
+        <th style={{ width: '25%' }}>
+          {t('program.Activity.Name')}</th>
+        <th style={{ width: '25%' }}>
+          {t('program.Activity.Speaker')}</th>
+        <th style={{ width: '15%' }}>
+          {t('program.Activity.Place')}</th>
+      </tr>
+      {workshops.map((value, index) => {
+        return <tr key={index}>
+          <td>
+            {decideLanguage(value.title_pl, value.title_en)}</td>
+          <td>
+            {value.speaker}</td>
+          <td>
+            {decideLanguage(value.location_pl, value.location_en)}
+          </td>
+        </tr>
+      })}
+    </table>
+  </>
+}
+
+function WorkshopRow(props: {
+  day: DayObject
+}) {
+  const {day} = props
+
+  if (day.classes.length == 0) {
+    return <></>
+  }
+
+  const [open, setOpen] = useState(false)
+  const {t} = useTranslation()
+
+  return <>
+    <TableRow
+      onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
+      <TableCell>
+        <IconButton
+          aria-label="expand row"
+          size="small"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+        </IconButton>
+      </TableCell>
+      <TableCell>
+        <>
+          {new Date(Date.parse(day.classes_start)).toLocaleTimeString(
+            [], {hour: '2-digit', minute: '2-digit'})}<br/>
+          {new Date(Date.parse(day.classes_end)).toLocaleTimeString(
+            [], {hour: '2-digit', minute: '2-digit'})}
+        </>
+      </TableCell>
+      <TableCell colSpan={4}>
+        {t('program.Activity.Workshops')}
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell
+        style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <WorkshopsDetails workshops={day.classes} />
+        </Collapse>
+      </TableCell>
+    </TableRow>
+  </>
 }
 
 function Day(props: {
@@ -139,38 +180,37 @@ function Day(props: {
 }) {
   const {day} = props
   const {t} = useTranslation()
-  const [open, setOpen] = useState(false)
 
   day.activities.sort((a1, a2) => Date.parse(a1.start) - Date.parse(a2.start))
 
-  const primaryActivities = day.activities.filter(
-    (value) => value.type !== 'class')
-  const classActivities = day.activities.filter(
-    (value) => value.type === 'class')
-
   return <div className='day-container'>
     <p className='day-text'>{t('program.Day')} {day.day}</p>
-    {primaryActivities.length > 0
-      ? <ActivityRows activities={primaryActivities} />
-      : <p className='no-activity-text'>
-        {t('program.Activity.NoLecturePlanned')}
-      </p>
-    }
-    <div onClick={() => setOpen(!open)} className='seminar-title-container'>
-      {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-      <p className='seminar-text'>{t('program.Activity.Seminars')}</p>
-      {open 
-        ? <KeyboardArrowUpIcon sx={{ visibility: 'hidden' }}/> 
-        : <KeyboardArrowDownIcon sx={{ visibility: 'hidden' }}/>}
-    </div>
-    <Collapse in={open} unmountOnExit>
-      {classActivities.length > 0
-        ? <ActivityRows activities={classActivities} />
-        : <p className='no-activity-text'>
-          {t('program.Activity.NoSeminarPlanned')}
-        </p>
-      }
-    </Collapse>
+    <TableContainer
+      component={Paper}
+      sx={{ width: '90%', marginLeft: '5%' }}
+    >
+      <Table aria-label='collapsible table'>
+        <TableHead>
+          <TableRow sx={{ backgroundColor: 'rgba(197, 61, 99, 0.30)' }}>
+            <TableCell sx={{ width: '5%' }}/>
+            <TableCell sx={{ width: '10%' }}>
+              {t('program.Activity.Time')}</TableCell>
+            <TableCell sx={{ width: '35%' }}>
+              {t('program.Activity.Name')}</TableCell>
+            <TableCell sx={{ width: '15%' }}>
+              {t('program.Activity.Speaker')}</TableCell>
+            <TableCell sx={{ width: '35%' }}>
+              {t('program.Activity.Place')}</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {day.activities.map((value, index) => {
+            return <Row activity={value} key={index} />
+          })}
+          <WorkshopRow day={day}/>
+        </TableBody>
+      </Table>
+    </TableContainer>
   </div>
 }
 

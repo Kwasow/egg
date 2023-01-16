@@ -20,9 +20,7 @@
   "program.Activity.Speaker": "Speaker",
   "program.Activity.Place": "Venue",
   "program.Activity.ShowDescription": "Show description",
-  "program.Activity.NoLecturePlanned": "No lectures planned for today",
-  "program.Activity.Seminars": "Seminars",
-  "program.Activity.NoSeminarPlanned": "No seminars planned for today",
+  "program.Activity.Workshops": "Workshops",
 
   "speakersAndOrganisers.speakers": "Speakers",
   "speakersAndOrganisers.organisers": "Organisers",

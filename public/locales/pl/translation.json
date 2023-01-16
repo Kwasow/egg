@@ -20,9 +20,7 @@
   "program.Activity.Speaker": "Prowadzący",
   "program.Activity.Place": "Lokalizacja",
   "program.Activity.ShowDescription": "Zobacz opis",
-  "program.Activity.NoLecturePlanned": "Brak zaplanowanych wykładów",
-  "program.Activity.Seminars": "Warsztaty",
-  "program.Activity.NoSeminarPlanned": "Brak zaplanowanych warsztatów",
+  "program.Activity.Workshops": "Warsztaty",
 
   "speakersAndOrganisers.speakers": "Mówcy",
   "speakersAndOrganisers.organisers": "Organizatorzy",

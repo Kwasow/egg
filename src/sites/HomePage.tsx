@@ -16,7 +16,7 @@ const slides: Slide[] = [
     link: '/speakers'
   },
   {
-    image: process.env.PUBLIC_URL + '/static/images/main1.jpeg',
+    image: process.env.PUBLIC_URL + '/static/images/main1.jpg',
     title_pl: 'Lista mówców już dostępna!',
     subtitle_pl: 'Kliknij by dowiedzieć się więcej...',
     title_en: 'Speakers list is now available!',
@@ -24,7 +24,7 @@ const slides: Slide[] = [
     link: '/speakers'
   },
   {
-    image: process.env.PUBLIC_URL + '/static/images/main3.jpeg',
+    image: process.env.PUBLIC_URL + '/static/images/main2.jpg',
     title_pl: 'Zobacz zdjęcia z poprzednich edycji',
     subtitle_pl: 'Sprawdź w zakładce Galeria',
     title_en: 'See photos from previous edition',

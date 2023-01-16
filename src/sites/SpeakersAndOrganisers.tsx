@@ -188,56 +188,20 @@ function Organisers(props: TabPanelProps) {
           margin: '2%',
           backgroundColor: '#c53d63',
         }}>
-          <div style={{
-            width: '48%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            marginLeft: '2%'
-          }}>
-            <p style={{
-              fontSize: 'x-large',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: 0,
-              color: 'white'
-            }}>O nas</p>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              color: 'white'
-            }}>
-              <img 
-                style={{
-                  height: 150,
-                  width: 150,
-                  margin: 30,
-                  marginLeft: 0,
-                  borderRadius: 20
-                }}
+          <div className='about-us-card-left-container'>
+            <p className='about-us-title'>O nas</p>
+            <div className='about-us-inner-container'>
+              <img className='about-us-logo'
                 src='/static/images/logokolo.jpg'/>
-              <p style={{
-                textAlign: 'justify',
-                marginRight: '3%'
-              }}>{i18n.language === 'pl' ? about_pl : about_en}</p>
+              <p className='about-us-text'>
+                {i18n.language === 'pl' ? about_pl : about_en}
+              </p>
             </div>
-            <p style={{
-              fontSize: 'x-large',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: 0,
-              color: 'white',
+            <p className='about-us-title' style={{
               visibility: 'hidden'
             }}>O nas</p>  
           </div>
-          <img style={{
-            width: '50%',
-            height: 500,
-            margin: 0,
-            padding: 0,
-            objectFit: 'cover',
-          }} src='/static/images/us.jpg' />
+          <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
         <PeopleListView people={people} type={type} />
       </>

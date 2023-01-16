@@ -11,8 +11,8 @@
   "program.Date.Label": "Termin",
   "program.Date.Value": "14-16 kwietnia",
   "program.Venue.Label": "Adres",
-  "program.Venue.Value.Line1": "Collegium Anatomicum",
-  "program.Venue.Value.Line2": "ul. Tytusa Chałubińskiego 5, Warszawa",
+  "program.Venue.Value.Line1": "Centrum Dydaktyczne WUM",
+  "program.Venue.Value.Line2": "ul. Księcia Trojdena 2a, Warszawa",
   "program.PhotoAlt": "Program w wersji obrazkowej",
   "program.Day": "Dzień",
   "program.Activity.Time": "Czas",
@@ -20,9 +20,7 @@
   "program.Activity.Speaker": "Prowadzący",
   "program.Activity.Place": "Lokalizacja",
   "program.Activity.ShowDescription": "Zobacz opis",
-  "program.Activity.NoLecturePlanned": "Brak zaplanowanych wykładów",
-  "program.Activity.Seminars": "Warsztaty",
-  "program.Activity.NoSeminarPlanned": "Brak zaplanowanych warsztatów",
+  "program.Activity.Workshops": "Warsztaty",
 
   "speakersAndOrganisers.speakers": "Mówcy",
   "speakersAndOrganisers.organisers": "Organizatorzy",
@@ -39,6 +37,9 @@
   "countdown.Seconds": "SEKUNDY",
 
   "slideshow.BackgroundPhoto.Alt": "Zdjęcie w tle",
+
+  "mainPage.Partners": "Partnerzy",
+  "mainPage.Sponsors": "Sponsorzy",
 
   "footer.copyright": "2023 © Studenckie koło naukowe położnictwa i ginekologii WUM"
 }

@@ -11,8 +11,8 @@
   "program.Date.Label": "Date",
   "program.Date.Value": "April 14th-16th",
   "program.Venue.Label": "Address",
-  "program.Venue.Value.Line1": "Collegium Anatomicum",
-  "program.Venue.Value.Line2": "Tytusa Chałubińskiego 5, Warsaw",
+  "program.Venue.Value.Line1": "Warsaw Medical University Didactic Center",
+  "program.Venue.Value.Line2": "Księcia Trojdena 2a, Warsaw",
   "program.PhotoAlt": "Photo version of the program",
   "program.Day": "Day",
   "program.Activity.Time": "Time",
@@ -20,9 +20,7 @@
   "program.Activity.Speaker": "Speaker",
   "program.Activity.Place": "Venue",
   "program.Activity.ShowDescription": "Show description",
-  "program.Activity.NoLecturePlanned": "No lectures planned for today",
-  "program.Activity.Seminars": "Seminars",
-  "program.Activity.NoSeminarPlanned": "No seminars planned for today",
+  "program.Activity.Workshops": "Workshops",
 
   "speakersAndOrganisers.speakers": "Speakers",
   "speakersAndOrganisers.organisers": "Organisers",
@@ -39,6 +37,9 @@
   "countdown.Seconds": "SECONDS",
 
   "slideshow.BackgroundPhoto.Alt": "Background Photo",
+
+  "mainPage.Partners": "Partners",
+  "mainPage.Sponsors": "Sponsors",
 
   "footer.copyright": "2023 © Gynecology student association WUM"
 }

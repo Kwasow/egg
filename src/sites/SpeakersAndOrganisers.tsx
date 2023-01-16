@@ -196,13 +196,13 @@ function SpeakersAndOrganisers() {
   }
 
   return <>
-    <div style={{
-      height: 400,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-        Temporary empty space
+    <div className='top-person-wrap'>
+      <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'}/>
+      <div className='top-person-text'>
+        <p className='people-left-name'>dr Elton John</p>
+        {/* eslint-disable-next-line max-len */}
+        <p>Donec maximus lectus quam, vel lobortis lectus aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu ullamcorper a, semper vitae diam. Suspendisse potenti.</p>
+      </div>
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab

@@ -64,3 +64,15 @@
   justify-content: center;
   margin-top: 2%;
 }
+
+.top-person-wrap {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-person-text {
+  width: 50%;
+  text-align: left;
+}

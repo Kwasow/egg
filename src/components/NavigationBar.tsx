@@ -90,18 +90,10 @@ function NavigationBar(props: {
               justifyContent: 'space-around',
               height: '100%',
             }}>
-              <p className='appbar-name' style={{
-                margin: 0
-              }}>
+              <p className='appbar-name'>
                 {t('navbar.Title.Line1')}
               </p>
-              <p style={{
-                margin: 0,
-                fontFamily: 'Moontime',
-                fontSize: '1.5em',
-                position: 'absolute',
-                bottom: 0
-              }}>
+              <p className='appbar-subname'>
                 {t('navbar.Title.Line2')}
               </p>
             </div>

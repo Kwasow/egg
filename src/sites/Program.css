@@ -1,5 +1,4 @@
 .gray-divider {
-  margin-top: 2%;
   background-color: #efefef;
   width: 100%;
   display: flex;
@@ -42,27 +41,15 @@
   margin-top: 20px;
 }
 
-.seminar-text {
-  font-size: large;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.seminar-title-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.no-activity-text {
-  text-align: center;
-  font-style: italic;
-  font-weight: lighter;
-}
-
 .program-loading-container {
   display: flex;
   justify-content: center;
   margin-top: 2%;
+}
+
+.inner-table {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }

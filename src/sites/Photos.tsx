@@ -21,7 +21,7 @@ async function loadPhotos(): Promise<PhotoGroup[]> {
     fetch(phpUrl)
       .then((res) => res.json())
       .then((res: ResponseJSON) => {
-        res.folders.sort((a, b) => (a.name > b.name) ? -1 : 1)
+        res.folders.sort((a, b) => (a.name < b.name) ? -1 : 1)
         resolve(res.folders)
       })
       .catch((reason) => reject(reason))

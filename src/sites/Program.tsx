@@ -214,24 +214,21 @@ function Day(props: {
   </div>
 }
 
-function PictureProgram() {
+function HeaderImage() {
   const {t} = useTranslation()
-  const programImageURL = process.env.PUBLIC_URL + '/static/images/program.png'
 
   return <div className='gray-divider'>
-    <div className='left-container'>
-      <div>
-        <p className='text-primary text-primary-top'>
-          {t('program.Date.Label')}</p>
-        <p className='text-secondary'>{t('program.Date.Value')}</p>
-        <p className='text-primary'>{t('program.Venue.Label')}</p>
-        <p className='text-secondary'>
-          {t('program.Venue.Value.Line1')}<br/>
-          {t('program.Venue.Value.Line2')}
-        </p>
-      </div>
+    <img className='wum-image' src='/static/images/wum.jpg'/>
+    <div className='date-time-info'>
+      <p className='text-primary text-primary-top'>
+        {t('program.Date.Label')}</p>
+      <p className='text-secondary'>{t('program.Date.Value')}</p>
+      <p className='text-primary'>{t('program.Venue.Label')}</p>
+      <p className='text-secondary'>
+        {t('program.Venue.Value.Line1')}<br/>
+        {t('program.Venue.Value.Line2')}
+      </p>
     </div>
-    <img style={{ height: '400px' }} src={programImageURL}/>
   </div>
 }
 
@@ -259,19 +256,19 @@ function Program() {
 
   if (loaded == 1) {
     return <>
-      <PictureProgram />
+      <HeaderImage />
       {days.map((value, index) => {
         return <Day day={value} key={index} />
       })}
     </>
   } else if (loaded == 2) {
     return <>
-      <PictureProgram />
+      <HeaderImage />
       <p>Loading failed</p>
     </>
   } else {
     return <>
-      <PictureProgram />
+      <HeaderImage />
       <div className='program-loading-container'>
         <CircularProgress />
       </div>

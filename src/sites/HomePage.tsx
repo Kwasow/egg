@@ -67,10 +67,7 @@ function SponsorImage(props: {
     <img 
       src={process.env.PUBLIC_URL + image}
       alt={alt}
-      style={{
-        height: 250,
-        objectFit: 'contain'
-      }}/>
+      className='sponsor-image'/>
     <p style={{
       textAlign: 'center',
       fontSize: 'large',

@@ -48,7 +48,7 @@ interface NewsJSON {
 }
 
 function decideLanguage(
-  language:string,
+  language: string,
   pl: string | undefined,
   en: string | undefined
 ) {

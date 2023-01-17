@@ -35,7 +35,7 @@ interface PersonJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl = 'http://localhost/php/getPeople.php?type=' + type
+  const phpUrl = 'php/getPeople.php?type=' + type
   const directory = 'static/' + type
 
   return new Promise((resolve, reject) => {

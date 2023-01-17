@@ -38,20 +38,3 @@
 
   exit();
 ?>
-
-<!-- {
-  "folders": [
-    {
-      "name": "2020",
-      "photos": [<string>]
-    },
-    {
-      "name": "2022",
-      "photos": [<string>]
-    },
-    {
-      "name": "2019",
-      "photos": [<string>]
-    }
-  ]
-} -->

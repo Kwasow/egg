@@ -36,7 +36,7 @@
     "preprocess-photos": "cd public/php && php getPhotos.php > getPhotos.json",
     "preporcess-speakers": "cd public/php && php getPeople.php type=speakers > getPeople-speakers.json",
     "preporcess-organisers": "cd public/php && php getPeople.php type=organisers > getPeople-organisers.json",
-    "clean-preprocess": "rm public/php/*.json"
+    "clean-preprocess": "rm -f public/php/*.json"
   },
   "eslintConfig": {
     "extends": [

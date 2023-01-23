@@ -10,6 +10,9 @@ https://nodejs.org/
 
 It is recommended to develop on Linux/macOS or the WSL.
 
+You'll also need `php` installed for development, because php files are
+preprocessed in development builds.
+
 ## Code style
 
 If you're using vscode it is recommended to install the `eslint` plugin which
@@ -64,3 +67,5 @@ Not included (placed on server):
  - `public/static/speakers` - same as organisers
  - `public/static/gallery` - photos (organised in folders) to be shown in
     the photo gallery tab
+ - `public/static/news`
+ - `public/static/sponsors`

@@ -106,7 +106,7 @@ function Sponsors() {
 }
 
 function News() {
-  const newsPrefix = 'static/news/'
+  const newsPrefix = process.env.PUBLIC_URL + 'static/news/'
   const newsURL = newsPrefix + 'news.json'
   const {i18n} = useTranslation()
   const [news, setNews] = useState<NewsJSON>()

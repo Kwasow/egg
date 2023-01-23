@@ -233,7 +233,7 @@ function HeaderImage() {
 }
 
 function Program() {
-  const programURL = '/static/program/program.json'
+  const programURL = process.env.PUBLIC_URL + '/static/program/program.json'
 
   const [days, setDays] = useState<DayObject[]>([])
   // 0 - not loaded

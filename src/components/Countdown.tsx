@@ -38,9 +38,7 @@ function calculateTimeLeft(date: Date) {
 export function Countdown(props: {
   date: Date
 }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props.date))
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {t} = useTranslation()
 
   React.useEffect(() => {

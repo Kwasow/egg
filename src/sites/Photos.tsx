@@ -15,7 +15,9 @@ type ResponseJSON = {
 };
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const phpUrl = process.env.PUBLIC_URL + 'php/getPhotos.php'
+  const phpUrl = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? process.env.PUBLIC_URL + 'php/getPhotos.json'
+    : process.env.PUBLIC_URL + 'php/getPhotos.php'
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl)

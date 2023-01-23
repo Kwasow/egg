@@ -17,6 +17,16 @@ medycyny ratunkowej i anestezjolodzy.'
 
 const about_en = '[TODO] ' + about_pl
 
+const topPersonDescription = 'Donec maximus lectus quam, vel lobortis lectus \
+aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia \
+consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue \
+urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. \
+Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat \
+leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent \
+ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi \
+ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu \
+ullamcorper a, semper vitae diam. Suspendisse potenti.'
+
 interface TabPanelProps {
   index: number;
   value: number;
@@ -35,8 +45,12 @@ interface PersonJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl = 'php/getPeople.php?type=' + type
-  const directory = 'static/' + type
+  const phpUrl = !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? process.env.PUBLIC_URL + 'php/getPeople-' + type + '.json'
+    : process.env.PUBLIC_URL + 'php/getPeople.php?type=' + type
+  const directory = process.env.PUBLIC_URL + 'static/' + type
+
+  console.log(phpUrl)
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl)
@@ -70,7 +84,7 @@ function PeopleListView(props: {
   type: string
 }) {
   const {t, i18n} = useTranslation()
-  const directory = 'static/' + props.type + '/'
+  const directory = process.env.PUBLIC_URL + 'static/' + props.type + '/'
 
   if (props.people.length === 0) {
     return <p>Empty people list</p>
@@ -90,7 +104,7 @@ function PeopleListView(props: {
                   : 'people-left-image'
               }
               alt={t('speakersAndOrganisers.personAlt') + person.name}
-              src={process.env.PUBLIC_URL + directory + person.picture} />
+              src={directory + person.picture} />
             <div className={
               person.position % 2 == 0
                 ? 'people-right-text-container'
@@ -192,7 +206,7 @@ function Organisers(props: TabPanelProps) {
             <p className='about-us-title'>O nas</p>
             <div className='about-us-inner-container'>
               <img className='about-us-logo'
-                src='/static/images/logokolo.jpg'/>
+                src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'}/>
               <p className='about-us-text'>
                 {i18n.language === 'pl' ? about_pl : about_en}
               </p>
@@ -242,8 +256,7 @@ function SpeakersAndOrganisers() {
         <p className='top-person-subtext'>
           {t('speakersAndOrganisers.specialGuest')}
         </p>
-        {/* eslint-disable-next-line max-len */}
-        <p>Donec maximus lectus quam, vel lobortis lectus aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu ullamcorper a, semper vitae diam. Suspendisse potenti.</p>
+        <p>{topPersonDescription}</p>
       </div>
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>

@@ -28,6 +28,7 @@ import {
   Camera as CameraIcon
 } from '@mui/icons-material'
 import './NavigationBar.css'
+import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
 
 const siteList = ['/home', '/program', '/speakers', '/photos']
 
@@ -86,23 +87,57 @@ function NavigationTabs(props: {
   )
 }
 
-enum ScreenSize {SMALL, MEDIUM, BIG}
+function LanguageSwitcher(props: {
+  style?: React.CSSProperties
+}) {
+  const {i18n} = useTranslation()
+
+  return i18n.language == 'pl'
+    ? <a onClick={() => i18n.changeLanguage('en')} {...props}>
+      <img
+        className='appbar-right-top-icon'
+        src={imageUrl + 'english.png'}/>
+    </a>
+    : <a onClick={() => i18n.changeLanguage('pl')} {...props}>
+      <img
+        className='appbar-right-top-icon'
+        src={imageUrl + 'polish.png'}/>
+    </a>
+}
+
+enum ScreenSize {XSMALL, SMALL, MEDIUM, BIG}
+
+function isScreenXSmall(size: ScreenSize) {
+  return size === ScreenSize.XSMALL
+}
+
+function isScreenSmall(size: ScreenSize) {
+  return size === ScreenSize.SMALL
+      || size === ScreenSize.XSMALL
+}
+
+function isScreenBig(size: ScreenSize) {
+  return size === ScreenSize.BIG
+}
 
 function NavigationBar(props: {
   route: string
 }) {
-  const {t, i18n} = useTranslation()
-  const imageUrl = process.env.PUBLIC_URL + '/static/images/'
+  const {t} = useTranslation()
   const navigate = useNavigate()
 
+  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
   function updateScreenSize() {
-    if (window.innerWidth > 1250) {
+    if (1250 < window.innerWidth) {
       setScreenSize(ScreenSize.BIG)
-    } else {
+    } else if (720 < window.innerWidth) {
       setScreenSize(ScreenSize.MEDIUM)
+    } else if (390 < window.innerWidth) {
+      setScreenSize(ScreenSize.SMALL)
+    } else {
+      setScreenSize(ScreenSize.XSMALL)
     }
   }
-  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
 
@@ -148,15 +183,18 @@ function NavigationBar(props: {
               color='inherit'
               onClick={() => setDrawerOpen(true)}
               style={{
-                visibility:
-                  screenSize === ScreenSize.BIG ? 'collapse' : 'visible'
+                visibility: isScreenBig(screenSize) ? 'collapse' : 'visible'
               }}>
               <MenuIcon />
             </IconButton>
             <div className='appbar-navigate-home-container'>
               <img className='appbar-logo'
                 alt={t('navbar.LogoAlt') || ''}
-                src={imageUrl + 'logo.png'} />
+                src={imageUrl + 'logo.png'}
+                style={{
+                  visibility:
+                    isScreenXSmall(screenSize) ? 'collapse' : 'visible'
+                }}/>
               <div className='appbar-name-container'>
                 <p className='appbar-name'>
                   {t('navbar.Title.Line1')}
@@ -169,44 +207,21 @@ function NavigationBar(props: {
           </div>
 
           <div className='appbar-middle' style={{
-            visibility: screenSize === ScreenSize.BIG ? 'visible' : 'collapse'
+            visibility: isScreenBig(screenSize) ? 'visible' : 'collapse'
           }}>
             <NavigationTabs route={props.route} t={t}/>
           </div>
 
-          <div className='appbar-right'>
-            <a
-              href='https://www.facebook.com/'
-              target='_blank'
-              rel='noreferrer'>
-              <img
-                className='appbar-right-top-svg'
-                src={imageUrl + 'facebook.svg'} />
-            </a>
-            <a
-              href='https://www.instagram.com'
-              target='_blank'
-              rel='noreferrer'>
-              <img
-                className='appbar-right-top-svg'
-                src={imageUrl + 'instagram.svg'} />
-            </a>
+          <div className='appbar-right' style={{
+            visibility: isScreenSmall(screenSize) ? 'collapse' : 'visible'
+          }}>
+            <FacebookIconLink />
+            <InstagramIconLink />
             <AppBarActionButton 
               onClick={() => window.open('https://google.com')}>
               {t('navbar.Register')}
             </AppBarActionButton>
-            {i18n.language == 'pl'
-              ? <a onClick={() => i18n.changeLanguage('en')}>
-                <img
-                  className='appbar-right-top-icon'
-                  src={imageUrl + 'english.png'}/>
-              </a>
-              : <a onClick={() => i18n.changeLanguage('pl')}>
-                <img
-                  className='appbar-right-top-icon'
-                  src={imageUrl + 'polish.png'}/>
-              </a>
-            }
+            <LanguageSwitcher/>
           </div>
         </div>     
       </EggToolbar>

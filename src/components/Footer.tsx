@@ -2,10 +2,10 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './Footer.css'
+import { FacebookIconLink, InstagramIconLink } from './Shared'
 
 function Footer() {
   const {t} = useTranslation()
-  const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 
   return <footer>
     <div className='footer-container'>
@@ -20,22 +20,8 @@ function Footer() {
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
               className='contact'>kontakt@weekendzginekologia.pl<br></br></a>
-            <a
-              href='https://www.facebook.com/'
-              target='_blank'
-              rel='noreferrer'>
-              <img
-                className='svg-icon'
-                src={imageUrl + 'facebook.svg'} />
-            </a>
-            <a
-              href='https://www.instagram.com'
-              target='_blank'
-              rel='noreferrer'>
-              <img
-                className='svg-icon'
-                src={imageUrl + 'instagram.svg'} />
-            </a>
+            <FacebookIconLink />
+            <InstagramIconLink />
           </div>
           <div className='footer-contact'>
             <p className='contact-title'>Dane koła</p>

@@ -1,5 +1,16 @@
-import React from 'react'
-import { AppBar, Box, Tabs, Tab } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import {
+  AppBar,
+  Box,
+  Tabs,
+  Tab,
+  Drawer,
+  ListItem,
+  List,
+  ListItemText,
+  IconButton,
+  ListItemIcon
+} from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
   AppBarActionButton,
@@ -9,6 +20,13 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
+import {
+  Menu as MenuIcon,
+  Home as HomeIcon,
+  ListAlt as ListAltIcon,
+  Person as PersonIcon,
+  Camera as CameraIcon
+} from '@mui/icons-material'
 import './NavigationBar.css'
 
 const siteList = ['/home', '/program', '/speakers', '/photos']
@@ -68,6 +86,8 @@ function NavigationTabs(props: {
   )
 }
 
+enum ScreenSize {SMALL, MEDIUM, BIG}
+
 function NavigationBar(props: {
   route: string
 }) {
@@ -75,31 +95,82 @@ function NavigationBar(props: {
   const imageUrl = process.env.PUBLIC_URL + '/static/images/'
   const navigate = useNavigate()
 
+  function updateScreenSize() {
+    if (window.innerWidth > 1250) {
+      setScreenSize(ScreenSize.BIG)
+    } else {
+      setScreenSize(ScreenSize.MEDIUM)
+    }
+  }
+  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
+  window.addEventListener('resize', updateScreenSize)
+  useEffect(updateScreenSize, [])
+
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar'>
           <div className='appbar-left' onClick={() => navigate('/')}>
-            <img className='appbar-logo'
-              alt={t('navbar.LogoAlt') || ''}
-              src={imageUrl + 'logo.png'} />
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-              height: '100%',
-            }}>
-              <p className='appbar-name'>
-                {t('navbar.Title.Line1')}
-              </p>
-              <p className='appbar-subname'>
-                {t('navbar.Title.Line2')}
-              </p>
+            <Drawer
+              open={drawerOpen}
+              onClose={() => setDrawerOpen(false)}>
+              <List>
+                <ListItem onClick={() => setDrawerOpen(false)}>
+                  <ListItemIcon><HomeIcon /></ListItemIcon>
+                  <ListItemText>
+                    {t('navbar.HomePage')}
+                  </ListItemText>
+                </ListItem>
+                <ListItem onClick={() => setDrawerOpen(false)}>
+                  <ListItemIcon><ListAltIcon /></ListItemIcon>
+                  <ListItemText>
+                    {t('navbar.Program')}
+                  </ListItemText>
+                </ListItem>
+                <ListItem onClick={() => setDrawerOpen(false)}>
+                  <ListItemIcon><PersonIcon /></ListItemIcon>
+                  <ListItemText>
+                    {t('navbar.SpeakersAndOrganisers')}
+                  </ListItemText>
+                </ListItem>
+                <ListItem onClick={() => setDrawerOpen(false)}>
+                  <ListItemIcon><CameraIcon /></ListItemIcon>
+                  <ListItemText>
+                    {t('navbar.Photos')}
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </Drawer>
+            <IconButton
+              aria-label="Menu"
+              color='inherit'
+              onClick={() => setDrawerOpen(true)}
+              style={{
+                visibility:
+                  screenSize === ScreenSize.BIG ? 'collapse' : 'visible'
+              }}>
+              <MenuIcon />
+            </IconButton>
+            <div className='appbar-navigate-home-container'>
+              <img className='appbar-logo'
+                alt={t('navbar.LogoAlt') || ''}
+                src={imageUrl + 'logo.png'} />
+              <div className='appbar-name-container'>
+                <p className='appbar-name'>
+                  {t('navbar.Title.Line1')}
+                </p>
+                <p className='appbar-subname'>
+                  {t('navbar.Title.Line2')}
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className='appbar-middle'>
+          <div className='appbar-middle' style={{
+            visibility: screenSize === ScreenSize.BIG ? 'visible' : 'collapse'
+          }}>
             <NavigationTabs route={props.route} t={t}/>
           </div>
 

@@ -1,16 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  AppBar,
-  Box,
-  Tabs,
-  Tab,
-  IconButton,
-  Drawer,
-  List,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon,
-} from '@mui/material'
+import { AppBar, Box, Tabs, Tab, IconButton } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
   AppBarActionButton,
@@ -23,12 +12,7 @@ import { TFunction } from 'i18next'
 import { Menu as MenuIcon } from '@mui/icons-material'
 import './NavigationBar.css'
 import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
-import {
-  Home as HomeIcon,
-  ListAlt as ListAltIcon,
-  Person as PersonIcon,
-  Camera as CameraIcon
-} from '@mui/icons-material'
+import { EggDrawer } from './Drawer'
 
 const siteList = ['/home', '/program', '/speakers', '/photos']
 
@@ -105,19 +89,19 @@ function LanguageSwitcher(props: {
     </a>
 }
 
-enum ScreenSize {XSMALL, SMALL, MEDIUM, BIG}
+export enum NavigationBarSize {XSMALL, SMALL, MEDIUM, BIG}
 
-function isScreenXSmall(size: ScreenSize) {
-  return size === ScreenSize.XSMALL
+function isScreenXSmall(size: NavigationBarSize) {
+  return size === NavigationBarSize.XSMALL
 }
 
-function isScreenSmall(size: ScreenSize) {
-  return size === ScreenSize.SMALL
-      || size === ScreenSize.XSMALL
+function isScreenSmall(size: NavigationBarSize) {
+  return size === NavigationBarSize.SMALL
+      || size === NavigationBarSize.XSMALL
 }
 
-function isScreenBig(size: ScreenSize) {
-  return size === ScreenSize.BIG
+function isScreenBig(size: NavigationBarSize) {
+  return size === NavigationBarSize.BIG
 }
 
 function NavigationBar(props: {
@@ -129,16 +113,16 @@ function NavigationBar(props: {
   const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
+  const [screenSize, setScreenSize] = useState(NavigationBarSize.BIG)
   function updateScreenSize() {
     if (1250 < window.innerWidth) {
-      setScreenSize(ScreenSize.BIG)
+      setScreenSize(NavigationBarSize.BIG)
     } else if (720 < window.innerWidth) {
-      setScreenSize(ScreenSize.MEDIUM)
+      setScreenSize(NavigationBarSize.MEDIUM)
     } else if (390 < window.innerWidth) {
-      setScreenSize(ScreenSize.SMALL)
+      setScreenSize(NavigationBarSize.SMALL)
     } else {
-      setScreenSize(ScreenSize.XSMALL)
+      setScreenSize(NavigationBarSize.XSMALL)
     }
   }
   window.addEventListener('resize', updateScreenSize)
@@ -200,54 +184,10 @@ function NavigationBar(props: {
           </div>
         </div>     
       </EggToolbar>
-      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <List>
-          <ListItemButton onClick={() => {
-            setDrawerOpen(false)
-            navigate('/home')
-          }}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText>
-              {t('navbar.HomePage')}
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton onClick={() => {
-            setDrawerOpen(false)
-            navigate('/program')
-          }}>
-            <ListItemIcon>
-              <ListAltIcon />
-            </ListItemIcon>
-            <ListItemText>
-              {t('navbar.Program')}
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton onClick={() => {
-            setDrawerOpen(false)
-            navigate('/speakers')
-          }}>
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            <ListItemText>
-              {t('navbar.SpeakersAndOrganisers')}
-            </ListItemText>
-          </ListItemButton>
-          <ListItemButton onClick={() => {
-            setDrawerOpen(false)
-            navigate('/photos')
-          }}>
-            <ListItemIcon>
-              <CameraIcon />
-            </ListItemIcon>
-            <ListItemText>
-              {t('navbar.Photos')}
-            </ListItemText>
-          </ListItemButton>
-        </List>
-      </Drawer>
+      <EggDrawer
+        drawerOpen={drawerOpen}
+        setDrawerOpen={setDrawerOpen}
+        size={screenSize}/>
     </AppBar>
   </>
 }

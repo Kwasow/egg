@@ -10,7 +10,8 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Button
+  Button,
+  Divider
 } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
@@ -104,19 +105,29 @@ export function EggDrawer(props: {
 
   return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
     <List>
+      <div className='drawer-logo-container'>
+        <img
+          className='drawer-logo'
+          src={imageUrl + 'logo.png'}
+          alt={t('navbar.LogoAlt') || ''}/>
+      </div>
+      <Divider />
       {menuItems.map((value, key) => {
         return <ListItemButton key={key} onClick={() => {
           navigate(value.link[0])
           setDrawerOpen(false)
         }}>
-          <ListItemIcon>
+          <ListItemIcon sx={{
+            color: '#c53d63'
+          }}>
             {value.icon}
           </ListItemIcon>
           <ListItemText>
-            {t(value.translationString)}
+            {(t(value.translationString) || '').toUpperCase()}
           </ListItemText>
         </ListItemButton>
       })}
+      <Divider />
       {isScreenSmall(size) && <div className='drawer-bottom'>
         <Button
           sx={{
@@ -159,7 +170,7 @@ function NavigationTabs(props: {
   route: string,
   t: TFunction
 }) {
-  const [value, setValue] = React.useState(props.route)
+  const [value, setValue] = useState(props.route)
   const navigate = useNavigate()
 
   if (value == '/') {

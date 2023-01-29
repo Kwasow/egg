@@ -1,5 +1,5 @@
-import { Paper } from '@mui/material'
 import React, { useEffect, useState } from 'react'
+import { Paper } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Countdown } from '../components/Countdown'
 import { Slideshow, Slide } from '../components/Slideshow'

@@ -27,7 +27,7 @@ function Footer() {
       <div className='footer-bottom'>
         <div className='footer-bottom-left'>
           <div className='footer-contact'>
-            <p className='contact-title'>Kontakt</p>
+            <p className='contact-title'>{t('footer.contact')}</p>
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
               className='contact'>sknkarowa2@gmail.com<br></br></a>
@@ -37,7 +37,7 @@ function Footer() {
             </div>
           </div>
           <div className='footer-contact'>
-            <p className='contact-title'>Dane koła</p>
+            <p className='contact-title'>{t('footer.adress')}</p>
             <p className='contact' style={{ fontStyle: 'italic' }}>
               Studenckie Koło Naukowe <br/> 
               przy II Katedrze Ginekologii i Położnictwa <br/>

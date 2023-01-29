@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSwipeable } from 'react-swipeable'
 import i18n from '../utils/i18n'
 import './Slideshow.css'
 
@@ -17,6 +18,8 @@ export type Slide = {
 export function Slideshow(props: {
   slides: Slide[]
 }) {
+  const {slides} = props
+
   const [index, setIndex] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const {t} = useTranslation()
@@ -31,9 +34,7 @@ export function Slideshow(props: {
     resetTimeout()
     timeoutRef.current = setTimeout(
       () =>
-        setIndex((prevIndex) =>
-          prevIndex === props.slides.length - 1 ? 0 : prevIndex + 1
-        ),
+        setIndex((prevIndex) => (prevIndex + 1) % slides.length),
       delay
     )
 
@@ -42,13 +43,20 @@ export function Slideshow(props: {
     }
   }, [index])
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () =>
+      setIndex((prevIndex) => (prevIndex + 1) % slides.length),
+    onSwipedRight: () => 
+      setIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length),
+  })
+
   return (
-    <div className='slideshow'>
+    <div className='slideshow' {...handlers}>
       <div
         className='slideshowSlider'
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
-        {props.slides.map((slide, index) => (
+        {slides.map((slide, index) => (
           <a
             className='slide'
             key={index}
@@ -72,7 +80,7 @@ export function Slideshow(props: {
       </div>
 
       <div className='slideshowDots'>
-        {props.slides.map((_, idx) => (
+        {slides.map((_, idx) => (
           <div
             key={idx}
             className={`slideshowDot${index === idx ? ' active' : ''}`}

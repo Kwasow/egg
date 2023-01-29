@@ -65,7 +65,27 @@
   padding-left: 20px;
 }
 
+@media screen and (max-width: 719px) {
+  .appbar-right-top-icon {
+    height: 40px;
+    object-fit: contain;
+    padding-left: 0px;
+  }
+}
+
 .appbar-navigate-home-container {
   display: flex;
   flex-direction: row;
+}
+
+.drawer-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-bottom-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

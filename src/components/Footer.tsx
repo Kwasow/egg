@@ -19,15 +19,19 @@ function Footer() {
             <p className='contact-title'>Kontakt</p>
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
-              className='contact'>kontakt@weekendzginekologia.pl<br></br></a>
+              className='contact'>sknkarowa2@gmail.com<br></br></a>
             <FacebookIconLink white={true}/>
             <InstagramIconLink white={true}/>
           </div>
           <div className='footer-contact'>
             <p className='contact-title'>Dane koła</p>
-            <p className='contact'>SKN Położnictwa i Ginekologii</p>
-            <p className='contact'>ul. Adresowa 7/12</p>
-            <p className='contact'>01-234 Warszawa</p>
+            <p className='contact' style={{ fontStyle: 'italic' }}>
+              Studenckie Koło Naukowe <br/> 
+              przy II Katedrze Ginekologii i Położnictwa <br/>
+              Warszawskiego Uniwersytetu Medycznego
+            </p>
+            <p className='contact'>ul. Karowa 2</p>
+            <p className='contact'>00-315 Warszawa</p>
             <p className='contact'></p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import './Footer.css'
@@ -6,6 +6,17 @@ import { FacebookIconLink, InstagramIconLink } from './Shared'
 
 function Footer() {
   const {t} = useTranslation()
+  const [smallScreen, setSmallScreen] = useState(false)
+
+  function updateScreenSize() {
+    if (window.innerWidth < 1100) {
+      setSmallScreen(true)
+    } else {
+      setSmallScreen(false)
+    }
+  }
+  window.addEventListener('resize', updateScreenSize)
+  useEffect(updateScreenSize, [])
 
   return <footer>
     <div className='footer-container'>
@@ -20,8 +31,10 @@ function Footer() {
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
               className='contact'>sknkarowa2@gmail.com<br></br></a>
-            <FacebookIconLink white={true}/>
-            <InstagramIconLink white={true}/>
+            <div className='social-container'>
+              <FacebookIconLink white={true}/>
+              <InstagramIconLink white={true}/>
+            </div>
           </div>
           <div className='footer-contact'>
             <p className='contact-title'>Dane koła</p>
@@ -35,10 +48,13 @@ function Footer() {
             <p className='contact'></p>
           </div>
         </div>
-        <div className='footer-bottom-right'>
+        {!smallScreen && <div className='footer-bottom-right'>
           <p className='copyright-text'>{t('footer.copyright')}</p>
-        </div>
+        </div>}
       </div>
+      {smallScreen && <p className='copyright-text'>
+        {t('footer.copyright')}
+      </p>}
     </div>
   </footer>
 }

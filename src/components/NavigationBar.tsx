@@ -21,10 +21,10 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
-import { Menu as MenuIcon } from '@mui/icons-material'
 import './NavigationBar.css'
 import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
 import {
+  Menu as MenuIcon,
   Home as HomeIcon,
   ListAlt as ListAltIcon,
   Person as PersonIcon,

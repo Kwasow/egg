@@ -31,7 +31,7 @@
   position: absolute;
   top: 35%;
 
-  margin-left: 60px;
+  margin-left: 5%;
 }
 
 .slide-title {
@@ -50,6 +50,62 @@
 
   top: 35%;
   margin-top: 0;
+}
+
+@media screen and (max-width: 1225px) {
+  .slide-title {
+    font-size: 3em;
+  }
+
+  .slide-subtitle {
+    font-size: 1em;
+  }
+
+  .slide {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .slide-title {
+    font-size: 2em;
+  }
+
+  .slide-subtitle {
+    font-size: 0.75em;
+  }
+
+  .slide {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .slide-title {
+    font-size: 1.5em;
+  }
+
+  .slide-subtitle {
+    font-size: 0.75em;
+  }
+
+  .slide {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .slide-title {
+    font-size: 1.25em;
+  }
+
+  .slide-subtitle {
+    font-size: 0.75em;
+  }
+
+  .slide {
+    height: 200px;
+  }
 }
 
 /* Buttons */

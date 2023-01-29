@@ -101,6 +101,17 @@ function News() {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
+  const [smallScreen, setSmallScreen] = useState(false)
+
+  function updateScreenSize() {
+    if (window.innerWidth < 500) {
+      setSmallScreen(true)
+    } else {
+      setSmallScreen(false)
+    }
+  }
+  window.addEventListener('resize', updateScreenSize)
+  useEffect(updateScreenSize, [])
 
   useEffect(() => {
     fetch(newsURL)
@@ -115,39 +126,79 @@ function News() {
       })
   }, [])
 
+  function RegistrationBig() {
+    return <NewsCard>
+      <div className='news-registration'>
+        <img
+          src={newsPrefix + news?.registration.image}
+          className='registration-photo'/>
+        <div className='registration-right'>
+          <div>
+            <p className='registration-title'>
+              {decideLanguage(
+                i18n.language,
+                news?.registration.title_pl,
+                news?.registration.title_en
+              )}
+            </p>
+            <p className='registration-content'>
+              {decideLanguage(
+                i18n.language,
+                news?.registration.text_pl,
+                news?.registration.text_en
+              )}
+            </p>
+          </div>
+          <p className='registration-date'>{
+            new Date(
+              Date.parse(news?.registration.date || '')
+            ).toLocaleDateString()
+          }</p>
+        </div>
+      </div>
+    </NewsCard>
+  }
+
+  function RegistrationSmall() {
+    return <NewsCard>
+      <div className='news-other' style={{
+        backgroundColor: '#c53d63'
+      }}>
+        <div>
+          <img
+            src={newsPrefix + news?.registration.image}
+            className='other-photo'/>
+          <p className='other-title' style={{ color: 'white' }}>
+            {decideLanguage(
+              i18n.language,
+              news?.registration.title_pl,
+              news?.registration.title_en
+            )}
+          </p>
+          <p className='other-content' style={{ color: 'white' }}>
+            {decideLanguage(
+              i18n.language,
+              news?.registration.text_pl,
+              news?.registration.text_en
+            )}
+          </p>
+        </div>
+        <p className='other-date' style={{ color: 'white' }}>{
+          new Date(
+            Date.parse(news?.registration.date || '')
+          ).toLocaleDateString()
+        }</p>
+      </div>
+    </NewsCard>
+  }
+
   if (loaded == 1) {
     return <Paper sx={{ overflow: 'auto' }}>
       <div className='news-container'>
-        <NewsCard>
-          <div className='news-registration'>
-            <img
-              src={newsPrefix + news?.registration.image}
-              className='registration-photo'/>
-            <div className='registration-right'>
-              <div>
-                <p className='registration-title'>
-                  {decideLanguage(
-                    i18n.language,
-                    news?.registration.title_pl,
-                    news?.registration.title_en
-                  )}
-                </p>
-                <p className='registration-content'>
-                  {decideLanguage(
-                    i18n.language,
-                    news?.registration.text_pl,
-                    news?.registration.text_en
-                  )}
-                </p>
-              </div>
-              <p className='registration-date'>{
-                new Date(
-                  Date.parse(news?.registration.date || '')
-                ).toLocaleDateString()
-              }</p>
-            </div>
-          </div>
-        </NewsCard>
+        {smallScreen
+          ? <RegistrationSmall />
+          : <RegistrationBig />
+        }
         {news?.other.map((value, index) => {
           return <NewsCard key={index}>
             <div className='news-other'>

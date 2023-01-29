@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import './Countdown.css'
 
@@ -41,7 +41,7 @@ export function Countdown(props: {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(props.date))
   const {t} = useTranslation()
 
-  React.useEffect(() => {
+  useEffect(() => {
     const id = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(props.date))
     }, 1000)
@@ -49,7 +49,7 @@ export function Countdown(props: {
     return () => {
       clearTimeout(id)
     }
-  })
+  }, [])
 
   return <div className='countdown-wrapper'>
     <div className='countdown-element'>

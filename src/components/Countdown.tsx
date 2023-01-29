@@ -49,7 +49,7 @@ export function Countdown(props: {
     return () => {
       clearTimeout(id)
     }
-  }, [])
+  })
 
   return <div className='countdown-wrapper'>
     <div className='countdown-element'>

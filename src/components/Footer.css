@@ -1,13 +1,19 @@
 .footer-container {
-  margin: 2%;
-  margin-top: 1%;
+  margin: 16px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
 }
 
 .footer-top {
   align-self: flex-start;
-  margin-bottom: 2%;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .footer-top {
+    align-self: center;
+  }
 }
 
 .conference-title {
@@ -24,6 +30,16 @@
   top: 0;
 }
 
+@media screen and (max-width: 480px) {
+  .conference-title {
+    font-size: 1.5em;
+  }
+
+  .conference-subtitle {
+    font-size: 1.5em;
+  }
+}
+
 .footer-bottom {
   display: flex;
   flex-direction: row;
@@ -38,6 +54,17 @@
 .footer-contact {
   text-align: left;
   padding-right: 30px;
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: 580px) {
+  .footer-bottom-left {
+    flex-direction: column-reverse;
+  }
+
+  .footer-contact {
+    padding-right: 0px;
+  }
 }
 
 .footer-bottom-right {
@@ -52,6 +79,10 @@
 .contact-title {
   font-weight: bold;
   margin: 0;
+}
+
+.social-container {
+  padding-top: 15px;
 }
 
 .contact {

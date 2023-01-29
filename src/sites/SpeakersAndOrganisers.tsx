@@ -83,7 +83,7 @@ function PeopleListView(props: {
   people: PersonJSON[],
   type: string
 }) {
-  const {t, i18n} = useTranslation()
+  const { t, i18n } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + props.type + '/'
 
   if (props.people.length === 0) {
@@ -144,7 +144,7 @@ function Speakers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  
+
   useEffect(() => {
     getPeopleSorted(type)
       .then((res) => {
@@ -156,7 +156,7 @@ function Speakers(props: TabPanelProps) {
         setLoaded(2)
       })
   }, [])
-  
+
   if (props.index == props.value) {
     if (loaded === 1) {
       return <PeopleListView people={people} type={type} />
@@ -179,8 +179,9 @@ function Organisers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  const {i18n} = useTranslation()
-  
+  const { i18n } = useTranslation()
+  const { t } = useTranslation()
+
   useEffect(() => {
     getPeopleSorted(type)
       .then((res) => {
@@ -203,17 +204,19 @@ function Organisers(props: TabPanelProps) {
           backgroundColor: '#c53d63',
         }}>
           <div className='about-us-card-left-container'>
-            <p className='about-us-title'>O nas</p>
+            <p className='about-us-title'>
+              {t('speakersAndOrganisers.aboutUs')}</p>
             <div className='about-us-inner-container'>
               <img className='about-us-logo'
-                src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'}/>
+                alt={t('speakersAndOrganisers.logoAlt') || ''}
+                src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'} />
               <p className='about-us-text'>
                 {i18n.language === 'pl' ? about_pl : about_en}
               </p>
             </div>
             <p className='about-us-title' style={{
               visibility: 'hidden'
-            }}>O nas</p>  
+            }}>{t('speakersAndOrganisers.aboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
@@ -239,7 +242,7 @@ function a11yProps(index: number) {
 }
 
 function SpeakersAndOrganisers() {
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   const [tab, setTab] = useState(0)
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -248,7 +251,7 @@ function SpeakersAndOrganisers() {
 
   return <>
     <div className='top-person-wrap'>
-      <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'}/>
+      <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
       <div className='top-person-text'>
         <p className='people-left-name' style={{
           marginBottom: 0

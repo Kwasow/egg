@@ -42,15 +42,11 @@ function PhotosSection(props: {
     <p className='photos-section-title'>{props.name}</p>
     <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>
       <PhotoProvider>
-        <div style={{display: 'flex', flexWrap: 'wrap',
-          justifyContent: 'center', alignItems: 'center'}}>
+        <div className='photos-image-container'>
           {props.photos.map((item, index) => (
             <PhotoView key={index} src={directory + item}>
               <img
-                style={{
-                  height: 120,
-                  width: 250, objectFit: 'cover', padding: '0.33%',
-                  justifyContent: 'center', alignItems: 'center'}}
+                className='photos-image'
                 src={directory + item}
                 alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
             </PhotoView>

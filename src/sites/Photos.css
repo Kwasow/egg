@@ -11,6 +11,22 @@
 }
 
 .photos-photo {
-  object-fit: 'cover';
+  object-fit: cover;
   cursor: pointer;
+}
+
+.photos-image {
+  height: 120px; 
+  width: 250px; 
+  object-fit: cover;
+  padding: 0.33%;
+  justify-content: center;
+  align-items: center;
+}
+
+.photos-image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

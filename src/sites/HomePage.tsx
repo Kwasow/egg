@@ -83,24 +83,11 @@ function Sponsors() {
     <p className='sponsors-header'>{t('mainPage.Partners')}</p>
     <div className='sponsors-container'>
       <SponsorImage 
-        image='/static/sponsors/wum.png'
-        title='Warszawski Uniwersytet Medyczny'/>
-      <SponsorImage 
-        image='/static/sponsors/lek.png'
-        title='Wydział Lekarski Warszawskiego Uniwersytetetu Medycznego'/>
+        image='/static/sponsors/wum.png'/>
     </div>
     <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
     <div className='sponsors-container'>
       <SponsorImage image='/static/sponsors/stn.png'/>
-      <SponsorImage image='/static/sponsors/wnl.png'/>
-      <SponsorImage image='/static/sponsors/mns.png'/>
-      <SponsorImage image='/static/sponsors/ifmsa.png'/>
-    </div>
-    <div className='sponsors-container'>
-      <SponsorImage image='/static/sponsors/dr_kitel.png'/>
-      <SponsorImage image='/static/sponsors/mp.png'/>
-      <SponsorImage image='/static/sponsors/pzwl.png'/>
-      <SponsorImage image='/static/sponsors/lepolek.png'/>
     </div>
   </>
 }

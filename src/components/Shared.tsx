@@ -8,7 +8,7 @@ export function FacebookIconLink(props: {
   white?: boolean
 }) {
   return <a
-    href='https://www.facebook.com/'
+    href='https://www.facebook.com/profile.php?id=100057690391510'
     target='_blank'
     rel='noreferrer'
     style={props.style}>
@@ -23,7 +23,7 @@ export function InstagramIconLink(props: {
   white?: boolean
 }) {
   return <a
-    href='https://www.instagram.com'
+    href='https://www.instagram.com/sknkarowa/'
     target='_blank'
     rel='noreferrer'
     {...props}>

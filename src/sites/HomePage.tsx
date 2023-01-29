@@ -120,7 +120,6 @@ function News() {
       .then((res) => res.json())
       .then((json: NewsJSON) => {
         setNews(json)
-        console.log(json)
         setLoaded(1)
       })
       .catch((err) => {

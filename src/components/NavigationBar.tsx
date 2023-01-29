@@ -4,12 +4,12 @@ import {
   Box,
   Tabs,
   Tab,
-  Drawer,
-  ListItem,
-  List,
-  ListItemText,
   IconButton,
-  ListItemIcon
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+  ListItemIcon,
 } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
@@ -20,15 +20,15 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
+import { Menu as MenuIcon } from '@mui/icons-material'
+import './NavigationBar.css'
+import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
 import {
-  Menu as MenuIcon,
   Home as HomeIcon,
   ListAlt as ListAltIcon,
   Person as PersonIcon,
   Camera as CameraIcon
 } from '@mui/icons-material'
-import './NavigationBar.css'
-import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
 
 const siteList = ['/home', '/program', '/speakers', '/photos']
 
@@ -123,8 +123,11 @@ function isScreenBig(size: ScreenSize) {
 function NavigationBar(props: {
   route: string
 }) {
+  const {route} = props
+
   const {t} = useTranslation()
   const navigate = useNavigate()
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
   function updateScreenSize() {
@@ -141,47 +144,17 @@ function NavigationBar(props: {
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
   return <>
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar'>
           <div className='appbar-left' onClick={() => navigate('/')}>
-            <Drawer
-              open={drawerOpen}
-              onClose={() => setDrawerOpen(false)}>
-              <List>
-                <ListItem onClick={() => setDrawerOpen(false)}>
-                  <ListItemIcon><HomeIcon /></ListItemIcon>
-                  <ListItemText>
-                    {t('navbar.HomePage')}
-                  </ListItemText>
-                </ListItem>
-                <ListItem onClick={() => setDrawerOpen(false)}>
-                  <ListItemIcon><ListAltIcon /></ListItemIcon>
-                  <ListItemText>
-                    {t('navbar.Program')}
-                  </ListItemText>
-                </ListItem>
-                <ListItem onClick={() => setDrawerOpen(false)}>
-                  <ListItemIcon><PersonIcon /></ListItemIcon>
-                  <ListItemText>
-                    {t('navbar.SpeakersAndOrganisers')}
-                  </ListItemText>
-                </ListItem>
-                <ListItem onClick={() => setDrawerOpen(false)}>
-                  <ListItemIcon><CameraIcon /></ListItemIcon>
-                  <ListItemText>
-                    {t('navbar.Photos')}
-                  </ListItemText>
-                </ListItem>
-              </List>
-            </Drawer>
             <IconButton
-              aria-label="Menu"
+              aria-label='Menu'
               color='inherit'
-              onClick={() => setDrawerOpen(true)}
+              onClick={() => {
+                setDrawerOpen(true)
+              }}
               style={{
                 visibility: isScreenBig(screenSize) ? 'collapse' : 'visible'
               }}>
@@ -209,7 +182,7 @@ function NavigationBar(props: {
           <div className='appbar-middle' style={{
             visibility: isScreenBig(screenSize) ? 'visible' : 'collapse'
           }}>
-            <NavigationTabs route={props.route} t={t}/>
+            <NavigationTabs route={route} t={t}/>
           </div>
 
           <div className='appbar-right' style={{
@@ -225,6 +198,54 @@ function NavigationBar(props: {
           </div>
         </div>     
       </EggToolbar>
+      <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <List>
+          <ListItemButton onClick={() => {
+            setDrawerOpen(false)
+            navigate('/home')
+          }}>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText>
+              {t('navbar.HomePage')}
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={() => {
+            setDrawerOpen(false)
+            navigate('/program')
+          }}>
+            <ListItemIcon>
+              <ListAltIcon />
+            </ListItemIcon>
+            <ListItemText>
+              {t('navbar.Program')}
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={() => {
+            setDrawerOpen(false)
+            navigate('/speakers')
+          }}>
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            <ListItemText>
+              {t('navbar.SpeakersAndOrganisers')}
+            </ListItemText>
+          </ListItemButton>
+          <ListItemButton onClick={() => {
+            setDrawerOpen(false)
+            navigate('/photos')
+          }}>
+            <ListItemIcon>
+              <CameraIcon />
+            </ListItemIcon>
+            <ListItemText>
+              {t('navbar.Photos')}
+            </ListItemText>
+          </ListItemButton>
+        </List>
+      </Drawer>
     </AppBar>
   </>
 }

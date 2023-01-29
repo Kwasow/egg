@@ -22,6 +22,10 @@
   .news-registration {
     width: 500px;
   }
+
+  .news-container {
+    padding-left: 0px;
+  }
 }
 
 .registration-photo {

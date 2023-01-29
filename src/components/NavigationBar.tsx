@@ -106,7 +106,10 @@ export function EggDrawer(props: {
   return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
     <List>
       <div className='drawer-logo-container'>
-        <img className='drawer-logo' src={imageUrl + 'logo.png'}/>
+        <img
+          className='drawer-logo'
+          src={imageUrl + 'logo.png'}
+          alt={t('navbar.LogoAlt') || ''}/>
       </div>
       <Divider />
       {menuItems.map((value, key) => {

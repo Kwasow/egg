@@ -20,8 +20,8 @@ function Footer() {
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
               className='contact'>kontakt@weekendzginekologia.pl<br></br></a>
-            <FacebookIconLink />
-            <InstagramIconLink />
+            <FacebookIconLink white={true}/>
+            <InstagramIconLink white={true}/>
           </div>
           <div className='footer-contact'>
             <p className='contact-title'>Dane koła</p>

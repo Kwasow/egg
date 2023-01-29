@@ -1,23 +1,26 @@
 import React from 'react'
+import './Shared.css'
 
 export const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 
 export function FacebookIconLink(props: {
-  style?: React.CSSProperties
+  style?: React.CSSProperties,
+  white?: boolean
 }) {
   return <a
     href='https://www.facebook.com/'
     target='_blank'
     rel='noreferrer'
-    {...props}>
+    style={props.style}>
     <img
-      className='appbar-right-top-svg'
+      className={props.white ? 'svg-white' : 'svg-default'}
       src={imageUrl + 'facebook.svg'} />
   </a>
 }
 
 export function InstagramIconLink(props: {
-  style?: React.CSSProperties
+  style?: React.CSSProperties,
+  white?: boolean
 }) {
   return <a
     href='https://www.instagram.com'
@@ -25,7 +28,7 @@ export function InstagramIconLink(props: {
     rel='noreferrer'
     {...props}>
     <img
-      className='appbar-right-top-svg'
+      className={props.white ? 'svg-white' : 'svg-default'}
       src={imageUrl + 'instagram.svg'} />
   </a>
 }

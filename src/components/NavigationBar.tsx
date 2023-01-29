@@ -1,5 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { AppBar, Box, Tabs, Tab, IconButton } from '@mui/material'
+import React, { ReactElement, useEffect, useState } from 'react'
+import {
+  AppBar,
+  Box,
+  Tabs,
+  Tab,
+  IconButton,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Button
+} from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
   AppBarActionButton,
@@ -12,9 +24,124 @@ import { TFunction } from 'i18next'
 import { Menu as MenuIcon } from '@mui/icons-material'
 import './NavigationBar.css'
 import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
-import { EggDrawer } from './Drawer'
+import {
+  Home as HomeIcon,
+  ListAlt as ListAltIcon,
+  Person as PersonIcon,
+  Camera as CameraIcon
+} from '@mui/icons-material'
 
-const siteList = ['/home', '/program', '/speakers', '/photos']
+type MenuItem = {
+  translationString: string,
+  link: string[],
+  icon: ReactElement
+}
+
+enum NavigationBarSize {XSMALL, SMALL, MEDIUM, BIG}
+
+function isScreenXSmall(size: NavigationBarSize) {
+  return size === NavigationBarSize.XSMALL
+}
+
+function isScreenSmall(size: NavigationBarSize) {
+  return size === NavigationBarSize.SMALL
+      || size === NavigationBarSize.XSMALL
+}
+
+function isScreenBig(size: NavigationBarSize) {
+  return size === NavigationBarSize.BIG
+}
+
+const menuItems: MenuItem[] = [
+  {
+    translationString: 'navbar.HomePage',
+    link: ['/home', '/'],
+    icon: <HomeIcon />
+  },
+  {
+    translationString: 'navbar.Program',
+    link: ['/program'],
+    icon: <ListAltIcon />
+  },
+  {
+    translationString: 'navbar.SpeakersAndOrganisers',
+    link: ['/speakers'],
+    icon: <PersonIcon />
+  },
+  {
+    translationString: 'navbar.Photos',
+    link: ['/photos'],
+    icon: <CameraIcon />
+  },
+]
+
+function LanguageSwitcher(props: {
+  style?: React.CSSProperties
+}) {
+  const {i18n} = useTranslation()
+
+  return i18n.language == 'pl'
+    ? <a onClick={() => i18n.changeLanguage('en')} {...props}>
+      <img
+        className='appbar-right-top-icon'
+        src={imageUrl + 'english.png'}/>
+    </a>
+    : <a onClick={() => i18n.changeLanguage('pl')} {...props}>
+      <img
+        className='appbar-right-top-icon'
+        src={imageUrl + 'polish.png'}/>
+    </a>
+}
+
+export function EggDrawer(props: {
+  drawerOpen: boolean,
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  size: NavigationBarSize
+}) {
+  const navigate = useNavigate()
+  const {drawerOpen, setDrawerOpen, size} = props
+  const {t} = useTranslation()
+
+  return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+    <List>
+      <LanguageSwitcher />
+      {menuItems.map((value, key) => {
+        return <ListItemButton key={key} onClick={() => {
+          navigate(value.link[0])
+          setDrawerOpen(false)
+        }}>
+          <ListItemIcon>
+            {value.icon}
+          </ListItemIcon>
+          <ListItemText>
+            {t(value.translationString)}
+          </ListItemText>
+        </ListItemButton>
+      })}
+      {isScreenSmall(size) && <div style={{
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <Button
+          sx={{
+            paddingTop: '15px',
+            paddingBottom: '15px'
+          }}
+          onClick={() => window.open('https://google.com')}>
+          {t('navbar.Register')}
+        </Button>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}>
+          <FacebookIconLink />
+          <InstagramIconLink />
+        </div>
+      </div>}
+    </List>
+  </Drawer>
+}
 
 function a11yProps(index: number) {
   return {
@@ -24,8 +151,8 @@ function a11yProps(index: number) {
 }
 
 function checkRoute(route: string) {
-  const index = siteList.findIndex((value: string) => {
-    return route === value
+  const index = menuItems.findIndex((value: MenuItem) => {
+    return route === value.link[0]
   })
   
   if (index !== -1) {
@@ -47,8 +174,8 @@ function NavigationTabs(props: {
   }
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    navigate(siteList[newValue])
-    setValue(siteList[newValue])
+    navigate(menuItems[newValue].link[0])
+    setValue(menuItems[newValue].link[0])
   }
 
   return (
@@ -69,39 +196,6 @@ function NavigationTabs(props: {
       </Box>
     </Box>
   )
-}
-
-function LanguageSwitcher(props: {
-  style?: React.CSSProperties
-}) {
-  const {i18n} = useTranslation()
-
-  return i18n.language == 'pl'
-    ? <a onClick={() => i18n.changeLanguage('en')} {...props}>
-      <img
-        className='appbar-right-top-icon'
-        src={imageUrl + 'english.png'}/>
-    </a>
-    : <a onClick={() => i18n.changeLanguage('pl')} {...props}>
-      <img
-        className='appbar-right-top-icon'
-        src={imageUrl + 'polish.png'}/>
-    </a>
-}
-
-export enum NavigationBarSize {XSMALL, SMALL, MEDIUM, BIG}
-
-function isScreenXSmall(size: NavigationBarSize) {
-  return size === NavigationBarSize.XSMALL
-}
-
-function isScreenSmall(size: NavigationBarSize) {
-  return size === NavigationBarSize.SMALL
-      || size === NavigationBarSize.XSMALL
-}
-
-function isScreenBig(size: NavigationBarSize) {
-  return size === NavigationBarSize.BIG
 }
 
 function NavigationBar(props: {
@@ -174,8 +268,8 @@ function NavigationBar(props: {
           <div className='appbar-right' style={{
             visibility: isScreenSmall(screenSize) ? 'collapse' : 'visible'
           }}>
-            <FacebookIconLink />
-            <InstagramIconLink />
+            <FacebookIconLink white={true}/>
+            <InstagramIconLink white={true}/>
             <AppBarActionButton 
               onClick={() => window.open('https://google.com')}>
               {t('navbar.Register')}

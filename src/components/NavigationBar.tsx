@@ -104,7 +104,6 @@ export function EggDrawer(props: {
 
   return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
     <List>
-      <LanguageSwitcher />
       {menuItems.map((value, key) => {
         return <ListItemButton key={key} onClick={() => {
           navigate(value.link[0])
@@ -134,9 +133,11 @@ export function EggDrawer(props: {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
+          alignItems: 'center'
         }}>
           <FacebookIconLink />
           <InstagramIconLink />
+          <LanguageSwitcher />
         </div>
       </div>}
     </List>

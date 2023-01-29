@@ -148,7 +148,7 @@ function NavigationBar(props: {
     <AppBar position='fixed'>
       <EggToolbar>
         <div className='appbar'>
-          <div className='appbar-left' onClick={() => navigate('/')}>
+          <div className='appbar-left'>
             <IconButton
               aria-label='Menu'
               color='inherit'
@@ -160,7 +160,9 @@ function NavigationBar(props: {
               }}>
               <MenuIcon />
             </IconButton>
-            <div className='appbar-navigate-home-container'>
+            <div
+              className='appbar-navigate-home-container'
+              onClick={() => navigate('/')}>
               <img className='appbar-logo'
                 alt={t('navbar.LogoAlt') || ''}
                 src={imageUrl + 'logo.png'}

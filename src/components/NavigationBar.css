@@ -4,6 +4,14 @@
   margin: 0;
 }
 
+.appbar-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
 .appbar-subname {
   margin: 0;
   font-family: 'Moontime';
@@ -47,6 +55,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .appbar-right-top-icon {
@@ -56,9 +65,7 @@
   padding-left: 20px;
 }
 
-.appbar-right-top-svg {
-  cursor: pointer;
-  vertical-align: middle;
-  padding-right: 20px;
-  filter: invert(96%) sepia(100%) saturate(12%) hue-rotate(237deg) brightness(103%) contrast(103%);
+.appbar-navigate-home-container {
+  display: flex;
+  flex-direction: row;
 }

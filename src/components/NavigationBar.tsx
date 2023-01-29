@@ -117,10 +117,7 @@ export function EggDrawer(props: {
           </ListItemText>
         </ListItemButton>
       })}
-      {isScreenSmall(size) && <div style={{
-        display: 'flex',
-        flexDirection: 'column'
-      }}>
+      {isScreenSmall(size) && <div className='drawer-bottom'>
         <Button
           sx={{
             paddingTop: '15px',
@@ -129,12 +126,7 @@ export function EggDrawer(props: {
           onClick={() => window.open('https://google.com')}>
           {t('navbar.Register')}
         </Button>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
+        <div className='drawer-bottom-icons'>
           <FacebookIconLink />
           <InstagramIconLink />
           <LanguageSwitcher />

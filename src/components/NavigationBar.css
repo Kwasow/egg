@@ -77,3 +77,15 @@
   display: flex;
   flex-direction: row;
 }
+
+.drawer-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-bottom-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

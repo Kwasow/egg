@@ -37,19 +37,19 @@ type MenuItem = {
   icon: ReactElement
 }
 
-enum NavigationBarSize {XSMALL, SMALL, MEDIUM, BIG}
+enum ScreenSize {XSMALL, SMALL, MEDIUM, BIG}
 
-function isScreenXSmall(size: NavigationBarSize) {
-  return size === NavigationBarSize.XSMALL
+function isScreenXSmall(size: ScreenSize) {
+  return size === ScreenSize.XSMALL
 }
 
-function isScreenSmall(size: NavigationBarSize) {
-  return size === NavigationBarSize.SMALL
-      || size === NavigationBarSize.XSMALL
+function isScreenSmall(size: ScreenSize) {
+  return size === ScreenSize.SMALL
+      || size === ScreenSize.XSMALL
 }
 
-function isScreenBig(size: NavigationBarSize) {
-  return size === NavigationBarSize.BIG
+function isScreenBig(size: ScreenSize) {
+  return size === ScreenSize.BIG
 }
 
 const menuItems: MenuItem[] = [
@@ -96,7 +96,7 @@ function LanguageSwitcher(props: {
 export function EggDrawer(props: {
   drawerOpen: boolean,
   setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  size: NavigationBarSize
+  size: ScreenSize
 }) {
   const navigate = useNavigate()
   const {drawerOpen, setDrawerOpen, size} = props
@@ -207,16 +207,16 @@ function NavigationBar(props: {
   const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const [screenSize, setScreenSize] = useState(NavigationBarSize.BIG)
+  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
   function updateScreenSize() {
     if (1250 < window.innerWidth) {
-      setScreenSize(NavigationBarSize.BIG)
+      setScreenSize(ScreenSize.BIG)
     } else if (720 < window.innerWidth) {
-      setScreenSize(NavigationBarSize.MEDIUM)
+      setScreenSize(ScreenSize.MEDIUM)
     } else if (390 < window.innerWidth) {
-      setScreenSize(NavigationBarSize.SMALL)
+      setScreenSize(ScreenSize.SMALL)
     } else {
-      setScreenSize(NavigationBarSize.XSMALL)
+      setScreenSize(ScreenSize.XSMALL)
     }
   }
   window.addEventListener('resize', updateScreenSize)

@@ -17,15 +17,9 @@ medycyny ratunkowej i anestezjolodzy.'
 
 const about_en = '[TODO] ' + about_pl
 
-const topPersonDescription = 'Donec maximus lectus quam, vel lobortis lectus \
-aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia \
-consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue \
-urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. \
-Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat \
-leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent \
-ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi \
-ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu \
-ullamcorper a, semper vitae diam. Suspendisse potenti.'
+const topPersonDescription = 'ENYGO President, Fondazione Policlinico \
+Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
+la Salute della Donna e del Bambino e della Salute Pubblica, Rome, Italy'
 
 interface TabPanelProps {
   index: number;
@@ -255,7 +249,7 @@ function SpeakersAndOrganisers() {
       <div className='top-person-text'>
         <p className='people-left-name' style={{
           marginBottom: 0
-        }}>dr Elton John</p>
+        }}>Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
           {t('speakersAndOrganisers.specialGuest')}
         </p>

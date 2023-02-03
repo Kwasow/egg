@@ -27,7 +27,7 @@ function Footer() {
       <div className='footer-bottom'>
         <div className='footer-bottom-left'>
           <div className='footer-contact'>
-            <p className='contact-title'>{t('footer.contact')}</p>
+            <p className='contact-title'>{t('footer.Contact')}</p>
             <a
               href='mailto:kontakt@weekendzginekologia.pl'
               className='contact'>sknkarowa2@gmail.com<br></br></a>
@@ -37,7 +37,7 @@ function Footer() {
             </div>
           </div>
           <div className='footer-contact'>
-            <p className='contact-title'>{t('footer.adress')}</p>
+            <p className='contact-title'>{t('footer.Adress')}</p>
             <p className='contact' style={{ fontStyle: 'italic' }}>
               Studenckie Koło Naukowe <br/> 
               przy II Katedrze Ginekologii i Położnictwa <br/>
@@ -49,11 +49,11 @@ function Footer() {
           </div>
         </div>
         {!smallScreen && <div className='footer-bottom-right'>
-          <p className='copyright-text'>{t('footer.copyright')}</p>
+          <p className='copyright-text'>{t('footer.Copyright')}</p>
         </div>}
       </div>
       {smallScreen && <p className='copyright-text'>
-        {t('footer.copyright')}
+        {t('footer.Copyright')}
       </p>}
     </div>
   </footer>

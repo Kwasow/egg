@@ -4,7 +4,7 @@
   "navbar.LogoAlt": "Logo czwartego weekendu z ginekologią",
   "navbar.HomePage": "Strona główna",
   "navbar.Program": "Program",
-  "navbar.expertsAndSpeakers": "Eksperci i mówcy",
+  "navbar.ExpertsAndSpeakers": "Eksperci i mówcy",
   "navbar.Photos": "Galeria",
   "navbar.Register": "ZAREJESTRUJ SIĘ",
 
@@ -22,17 +22,17 @@
   "program.Activity.ShowDescription": "Zobacz opis",
   "program.Activity.Workshops": "Warsztaty",
 
-  "expertsAndSpeakers.experts": "Eksperci",
-  "expertsAndSpeakers.speakers": "Mówcy",
-  "expertsAndSpeakers.personAlt": "Zdjęcie osoby ",
-  "expertsAndSpeakers.specialGuest": "Gość specjalny",
-  "expertsAndSpeakers.aboutUs": "O nas",
-  "expertsAndSpeakers.logoAlt": "logo studenckiego koła położnictwa i ginekologii warszawskiego uniwersytetu medycznego",
+  "expertsAndSpeakers.Experts": "Eksperci",
+  "expertsAndSpeakers.Speakers": "Mówcy",
+  "expertsAndSpeakers.PersonAlt": "Zdjęcie osoby ",
+  "expertsAndSpeakers.SpecialGuest": "Gość specjalny",
+  "expertsAndSpeakers.AboutUs": "O nas",
+  "expertsAndSpeakers.LogoAlt": "logo studenckiego koła położnictwa i ginekologii warszawskiego uniwersytetu medycznego",
 
-  "notFound.boo": "Bu!",
-  "notFound.message": "Obudziłeś ducha, który mieszka na tej pustej stronie",
+  "notFound.Boo": "Bu!",
+  "notFound.Message": "Obudziłeś ducha, który mieszka na tej pustej stronie",
 
-  "gallery.photoAlt": "Zdjęcie z konferencji",
+  "gallery.PhotoAlt": "Zdjęcie z konferencji",
 
   "countdown.Days": "DNI",
   "countdown.Hours": "GODZINY",
@@ -44,7 +44,7 @@
   "mainPage.Partners": "Partnerzy",
   "mainPage.Sponsors": "Sponsorzy",
 
-  "footer.contact": "Kontakt",
-  "footer.adress": "Dane koła",
-  "footer.copyright": "2023 © Studenckie Koło Naukowe Ginekologii i Położnictwa  WUM"
+  "footer.Contact": "Kontakt",
+  "footer.Adress": "Dane koła",
+  "footer.Copyright": "2023 © Studenckie Koło Naukowe Ginekologii i Położnictwa  WUM"
 }

@@ -48,7 +48,7 @@ function PhotosSection(props: {
               <img
                 className='photos-image'
                 src={directory + item}
-                alt={t('gallery.photoAlt') + ' (' +  props.name +')'} />
+                alt={t('gallery.PhotoAlt') + ' (' +  props.name +')'} />
             </PhotoView>
           ))}
         </div>

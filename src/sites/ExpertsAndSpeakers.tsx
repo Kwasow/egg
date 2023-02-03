@@ -87,7 +87,7 @@ function PeopleGridView(props: {
         <img
           className='grid-person-image'
           src={directory + person.picture}
-          alt={t('expertsAndSpeakers.personAlt') + person.name} />
+          alt={t('expertsAndSpeakers.PersonAlt') + person.name} />
         <p className='grid-person-title'>{person.name}</p>
         <p className='grid-person-subtitle'>
           {i18n.language == 'pl'
@@ -122,7 +122,7 @@ function PeopleListView(props: {
                 ? 'people-right-image'
                 : 'people-left-image'
             }
-            alt={t('expertsAndSpeakers.personAlt') + person.name}
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
             src={directory + person.picture} />
           <div className={
             person.position % 2 == 0
@@ -223,10 +223,10 @@ function Speakers(props: TabPanelProps) {
         }}>
           <div className='about-us-card-left-container'>
             <p className='about-us-title'>
-              {t('expertsAndSpeakers.aboutUs')}</p>
+              {t('expertsAndSpeakers.AboutUs')}</p>
             <div className='about-us-inner-container'>
               <img className='about-us-logo'
-                alt={t('expertsAndSpeakers.logoAlt') || ''}
+                alt={t('expertsAndSpeakers.LogoAlt') || ''}
                 src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'} />
               <p className='about-us-text'>
                 {i18n.language === 'pl' ? about_pl : about_en}
@@ -234,7 +234,7 @@ function Speakers(props: TabPanelProps) {
             </div>
             <p className='about-us-title' style={{
               visibility: 'hidden'
-            }}>{t('expertsAndSpeakers.aboutUs')}</p>
+            }}>{t('expertsAndSpeakers.AboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
@@ -277,16 +277,16 @@ function ExpertsAndSpeakers() {
           marginBottom: 0
         }}>Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
-          {t('expertsAndSpeakers.specialGuest')}
+          {t('expertsAndSpeakers.SpecialGuest')}
         </p>
         <p>{topPersonDescription}</p>
       </div>
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
-        label={t('expertsAndSpeakers.experts')} {...a11yProps(0)} />
+        label={t('expertsAndSpeakers.Experts')} {...a11yProps(0)} />
       <SpeakersTab
-        label={t('expertsAndSpeakers.speakers')} {...a11yProps(1)} />
+        label={t('expertsAndSpeakers.Speakers')} {...a11yProps(1)} />
     </SpeakersTabs>
     <Experts value={tab} index={0} />
     <Speakers value={tab} index={1} />

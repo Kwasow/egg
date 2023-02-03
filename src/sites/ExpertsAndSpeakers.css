@@ -130,3 +130,34 @@
   text-align: justify;
   margin-right: 3%;
 }
+
+.grid-container {
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  padding: 20px;
+}
+
+.grid-person-image {
+  width: 200px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.grid-person-title {
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 0px;
+}
+
+.grid-person-subtitle {
+  font-style: italic;
+  color: gray;
+  margin-top: 0px;
+}

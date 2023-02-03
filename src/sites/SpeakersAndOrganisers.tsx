@@ -258,7 +258,7 @@ function SpeakersAndOrganisers() {
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
-        label={t('speakersAndOrganisers.speakers')} {...a11yProps(0)} />
+        label={t('speakersAndOrganisers.experts')} {...a11yProps(0)} />
       <SpeakersTab
         label={t('speakersAndOrganisers.organisers')} {...a11yProps(1)} />
     </SpeakersTabs>

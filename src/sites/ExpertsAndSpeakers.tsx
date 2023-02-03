@@ -156,7 +156,7 @@ function PeopleListView(props: {
 }
 
 function Experts(props: TabPanelProps) {
-  const type = 'speakers'
+  const type = 'experts'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded
@@ -191,7 +191,7 @@ function Experts(props: TabPanelProps) {
 }
 
 function Speakers(props: TabPanelProps) {
-  const type = 'organisers'
+  const type = 'speakers'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded

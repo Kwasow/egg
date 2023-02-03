@@ -14,8 +14,8 @@
 
   if (strcmp($request_type, 'speakers') == 0) {
     $folder .= 'speakers';
-  } elseif (strcmp($request_type, 'organisers') == 0) {
-    $folder .= 'organisers';
+  } elseif (strcmp($request_type, 'experts') == 0) {
+    $folder .= 'experts';
   } else {
     // request_type missing or invalid
     // 400 - bad request

@@ -76,6 +76,12 @@
   justify-content: center;
 }
 
+.top-person-image {
+  height: 90%;
+  margin-right: 40px;
+  border-radius: 10px;
+}
+
 .top-person-text {
   width: 50%;
   text-align: left;

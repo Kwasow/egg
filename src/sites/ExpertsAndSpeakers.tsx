@@ -269,7 +269,9 @@ function ExpertsAndSpeakers() {
 
   return <>
     <div className='top-person-wrap'>
-      <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
+      <img
+        className='top-person-image'
+        src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
       <div className='top-person-text'>
         <p className='people-left-name' style={{
           marginBottom: 0

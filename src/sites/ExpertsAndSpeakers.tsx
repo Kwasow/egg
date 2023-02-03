@@ -2,7 +2,7 @@ import React, { useEffect, useState, SyntheticEvent } from 'react'
 import { Card, CircularProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
-import './SpeakersAndOrganisers.css'
+import './ExpertsAndSpeakers.css'
 
 const about_pl = 'Studenckie Koło Naukowe przy II Katedrze i Klinice \
 Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
@@ -97,7 +97,7 @@ function PeopleListView(props: {
                   ? 'people-right-image'
                   : 'people-left-image'
               }
-              alt={t('speakersAndOrganisers.personAlt') + person.name}
+              alt={t('expertsAndSpeakers.personAlt') + person.name}
               src={directory + person.picture} />
             <div className={
               person.position % 2 == 0
@@ -199,10 +199,10 @@ function Organisers(props: TabPanelProps) {
         }}>
           <div className='about-us-card-left-container'>
             <p className='about-us-title'>
-              {t('speakersAndOrganisers.aboutUs')}</p>
+              {t('expertsAndSpeakers.aboutUs')}</p>
             <div className='about-us-inner-container'>
               <img className='about-us-logo'
-                alt={t('speakersAndOrganisers.logoAlt') || ''}
+                alt={t('expertsAndSpeakers.logoAlt') || ''}
                 src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'} />
               <p className='about-us-text'>
                 {i18n.language === 'pl' ? about_pl : about_en}
@@ -210,7 +210,7 @@ function Organisers(props: TabPanelProps) {
             </div>
             <p className='about-us-title' style={{
               visibility: 'hidden'
-            }}>{t('speakersAndOrganisers.aboutUs')}</p>
+            }}>{t('expertsAndSpeakers.aboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
@@ -235,7 +235,7 @@ function a11yProps(index: number) {
   }
 }
 
-function SpeakersAndOrganisers() {
+function ExpertsAndSpeakers() {
   const { t } = useTranslation()
   const [tab, setTab] = useState(0)
 
@@ -251,20 +251,20 @@ function SpeakersAndOrganisers() {
           marginBottom: 0
         }}>Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
-          {t('speakersAndOrganisers.specialGuest')}
+          {t('expertsAndSpeakers.specialGuest')}
         </p>
         <p>{topPersonDescription}</p>
       </div>
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
-        label={t('speakersAndOrganisers.experts')} {...a11yProps(0)} />
+        label={t('expertsAndSpeakers.experts')} {...a11yProps(0)} />
       <SpeakersTab
-        label={t('speakersAndOrganisers.organisers')} {...a11yProps(1)} />
+        label={t('expertsAndSpeakers.speakers')} {...a11yProps(1)} />
     </SpeakersTabs>
     <Speakers value={tab} index={0} />
     <Organisers value={tab} index={1} />
   </>
 }
 
-export default SpeakersAndOrganisers
+export default ExpertsAndSpeakers

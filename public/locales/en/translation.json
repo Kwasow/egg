@@ -4,7 +4,7 @@
   "navbar.LogoAlt": "The conference's logo",
   "navbar.HomePage": "Home",
   "navbar.Program": "Program",
-  "navbar.SpeakersAndOrganisers": "Speakers and organisers",
+  "navbar.expertsAndSpeakers": "Experts and speakers",
   "navbar.Photos": "Photos",
   "navbar.Register": "REGISTER",
 
@@ -22,12 +22,12 @@
   "program.Activity.ShowDescription": "Show description",
   "program.Activity.Workshops": "Workshops",
 
-  "speakersAndOrganisers.experts": "Experts",
-  "speakersAndOrganisers.organisers": "Organisers",
-  "speakersAndOrganisers.personAlt": "A picture of ",
-  "speakersAndOrganisers.specialGuest": "Special guest",
-  "speakersAndOrganisers.aboutUs": "About us",
-  "speakersAndOrganisers.logoAlt": "logo of Student Association of Obstetrics and Gynecology WUM",
+  "expertsAndSpeakers.experts": "Experts",
+  "expertsAndSpeakers.speakers": "Speakers",
+  "expertsAndSpeakers.personAlt": "A picture of ",
+  "expertsAndSpeakers.specialGuest": "Special guest",
+  "expertsAndSpeakers.aboutUs": "About us",
+  "expertsAndSpeakers.logoAlt": "logo of Student Association of Obstetrics and Gynecology WUM",
 
   "notFound.boo": "Boo!",
   "notFound.message": "You woke up the ghost living on this empty page",

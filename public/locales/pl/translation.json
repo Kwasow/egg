@@ -4,7 +4,7 @@
   "navbar.LogoAlt": "Logo czwartego weekendu z ginekologią",
   "navbar.HomePage": "Strona główna",
   "navbar.Program": "Program",
-  "navbar.SpeakersAndOrganisers": "Mówcy i organizatorzy",
+  "navbar.expertsAndSpeakers": "Eksperci i mówcy",
   "navbar.Photos": "Galeria",
   "navbar.Register": "ZAREJESTRUJ SIĘ",
 
@@ -22,12 +22,12 @@
   "program.Activity.ShowDescription": "Zobacz opis",
   "program.Activity.Workshops": "Warsztaty",
 
-  "speakersAndOrganisers.experts": "Eksperci",
-  "speakersAndOrganisers.organisers": "Organizatorzy",
-  "speakersAndOrganisers.personAlt": "Zdjęcie osoby ",
-  "speakersAndOrganisers.specialGuest": "Gość specjalny",
-  "speakersAndOrganisers.aboutUs": "O nas",
-  "speakersAndOrganisers.logoAlt": "logo studenckiego koła położnictwa i ginekologii warszawskiego uniwersytetu medycznego",
+  "expertsAndSpeakers.experts": "Eksperci",
+  "expertsAndSpeakers.speakers": "Mówcy",
+  "expertsAndSpeakers.personAlt": "Zdjęcie osoby ",
+  "expertsAndSpeakers.specialGuest": "Gość specjalny",
+  "expertsAndSpeakers.aboutUs": "O nas",
+  "expertsAndSpeakers.logoAlt": "logo studenckiego koła położnictwa i ginekologii warszawskiego uniwersytetu medycznego",
 
   "notFound.boo": "Bu!",
   "notFound.message": "Obudziłeś ducha, który mieszka na tej pustej stronie",

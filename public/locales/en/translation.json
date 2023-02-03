@@ -4,7 +4,7 @@
   "navbar.LogoAlt": "The conference's logo",
   "navbar.HomePage": "Home",
   "navbar.Program": "Program",
-  "navbar.SpeakersAndOrganisers": "Speakers and organisers",
+  "navbar.ExpertsAndSpeakers": "Experts and speakers",
   "navbar.Photos": "Photos",
   "navbar.Register": "REGISTER",
 
@@ -22,17 +22,17 @@
   "program.Activity.ShowDescription": "Show description",
   "program.Activity.Workshops": "Workshops",
 
-  "speakersAndOrganisers.speakers": "Speakers",
-  "speakersAndOrganisers.organisers": "Organisers",
-  "speakersAndOrganisers.personAlt": "A picture of ",
-  "speakersAndOrganisers.specialGuest": "Special guest",
-  "speakersAndOrganisers.aboutUs": "About us",
-  "speakersAndOrganisers.logoAlt": "logo of Student Association of Obstetrics and Gynecology WUM",
+  "expertsAndSpeakers.Experts": "Experts",
+  "expertsAndSpeakers.Speakers": "Speakers",
+  "expertsAndSpeakers.PersonAlt": "A picture of ",
+  "expertsAndSpeakers.SpecialGuest": "Special guest",
+  "expertsAndSpeakers.AboutUs": "About us",
+  "expertsAndSpeakers.LogoAlt": "logo of Student Association of Obstetrics and Gynecology WUM",
 
-  "notFound.boo": "Boo!",
-  "notFound.message": "You woke up the ghost living on this empty page",
+  "notFound.Boo": "Boo!",
+  "notFound.Message": "You woke up the ghost living on this empty page",
 
-  "gallery.photoAlt": "Photo from conference",
+  "gallery.PhotoAlt": "Photo from conference",
 
   "countdown.Days": "DAYS",
   "countdown.Hours": "HOURS",
@@ -44,7 +44,7 @@
   "mainPage.Partners": "Partners",
   "mainPage.Sponsors": "Sponsors",
 
-  "footer.contact": "Contact",
-  "footer.adress": "Adress",
-  "footer.copyright": "2023 © Student Association of Obstetrics and Gynecology WUM"
+  "footer.Contact": "Contact",
+  "footer.Adress": "Adress",
+  "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM"
 }

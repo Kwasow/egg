@@ -55,24 +55,29 @@ function Row(props: {
 }) {
   const {activity} = props
   const [open, setOpen] = useState(false)
+  const isClickable = activity.about_pl.length > 0
 
   return <>
-    <TableRow onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
+    <TableRow
+      onClick={() => isClickable && setOpen(!open)}
+      sx={{ cursor: isClickable ? 'pointer' : 'auto' }}>
       <TableCell>
-        <IconButton
+        {isClickable && <IconButton
           aria-label="expand row"
           size="small"
           onClick={() => setOpen(!open)}
         >
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-        </IconButton>
+        </IconButton>}
       </TableCell>
       <TableCell>
         <>
           {new Date(Date.parse(activity.start)).toLocaleTimeString(
             [], {hour: '2-digit', minute: '2-digit'})}<br/>
-          {new Date(Date.parse(activity.end)).toLocaleTimeString(
-            [], {hour: '2-digit', minute: '2-digit'})}
+          { activity.end.length > 0
+            ? new Date(Date.parse(activity.end)).toLocaleTimeString(
+              [], {hour: '2-digit', minute: '2-digit'})
+            : ''}
         </>
       </TableCell>
       <TableCell>

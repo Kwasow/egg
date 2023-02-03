@@ -10,8 +10,8 @@ function NotFound() {
       <img
         className='ghost-icon'
         src={process.env.PUBLIC_URL + 'static/images/ghost.svg'} />
-      <p className='error-boo'>{t('notFound.boo')}</p>
-      <p className='error-text'>{t('notFound.message')}</p>
+      <p className='error-boo'>{t('notFound.Boo')}</p>
+      <p className='error-text'>{t('notFound.Message')}</p>
     </div>
   </>
 }

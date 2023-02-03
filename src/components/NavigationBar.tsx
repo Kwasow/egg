@@ -65,7 +65,7 @@ const menuItems: MenuItem[] = [
     icon: <ListAltIcon />
   },
   {
-    translationString: 'navbar.SpeakersAndOrganisers',
+    translationString: 'navbar.ExpertsAndSpeakers',
     link: ['/speakers'],
     icon: <PersonIcon />
   },
@@ -191,7 +191,7 @@ function NavigationTabs(props: {
               {...a11yProps(0)} />
             <Tab label={props.t('navbar.Program')}
               {...a11yProps(1)} />
-            <Tab label={props.t('navbar.SpeakersAndOrganisers')}
+            <Tab label={props.t('navbar.ExpertsAndSpeakers')}
               {...a11yProps(2)} />
             <Tab label={props.t('navbar.Photos')}
               {...a11yProps(4)} />

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, SyntheticEvent } from 'react'
-import { Card, CircularProgress } from '@mui/material'
+import { Card, CircularProgress, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
-import './SpeakersAndOrganisers.css'
+import './ExpertsAndSpeakers.css'
 
 const about_pl = 'Studenckie Koło Naukowe przy II Katedrze i Klinice \
 Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
@@ -17,15 +17,9 @@ medycyny ratunkowej i anestezjolodzy.'
 
 const about_en = '[TODO] ' + about_pl
 
-const topPersonDescription = 'Donec maximus lectus quam, vel lobortis lectus \
-aliquam vel. Vivamus et diam nunc. Nunc vitae ipsum vel ante lacinia \
-consequat. Vivamus viverra, nunc sit amet finibus auctor, ligula tellus congue \
-urna, a suscipit felis nulla eu augue. Cras quis neque eu est volutpat porta. \
-Ut condimentum at diam quis pulvinar. Etiam convallis dui fringilla, volutpat \
-leo eu, imperdiet metus. Donec egestas eros ut vehicula ultricies. Praesent \
-ullamcorper nunc est, et pharetra lectus tincidunt eget. Duis convallis nisi \
-ac blandit dictum. In at ultrices augue. Suspendisse nunc libero, fermentum eu \
-ullamcorper a, semper vitae diam. Suspendisse potenti.'
+const topPersonDescription = 'ENYGO President, Fondazione Policlinico \
+Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
+la Salute della Donna e del Bambino e della Salute Pubblica, Rome, Italy'
 
 interface TabPanelProps {
   index: number;
@@ -79,66 +73,90 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   })
 }
 
+function PeopleGridView(props: {
+  people: PersonJSON[],
+  type: string
+}) {
+  const {people, type} = props
+  const {t, i18n} = useTranslation()
+  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
+
+  return <Grid container spacing={2} className='grid-container'>
+    {people.map(person => {
+      return <div key={person.position} className='grid-person-container'>
+        <img
+          className='grid-person-image'
+          src={directory + person.picture}
+          alt={t('expertsAndSpeakers.PersonAlt') + person.name} />
+        <p className='grid-person-title'>{person.name}</p>
+        <p className='grid-person-subtitle'>
+          {i18n.language == 'pl'
+            ? person.description_pl
+            : person.description_en
+          }
+        </p>
+      </div>
+    })}
+  </Grid>
+}
+
 function PeopleListView(props: {
   people: PersonJSON[],
   type: string
 }) {
-  const { t, i18n } = useTranslation()
-  const directory = process.env.PUBLIC_URL + 'static/' + props.type + '/'
+  const {people, type} = props
+  const {t, i18n} = useTranslation()
+  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
-  if (props.people.length === 0) {
-    return <p>Empty people list</p>
-  } else {
-    return <div>
-      {props.people.map(person => (
-        <div key={person.position}>
+  return <div>
+    {people.map(person => (
+      <div key={person.position}>
+        <div className={
+          person.position % 2 == 0
+            ? 'people-right-container'
+            : 'people-left-container'
+        }>
+          <img
+            className={
+              person.position % 2 == 0
+                ? 'people-right-image'
+                : 'people-left-image'
+            }
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+            src={directory + person.picture} />
           <div className={
             person.position % 2 == 0
-              ? 'people-right-container'
-              : 'people-left-container'
+              ? 'people-right-text-container'
+              : ''
           }>
-            <img
+            <p
               className={
                 person.position % 2 == 0
-                  ? 'people-right-image'
-                  : 'people-left-image'
+                  ? 'people-right-name'
+                  : 'people-left-name'
+              }>
+              {person.name}
+            </p>
+            <p
+              className={
+                person.position % 2 == 0
+                  ? 'people-right-description'
+                  : 'people-left-description'
+              }>
+              {i18n.language == 'pl'
+                ? person.description_pl
+                : person.description_en
               }
-              alt={t('speakersAndOrganisers.personAlt') + person.name}
-              src={directory + person.picture} />
-            <div className={
-              person.position % 2 == 0
-                ? 'people-right-text-container'
-                : ''
-            }>
-              <p
-                className={
-                  person.position % 2 == 0
-                    ? 'people-right-name'
-                    : 'people-left-name'
-                }>
-                {person.name}
-              </p>
-              <p
-                className={
-                  person.position % 2 == 0
-                    ? 'people-right-description'
-                    : 'people-left-description'
-                }>
-                {i18n.language == 'pl'
-                  ? person.description_pl
-                  : person.description_en
-                }
-              </p>
-            </div>
+            </p>
           </div>
         </div>
-      ))}
-    </div>
-  }
+      </div>
+    ))}
+  </div>
 }
 
-function Speakers(props: TabPanelProps) {
-  const type = 'speakers'
+function Experts(props: TabPanelProps) {
+  const type = 'experts'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded
@@ -172,8 +190,8 @@ function Speakers(props: TabPanelProps) {
   }
 }
 
-function Organisers(props: TabPanelProps) {
-  const type = 'organisers'
+function Speakers(props: TabPanelProps) {
+  const type = 'speakers'
   const [people, setPeople] = useState(new Array<PersonJSON>)
   // 0 - not loaded
   // 1 - loaded
@@ -205,10 +223,10 @@ function Organisers(props: TabPanelProps) {
         }}>
           <div className='about-us-card-left-container'>
             <p className='about-us-title'>
-              {t('speakersAndOrganisers.aboutUs')}</p>
+              {t('expertsAndSpeakers.AboutUs')}</p>
             <div className='about-us-inner-container'>
               <img className='about-us-logo'
-                alt={t('speakersAndOrganisers.logoAlt') || ''}
+                alt={t('expertsAndSpeakers.LogoAlt') || ''}
                 src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'} />
               <p className='about-us-text'>
                 {i18n.language === 'pl' ? about_pl : about_en}
@@ -216,11 +234,11 @@ function Organisers(props: TabPanelProps) {
             </div>
             <p className='about-us-title' style={{
               visibility: 'hidden'
-            }}>{t('speakersAndOrganisers.aboutUs')}</p>
+            }}>{t('expertsAndSpeakers.AboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
-        <PeopleListView people={people} type={type} />
+        <PeopleGridView people={people} type={type} />
       </>
     } else if (loaded == 2) {
       return <p>Loading failed</p>
@@ -241,7 +259,7 @@ function a11yProps(index: number) {
   }
 }
 
-function SpeakersAndOrganisers() {
+function ExpertsAndSpeakers() {
   const { t } = useTranslation()
   const [tab, setTab] = useState(0)
 
@@ -251,26 +269,28 @@ function SpeakersAndOrganisers() {
 
   return <>
     <div className='top-person-wrap'>
-      <img src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
+      <img
+        className='top-person-image'
+        src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
       <div className='top-person-text'>
         <p className='people-left-name' style={{
           marginBottom: 0
-        }}>dr Elton John</p>
+        }}>Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
-          {t('speakersAndOrganisers.specialGuest')}
+          {t('expertsAndSpeakers.SpecialGuest')}
         </p>
         <p>{topPersonDescription}</p>
       </div>
     </div>
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
-        label={t('speakersAndOrganisers.speakers')} {...a11yProps(0)} />
+        label={t('expertsAndSpeakers.Experts')} {...a11yProps(0)} />
       <SpeakersTab
-        label={t('speakersAndOrganisers.organisers')} {...a11yProps(1)} />
+        label={t('expertsAndSpeakers.Speakers')} {...a11yProps(1)} />
     </SpeakersTabs>
-    <Speakers value={tab} index={0} />
-    <Organisers value={tab} index={1} />
+    <Experts value={tab} index={0} />
+    <Speakers value={tab} index={1} />
   </>
 }
 
-export default SpeakersAndOrganisers
+export default ExpertsAndSpeakers

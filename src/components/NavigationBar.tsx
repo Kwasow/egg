@@ -214,12 +214,8 @@ function NavigationBar(props: {
             <IconButton
               aria-label='Menu'
               color='inherit'
-              onClick={() => {
-                setDrawerOpen(true)
-              }}
-              style={{
-                display: bigScreen ? 'none' : 'inherit'
-              }}>
+              onClick={() => setDrawerOpen(true)}
+              style={{ display: bigScreen ? 'none' : 'inherit' }}>
               <MenuIcon />
             </IconButton>
             <div

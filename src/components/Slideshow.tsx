@@ -7,22 +7,20 @@ import './Slideshow.css'
 const delay = 15000
 
 export type Slide = {
-  image: string;
-  title_pl: string;
-  subtitle_pl: string;
-  title_en: string;
-  subtitle_en: string;
-  link: string;
+  image: string
+  title_pl: string
+  subtitle_pl: string
+  title_en: string
+  subtitle_en: string
+  link: string
 }
 
-export function Slideshow(props: {
-  slides: Slide[]
-}) {
-  const {slides} = props
+export function Slideshow(props: { slides: Slide[] }) {
+  const { slides } = props
 
   const [index, setIndex] = useState(0)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const {t} = useTranslation()
+  const { t } = useTranslation()
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -33,8 +31,7 @@ export function Slideshow(props: {
   useEffect(() => {
     resetTimeout()
     timeoutRef.current = setTimeout(
-      () =>
-        setIndex((prevIndex) => (prevIndex + 1) % slides.length),
+      () => setIndex((prevIndex) => (prevIndex + 1) % slides.length),
       delay
     )
 
@@ -46,7 +43,7 @@ export function Slideshow(props: {
   const handlers = useSwipeable({
     onSwipedLeft: () =>
       setIndex((prevIndex) => (prevIndex + 1) % slides.length),
-    onSwipedRight: () => 
+    onSwipedRight: () =>
       setIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length),
   })
 
@@ -57,23 +54,19 @@ export function Slideshow(props: {
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
       >
         {slides.map((slide, index) => (
-          <a
-            className='slide'
-            key={index}
-            href={slide.link}
-          >
+          <a className='slide' key={index} href={slide.link}>
             <img
               className='slide-image'
               src={slide.image}
               alt={t('slideshow.BackgroundPhoto.Alt') || ''}
             />
             <div className='slide-textBox'>
-              <p className='slide-title'>{
-                i18n.language == 'pl' ? slide.title_pl : slide.title_en
-              }</p>
-              <p className='slide-subtitle'>{
-                i18n.language == 'pl' ? slide.subtitle_pl : slide.subtitle_en
-              }</p>
+              <p className='slide-title'>
+                {i18n.language == 'pl' ? slide.title_pl : slide.title_en}
+              </p>
+              <p className='slide-subtitle'>
+                {i18n.language == 'pl' ? slide.subtitle_pl : slide.subtitle_en}
+              </p>
             </div>
           </a>
         ))}

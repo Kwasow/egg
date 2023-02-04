@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Paper } from '@mui/material'
+import { Grid, Paper } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Countdown } from '../components/Countdown'
 import { Slideshow, Slide } from '../components/Slideshow'
@@ -84,7 +84,7 @@ function Sponsors() {
 
   return <>
     <p className='sponsors-header'>{t('mainPage.Partners')}</p>
-    <div className='sponsors-container'>
+    <Grid container spacing={0} className='sponsors-container'>
       <SponsorImage 
         image='/static/sponsors/wum.png'
         imageAlt={t('sponsor.WUM.Alt') || ''}
@@ -99,7 +99,7 @@ function Sponsors() {
         image='/static/sponsors/stn.png'
         imageAlt={t('sponsor.STN.Alt') || ''}
         title={t('sponsor.STN.Title') || ''}/>
-    </div>
+    </Grid>
     {/* NOTE: Temporarily removed as we don't have any sponsors yet */}
     {/* <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
     <div className='sponsors-container'>

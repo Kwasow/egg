@@ -100,10 +100,9 @@
 }
 
 .sponsors-container {
-  display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-around;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .single-sponsor-container {

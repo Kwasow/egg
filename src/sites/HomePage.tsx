@@ -241,8 +241,7 @@ function News() {
 function HomePage() {
   return <>
     <Slideshow slides={slides}/>
-    {/* TODO: Conference date */}
-    <Countdown date={new Date('2023-04-15T18:00:00')}/>
+    <Countdown date={new Date('2023-04-14T16:00:00+02:00')}/>
     <News/>
     <Sponsors/>
   </>

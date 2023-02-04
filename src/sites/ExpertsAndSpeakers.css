@@ -223,10 +223,12 @@
   font-weight: bold;
   font-size: larger;
   margin-bottom: 0px;
+  text-align: center;
 }
 
 .grid-person-subtitle {
   font-style: italic;
   color: gray;
   margin-top: 0px;
+  text-align: center;
 }

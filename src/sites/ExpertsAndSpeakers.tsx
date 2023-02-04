@@ -81,7 +81,7 @@ function PeopleGridView(props: {
   const {t, i18n} = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
-  return <Grid container spacing={2} className='grid-container'>
+  return <Grid container spacing={0} className='grid-container'>
     {people.map(person => {
       return <div key={person.position} className='grid-person-container'>
         <img

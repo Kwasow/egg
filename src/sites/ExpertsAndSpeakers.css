@@ -56,6 +56,26 @@
   align-self: flex-end;
 }
 
+@media screen and (max-width: 1500px) {
+  .people-right-description {
+    width: 80%;
+  }
+
+  .people-left-description {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .people-right-description {
+    width: auto;
+  }
+
+  .people-left-description {
+    width: auto;
+  }
+}
+
 .people-right-image {
   height: 250px;
   width: 150px;

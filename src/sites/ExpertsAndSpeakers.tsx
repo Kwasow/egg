@@ -81,7 +81,7 @@ function PeopleGridView(props: {
   const {t, i18n} = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
-  return <Grid container spacing={2} className='grid-container'>
+  return <Grid container spacing={0} className='grid-container'>
     {people.map(person => {
       return <div key={person.position} className='grid-person-container'>
         <img
@@ -100,6 +100,8 @@ function PeopleGridView(props: {
   </Grid>
 }
 
+enum ScreenSize {BIG, SMALL}
+
 function PeopleListView(props: {
   people: PersonJSON[],
   type: string
@@ -107,52 +109,82 @@ function PeopleListView(props: {
   const {people, type} = props
   const {t, i18n} = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
+  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
 
-  return <div>
-    {people.map(person => (
-      <div key={person.position}>
-        <div className={
-          person.position % 2 == 0
-            ? 'people-right-container'
-            : 'people-left-container'
-        }>
-          <img
-            className={
-              person.position % 2 == 0
-                ? 'people-right-image'
-                : 'people-left-image'
-            }
-            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-            src={directory + person.picture} />
+  function updateScreenSize() {
+    if (window.innerWidth < 900) {
+      setScreenSize(ScreenSize.SMALL)
+    } else {
+      setScreenSize(ScreenSize.BIG)
+    }
+  }
+
+  window.addEventListener('resize', updateScreenSize)
+  useEffect(updateScreenSize, [])
+
+  if (screenSize === ScreenSize.BIG) {
+    return <div>
+      {people.map(person => (
+        <div key={person.position}>
           <div className={
             person.position % 2 == 0
-              ? 'people-right-text-container'
-              : ''
+              ? 'people-right-container'
+              : 'people-left-container'
           }>
-            <p
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-name'
-                  : 'people-left-name'
-              }>
-              {person.name}
-            </p>
-            <p
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-description'
-                  : 'people-left-description'
-              }>
-              {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en
-              }
-            </p>
+            <img
+              className='people-image'
+              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+              src={directory + person.picture} />
+            <div className={
+              person.position % 2 == 0
+                ? 'people-right-text-container'
+                : ''
+            }>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-name'
+                    : 'people-left-name'
+                }>
+                {person.name}
+              </p>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-description'
+                    : 'people-left-description'
+                }>
+                {i18n.language == 'pl'
+                  ? person.description_pl
+                  : person.description_en
+                }
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
+  } else {
+    return <div>
+      {people.map(person => (
+        <div key={person.position} className='person-small-container'>
+          <img
+            className='people-image'
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+            src={directory + person.picture} />
+          <p className='person-small-name'>
+            {person.name}
+          </p>
+          <p className='person-small-description'>
+            {i18n.language == 'pl'
+              ? person.description_pl
+              : person.description_en
+            }
+          </p>
+        </div>
+      ))}
+    </div>
+  }
 }
 
 function Experts(props: TabPanelProps) {
@@ -215,12 +247,7 @@ function Speakers(props: TabPanelProps) {
   if (props.index == props.value) {
     if (loaded === 1) {
       return <>
-        <Card sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          margin: '2%',
-          backgroundColor: '#c53d63',
-        }}>
+        <Card className='about-us-card' sx={{ backgroundColor: '#c53d63' }}>
           <div className='about-us-card-left-container'>
             <p className='about-us-title'>
               {t('expertsAndSpeakers.AboutUs')}</p>
@@ -232,9 +259,6 @@ function Speakers(props: TabPanelProps) {
                 {i18n.language === 'pl' ? about_pl : about_en}
               </p>
             </div>
-            <p className='about-us-title' style={{
-              visibility: 'hidden'
-            }}>{t('expertsAndSpeakers.AboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>
@@ -259,6 +283,25 @@ function a11yProps(index: number) {
   }
 }
 
+function TopPerson() {
+  const { t } = useTranslation()
+
+  return <div className='top-person-wrap'>
+    <img
+      className='top-person-image'
+      src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
+    <div className='top-person-text'>
+      <p className='top-person-name'>
+        Nicolò Bizzarri
+      </p>
+      <p className='top-person-subtext'>
+        {t('expertsAndSpeakers.SpecialGuest')}
+      </p>
+      <p>{topPersonDescription}</p>
+    </div>
+  </div>
+}
+
 function ExpertsAndSpeakers() {
   const { t } = useTranslation()
   const [tab, setTab] = useState(0)
@@ -268,20 +311,7 @@ function ExpertsAndSpeakers() {
   }
 
   return <>
-    <div className='top-person-wrap'>
-      <img
-        className='top-person-image'
-        src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
-      <div className='top-person-text'>
-        <p className='people-left-name' style={{
-          marginBottom: 0
-        }}>Nicolò Bizzarri</p>
-        <p className='top-person-subtext'>
-          {t('expertsAndSpeakers.SpecialGuest')}
-        </p>
-        <p>{topPersonDescription}</p>
-      </div>
-    </div>
+    <TopPerson />
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
         label={t('expertsAndSpeakers.Experts')} {...a11yProps(0)} />

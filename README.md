@@ -55,7 +55,7 @@ Included files:
  - `public/php` - backend PHP scripts
 
 Not included (placed on server):
- - `public/static/organisers` - info about organisers, json format:
+ - `public/static/experts` - info about experts, json format:
 ```json
 {
   "position": 2,

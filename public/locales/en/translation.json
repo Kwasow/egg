@@ -27,7 +27,7 @@
   "expertsAndSpeakers.PersonAlt": "A picture of ",
   "expertsAndSpeakers.SpecialGuest": "Special guest",
   "expertsAndSpeakers.AboutUs": "About us",
-  "expertsAndSpeakers.LogoAlt": "logo of Student Association of Obstetrics and Gynecology WUM",
+  "expertsAndSpeakers.LogoAlt": "Logo of Student Association of Obstetrics and Gynecology WUM",
 
   "notFound.Boo": "Boo!",
   "notFound.Message": "You woke up the ghost living on this empty page",
@@ -46,5 +46,16 @@
 
   "footer.Contact": "Contact",
   "footer.Adress": "Adress",
-  "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM"
+  "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM",
+
+  "sponsor.WUM.Alt": "Logo of the Medical University of Warsaw",
+  "sponsor.WUM.Title": "Rector of the Medical University of Warsaw",
+  "sponsor.WUM.Subtitle": "prof. dr hab. n. med. Zbigniew Gaciong",
+
+  "sponsor.Lek.Alt": "Logo of the Faculty of Medicine of the Medical University of Warsaw",
+  "sponsor.Lek.Title": "Dean of the Faculty of Medicine of the Medical University of Warsaw",
+  "sponsor.Lek.Subtitle": "prof. dr hab. n. med. Rafał Krenke",
+
+  "sponsor.STN.Alt": "Logo of Student Scientific Society WUM",
+  "sponsor.STN.Title": "Student Scientific Society"
 }

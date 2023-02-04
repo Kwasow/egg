@@ -27,7 +27,7 @@
   "expertsAndSpeakers.PersonAlt": "Zdjęcie osoby ",
   "expertsAndSpeakers.SpecialGuest": "Gość specjalny",
   "expertsAndSpeakers.AboutUs": "O nas",
-  "expertsAndSpeakers.LogoAlt": "logo studenckiego koła położnictwa i ginekologii warszawskiego uniwersytetu medycznego",
+  "expertsAndSpeakers.LogoAlt": "Logo Studenckiego Koła Naukowego Położnictwa i Ginekologii WUM",
 
   "notFound.Boo": "Bu!",
   "notFound.Message": "Obudziłeś ducha, który mieszka na tej pustej stronie",
@@ -46,5 +46,16 @@
 
   "footer.Contact": "Kontakt",
   "footer.Adress": "Dane koła",
-  "footer.Copyright": "2023 © Studenckie Koło Naukowe Ginekologii i Położnictwa  WUM"
+  "footer.Copyright": "2023 © Studenckie Koło Naukowe Ginekologii i Położnictwa  WUM",
+
+  "sponsor.WUM.Alt": "Logo Warszawskiego Uniwersytetu Medycznego",
+  "sponsor.WUM.Title": "Rektor Warszawskiego Uniwersytetu Medycznego",
+  "sponsor.WUM.Subtitle": "prof. dr hab. n. med. Zbigniew Gaciong",
+
+  "sponsor.Lek.Alt": "Logo Wydziału Lekarskiego Warszawskiego Uniwersytetu Medycznego",
+  "sponsor.Lek.Title": "Dziekan Wydziału Lekarskiego Warszawskiego Uniwersytetu Medycznego",
+  "sponsor.Lek.Subtitle": "prof. dr hab. n. med. Rafał Krenke",
+
+  "sponsor.STN.Alt": "Logo Studenckiego Towarzystwa Naukowego WUM",
+  "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe"
 }

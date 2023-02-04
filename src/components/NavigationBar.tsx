@@ -40,19 +40,6 @@ type MenuItem = {
 
 enum ScreenSize {XSMALL, SMALL, MEDIUM, BIG}
 
-function isScreenXSmall(size: ScreenSize) {
-  return size === ScreenSize.XSMALL
-}
-
-function isScreenSmall(size: ScreenSize) {
-  return size === ScreenSize.SMALL
-      || size === ScreenSize.XSMALL
-}
-
-function isScreenBig(size: ScreenSize) {
-  return size === ScreenSize.BIG
-}
-
 const menuItems: MenuItem[] = [
   {
     translationString: 'navbar.HomePage',
@@ -97,10 +84,9 @@ function LanguageSwitcher(props: {
 export function EggDrawer(props: {
   drawerOpen: boolean,
   setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  size: ScreenSize
 }) {
   const navigate = useNavigate()
-  const {drawerOpen, setDrawerOpen, size} = props
+  const {drawerOpen, setDrawerOpen} = props
   const {t} = useTranslation()
 
   return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
@@ -128,7 +114,7 @@ export function EggDrawer(props: {
         </ListItemButton>
       })}
       <Divider />
-      {isScreenSmall(size) && <div className='drawer-bottom'>
+      <div className='drawer-bottom'>
         <Button
           sx={{
             paddingTop: '15px',
@@ -142,7 +128,7 @@ export function EggDrawer(props: {
           <InstagramIconLink />
           <LanguageSwitcher />
         </div>
-      </div>}
+      </div>
     </List>
   </Drawer>
 }
@@ -238,7 +224,7 @@ function NavigationBar(props: {
                 setDrawerOpen(true)
               }}
               style={{
-                display: isScreenBig(screenSize) ? 'none' : 'inherit'
+                display: screenSize === ScreenSize.BIG ? 'none' : 'inherit'
               }}>
               <MenuIcon />
             </IconButton>
@@ -247,10 +233,7 @@ function NavigationBar(props: {
               onClick={() => navigate('/')}>
               <img className='appbar-logo'
                 alt={t('navbar.LogoAlt') || ''}
-                src={imageUrl + 'logo.png'}
-                style={{
-                  display: isScreenXSmall(screenSize) ? 'none' : 'inherit'
-                }}/>
+                src={imageUrl + 'logo.png'}/>
               <div className='appbar-name-container'>
                 <p className='appbar-name'>
                   {t('navbar.Title.Line1')}
@@ -262,15 +245,11 @@ function NavigationBar(props: {
             </div>
           </div>
 
-          <div className='appbar-middle' style={{
-            display: isScreenBig(screenSize) ? 'flex' : 'none'
-          }}>
+          <div className='appbar-middle'>
             <NavigationTabs route={route} t={t}/>
           </div>
 
-          <div className='appbar-right' style={{
-            display: isScreenSmall(screenSize) ? 'none' : 'flex'
-          }}>
+          <div className='appbar-right'>
             <FacebookIconLink white={true}/>
             <InstagramIconLink white={true}/>
             <AppBarActionButton 
@@ -283,8 +262,7 @@ function NavigationBar(props: {
       </EggToolbar>
       <EggDrawer
         drawerOpen={drawerOpen}
-        setDrawerOpen={setDrawerOpen}
-        size={screenSize}/>
+        setDrawerOpen={setDrawerOpen}/>
     </AppBar>
   </>
 }

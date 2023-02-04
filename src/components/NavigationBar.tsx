@@ -238,7 +238,7 @@ function NavigationBar(props: {
                 setDrawerOpen(true)
               }}
               style={{
-                visibility: isScreenBig(screenSize) ? 'collapse' : 'visible'
+                display: isScreenBig(screenSize) ? 'none' : 'inherit'
               }}>
               <MenuIcon />
             </IconButton>
@@ -249,8 +249,7 @@ function NavigationBar(props: {
                 alt={t('navbar.LogoAlt') || ''}
                 src={imageUrl + 'logo.png'}
                 style={{
-                  visibility:
-                    isScreenXSmall(screenSize) ? 'collapse' : 'visible'
+                  display: isScreenXSmall(screenSize) ? 'none' : 'inherit'
                 }}/>
               <div className='appbar-name-container'>
                 <p className='appbar-name'>
@@ -264,13 +263,13 @@ function NavigationBar(props: {
           </div>
 
           <div className='appbar-middle' style={{
-            visibility: isScreenBig(screenSize) ? 'visible' : 'collapse'
+            display: isScreenBig(screenSize) ? 'flex' : 'none'
           }}>
             <NavigationTabs route={route} t={t}/>
           </div>
 
           <div className='appbar-right' style={{
-            visibility: isScreenSmall(screenSize) ? 'collapse' : 'visible'
+            display: isScreenSmall(screenSize) ? 'none' : 'flex'
           }}>
             <FacebookIconLink white={true}/>
             <InstagramIconLink white={true}/>

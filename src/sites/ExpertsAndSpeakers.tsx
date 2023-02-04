@@ -259,6 +259,25 @@ function a11yProps(index: number) {
   }
 }
 
+function TopPerson() {
+  const { t } = useTranslation()
+
+  return <div className='top-person-wrap'>
+    <img
+      className='top-person-image'
+      src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
+    <div className='top-person-text'>
+      <p className='people-left-name' style={{
+        marginBottom: 0
+      }}>Nicolò Bizzarri</p>
+      <p className='top-person-subtext'>
+        {t('expertsAndSpeakers.SpecialGuest')}
+      </p>
+      <p>{topPersonDescription}</p>
+    </div>
+  </div>
+}
+
 function ExpertsAndSpeakers() {
   const { t } = useTranslation()
   const [tab, setTab] = useState(0)
@@ -268,20 +287,7 @@ function ExpertsAndSpeakers() {
   }
 
   return <>
-    <div className='top-person-wrap'>
-      <img
-        className='top-person-image'
-        src={process.env.PUBLIC_URL + '/static/images/top-guest.png'} />
-      <div className='top-person-text'>
-        <p className='people-left-name' style={{
-          marginBottom: 0
-        }}>Nicolò Bizzarri</p>
-        <p className='top-person-subtext'>
-          {t('expertsAndSpeakers.SpecialGuest')}
-        </p>
-        <p>{topPersonDescription}</p>
-      </div>
-    </div>
+    <TopPerson />
     <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
       <SpeakersTab
         label={t('expertsAndSpeakers.Experts')} {...a11yProps(0)} />

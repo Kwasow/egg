@@ -70,14 +70,16 @@
 }
 
 .top-person-wrap {
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
+  margin: 20px;
 }
 
 .top-person-image {
-  height: 90%;
+  height: 360px;
+  width: 360px;
   margin-right: 40px;
   border-radius: 10px;
 }
@@ -91,6 +93,18 @@
   font-style: italic;
   margin-top: 0;
   color: gray;
+}
+
+@media screen and (max-width: 900px) {
+  .top-person-wrap {
+    flex-direction: column;
+  }
+
+  .top-person-text {
+    text-align: center;
+    width: auto;
+    margin-top: 10px;
+  }
 }
 
 .about-us-card-left-container {

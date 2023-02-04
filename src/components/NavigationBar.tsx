@@ -38,8 +38,6 @@ type MenuItem = {
   icon: ReactElement
 }
 
-enum ScreenSize {XSMALL, SMALL, MEDIUM, BIG}
-
 const menuItems: MenuItem[] = [
   {
     translationString: 'navbar.HomePage',
@@ -197,16 +195,12 @@ function NavigationBar(props: {
   const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
-  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
+  const [bigScreen, setBigScreen] = useState(true)
   function updateScreenSize() {
     if (1250 < window.innerWidth) {
-      setScreenSize(ScreenSize.BIG)
-    } else if (720 < window.innerWidth) {
-      setScreenSize(ScreenSize.MEDIUM)
-    } else if (390 < window.innerWidth) {
-      setScreenSize(ScreenSize.SMALL)
+      setBigScreen(true)
     } else {
-      setScreenSize(ScreenSize.XSMALL)
+      setBigScreen(false)
     }
   }
   window.addEventListener('resize', updateScreenSize)
@@ -224,7 +218,7 @@ function NavigationBar(props: {
                 setDrawerOpen(true)
               }}
               style={{
-                display: screenSize === ScreenSize.BIG ? 'none' : 'inherit'
+                display: bigScreen ? 'none' : 'inherit'
               }}>
               <MenuIcon />
             </IconButton>

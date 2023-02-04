@@ -103,6 +103,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .single-sponsor-container {
@@ -121,4 +122,16 @@
 .sponsor-image {
   height: 250;
   object-fit: contain;
+}
+
+.sponsor-title {
+  text-align: center;
+  font-size: large;
+  margin-bottom: 0;
+}
+
+.sponsor-subtitle {
+  text-align: center;
+  font-weight: lighter;
+  margin-top: 0;
 }

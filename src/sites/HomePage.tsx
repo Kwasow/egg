@@ -57,10 +57,12 @@ function decideLanguage(
 
 function SponsorImage(props: {
   image: string,
-  title?: string
-  imageAlt?: string,
+  title?: string,
+  secondary?: string,
+  imageAlt?: string
 }) {
-  const {image, imageAlt, title} = props
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {image, title, secondary, imageAlt} = props
   const alt = imageAlt === undefined ? title : ''
 
   return <div className='single-sponsor-container'>
@@ -68,11 +70,12 @@ function SponsorImage(props: {
       src={process.env.PUBLIC_URL + image}
       alt={alt}
       className='sponsor-image'/>
-    <p style={{
-      textAlign: 'center',
-      fontSize: 'large',
-      fontWeight: 'lighter'
-    }}>{title}</p>
+    <p className='sponsor-title'>
+      {title}
+    </p>
+    <p className='sponsor-subtitle'>
+      {secondary}
+    </p>
   </div>
 }
 
@@ -83,12 +86,25 @@ function Sponsors() {
     <p className='sponsors-header'>{t('mainPage.Partners')}</p>
     <div className='sponsors-container'>
       <SponsorImage 
-        image='/static/sponsors/wum.png'/>
+        image='/static/sponsors/wum.png'
+        imageAlt={t('sponsor.WUM.Alt') || ''}
+        title={t('sponsor.WUM.Title') || ''}
+        secondary={t('sponsor.WUM.Subtitle') || ''}/>
+      <SponsorImage 
+        image='/static/sponsors/lek.png'
+        imageAlt={t('sponsor.Lek.Alt') || ''}
+        title={t('sponsor.Lek.Title') || ''}
+        secondary={t('sponsor.Lek.Subtitle') || ''}/>
+      <SponsorImage
+        image='/static/sponsors/stn.png'
+        imageAlt={t('sponsor.STN.Alt') || ''}
+        title={t('sponsor.STN.Title') || ''}/>
     </div>
-    <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
+    {/* NOTE: Temporarily removed as we don't have any sponsors yet */}
+    {/* <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
     <div className='sponsors-container'>
-      <SponsorImage image='/static/sponsors/stn.png'/>
-    </div>
+      
+    </div> */}
   </>
 }
 

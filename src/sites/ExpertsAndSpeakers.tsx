@@ -100,6 +100,8 @@ function PeopleGridView(props: {
   </Grid>
 }
 
+enum ScreenSize {BIG, SMALL}
+
 function PeopleListView(props: {
   people: PersonJSON[],
   type: string
@@ -107,52 +109,82 @@ function PeopleListView(props: {
   const {people, type} = props
   const {t, i18n} = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
+  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
 
-  return <div>
-    {people.map(person => (
-      <div key={person.position}>
-        <div className={
-          person.position % 2 == 0
-            ? 'people-right-container'
-            : 'people-left-container'
-        }>
-          <img
-            className={
-              person.position % 2 == 0
-                ? 'people-right-image'
-                : 'people-left-image'
-            }
-            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-            src={directory + person.picture} />
+  function updateScreenSize() {
+    if (window.innerWidth < 900) {
+      setScreenSize(ScreenSize.SMALL)
+    } else {
+      setScreenSize(ScreenSize.BIG)
+    }
+  }
+
+  window.addEventListener('resize', updateScreenSize)
+  useEffect(updateScreenSize, [])
+
+  if (screenSize === ScreenSize.BIG) {
+    return <div>
+      {people.map(person => (
+        <div key={person.position}>
           <div className={
             person.position % 2 == 0
-              ? 'people-right-text-container'
-              : ''
+              ? 'people-right-container'
+              : 'people-left-container'
           }>
-            <p
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-name'
-                  : 'people-left-name'
-              }>
-              {person.name}
-            </p>
-            <p
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-description'
-                  : 'people-left-description'
-              }>
-              {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en
-              }
-            </p>
+            <img
+              className='people-image'
+              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+              src={directory + person.picture} />
+            <div className={
+              person.position % 2 == 0
+                ? 'people-right-text-container'
+                : ''
+            }>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-name'
+                    : 'people-left-name'
+                }>
+                {person.name}
+              </p>
+              <p
+                className={
+                  person.position % 2 == 0
+                    ? 'people-right-description'
+                    : 'people-left-description'
+                }>
+                {i18n.language == 'pl'
+                  ? person.description_pl
+                  : person.description_en
+                }
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
+  } else {
+    return <div>
+      {people.map(person => (
+        <div key={person.position} className='person-small-container'>
+          <img
+            className='people-image'
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+            src={directory + person.picture} />
+          <p className='person-small-name'>
+            {person.name}
+          </p>
+          <p className='person-small-description'>
+            {i18n.language == 'pl'
+              ? person.description_pl
+              : person.description_en
+            }
+          </p>
+        </div>
+      ))}
+    </div>
+  }
 }
 
 function Experts(props: TabPanelProps) {

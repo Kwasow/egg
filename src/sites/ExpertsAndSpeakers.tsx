@@ -215,12 +215,7 @@ function Speakers(props: TabPanelProps) {
   if (props.index == props.value) {
     if (loaded === 1) {
       return <>
-        <Card sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          margin: '2%',
-          backgroundColor: '#c53d63',
-        }}>
+        <Card className='about-us-card' sx={{ backgroundColor: '#c53d63' }}>
           <div className='about-us-card-left-container'>
             <p className='about-us-title'>
               {t('expertsAndSpeakers.AboutUs')}</p>
@@ -232,9 +227,6 @@ function Speakers(props: TabPanelProps) {
                 {i18n.language === 'pl' ? about_pl : about_en}
               </p>
             </div>
-            <p className='about-us-title' style={{
-              visibility: 'hidden'
-            }}>{t('expertsAndSpeakers.AboutUs')}</p>
           </div>
           <img className='about-us-image' src='/static/images/us.jpg' />
         </Card>

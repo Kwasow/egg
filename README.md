@@ -68,4 +68,3 @@ Not included (placed on server):
  - `public/static/gallery` - photos (organised in folders) to be shown in
     the photo gallery tab
  - `public/static/news`
- - `public/static/sponsors`

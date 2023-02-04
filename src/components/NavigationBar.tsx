@@ -100,13 +100,19 @@ export function EggDrawer(props: {
         return <ListItemButton key={key} onClick={() => {
           navigate(value.link[0])
           setDrawerOpen(false)
-        }}>
+        }} sx={{
+          backgroundColor: (value.link.includes(window.location.pathname)) ? 
+            'rgba(197, 61, 99, 0.15)' : 'white',
+        }}
+        >
           <ListItemIcon sx={{
             color: '#c53d63'
           }}>
             {value.icon}
           </ListItemIcon>
-          <ListItemText>
+          <ListItemText sx={{
+            color: '#c53d63'
+          }}>
             {(t(value.translationString) || '').toUpperCase()}
           </ListItemText>
         </ListItemButton>
@@ -192,7 +198,6 @@ function NavigationBar(props: {
   const {route} = props
 
   const {t} = useTranslation()
-  const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const [bigScreen, setBigScreen] = useState(true)
@@ -218,21 +223,22 @@ function NavigationBar(props: {
               style={{ display: bigScreen ? 'none' : 'inherit' }}>
               <MenuIcon />
             </IconButton>
-            <div
-              className='appbar-navigate-home-container'
-              onClick={() => navigate('/')}>
-              <img className='appbar-logo'
-                alt={t('navbar.LogoAlt') || ''}
-                src={imageUrl + 'logo.png'}/>
-              <div className='appbar-name-container'>
-                <p className='appbar-name'>
-                  {t('navbar.Title.Line1')}
-                </p>
-                <p className='appbar-subname'>
-                  {t('navbar.Title.Line2')}
-                </p>
+            <a href='/home'>
+              <div
+                className='appbar-navigate-home-container'>
+                <img className='appbar-logo'
+                  alt={t('navbar.LogoAlt') || ''}
+                  src={imageUrl + 'logo.png'}/>
+                <div className='appbar-name-container'>
+                  <p className='appbar-name'>
+                    {t('navbar.Title.Line1')}
+                  </p>
+                  <p className='appbar-subname'>
+                    {t('navbar.Title.Line2')}
+                  </p>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <div className='appbar-middle'>

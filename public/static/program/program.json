@@ -5,7 +5,7 @@
       "activities": [
         {
           "title_pl": "Rejstracja",
-          "title_en": "Registrations",
+          "title_en": "Registration",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -17,7 +17,7 @@
         },
         {
           "title_pl": "Otwarcie konferencji",
-          "title_en": "Opening ceremony",
+          "title_en": "Conference opening ceremony",
           "about_pl": "Oficjalne rozpoczęcie 4. edycji konferencji.",
           "about_en": "Official opening of the 4th edition of the conference.",
           "speaker": "prof. dr hab. n. med. Krzysztof Czajkowski",
@@ -29,9 +29,9 @@
         },
         {
           "title_pl": "Współczesne zasady opieki nad pacjentem leczonym onkologicznie",
-          "title_en": "Modern rules of care for patients treated oncologically",
+          "title_en": "Modern rules of care for oncological patients",
           "about_pl": "Wykład inauguracyjny",
-          "about_en": "Opening lecture",
+          "about_en": "Inaugural lecture",
           "speaker": "prof. dr hab. n. med. Mariusz Bidziński",
           "start": "2023-04-14T16:10",
           "end": "2023-04-14T16:50",
@@ -45,38 +45,38 @@
       "classes": [
         {
           "title_pl": "Warsztaty szycia chirurgicznego",
-          "title_en": "",
+          "title_en": "Surgical suturing workshop",
           "speaker": "IFMSA Poland",
-          "location_pl": "",
-          "location_en": ""
+          "location_pl": "N/A",
+          "location_en": "N/A"
         },
         {
           "title_pl": "Warsztaty badania ginekologicznego i badania piersi",
-          "title_en": "",
+          "title_en": "Gynecological examination and breast examination workshop",
           "speaker": "SKN Endokrynologia Ginekologiczna",
-          "location_pl": "",
-          "location_en": ""
+          "location_pl": "N/A",
+          "location_en": "N/A"
         },
         {
           "title_pl": "Dostępy naczyniowe pod kontrolą USG",
-          "title_en": "",
+          "title_en": "Vascular access under ultrasonographic supervision",
           "speaker": "Ankona B",
-          "location_pl": "",
-          "location_en": ""
+          "location_pl": "N/A",
+          "location_en": "N/A"
         },
         {
           "title_pl": "Warsztaty KTG",
-          "title_en": "",
+          "title_en": "CTG workshop",
           "speaker": "SKN Karowa",
-          "location_pl": "",
-          "location_en": ""
+          "location_pl": "N/A",
+          "location_en": "N/A"
         },
         {
           "title_pl": "Warsztaty laparoskopowe",
-          "title_en": "",
+          "title_en": "Laparoscopy workshop",
           "speaker": "SKN Graft",
-          "location_pl": "",
-          "location_en": ""
+          "location_pl": "N/A",
+          "location_en": "N/A"
         }
       ]
     },
@@ -85,7 +85,7 @@
       "activities": [
         {
           "title_pl": "Rejstracja",
-          "title_en": "Registrations",
+          "title_en": "Registration",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -110,7 +110,7 @@
         },
         {
           "title_pl": "Neoadjuwantowa chemioterapia a pierwotna operacja cytoredukcyjna w zaawansowanym nabłonkowym raku jajnika",
-          "title_en": "",
+          "title_en": "Neoadjuvant Chemotherapy vs Primary Cytoreduction Surgery in Advanced Epithelial Ovarian Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Damian Zdanowski",
@@ -122,7 +122,7 @@
         },
         {
           "title_pl": "Operacja cytoredukcyjna u pacjentek z nawrotowym rakiem jajnika",
-          "title_en": "",
+          "title_en": "Cytoreduction Surgery in Patients with Relapsed Ovarian Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Julia Dróżdż",
@@ -134,7 +134,7 @@
         },
         {
           "title_pl": "Rola dootrzewnowej chemioterapii perfuzyjnej w hipertermii (HIPEC) w leczeniu raka jajnika",
-          "title_en": "",
+          "title_en": "The Role of Hyperthermic Intraperitoneal Chemotherapy (HIPEC) in Ovarian Cancer Treatment",
           "about_pl": "",
           "about_en": "",
           "speaker": "Paulina Przybysz",
@@ -146,7 +146,7 @@
         },
         {
           "title_pl": "Inhibitory PARP w terapii raka jajnika",
-          "title_en": "",
+          "title_en": "PARP Inhibitors in Ovarian Cancer Treatment",
           "about_pl": "",
           "about_en": "",
           "speaker": "Agata Pisula",
@@ -157,8 +157,20 @@
           "highlight": false
         },
         {
+          "title_pl": "Przerwa kawowa",
+          "title_en": "Coffee break",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "2023-04-15T11:40",
+          "end": "2023-04-15T12:00",
+          "location_pl": "Centrum Dydaktyczne WUM",
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
+        },
+        {
           "title_pl": "Postępowanie w raku trzonu macicy z uwzględnieniem klasyfikacji molekularnej - zalecenia ESGO/ESTRO/ESP",
-          "title_en": "",
+          "title_en": "Treatment Procedure of Uterine Cancer in View of Molecular Classification — ESGO/ESTRO/ESP recommendations",
           "about_pl": "",
           "about_en": "",
           "speaker": "Aleksandra Barabasz",
@@ -170,7 +182,7 @@
         },
         {
           "title_pl": "Leczenie oszczędzające płodność - zalecenia ESGO-ESHRE-ESGE 2022",
-          "title_en": "",
+          "title_en": "Fertility Sparing Treatment - ESGO-ESHRE-ESGE 2022 recommendations ",
           "about_pl": "",
           "about_en": "",
           "speaker": "Adrian Kruszewski",
@@ -182,7 +194,7 @@
         },
         {
           "title_pl": "Procedura węzła wartowniczego w raku endometrium",
-          "title_en": "",
+          "title_en": "Sentinel Lymph Node Procedure in Endometrial Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Agata Chojnicka",
@@ -194,7 +206,7 @@
         },
         {
           "title_pl": "Nowe doniesienia naukowe nt. możliwości terapeutycznych w raku endometrium",
-          "title_en": "",
+          "title_en": "New Scientific Reports on Therapeutic Possibilities of Endometrial Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Natalia Rosół",
@@ -205,8 +217,8 @@
           "highlight": false
         },
         {
-          "title_pl": "Obiad",
-          "title_en": "Dinner",
+          "title_pl": "Przerwa obiadowa",
+          "title_en": "Lunch break",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -218,7 +230,7 @@
         },
         {
           "title_pl": "Profilaktyka raka szyjki macicy",
-          "title_en": "",
+          "title_en": "Prevention of Cervical Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Aleksandra Kujawa",
@@ -230,7 +242,7 @@
         },
         {
           "title_pl": "Leczenie operacyjne raka szyjki macicy 5 lat po publikacji wyników LACC trial",
-          "title_en": "",
+          "title_en": "Surgical Treatment of Cervical Cancer 5 Years After LACC Trial Results Publication",
           "about_pl": "",
           "about_en": "",
           "speaker": "Katarzyna Mączka",
@@ -242,7 +254,7 @@
         },
         {
           "title_pl": "Zalecenia ESGO-ESTRO-ESP 2022",
-          "title_en": "",
+          "title_en": "ESGO-ESTRO-ESP recommendations 2022",
           "about_pl": "",
           "about_en": "",
           "speaker": "Julia Rudnicka",
@@ -254,7 +266,7 @@
         },
         {
           "title_pl": "Rola immunoterapii w leczeniu raka szyjki macicy",
-          "title_en": "",
+          "title_en": "The Role of Immunotherapy in Cervical Cancer Treatment",
           "about_pl": "",
           "about_en": "",
           "speaker": "Marta Bombała",
@@ -274,7 +286,7 @@
       "activities": [
         {
           "title_pl": "Ciążowa choroba trofoblastyczna",
-          "title_en": "",
+          "title_en": "Gestational Trophoblastic Disease",
           "about_pl": "",
           "about_en": "",
           "speaker": "Jana Krasowska",
@@ -286,7 +298,7 @@
         },
         {
           "title_pl": "Rak sromu",
-          "title_en": "",
+          "title_en": "Vulvar Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Julia Jeridi",
@@ -298,7 +310,7 @@
         },
         {
           "title_pl": "Rak pochwy",
-          "title_en": "",
+          "title_en": "Vaginal Cancer",
           "about_pl": "",
           "about_en": "",
           "speaker": "Weronika Jędrzejczak",
@@ -310,7 +322,7 @@
         },
         {
           "title_pl": "Nowotwór a ciąża",
-          "title_en": "",
+          "title_en": "Cancer and pregnancy",
           "about_pl": "",
           "about_en": "",
           "speaker": "Zuzanna Tomczewska",
@@ -321,8 +333,20 @@
           "highlight": false
         },
         {
+          "title_pl": "Przerwa kawowa",
+          "title_en": "Coffee break",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "2023-04-16T10:40",
+          "end": "2023-04-16T11:10",
+          "location_pl": "Centrum Dydaktyczne WUM",
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
+        },
+        {
           "title_pl": "Zastosowanie protokołu ERAS w ginekologii onkologicznej",
-          "title_en": "",
+          "title_en": "Application of ERAS protocols in Oncological Gynaecology",
           "about_pl": "",
           "about_en": "",
           "speaker": "Aleksandra Stępka",
@@ -334,7 +358,7 @@
         },
         {
           "title_pl": "Zastosowanie chirurgii robotowej w ginekologii onkologicznej",
-          "title_en": "",
+          "title_en": "Application of Robot-Assisted Surgery in Oncological Gynaecology",
           "about_pl": "",
           "about_en": "",
           "speaker": "Elena Sztemberg",
@@ -346,7 +370,7 @@
         },
         {
           "title_pl": "Postępowanie w przypadku powikłań leczenia systemowego",
-          "title_en": "",
+          "title_en": "Procedures in Case of Systemic Treatment Complications",
           "about_pl": "",
           "about_en": "",
           "speaker": "Ewa Jagodzińska",
@@ -358,7 +382,7 @@
         },
         {
           "title_pl": "Zdrowie seksualne u pacjentek z nowotworami ginekologicznymi",
-          "title_en": "",
+          "title_en": "Sexual Health of Patients with Gynaecological Neoplasms",
           "about_pl": "",
           "about_en": "",
           "speaker": "Monika Wyszyńska",
@@ -370,7 +394,7 @@
         },
         {
           "title_pl": "Opieka paliatywna",
-          "title_en": "",
+          "title_en": "Palliative Care",
           "about_pl": "",
           "about_en": "",
           "speaker": "Monika Kamińska",
@@ -382,7 +406,7 @@
         },
         {
           "title_pl": "Obiad",
-          "title_en": "Dinner",
+          "title_en": "Lunch break",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -394,7 +418,7 @@
         },
         {
           "title_pl": "Konkurs przypadków medycznych",
-          "title_en": "Medical cases competition",
+          "title_en": "Medical cases contest",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -406,7 +430,7 @@
         },
         {
           "title_pl": "Wykład eksperta",
-          "title_en": "Expert's lecture",
+          "title_en": "Expert commentary",
           "about_pl": "",
           "about_en": "",
           "speaker": "",
@@ -420,7 +444,7 @@
           "title_pl": "Uroczyste zakończnie konferencji",
           "title_en": "Official closing ceremony",
           "about_pl": "Podczas zakończenia zostaną ogłoszone wyniki konkursu przypadków medycznych.",
-          "about_en": "Winners of the medical cases competition will be announced during the ceremony.",
+          "about_en": "Winners of the medical cases contest will be announced during the ceremony.",
           "speaker": "",
           "start": "2023-04-16T15:45",
           "end": "",

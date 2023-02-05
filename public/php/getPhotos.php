@@ -13,29 +13,31 @@
 
   echo '{ "folders": [';
   foreach ($dirs_arr as $dir) {
-    $files_arr = scandir($folder.'/'.$dir);
-    $files_arr = array_diff($files_arr, array('.','..') );
-    $first_file = true;
-
-    if ($first_dir) {
-      $first_dir = false;
-    } else {
-      echo ',';
-    }
-
-    echo '{ "name": "'.$dir.'", "photos": [';
-    foreach ($files_arr as $file) {
-      if ($first_file) {
-        $first_file = false;
+    if(is_dir($folder.'/'.$dir)){
+      $files_arr = scandir($folder.'/'.$dir);
+      $files_arr = array_diff($files_arr, array('.','..') );
+      $first_file = true;
+      
+      if ($first_dir) {
+        $first_dir = false;
       } else {
-        echo ',';
+      echo ',';
       }
+      
+      echo '{ "name": "'.$dir.'", "photos": [';
+      foreach ($files_arr as $file) {
+        if ($first_file) {
+          $first_file = false;
+        } else {
+          echo ',';
+        }
 
-      echo '"'.$file.'"';
+        echo '"'.$file.'"';
+      }
+      echo ']}';
     }
-    echo ']}';
   }
   echo ']}';
-
+  
   exit();
 ?>

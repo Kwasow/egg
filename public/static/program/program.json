@@ -22,30 +22,58 @@
           "speaker": "prof. dr hab. n. med. Krzysztof Czajkowski",
           "start": "2023-04-14T16:00",
           "end": "2023-04-14T16:10",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Współczesne zasady opieki nad pacjentem leczonym onkologicznie",
           "title_en": "Modern rules of care for patients treated oncologically",
           "about_pl": "Wykład inauguracyjny",
           "about_en": "Opening lecture",
-          "speaker": "prof. Bidziński",
+          "speaker": "prof. dr hab. n. med. Mariusz Bidziński",
           "start": "2023-04-14T16:10",
           "end": "2023-04-14T16:50",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         }
       ],
       "classes_start": "2023-04-14T17:00",
       "classes_end": "2023-04-14T19:00",
       "classes": [
         {
-          "title_pl": "[TODO] Warsztaty szycia chirurgicznego",
-          "title_en": "Surgical sewing workshop",
-          "speaker": "dr Irena Eris",
-          "location_pl": "Sala 123",
-          "location_en": "Room 123"
+          "title_pl": "Warsztaty szycia chirurgicznego",
+          "title_en": "",
+          "speaker": "IFMSA Poland",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "Warsztaty badania ginekologicznego i badania piersi",
+          "title_en": "",
+          "speaker": "SKN Endokrynologia Ginekologiczna",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "Dostępy naczyniowe pod kontrolą USG",
+          "title_en": "",
+          "speaker": "Ankona B",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "Warsztaty KTG",
+          "title_en": "",
+          "speaker": "SKN Karowa",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "Warsztaty laparoskopowe",
+          "title_en": "",
+          "speaker": "SKN Graft",
+          "location_pl": "",
+          "location_en": ""
         }
       ]
     },
@@ -53,136 +81,170 @@
       "day": 2,
       "activities": [
         {
+          "title_pl": "Rejstracja",
+          "title_en": "Registrations",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "2023-04-15T08:00",
+          "end": "2023-04-15T09:00",
+          "location_pl": "Centrum Dydaktyczne WUM",
+          "location_en": "Warsaw Medical University Didactic Center"
+        },
+
+        {
+          "title_pl": "Building a Personalized Medicine Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital",
+          "title_en": "Building a Personalized Medicine Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "Nicolò Bizzarri",
+          "start": "2023-04-15T09:00",
+          "end": "2023-04-15T09:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
+        },
+        {
           "title_pl": "Neoadjuwantowa chemioterapia a pierwotna operacja cytoredukcyjna w zaawansowanym nabłonkowym raku jajnika",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Damian Zdanowski",
-          "start": "2023-04-15T09:30",
-          "end": "2023-04-15T09:50",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T10:00",
+          "end": "2023-04-15T10:20",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Operacja cytoredukcyjna u pacjentek z nawrotowym rakiem jajnika",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Julia Dróżdż",
-          "start": "2023-04-15T09:55",
-          "end": "2023-04-15T10:15",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T10:25",
+          "end": "2023-04-15T10:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Rola dootrzewnowej chemioterapii perfuzyjnej w hipertermii (HIPEC) w leczeniu raka jajnika",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Paulina Przybysz",
-          "start": "2023-04-15T10:20",
-          "end": "2023-04-15T10:40",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T10:50",
+          "end": "2023-04-15T11:10",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Inhibitory PARP w terapii raka jajnika",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Agata Pisula",
-          "start": "2023-04-15T10:45",
-          "end": "2023-04-15T11:00",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T11:15",
+          "end": "2023-04-15T11:35",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Postępowanie w raku trzonu macicy z uwzględnieniem klasyfikacji molekularnej - zalecenia ESGO/ESTRO/ESP",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Aleksandra Barabasz",
-          "start": "2023-04-15T11:30",
-          "end": "2023-04-15T11:50",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T12:00",
+          "end": "2023-04-15T12:20",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Leczenie oszczędzające płodność - zalecenia ESGO-ESHRE-ESGE 2022",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Adrian Kruszewski",
-          "start": "2023-04-15T11:55",
-          "end": "2023-04-15T12:20",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T12:25",
+          "end": "2023-04-15T12:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Procedura węzła wartowniczego w raku endometrium",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Agata Chojnicka",
-          "start": "2023-04-15T12:25",
-          "end": "2023-04-15T12:45",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T13:05",
+          "end": "2023-04-15T13:25",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Nowe doniesienia naukowe nt. możliwości terapeutycznych w raku endometrium",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Natalia Rosół",
-          "start": "2023-04-15T12:50",
-          "end": "2023-04-15T13:10",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T13:30",
+          "end": "2023-04-15T13:50",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
+        },
+        {
+          "title_pl": "Obiad",
+          "title_en": "Dinner",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "2023-04-15T13:55",
+          "end": "2023-04-15T15:00",
+          "location_pl": "Centrum Dydaktyczne WUM",
+          "location_en": "Warsaw Medical University Didactic Center"
         },
         {
           "title_pl": "Profilaktyka raka szyjki macicy",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Aleksandra Kujawa",
-          "start": "2023-04-15T14:15",
-          "end": "2023-04-15T14:35",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T15:00",
+          "end": "2023-04-15T15:20",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Leczenie operacyjne raka szyjki macicy 5 lat po publikacji wyników LACC trial",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Katarzyna Mączka",
-          "start": "2023-04-15T14:40",
-          "end": "2023-04-15T15:00",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T15:30",
+          "end": "2023-04-15T15:50",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Zalecenia ESGO-ESTRO-ESP 2022",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Julia Rudnicka",
-          "start": "2023-04-15T15:05",
-          "end": "2023-04-15T15:25",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T15:55",
+          "end": "2023-04-15T16:15",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Rola immunoterapii w leczeniu raka szyjki macicy",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Marta Bombała",
-          "start": "2023-04-15T15:35",
-          "end": "2023-04-15T15:55",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "start": "2023-04-15T16:20",
+          "end": "2023-04-15T16:40",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         }
       ],
       "classes_start": "",
@@ -195,101 +257,101 @@
         {
           "title_pl": "Ciążowa choroba trofoblastyczna",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Jana Krasowska",
           "start": "2023-04-16T09:00",
-          "end": "2023-04-15T09:20",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T09:20",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Rak sromu",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Julia Jeridi",
           "start": "2023-04-16T09:25",
-          "end": "2023-04-15T09:45",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T09:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Rak pochwy",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Weronika Jędrzejczak",
           "start": "2023-04-16T09:50",
-          "end": "2023-04-15T10:10",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T10:10",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Nowotwór a ciąża",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Zuzanna Tomczewska",
           "start": "2023-04-16T10:15",
           "end": "2023-04-15T10:35",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Zastosowanie protokołu ERAS w ginekologii onkologicznej",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Aleksandra Stępka",
           "start": "2023-04-16T11:10",
-          "end": "2023-04-15T11:30",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T11:30",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Zastosowanie chirurgii robotowej w ginekologii onkologicznej",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Elena Sztemberg",
           "start": "2023-04-16T11:35",
-          "end": "2023-04-15T11:55",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T11:55",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Postępowanie w przypadku powikłań leczenia systemowego",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Ewa Jagodzińska",
           "start": "2023-04-16T12:00",
-          "end": "2023-04-15T12:20",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T12:20",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Zdrowie seksualne u pacjentek z nowotworami ginekologicznymi",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Monika Wyszyńska",
           "start": "2023-04-16T12:25",
-          "end": "2023-04-15T12:45",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T12:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Opieka paliatywna",
           "title_en": "",
-          "about_pl": "TBD",
-          "about_en": "TBD",
+          "about_pl": "",
+          "about_en": "",
           "speaker": "Monika Kamińska",
           "start": "2023-04-16T12:50",
-          "end": "2023-04-15T13:10",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T13:10",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Obiad",
@@ -298,7 +360,7 @@
           "about_en": "",
           "speaker": "",
           "start": "2023-04-16T13:15",
-          "end": "2023-04-15T14:15",
+          "end": "2023-04-16T14:15",
           "location_pl": "Centrum Dydaktyczne WUM",
           "location_en": "Warsaw Medical University Didactic Center"
         },
@@ -309,20 +371,9 @@
           "about_en": "",
           "speaker": "",
           "start": "2023-04-16T14:15",
-          "end": "2023-04-15T15:15",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
-        },
-        {
-          "title_pl": "Building a Personalized Medicine Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital",
-          "title_en": "Building a Personalized Medicine Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital",
-          "about_pl": "TBD",
-          "about_en": "TBD",
-          "speaker": "Nicolò Bizzarri",
-          "start": "2023-04-16T15:15",
-          "end": "2023-04-15T15:45",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "end": "2023-04-16T15:15",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         },
         {
           "title_pl": "Uroczyste zakończnie konferencji",
@@ -332,8 +383,8 @@
           "speaker": "",
           "start": "2023-04-16T15:45",
           "end": "",
-          "location_pl": "Sala wykładowa",
-          "location_en": "Lecture hall"
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A"
         }
       ],
       "classes_start": "",

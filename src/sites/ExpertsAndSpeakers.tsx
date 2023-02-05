@@ -4,30 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
 
-const about_pl =
-  'Studenckie Koło Naukowe przy II Katedrze i Klinice \
-Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
-wspaniałe lekarki: dr hab. n. med. Ewa Romejko-Wolniewicz oraz dr Agnieszka \
-Dobrowolska-Redo. Spotykamy się co dwa tygodnie w szpitalu na ulicy Karowej 2 \
-w II Katedrze i Klinice Położnictwa i Ginekologii WUM, której kierownikiem \
-jest prof. dr hab. n. med. Krzysztof Czajkowski. Omawiane na spotkaniach \
-zagadnienia zdecydowanie wykraczają poza wiadomości przekazywane nam w trakcie \
-codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki \
-ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze \
-medycyny ratunkowej i anestezjolodzy.'
-
-const about_en =
-  'The Studen Association at the II Department and Clinic of \
-Obstetrics and Gynaecology of the Medical University of Warsaw has been \
-established in 1982. The association is lead by wonderful doctors, dr hab. \
-Ewa Romejko-Wolniewicz and MD Agnieszka Dobrowowska-Redo. The meetings take \
-place every two weeks at the Princess Anna Mazowiecka Hospital on Karowa St. \
-in Warsaw. The issues discussed at the meetings definitely go beyond the \
-knowledge provided to students during everyday classes at the university, at \
-the same time not limited to the subject of gynaecology - internists, \
-scientists, emergency medicine doctors and anesthesiologists have already \
-given lectures.'
-
 const topPersonDescription =
   'ENYGO President, Fondazione Policlinico \
 Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
@@ -255,7 +231,6 @@ function Speakers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  const { i18n } = useTranslation()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -286,7 +261,7 @@ function Speakers(props: TabPanelProps) {
                   src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'}
                 />
                 <p className='about-us-text'>
-                  {i18n.language === 'pl' ? about_pl : about_en}
+                  {t('expertsAndSpeakers.AboutUsText')}
                 </p>
               </div>
             </div>

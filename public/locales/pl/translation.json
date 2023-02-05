@@ -56,5 +56,8 @@
   "sponsor.Lek.Subtitle": "prof. dr hab. n. med. Rafał Krenke",
 
   "sponsor.STN.Alt": "Logo Studenckiego Towarzystwa Naukowego WUM",
-  "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe"
+  "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe",
+
+  "registrationDialog.NotYet.Title": "Rejestracja nie została jeszcze otwarta",
+  "registrationDialog.NotYet.Text": "Prosimy o śledzenie komunikatów na naszej stronie internetowej i w mediach społecznościowych."
 }

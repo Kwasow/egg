@@ -12,6 +12,10 @@ import {
   ListItemText,
   Button,
   Divider,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
@@ -75,12 +79,33 @@ function LanguageSwitcher(props: { style?: React.CSSProperties }) {
   )
 }
 
+function RegisterNotAvailableDialog(props: {
+  open: boolean
+  onClose: () => void
+}) {
+  const { open, onClose } = props
+  const { t } = useTranslation()
+
+  return (
+    <Dialog onClose={onClose} open={open}>
+      <DialogTitle>{t('registrationDialog.NotYet.Title')}</DialogTitle>
+      <DialogContent>
+        <p>{t('registrationDialog.NotYet.Text')}</p>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>OK</Button>
+      </DialogActions>
+    </Dialog>
+  )
+}
+
 export function EggDrawer(props: {
   drawerOpen: boolean
   setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setDialogOpen: (state: boolean) => void
 }) {
   const navigate = useNavigate()
-  const { drawerOpen, setDrawerOpen } = props
+  const { drawerOpen, setDrawerOpen, setDialogOpen } = props
   const { t } = useTranslation()
 
   return (
@@ -123,7 +148,7 @@ export function EggDrawer(props: {
               paddingTop: '15px',
               paddingBottom: '15px',
             }}
-            onClick={() => window.open('https://google.com')}
+            onClick={() => setDialogOpen(true)}
           >
             {t('navbar.Register')}
           </Button>
@@ -207,6 +232,8 @@ function NavigationBar(props: { route: string }) {
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
 
+  const [dialogOpen, setDialogOpen] = useState(false)
+
   return (
     <>
       <AppBar position='fixed'>
@@ -244,17 +271,23 @@ function NavigationBar(props: { route: string }) {
             <div className='appbar-right'>
               <FacebookIconLink white={true} />
               <InstagramIconLink white={true} />
-              <AppBarActionButton
-                onClick={() => window.open('https://google.com')}
-              >
+              <AppBarActionButton onClick={() => setDialogOpen(true)}>
                 {t('navbar.Register')}
               </AppBarActionButton>
               <LanguageSwitcher />
             </div>
           </div>
         </EggToolbar>
-        <EggDrawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+        <EggDrawer
+          drawerOpen={drawerOpen}
+          setDrawerOpen={setDrawerOpen}
+          setDialogOpen={setDialogOpen}
+        />
       </AppBar>
+      <RegisterNotAvailableDialog
+        onClose={() => setDialogOpen(false)}
+        open={dialogOpen}
+      />
     </>
   )
 }

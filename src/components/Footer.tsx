@@ -41,7 +41,6 @@ function Footer() {
               </div>
             </div>
             <div className='footer-contact'>
-              <p className='contact-title'>{t('footer.Adress')}</p>
               <p className='contact' style={{ fontStyle: 'italic' }}>
                 Studenckie Koło Naukowe <br />
                 przy II Katedrze Ginekologii i Położnictwa <br />

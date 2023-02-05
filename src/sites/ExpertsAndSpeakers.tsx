@@ -101,6 +101,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
               className='grid-person-image'
               src={directory + person.picture}
               alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+              loading='lazy'
             />
             <p className='grid-person-title'>{person.name}</p>
             <p className='grid-person-subtitle'>
@@ -157,6 +158,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
                 className='people-image'
                 alt={t('expertsAndSpeakers.PersonAlt') + person.name}
                 src={directory + person.picture}
+                loading='lazy'
               />
               <div
                 className={
@@ -290,7 +292,7 @@ function Speakers(props: TabPanelProps) {
                 </p>
               </div>
             </div>
-            <img className='about-us-image' src='/static/images/us.png' />
+            <img className='about-us-image' src='/static/images/us.webp' />
           </Card>
           <PeopleGridView people={people} type={type} />
         </>
@@ -323,7 +325,7 @@ function TopPerson() {
     <div className='top-person-wrap'>
       <img
         className='top-person-image'
-        src={process.env.PUBLIC_URL + '/static/images/top-guest.png'}
+        src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
       />
       <div className='top-person-text'>
         <p className='top-person-name'>dr med. Nicolò Bizzarri</p>

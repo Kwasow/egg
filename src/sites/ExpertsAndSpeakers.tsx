@@ -4,27 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
 
-const about_pl =
-  'Studenckie Koło Naukowe przy II Katedrze i Klinice \
-Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się \
-wspaniałe lekarki: dr hab. n. med. Ewa Romejko-Wolniewicz oraz dr Agnieszka \
-Dobrowolska-Redo. Spotykamy się co dwa tygodnie w szpitalu na ulicy Karowej 2 \
-w II Katedrze i Klinice Położnictwa i Ginekologii WUM, której kierownikiem \
-jest prof. dr hab. n. med. Krzysztof Czajkowski. Omawiane na spotkaniach \
-zagadnienia zdecydowanie wykraczają poza wiadomości przekazywane nam w trakcie \
-codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki \
-ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze \
-medycyny ratunkowej i anestezjolodzy.'
-
-const about_en = '[TODO] ' + about_pl
-
 const topPersonDescription =
   'ENYGO President, Fondazione Policlinico \
 Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
 la Salute della Donna e del Bambino e della Salute Pubblica, Rome, Italy'
 
-const topPersonInaugural = 'Inaugural speech'
-const topPersonInauguralDate = 'Saturday, 9:00 15th April 2023, Lecture hall A'
 const topPersonInauguralTitle =
   'Building a Personalized Medicine \
 Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital'
@@ -56,7 +40,7 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   console.log(phpUrl)
 
   return new Promise((resolve, reject) => {
-    fetch(phpUrl)
+    fetch(phpUrl, { cache: 'no-store' })
       .then((res) => res.json())
       .then((description: Description) => {
         const urls = description.list.map((value) => directory + '/' + value)
@@ -82,10 +66,31 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   })
 }
 
+function AvailableSoon() {
+  const { t } = useTranslation()
+
+  return (
+    <div className='available-soon-wrapper'>
+      <img
+        className='available-soon-logo'
+        src={process.env.PUBLIC_URL + 'static/images/main0.png'}
+        alt={t('navbar.LogoAlt') || ''}
+      />
+      <p className='available-soon-text'>
+        {t('expertsAndSpeakers.AvailableSoon')}
+      </p>
+    </div>
+  )
+}
+
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
+
+  if (people.length === 0) {
+    return <AvailableSoon />
+  }
 
   return (
     <Grid container spacing={0} className='grid-container'>
@@ -131,6 +136,10 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
 
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
+
+  if (people.length === 0) {
+    return <AvailableSoon />
+  }
 
   if (screenSize === ScreenSize.BIG) {
     return (
@@ -247,7 +256,6 @@ function Speakers(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  const { i18n } = useTranslation()
   const { t } = useTranslation()
 
   useEffect(() => {
@@ -278,7 +286,7 @@ function Speakers(props: TabPanelProps) {
                   src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'}
                 />
                 <p className='about-us-text'>
-                  {i18n.language === 'pl' ? about_pl : about_en}
+                  {t('expertsAndSpeakers.AboutUsText')}
                 </p>
               </div>
             </div>
@@ -318,13 +326,17 @@ function TopPerson() {
         src={process.env.PUBLIC_URL + '/static/images/top-guest.png'}
       />
       <div className='top-person-text'>
-        <p className='top-person-name'>Nicolò Bizzarri</p>
+        <p className='top-person-name'>dr med. Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
           {t('expertsAndSpeakers.SpecialGuest')}
         </p>
         <p>{topPersonDescription}</p>
-        <p className='top-person-speech'>{topPersonInaugural}</p>
-        <p className='top-person-subtext'>{topPersonInauguralDate}</p>
+        <p className='top-person-speech'>
+          {t('expertsAndSpeakers.InauguralSpeech')}
+        </p>
+        <p className='top-person-subtext'>
+          {t('expertsAndSpeakers.InauguralDate')}
+        </p>
         <p>{topPersonInauguralTitle}</p>
       </div>
     </div>

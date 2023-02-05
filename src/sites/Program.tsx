@@ -274,7 +274,7 @@ function Program() {
   const [loaded, setLoaded] = useState(0)
 
   useEffect(() => {
-    fetch(programURL)
+    fetch(programURL, { cache: 'no-store' })
       .then((res) => res.json())
       .then((json) => {
         setDays(json.days)

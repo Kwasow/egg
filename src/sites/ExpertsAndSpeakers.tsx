@@ -66,10 +66,31 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   })
 }
 
+function AvailableSoon() {
+  const { t } = useTranslation()
+
+  return (
+    <div className='available-soon-wrapper'>
+      <img
+        className='available-soon-logo'
+        src={process.env.PUBLIC_URL + 'static/images/main0.png'}
+        alt={t('navbar.LogoAlt') || ''}
+      />
+      <p className='available-soon-text'>
+        {t('expertsAndSpeakers.AvailableSoon')}
+      </p>
+    </div>
+  )
+}
+
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
+
+  if (people.length === 0) {
+    return <AvailableSoon />
+  }
 
   return (
     <Grid container spacing={0} className='grid-container'>
@@ -115,6 +136,10 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
 
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
+
+  if (people.length === 0) {
+    return <AvailableSoon />
+  }
 
   if (screenSize === ScreenSize.BIG) {
     return (

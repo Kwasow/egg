@@ -276,7 +276,7 @@ function Speakers(props: TabPanelProps) {
                 </p>
               </div>
             </div>
-            <img className='about-us-image' src='/static/images/us.jpg' />
+            <img className='about-us-image' src='/static/images/us.png' />
           </Card>
           <PeopleGridView people={people} type={type} />
         </>

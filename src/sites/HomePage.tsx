@@ -134,7 +134,7 @@ function News() {
   useEffect(updateScreenSize, [])
 
   useEffect(() => {
-    fetch(newsURL)
+    fetch(newsURL, { cache: 'no-store' })
       .then((res) => res.json())
       .then((json: NewsJSON) => {
         setNews(json)

@@ -73,7 +73,7 @@ function AvailableSoon() {
     <div className='available-soon-wrapper'>
       <img
         className='available-soon-logo'
-        src={process.env.PUBLIC_URL + 'static/images/main0.png'}
+        src={process.env.PUBLIC_URL + 'static/images/main0.webp'}
         alt={t('navbar.LogoAlt') || ''}
       />
       <p className='available-soon-text'>

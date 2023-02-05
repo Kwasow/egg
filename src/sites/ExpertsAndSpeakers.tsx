@@ -23,6 +23,12 @@ const topPersonDescription =
 Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
 la Salute della Donna e del Bambino e della Salute Pubblica, Rome, Italy'
 
+const topPersonInaugural = 'Inaugural speech'
+const topPersonInauguralDate = 'Saturday, 9:00 15th April 2023, Lecture hall A'
+const topPersonInauguralTitle =
+  'Building a Personalized Medicine \
+Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital'
+
 interface TabPanelProps {
   index: number
   value: number
@@ -317,6 +323,9 @@ function TopPerson() {
           {t('expertsAndSpeakers.SpecialGuest')}
         </p>
         <p>{topPersonDescription}</p>
+        <p className='top-person-speech'>{topPersonInaugural}</p>
+        <p className='top-person-subtext'>{topPersonInauguralDate}</p>
+        <p>{topPersonInauguralTitle}</p>
       </div>
     </div>
   )

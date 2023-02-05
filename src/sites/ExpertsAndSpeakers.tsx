@@ -285,7 +285,7 @@ function Speakers(props: TabPanelProps) {
                 <img
                   className='about-us-logo'
                   alt={t('expertsAndSpeakers.LogoAlt') || ''}
-                  src={process.env.PUBLIC_URL + '/static/images/logokolo.jpg'}
+                  src={process.env.PUBLIC_URL + '/static/images/logokolo.webp'}
                 />
                 <p className='about-us-text'>
                   {t('expertsAndSpeakers.AboutUsText')}

@@ -76,55 +76,66 @@ function LanguageSwitcher(props: { style?: React.CSSProperties }) {
 }
 
 export function EggDrawer(props: {
-  drawerOpen: boolean,
-  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  drawerOpen: boolean
+  setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const navigate = useNavigate()
-  const {drawerOpen, setDrawerOpen} = props
-  const {t} = useTranslation()
+  const { drawerOpen, setDrawerOpen } = props
+  const { t } = useTranslation()
 
-  return <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-    <List>
-      <div className='drawer-logo-container'>
-        <img
-          className='drawer-logo'
-          src={imageUrl + 'logo.png'}
-          alt={t('navbar.LogoAlt') || ''}/>
-      </div>
-      <Divider />
-      {menuItems.map((value, key) => {
-        return <ListItemButton key={key} onClick={() => {
-          navigate(value.link[0])
-          setDrawerOpen(false)
-        }}>
-          <ListItemIcon sx={{
-            color: '#c53d63'
-          }}>
-            {value.icon}
-          </ListItemIcon>
-          <ListItemText>
-            {(t(value.translationString) || '').toUpperCase()}
-          </ListItemText>
-        </ListItemButton>
-      })}
-      <Divider />
-      <div className='drawer-bottom'>
-        <Button
-          sx={{
-            paddingTop: '15px',
-            paddingBottom: '15px'
-          }}
-          onClick={() => window.open('https://google.com')}>
-          {t('navbar.Register')}
-        </Button>
-        <div className='drawer-bottom-icons'>
-          <FacebookIconLink />
-          <InstagramIconLink />
-          <LanguageSwitcher />
+  return (
+    <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <List>
+        <div className='drawer-logo-container'>
+          <img
+            className='drawer-logo'
+            src={imageUrl + 'logo.png'}
+            alt={t('navbar.LogoAlt') || ''}
+          />
         </div>
-      </div>
-    </List>
-  </Drawer>
+        <Divider />
+        {menuItems.map((value, key) => {
+          return (
+            <ListItemButton
+              key={key}
+              onClick={() => {
+                navigate(value.link[0])
+                setDrawerOpen(false)
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  color: '#c53d63',
+                }}
+              >
+                {value.icon}
+              </ListItemIcon>
+              <ListItemText>
+                {(t(value.translationString) || '').toUpperCase()}
+              </ListItemText>
+            </ListItemButton>
+          )
+        })}
+        <Divider />
+        <div className='drawer-bottom'>
+          <Button
+            sx={{
+              paddingTop: '15px',
+              paddingBottom: '15px',
+            }}
+            onClick={() => window.open('https://google.com')}
+          >
+            {t('navbar.Register')}
+          </Button>
+          <div className='drawer-bottom-icons'>
+            <FacebookIconLink />
+            <InstagramIconLink />
+            <LanguageSwitcher />
+          </div>
+        </div>
+      </List>
+    </Drawer>
+  )
 }
 
 function a11yProps(index: number) {
@@ -196,55 +207,56 @@ function NavigationBar(props: { route: string }) {
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
 
-  return <>
-    <AppBar position='fixed'>
-      <EggToolbar>
-        <div className='appbar'>
-          <div className='appbar-left'>
-            <IconButton
-              aria-label='Menu'
-              color='inherit'
-              onClick={() => setDrawerOpen(true)}
-              style={{ display: bigScreen ? 'none' : 'inherit' }}>
-              <MenuIcon />
-            </IconButton>
-            <div
-              className='appbar-navigate-home-container'
-              onClick={() => navigate('/')}>
-              <img className='appbar-logo'
-                alt={t('navbar.LogoAlt') || ''}
-                src={imageUrl + 'logo.png'}/>
-              <div className='appbar-name-container'>
-                <p className='appbar-name'>
-                  {t('navbar.Title.Line1')}
-                </p>
-                <p className='appbar-subname'>
-                  {t('navbar.Title.Line2')}
-                </p>
+  return (
+    <>
+      <AppBar position='fixed'>
+        <EggToolbar>
+          <div className='appbar'>
+            <div className='appbar-left'>
+              <IconButton
+                aria-label='Menu'
+                color='inherit'
+                onClick={() => setDrawerOpen(true)}
+                style={{ display: bigScreen ? 'none' : 'inherit' }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <div
+                className='appbar-navigate-home-container'
+                onClick={() => navigate('/')}
+              >
+                <img
+                  className='appbar-logo'
+                  alt={t('navbar.LogoAlt') || ''}
+                  src={imageUrl + 'logo.png'}
+                />
+                <div className='appbar-name-container'>
+                  <p className='appbar-name'>{t('navbar.Title.Line1')}</p>
+                  <p className='appbar-subname'>{t('navbar.Title.Line2')}</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className='appbar-middle'>
-            <NavigationTabs route={route} t={t}/>
-          </div>
+            <div className='appbar-middle'>
+              <NavigationTabs route={route} t={t} />
+            </div>
 
-          <div className='appbar-right'>
-            <FacebookIconLink white={true}/>
-            <InstagramIconLink white={true}/>
-            <AppBarActionButton 
-              onClick={() => window.open('https://google.com')}>
-              {t('navbar.Register')}
-            </AppBarActionButton>
-            <LanguageSwitcher/>
+            <div className='appbar-right'>
+              <FacebookIconLink white={true} />
+              <InstagramIconLink white={true} />
+              <AppBarActionButton
+                onClick={() => window.open('https://google.com')}
+              >
+                {t('navbar.Register')}
+              </AppBarActionButton>
+              <LanguageSwitcher />
+            </div>
           </div>
-        </div>     
-      </EggToolbar>
-      <EggDrawer
-        drawerOpen={drawerOpen}
-        setDrawerOpen={setDrawerOpen}/>
-    </AppBar>
-  </>
+        </EggToolbar>
+        <EggDrawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+      </AppBar>
+    </>
+  )
 }
 
 export default NavigationBar

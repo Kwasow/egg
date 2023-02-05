@@ -13,24 +13,26 @@ import './App.css'
 function App() {
   const currentRoute = window.location.pathname
 
-  return <>
-    <NavigationBar route={currentRoute} />
-    <div className='flex-wrapper'>
-      <div>
-        {/* This toolbar is required to add the appropriate padding on top */}
-        <EggToolbar />
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/home' element={<HomePage />} />
-          <Route path='/program' element={<Program />} />
-          <Route path='/speakers' element={<ExpertsAndSpeakers />} />
-          <Route path='/photos' element={<Photos />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+  return (
+    <>
+      <NavigationBar route={currentRoute} />
+      <div className='flex-wrapper'>
+        <div>
+          {/* This toolbar is required to add the appropriate padding on top */}
+          <EggToolbar />
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/program' element={<Program />} />
+            <Route path='/speakers' element={<ExpertsAndSpeakers />} />
+            <Route path='/photos' element={<Photos />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  </>
+    </>
+  )
 }
 
 export default App

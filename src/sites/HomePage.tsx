@@ -8,7 +8,7 @@ import './HomePage.css'
 
 const slides: Slide[] = [
   {
-    image: process.env.PUBLIC_URL + '/static/images/main0.png',
+    image: process.env.PUBLIC_URL + '/static/images/main0.webp',
     title_pl: 'IV Edycja - Sekrety onkologii',
     subtitle_pl: 'Kliknij by zobaczyć program wykładów i warsztatów',
     title_en: 'Secrets of oncology',
@@ -16,7 +16,7 @@ const slides: Slide[] = [
     link: '/speakers',
   },
   {
-    image: process.env.PUBLIC_URL + '/static/images/main1.jpg',
+    image: process.env.PUBLIC_URL + '/static/images/main1.webp',
     title_pl: 'Lista mówców już dostępna!',
     subtitle_pl: 'Kliknij by dowiedzieć się więcej...',
     title_en: 'Speakers list is now available!',
@@ -24,7 +24,7 @@ const slides: Slide[] = [
     link: '/speakers',
   },
   {
-    image: process.env.PUBLIC_URL + '/static/images/main2.jpg',
+    image: process.env.PUBLIC_URL + '/static/images/main2.webp',
     title_pl: 'Zobacz zdjęcia z poprzednich edycji',
     subtitle_pl: 'Sprawdź w zakładce Galeria',
     title_en: 'See photos from previous edition',
@@ -86,19 +86,19 @@ function Sponsors() {
       <p className='sponsors-header'>{t('mainPage.Partners')}</p>
       <Grid container spacing={0} className='sponsors-container'>
         <SponsorImage
-          image='/static/sponsors/wum.png'
+          image='/static/sponsors/wum.webp'
           imageAlt={t('sponsor.WUM.Alt') || ''}
           title={t('sponsor.WUM.Title') || ''}
           secondary={t('sponsor.WUM.Subtitle') || ''}
         />
         <SponsorImage
-          image='/static/sponsors/lek.png'
+          image='/static/sponsors/lek.webp'
           imageAlt={t('sponsor.Lek.Alt') || ''}
           title={t('sponsor.Lek.Title') || ''}
           secondary={t('sponsor.Lek.Subtitle') || ''}
         />
         <SponsorImage
-          image='/static/sponsors/stn.png'
+          image='/static/sponsors/stn.webp'
           imageAlt={t('sponsor.STN.Alt') || ''}
           title={t('sponsor.STN.Title') || ''}
         />
@@ -153,6 +153,7 @@ function News() {
           <img
             src={newsPrefix + news?.registration.image}
             className='registration-photo'
+            loading='lazy'
           />
           <div className='registration-right'>
             <div>
@@ -195,6 +196,7 @@ function News() {
             <img
               src={newsPrefix + news?.registration.image}
               className='other-photo'
+              loading='lazy'
             />
             <p className='other-title' style={{ color: 'white' }}>
               {decideLanguage(
@@ -234,6 +236,7 @@ function News() {
                     <img
                       src={newsPrefix + value.image}
                       className='other-photo'
+                      loading='lazy'
                     />
                     <p className='other-title'>
                       {decideLanguage(

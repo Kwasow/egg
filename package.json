@@ -37,7 +37,9 @@
     "preprocess-photos": "cd public/php && php getPhotos.php > getPhotos.json",
     "preporcess-speakers": "cd public/php && php getPeople.php type=speakers > getPeople-speakers.json",
     "preporcess-experts": "cd public/php && php getPeople.php type=experts > getPeople-experts.json",
-    "clean-preprocess": "rm -f public/php/*.json"
+    "clean-preprocess": "rm -f public/php/*.json",
+    "pretty": "yarn prettier --write .",
+    "pretty-check": "yarn prettier --check ."
   },
   "eslintConfig": {
     "extends": [

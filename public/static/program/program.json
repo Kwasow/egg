@@ -12,7 +12,8 @@
           "start": "2023-04-14T15:00",
           "end": "2023-04-14T16:00",
           "location_pl": "Centrum Dydaktyczne WUM",
-          "location_en": "Warsaw Medical University Didactic Center"
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
         },
         {
           "title_pl": "Otwarcie konferencji",
@@ -23,7 +24,8 @@
           "start": "2023-04-14T16:00",
           "end": "2023-04-14T16:10",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Współczesne zasady opieki nad pacjentem leczonym onkologicznie",
@@ -34,7 +36,8 @@
           "start": "2023-04-14T16:10",
           "end": "2023-04-14T16:50",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         }
       ],
       "classes_start": "2023-04-14T17:00",
@@ -89,7 +92,8 @@
           "start": "2023-04-15T08:00",
           "end": "2023-04-15T09:00",
           "location_pl": "Centrum Dydaktyczne WUM",
-          "location_en": "Warsaw Medical University Didactic Center"
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
         },
 
         {
@@ -101,7 +105,8 @@
           "start": "2023-04-15T09:00",
           "end": "2023-04-15T09:45",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Neoadjuwantowa chemioterapia a pierwotna operacja cytoredukcyjna w zaawansowanym nabłonkowym raku jajnika",
@@ -112,7 +117,8 @@
           "start": "2023-04-15T10:00",
           "end": "2023-04-15T10:20",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Operacja cytoredukcyjna u pacjentek z nawrotowym rakiem jajnika",
@@ -123,7 +129,8 @@
           "start": "2023-04-15T10:25",
           "end": "2023-04-15T10:45",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Rola dootrzewnowej chemioterapii perfuzyjnej w hipertermii (HIPEC) w leczeniu raka jajnika",
@@ -134,7 +141,8 @@
           "start": "2023-04-15T10:50",
           "end": "2023-04-15T11:10",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Inhibitory PARP w terapii raka jajnika",
@@ -145,7 +153,8 @@
           "start": "2023-04-15T11:15",
           "end": "2023-04-15T11:35",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Postępowanie w raku trzonu macicy z uwzględnieniem klasyfikacji molekularnej - zalecenia ESGO/ESTRO/ESP",
@@ -156,7 +165,8 @@
           "start": "2023-04-15T12:00",
           "end": "2023-04-15T12:20",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Leczenie oszczędzające płodność - zalecenia ESGO-ESHRE-ESGE 2022",
@@ -167,7 +177,8 @@
           "start": "2023-04-15T12:25",
           "end": "2023-04-15T12:45",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Procedura węzła wartowniczego w raku endometrium",
@@ -178,7 +189,8 @@
           "start": "2023-04-15T13:05",
           "end": "2023-04-15T13:25",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Nowe doniesienia naukowe nt. możliwości terapeutycznych w raku endometrium",
@@ -189,7 +201,8 @@
           "start": "2023-04-15T13:30",
           "end": "2023-04-15T13:50",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Obiad",
@@ -200,7 +213,8 @@
           "start": "2023-04-15T13:55",
           "end": "2023-04-15T15:00",
           "location_pl": "Centrum Dydaktyczne WUM",
-          "location_en": "Warsaw Medical University Didactic Center"
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
         },
         {
           "title_pl": "Profilaktyka raka szyjki macicy",
@@ -211,7 +225,8 @@
           "start": "2023-04-15T15:00",
           "end": "2023-04-15T15:20",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Leczenie operacyjne raka szyjki macicy 5 lat po publikacji wyników LACC trial",
@@ -222,7 +237,8 @@
           "start": "2023-04-15T15:30",
           "end": "2023-04-15T15:50",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Zalecenia ESGO-ESTRO-ESP 2022",
@@ -233,7 +249,8 @@
           "start": "2023-04-15T15:55",
           "end": "2023-04-15T16:15",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Rola immunoterapii w leczeniu raka szyjki macicy",
@@ -244,7 +261,8 @@
           "start": "2023-04-15T16:20",
           "end": "2023-04-15T16:40",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         }
       ],
       "classes_start": "",
@@ -263,7 +281,8 @@
           "start": "2023-04-16T09:00",
           "end": "2023-04-16T09:20",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Rak sromu",
@@ -274,7 +293,8 @@
           "start": "2023-04-16T09:25",
           "end": "2023-04-16T09:45",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Rak pochwy",
@@ -285,7 +305,8 @@
           "start": "2023-04-16T09:50",
           "end": "2023-04-16T10:10",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Nowotwór a ciąża",
@@ -296,7 +317,8 @@
           "start": "2023-04-16T10:15",
           "end": "2023-04-15T10:35",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Zastosowanie protokołu ERAS w ginekologii onkologicznej",
@@ -307,7 +329,8 @@
           "start": "2023-04-16T11:10",
           "end": "2023-04-16T11:30",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Zastosowanie chirurgii robotowej w ginekologii onkologicznej",
@@ -318,7 +341,8 @@
           "start": "2023-04-16T11:35",
           "end": "2023-04-16T11:55",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Postępowanie w przypadku powikłań leczenia systemowego",
@@ -329,7 +353,8 @@
           "start": "2023-04-16T12:00",
           "end": "2023-04-16T12:20",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Zdrowie seksualne u pacjentek z nowotworami ginekologicznymi",
@@ -340,7 +365,8 @@
           "start": "2023-04-16T12:25",
           "end": "2023-04-16T12:45",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Opieka paliatywna",
@@ -351,7 +377,8 @@
           "start": "2023-04-16T12:50",
           "end": "2023-04-16T13:10",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Obiad",
@@ -362,7 +389,8 @@
           "start": "2023-04-16T13:15",
           "end": "2023-04-16T14:15",
           "location_pl": "Centrum Dydaktyczne WUM",
-          "location_en": "Warsaw Medical University Didactic Center"
+          "location_en": "Warsaw Medical University Didactic Center",
+          "highlight": true
         },
         {
           "title_pl": "Konkurs przypadków medycznych",
@@ -373,7 +401,20 @@
           "start": "2023-04-16T14:15",
           "end": "2023-04-16T15:15",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
+        },
+        {
+          "title_pl": "Wykład eksperta",
+          "title_en": "Expert's lecture",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "2023-04-16T15:15",
+          "end": "2023-04-16T15:45",
+          "location_pl": "Aula A",
+          "location_en": "Lecture hall A",
+          "highlight": false
         },
         {
           "title_pl": "Uroczyste zakończnie konferencji",
@@ -384,7 +425,8 @@
           "start": "2023-04-16T15:45",
           "end": "",
           "location_pl": "Aula A",
-          "location_en": "Lecture hall A"
+          "location_en": "Lecture hall A",
+          "highlight": false
         }
       ],
       "classes_start": "",

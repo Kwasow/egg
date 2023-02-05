@@ -70,7 +70,7 @@
     "prettier": "2.8.3"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.(js|ts|tsx)": "yarn lint",
+    "*": "prettier --write"
   }
 }

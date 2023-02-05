@@ -16,7 +16,17 @@ codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki
 ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze \
 medycyny ratunkowej i anestezjolodzy.'
 
-const about_en = '[TODO] ' + about_pl
+const about_en =
+  'The Studen Association at the II Department and Clinic of \
+Obstetrics and Gynaecology of the Medical University of Warsaw has been \
+established in 1982. The association is lead by wonderful doctors, dr hab. \
+Ewa Romejko-Wolniewicz and MD Agnieszka Dobrowowska-Redo. The meetings take \
+place every two weeks at the Princess Anna Mazowiecka Hospital on Karowa St. \
+in Warsaw. The issues discussed at the meetings definitely go beyond the \
+knowledge provided to students during everyday classes at the university, at \
+the same time not limited to the subject of gynaecology - internists, \
+scientists, emergency medicine doctors and anesthesiologists have already \
+given lectures.'
 
 const topPersonDescription =
   'ENYGO President, Fondazione Policlinico \

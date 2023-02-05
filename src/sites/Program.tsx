@@ -247,7 +247,7 @@ function HeaderImage() {
 
   return (
     <div className='gray-divider'>
-      <img className='wum-image' src='/static/images/wum.jpg' />
+      <img className='wum-image' src='/static/images/wum.webp' />
       <div className='date-time-info'>
         <p className='text-primary text-primary-top'>
           {t('program.Date.Label')}

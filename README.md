@@ -58,7 +58,7 @@ Included files:
 
 Not included (placed on server):
 
-- `public/static/organisers` - info about organisers, json format:
+- `public/static/experts` - info about experts, json format:
 
 ```json
 {
@@ -73,4 +73,3 @@ Not included (placed on server):
 - `public/static/gallery` - photos (organised in folders) to be shown in
   the photo gallery tab
 - `public/static/news`
-- `public/static/sponsors`

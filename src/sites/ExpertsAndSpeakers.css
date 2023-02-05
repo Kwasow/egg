@@ -13,19 +13,21 @@
   margin-bottom: 0;
   font-weight: bold;
   font-size: xx-large;
+  padding-left: 30px;
 }
 
 .people-left-description {
-  text-align: justify;
+  text-align: left;
   text-align-last: left;
-  width: 60%;
+  width: 70%;
+  padding-left: 30px;
+  font-weight: lighter;
 }
 
-.people-left-image {
-  height: 250px;
-  width: 150px;
-  object-fit: contain;
-  padding-inline-end: 5%;
+.people-image {
+  height: 400px;
+  width: 225px;
+  object-fit: cover;
 }
 
 .people-right-container {
@@ -34,6 +36,7 @@
   padding-left: 15%;
   padding-right: 10%;
   align-items: center;
+  font-weight: lighter;
 }
 
 .people-right-text-container {
@@ -47,20 +50,35 @@
   font-weight: bold;
   font-size: xx-large;
   text-align: right;
+  padding-right: 40px;
 }
 
 .people-right-description {
-  text-align: justify;
+  text-align: right;
   text-align-last: right;
-  width: 60%;
+  width: 70%;
   align-self: flex-end;
+  padding-right: 40px;
 }
 
-.people-right-image {
-  height: 250px;
-  width: 150px;
-  object-fit: contain;
-  padding-inline-start: 5%;
+@media screen and (max-width: 1500px) {
+  .people-right-description {
+    width: 80%;
+  }
+
+  .people-left-description {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .people-right-description {
+    width: auto;
+  }
+
+  .people-left-description {
+    width: auto;
+  }
 }
 
 .people-loading-container {
@@ -70,14 +88,23 @@
 }
 
 .top-person-wrap {
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.top-person-name {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 .top-person-image {
-  height: 90%;
+  height: 360px;
+  width: 360px;
   margin-right: 40px;
   border-radius: 10px;
 }
@@ -85,12 +112,31 @@
 .top-person-text {
   width: 50%;
   text-align: left;
+  font-weight: lighter;
 }
 
 .top-person-subtext {
   font-style: italic;
   margin-top: 0;
   color: gray;
+}
+
+@media screen and (max-width: 900px) {
+  .top-person-wrap {
+    flex-direction: column;
+  }
+
+  .top-person-text {
+    text-align: center;
+    width: auto;
+    margin-top: 10px;
+  }
+}
+
+.about-us-card {
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
 }
 
 .about-us-card-left-container {
@@ -111,7 +157,6 @@
 
 .about-us-image {
   width: 50%;
-  height: 500px;
   margin: 0;
   padding: 0;
   object-fit: cover;
@@ -124,17 +169,41 @@
   color: white;
 }
 
+@media screen and (max-width: 1300px) {
+  .about-us-inner-container {
+    flex-direction: column-reverse;
+  }
+}
+
 .about-us-logo {
   height: 150px;
   width: 150px;
   margin: 30px;
-  margin-left: 0;
   border-radius: 20px;
 }
 
 .about-us-text {
   text-align: justify;
   margin-right: 3%;
+}
+
+@media screen and (max-width: 900px) {
+  .about-us-card {
+    flex-direction: column-reverse;
+  }
+
+  .about-us-image {
+    height: 300px;
+    width: auto;
+  }
+
+  .about-us-card-left-container {
+    width: auto;
+  }
+
+  .about-us-image {
+    margin-bottom: 0px;
+  }
 }
 
 .grid-container {
@@ -160,10 +229,35 @@
   font-weight: bold;
   font-size: larger;
   margin-bottom: 0px;
+  text-align: center;
 }
 
 .grid-person-subtitle {
   font-style: italic;
   color: gray;
   margin-top: 0px;
+  text-align: center;
+}
+
+.person-small-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.person-small-name {
+  font-weight: bold;
+  font-size: xx-large;
+  margin: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.person-small-description {
+  text-align: center;
+  margin: 20px;
+  margin-top: 0;
+  margin-bottom: 60px;
+  font-weight: lighter;
 }

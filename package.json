@@ -39,7 +39,8 @@
     "preporcess-experts": "cd public/php && php getPeople.php type=experts > getPeople-experts.json",
     "clean-preprocess": "rm -f public/php/*.json",
     "pretty": "yarn prettier --write .",
-    "pretty-check": "yarn prettier --check ."
+    "pretty-check": "yarn prettier --check .",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +65,12 @@
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
     "eslint-plugin-react": "^7.31.11",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "2.8.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }

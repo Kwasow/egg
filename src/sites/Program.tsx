@@ -26,6 +26,7 @@ type Activity = {
   end: string
   location_pl: string
   location_en: string
+  highlight: boolean
 }
 
 type Workshop = {
@@ -73,7 +74,12 @@ function Row(props: { activity: Activity }) {
     <>
       <TableRow
         onClick={() => isClickable && setOpen(!open)}
-        sx={{ cursor: isClickable ? 'pointer' : 'auto' }}
+        sx={{
+          cursor: isClickable ? 'pointer' : 'auto',
+          backgroundColor: activity.highlight
+            ? 'rgba(197, 61, 99, 0.10)'
+            : 'white',
+        }}
       >
         <TableCell>
           {isClickable && (
@@ -152,7 +158,13 @@ function WorkshopRow(props: { day: DayObject }) {
 
   return (
     <>
-      <TableRow onClick={() => setOpen(!open)} sx={{ cursor: 'pointer' }}>
+      <TableRow
+        onClick={() => setOpen(!open)}
+        sx={{
+          cursor: 'pointer',
+          backgroundColor: 'rgba(197, 61, 99, 0.10)',
+        }}
+      >
         <TableCell>
           <IconButton
             aria-label='expand row'

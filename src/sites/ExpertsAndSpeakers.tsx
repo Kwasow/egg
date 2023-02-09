@@ -328,7 +328,7 @@ function TopPerson() {
         src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
       />
       <div className='top-person-text'>
-        <p className='top-person-name'>dr med. Nicolò Bizzarri</p>
+        <p className='top-person-name'>dr Nicolò Bizzarri</p>
         <p className='top-person-subtext'>
           {t('expertsAndSpeakers.SpecialGuest')}
         </p>

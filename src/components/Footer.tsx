@@ -30,10 +30,10 @@ function Footer() {
             <div className='footer-contact'>
               <p className='contact-title'>{t('footer.Contact')}</p>
               <a
-                href='mailto:kontakt@weekendzginekologia.pl'
+                href='mailto:konsekretyonkologii4takt@gmail.com'
                 className='contact'
               >
-                sknkarowa2@gmail.com<br></br>
+                sekretyonkologii4@gmail.com<br></br>
               </a>
               <div className='social-container'>
                 <FacebookIconLink white={true} />

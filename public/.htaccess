@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.weekendzginekologia\.org.pl [NC]
+RewriteRule ^(.*)$ https://weekendzginekologia.org.pl/$1 [L,R=301]
+
+ErrorDocument 404 /404

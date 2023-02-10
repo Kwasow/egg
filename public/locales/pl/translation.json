@@ -63,5 +63,8 @@
   "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe",
 
   "registrationDialog.NotYet.Title": "Rejestracja nie została jeszcze otwarta",
-  "registrationDialog.NotYet.Text": "Prosimy o śledzenie komunikatów na naszej stronie internetowej i w mediach społecznościowych."
+  "registrationDialog.NotYet.Text": "Prosimy o śledzenie komunikatów na naszej stronie internetowej i w mediach społecznościowych.",
+  "registrationDialog.Registration": "Rejestracja",
+  "registrationDialog.RegistrationConference": "W pierwszej kolejności zarejestruj się na konferencję:",
+  "registrationDialog.RegistrationCompetition": "Opcjonalnie zarejestruj się na konkurs przypadków medycznych:"
 }

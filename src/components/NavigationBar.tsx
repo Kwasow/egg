@@ -12,10 +12,6 @@ import {
   ListItemText,
   Button,
   Divider,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
 } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
@@ -35,6 +31,7 @@ import {
   Person as PersonIcon,
   Camera as CameraIcon,
 } from '@mui/icons-material'
+import { RegistrationDialog } from './Dialogs'
 
 type MenuItem = {
   translationString: string
@@ -76,26 +73,6 @@ function LanguageSwitcher(props: { style?: React.CSSProperties }) {
     <a onClick={() => i18n.changeLanguage('pl')} {...props}>
       <img className='appbar-right-top-icon' src={imageUrl + 'polish.png'} />
     </a>
-  )
-}
-
-function RegisterNotAvailableDialog(props: {
-  open: boolean
-  onClose: () => void
-}) {
-  const { open, onClose } = props
-  const { t } = useTranslation()
-
-  return (
-    <Dialog onClose={onClose} open={open}>
-      <DialogTitle>{t('registrationDialog.NotYet.Title')}</DialogTitle>
-      <DialogContent>
-        <p>{t('registrationDialog.NotYet.Text')}</p>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose}>OK</Button>
-      </DialogActions>
-    </Dialog>
   )
 }
 
@@ -284,7 +261,7 @@ function NavigationBar(props: { route: string }) {
           setDialogOpen={setDialogOpen}
         />
       </AppBar>
-      <RegisterNotAvailableDialog
+      <RegistrationDialog
         onClose={() => setDialogOpen(false)}
         open={dialogOpen}
       />

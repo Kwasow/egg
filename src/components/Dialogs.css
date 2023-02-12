@@ -1,0 +1,8 @@
+table {
+  border-spacing: 10px;
+}
+
+.cell-bold {
+  font-weight: bold;
+  text-align: center;
+}

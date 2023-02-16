@@ -104,10 +104,9 @@ export function EggDrawer(props: {
                 navigate(value.link[0])
                 setDrawerOpen(false)
               }} sx={{
-          backgroundColor: (value.link.includes(window.location.pathname)) ? 
-            'rgba(197, 61, 99, 0.15)' : 'white',
-        }}
-        
+                backgroundColor: (value.link.includes(window.location.pathname))
+                  ?   'rgba(197, 61, 99, 0.15)' : 'white',
+              }}
             >
               <ListItemIcon
                 sx={{
@@ -117,8 +116,8 @@ export function EggDrawer(props: {
                 {value.icon}
               </ListItemIcon>
               <ListItemText sx={{
-            color: '#c53d63'
-          }}>
+                color: '#c53d63'
+              }}>
                 {(t(value.translationString) || '').toUpperCase()}
               </ListItemText>
             </ListItemButton>
@@ -201,7 +200,6 @@ function NavigationBar(props: { route: string }) {
   const { route } = props
 
   const { t } = useTranslation()
-  const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const [bigScreen, setBigScreen] = useState(true)
@@ -215,21 +213,23 @@ function NavigationBar(props: { route: string }) {
   window.addEventListener('resize', updateScreenSize)
   useEffect(updateScreenSize, [])
 
-  return <>
-    <AppBar position='fixed'>
-      <EggToolbar>
-        <div className='appbar'>
-          <div className='appbar-left'>
-            <IconButton
-              aria-label='Menu'
-              color='inherit'
-              onClick={() => setDrawerOpen(true)}
-              style={{ display: bigScreen ? 'none' : 'inherit' }}>
-              <MenuIcon />
-            </IconButton>
-            <a href='/home'>
-              <div
-                className='appbar-navigate-home-container'>
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  return  (
+    <>
+      <AppBar position='fixed'>
+        <EggToolbar>
+          <div className='appbar'>
+            <div className='appbar-left'>
+              <IconButton
+                aria-label='Menu'
+                color='inherit'
+                onClick={() => setDrawerOpen(true)}
+                style={{ display: bigScreen ? 'none' : 'inherit' }}>
+                <MenuIcon />
+              </IconButton>
+              <a
+                className='appbar-navigate-home-container' href='/home'>
                 <img className='appbar-logo'
                   alt={t('navbar.LogoAlt') || ''}
                   src={imageUrl + 'logo.png'}/>
@@ -241,9 +241,8 @@ function NavigationBar(props: { route: string }) {
                     {t('navbar.Title.Line2')}
                   </p>
                 </div>
-              </div>
-            </a>
-          </div>
+              </a>
+            </div>
 
             <div className='appbar-middle'>
               <NavigationTabs route={route} t={t} />

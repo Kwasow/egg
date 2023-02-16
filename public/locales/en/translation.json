@@ -26,8 +26,12 @@
   "expertsAndSpeakers.Speakers": "Speakers",
   "expertsAndSpeakers.PersonAlt": "A picture of ",
   "expertsAndSpeakers.SpecialGuest": "Special guest",
+  "expertsAndSpeakers.InauguralSpeech": "Inaugural Speech",
+  "expertsAndSpeakers.InauguralDate": "Saturday, 9:00 15th April 2023, Lecture hall A",
   "expertsAndSpeakers.AboutUs": "About us",
+  "expertsAndSpeakers.AboutUsText": "The Studen Association at the II Department and Clinic of Obstetrics and Gynaecology of the Medical University of Warsaw has been established in 1982. The association is lead by wonderful doctors, dr hab. Ewa Romejko-Wolniewicz and MD Agnieszka Dobrowowska-Redo. The meetings take place every two weeks at the Princess Anna Mazowiecka Hospital on Karowa St. in Warsaw. The issues discussed at the meetings definitely go beyond the knowledge provided to students during everyday classes at the university, at the same time not limited to the subject of gynaecology - internists, scientists, emergency medicine doctors and anesthesiologists have already given lectures.",
   "expertsAndSpeakers.LogoAlt": "Logo of Student Association of Obstetrics and Gynecology WUM",
+  "expertsAndSpeakers.AvailableSoon": "The list will be available soon!",
 
   "notFound.Boo": "Boo!",
   "notFound.Message": "You woke up the ghost living on this empty page",
@@ -45,7 +49,6 @@
   "mainPage.Sponsors": "Sponsors",
 
   "footer.Contact": "Contact",
-  "footer.Adress": "Adress",
   "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM",
 
   "sponsor.WUM.Alt": "Logo of the Medical University of Warsaw",
@@ -57,5 +60,11 @@
   "sponsor.Lek.Subtitle": "prof. dr hab. n. med. Rafał Krenke",
 
   "sponsor.STN.Alt": "Logo of Student Scientific Society WUM",
-  "sponsor.STN.Title": "Student Scientific Society"
+  "sponsor.STN.Title": "Student Scientific Society",
+
+  "registrationDialog.NotYet.Title": "Registrations are not open yet",
+  "registrationDialog.NotYet.Text": "Please follow updates on our website and social media accounts.",
+  "registrationDialog.Registration": "Registration",
+  "registrationDialog.RegistrationConference": "Firstly please register for the conference:",
+  "registrationDialog.RegistrationCompetition": "Then (optionally) register for the medical cases competition:"
 }

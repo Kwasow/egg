@@ -16,8 +16,8 @@
 }
 
 .photos-image {
-  height: 120px; 
-  width: 250px; 
+  height: 120px;
+  width: 250px;
   object-fit: cover;
   padding: 0.33%;
   justify-content: center;

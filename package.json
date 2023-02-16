@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "yarn preprocess-php && react-scripts start",
-    "build": "yarn clean-preprocess && react-scripts build",
+    "build": "yarn clean-preprocess && react-scripts build && yarn copy-release-subsites",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext '.js,.ts,.tsx' src/",
@@ -37,7 +37,11 @@
     "preprocess-photos": "cd public/php && php getPhotos.php > getPhotos.json",
     "preporcess-speakers": "cd public/php && php getPeople.php type=speakers > getPeople-speakers.json",
     "preporcess-experts": "cd public/php && php getPeople.php type=experts > getPeople-experts.json",
-    "clean-preprocess": "rm -f public/php/*.json"
+    "clean-preprocess": "rm -f public/php/*.json",
+    "pretty": "yarn prettier --write .",
+    "pretty-check": "yarn prettier --check .",
+    "prepare": "husky install",
+    "copy-release-subsites": "cp build/index.html build/home && cp build/index.html build/program && cp build/index.html build/speakers && cp build/index.html build/photos && cp build/index.html build/404"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +65,13 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
-    "eslint-plugin-react": "^7.31.11"
+    "eslint-plugin-react": "^7.31.11",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "2.8.3"
+  },
+  "lint-staged": {
+    "*.(js|ts|tsx)": "yarn lint",
+    "*": "prettier --write"
   }
 }

@@ -8,9 +8,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './utils/i18n'
 import './index.css'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -26,8 +26,12 @@
   "expertsAndSpeakers.Speakers": "Mówcy",
   "expertsAndSpeakers.PersonAlt": "Zdjęcie osoby ",
   "expertsAndSpeakers.SpecialGuest": "Gość specjalny",
+  "expertsAndSpeakers.InauguralSpeech": "Wykład inauguracyjny",
+  "expertsAndSpeakers.InauguralDate": "Sobota, 9:00 15 kwietnia 2023, Aula A",
   "expertsAndSpeakers.AboutUs": "O nas",
+  "expertsAndSpeakers.AboutUsText": "Studenckie Koło Naukowe przy II Katedrze i Klinice Położnictwa i Ginekologii WUM działa już od 1982 roku. Kołem opiekują się wspaniałe lekarki: dr hab. n. med. Ewa Romejko-Wolniewicz oraz dr Agnieszka Dobrowolska-Redo. Spotykamy się co dwa tygodnie w szpitalu na ulicy Karowej 2 w II Katedrze i Klinice Położnictwa i Ginekologii WUM, której kierownikiem jest prof. dr hab. n. med. Krzysztof Czajkowski. Omawiane na spotkaniach zagadnienia zdecydowanie wykraczają poza wiadomości przekazywane nam w trakcie codziennych zajęć na uczelni, jednocześnie nie ograniczając się do tematyki ginekologicznej - na spotkaniach gościli już interniści, naukowcy, lekarze medycyny ratunkowej i anestezjolodzy.",
   "expertsAndSpeakers.LogoAlt": "Logo Studenckiego Koła Naukowego Położnictwa i Ginekologii WUM",
+  "expertsAndSpeakers.AvailableSoon": "Lista będzie dostępna wkrótce!",
 
   "notFound.Boo": "Bu!",
   "notFound.Message": "Obudziłeś ducha, który mieszka na tej pustej stronie",
@@ -45,7 +49,6 @@
   "mainPage.Sponsors": "Sponsorzy",
 
   "footer.Contact": "Kontakt",
-  "footer.Adress": "Dane koła",
   "footer.Copyright": "2023 © Studenckie Koło Naukowe Ginekologii i Położnictwa  WUM",
 
   "sponsor.WUM.Alt": "Logo Warszawskiego Uniwersytetu Medycznego",
@@ -57,5 +60,11 @@
   "sponsor.Lek.Subtitle": "prof. dr hab. n. med. Rafał Krenke",
 
   "sponsor.STN.Alt": "Logo Studenckiego Towarzystwa Naukowego WUM",
-  "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe"
+  "sponsor.STN.Title": "Studenckie Towarzystwo Naukowe",
+
+  "registrationDialog.NotYet.Title": "Rejestracja nie została jeszcze otwarta",
+  "registrationDialog.NotYet.Text": "Prosimy o śledzenie komunikatów na naszej stronie internetowej i w mediach społecznościowych.",
+  "registrationDialog.Registration": "Rejestracja",
+  "registrationDialog.RegistrationConference": "W pierwszej kolejności zarejestruj się na konferencję:",
+  "registrationDialog.RegistrationCompetition": "Opcjonalnie zarejestruj się na konkurs przypadków medycznych:"
 }

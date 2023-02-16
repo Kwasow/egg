@@ -19,9 +19,10 @@ If you're using vscode it is recommended to install the `eslint` plugin which
 will enforce the code style set in `.eslintrc.json`
 
 Code style rules include:
- - indent using spaces (2)
- - use single quotes for strings
- - never use semicolons
+
+- indent using spaces (2)
+- use single quotes for strings
+- never use semicolons
 
 ## Running
 
@@ -49,13 +50,16 @@ us to use the latter.
 ## Project structure
 
 Included files:
- - `src/` - frontend, the client-side rendered React app
- - `public/locales` - contains translations for strings (PL/EN)
- - `public/static/images` - static assets
- - `public/php` - backend PHP scripts
+
+- `src/` - frontend, the client-side rendered React app
+- `public/locales` - contains translations for strings (PL/EN)
+- `public/static/images` - static assets
+- `public/php` - backend PHP scripts
 
 Not included (placed on server):
- - `public/static/experts` - info about experts, json format:
+
+- `public/static/experts` - info about experts, json format:
+
 ```json
 {
   "position": 2,
@@ -64,7 +68,8 @@ Not included (placed on server):
   "picture": "1.jpeg"
 }
 ```
- - `public/static/speakers` - same as organisers
- - `public/static/gallery` - photos (organised in folders) to be shown in
-    the photo gallery tab
- - `public/static/news`
+
+- `public/static/speakers` - same as organisers
+- `public/static/gallery` - photos (organised in folders) to be shown in
+  the photo gallery tab
+- `public/static/news`

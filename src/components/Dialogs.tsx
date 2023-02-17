@@ -7,6 +7,7 @@ import {
   Button,
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
+import './Dialogs.css'
 
 const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
 const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'
@@ -45,28 +46,33 @@ export function RegistrationDialog(props: {
   return (
     <Dialog onClose={onClose} open={open}>
       <DialogTitle>{t('registrationDialog.Registration')}</DialogTitle>
-      <DialogContent
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <p>{t('registrationDialog.RegistrationConference')}</p>
-        <Button
-          variant='contained'
-          sx={{ alignSelf: 'center' }}
-          onClick={() => openLink(conferenceRegistrationLink)}
-        >
-          {t('navbar.Register')}
-        </Button>
-        <p>{t('registrationDialog.RegistrationCompetition')}</p>
-        <Button
-          variant='contained'
-          sx={{ alignSelf: 'center' }}
-          onClick={() => openLink(competitionRegistrationLink)}
-        >
-          {t('navbar.Register')}
-        </Button>
+      <DialogContent>
+        <table>
+          <tr>
+            <td className='cell-bold'>{t('registrationDialog.Mandatory')}</td>
+            <td>{t('registrationDialog.RegistrationConference')}</td>
+            <td>
+              <Button
+                variant='contained'
+                onClick={() => openLink(conferenceRegistrationLink)}
+              >
+                {t('navbar.Register')}
+              </Button>
+            </td>
+          </tr>
+          <tr>
+            <td className='cell-bold'>{t('registrationDialog.Optional')}</td>
+            <td>{t('registrationDialog.RegistrationCompetition')}</td>
+            <td>
+              <Button
+                variant='contained'
+                onClick={() => openLink(competitionRegistrationLink)}
+              >
+                {t('navbar.Register')}
+              </Button>
+            </td>
+          </tr>
+        </table>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>OK</Button>

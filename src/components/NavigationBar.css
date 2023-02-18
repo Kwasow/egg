@@ -72,7 +72,7 @@
 .appbar-navigate-home-container {
   display: flex;
   flex-direction: row;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .drawer-bottom {

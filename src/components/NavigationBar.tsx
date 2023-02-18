@@ -103,9 +103,11 @@ export function EggDrawer(props: {
               onClick={() => {
                 navigate(value.link[0])
                 setDrawerOpen(false)
-              }} sx={{
-                backgroundColor: (value.link.includes(window.location.pathname))
-                  ?   'rgba(197, 61, 99, 0.15)' : 'white',
+              }}
+              sx={{
+                backgroundColor: value.link.includes(window.location.pathname)
+                  ? 'rgba(197, 61, 99, 0.15)'
+                  : 'white',
               }}
             >
               <ListItemIcon
@@ -115,9 +117,11 @@ export function EggDrawer(props: {
               >
                 {value.icon}
               </ListItemIcon>
-              <ListItemText sx={{
-                color: '#c53d63'
-              }}>
+              <ListItemText
+                sx={{
+                  color: '#c53d63',
+                }}
+              >
                 {(t(value.translationString) || '').toUpperCase()}
               </ListItemText>
             </ListItemButton>
@@ -215,7 +219,7 @@ function NavigationBar(props: { route: string }) {
 
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  return  (
+  return (
     <>
       <AppBar position='fixed'>
         <EggToolbar>
@@ -225,21 +229,19 @@ function NavigationBar(props: { route: string }) {
                 aria-label='Menu'
                 color='inherit'
                 onClick={() => setDrawerOpen(true)}
-                style={{ display: bigScreen ? 'none' : 'inherit' }}>
+                style={{ display: bigScreen ? 'none' : 'inherit' }}
+              >
                 <MenuIcon />
               </IconButton>
-              <a
-                className='appbar-navigate-home-container' href='/home'>
-                <img className='appbar-logo'
+              <a className='appbar-navigate-home-container' href='/home'>
+                <img
+                  className='appbar-logo'
                   alt={t('navbar.LogoAlt') || ''}
-                  src={imageUrl + 'logo.png'}/>
+                  src={imageUrl + 'logo.png'}
+                />
                 <div className='appbar-name-container'>
-                  <p className='appbar-name'>
-                    {t('navbar.Title.Line1')}
-                  </p>
-                  <p className='appbar-subname'>
-                    {t('navbar.Title.Line2')}
-                  </p>
+                  <p className='appbar-name'>{t('navbar.Title.Line1')}</p>
+                  <p className='appbar-subname'>{t('navbar.Title.Line2')}</p>
                 </div>
               </a>
             </div>

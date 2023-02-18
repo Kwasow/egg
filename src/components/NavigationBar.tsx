@@ -104,6 +104,11 @@ export function EggDrawer(props: {
                 navigate(value.link[0])
                 setDrawerOpen(false)
               }}
+              sx={{
+                backgroundColor: value.link.includes(window.location.pathname)
+                  ? 'rgba(197, 61, 99, 0.15)'
+                  : 'white',
+              }}
             >
               <ListItemIcon
                 sx={{
@@ -112,7 +117,11 @@ export function EggDrawer(props: {
               >
                 {value.icon}
               </ListItemIcon>
-              <ListItemText>
+              <ListItemText
+                sx={{
+                  color: '#c53d63',
+                }}
+              >
                 {(t(value.translationString) || '').toUpperCase()}
               </ListItemText>
             </ListItemButton>
@@ -195,7 +204,6 @@ function NavigationBar(props: { route: string }) {
   const { route } = props
 
   const { t } = useTranslation()
-  const navigate = useNavigate()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
   const [bigScreen, setBigScreen] = useState(true)
@@ -225,10 +233,7 @@ function NavigationBar(props: { route: string }) {
               >
                 <MenuIcon />
               </IconButton>
-              <div
-                className='appbar-navigate-home-container'
-                onClick={() => navigate('/')}
-              >
+              <a className='appbar-navigate-home-container' href='/home'>
                 <img
                   className='appbar-logo'
                   alt={t('navbar.LogoAlt') || ''}
@@ -238,7 +243,7 @@ function NavigationBar(props: { route: string }) {
                   <p className='appbar-name'>{t('navbar.Title.Line1')}</p>
                   <p className='appbar-subname'>{t('navbar.Title.Line2')}</p>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className='appbar-middle'>

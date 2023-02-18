@@ -65,3 +65,12 @@
   top: 150px;
   left: 150px;
 }
+
+@media screen and (max-width: 950px) {
+  .date-time-info {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    right: 20px;
+  }
+}

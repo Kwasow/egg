@@ -107,18 +107,7 @@ function NewsSection() {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  const [smallScreen, setSmallScreen] = useState(false)
   const [dialogNews, setDialogNews] = useState<News | null>(null)
-
-  function updateScreenSize() {
-    if (window.innerWidth < 500) {
-      setSmallScreen(true)
-    } else {
-      setSmallScreen(false)
-    }
-  }
-  window.addEventListener('resize', updateScreenSize)
-  useEffect(updateScreenSize, [])
 
   useEffect(() => {
     fetch(newsURL, { cache: 'no-store' })
@@ -132,43 +121,6 @@ function NewsSection() {
         setLoaded(2)
       })
   }, [])
-
-  function RegistrationBig() {
-    return (
-      <NewsCard>
-        <div className='news-registration'>
-          <img
-            src={newsPrefix + news?.registration.image}
-            className='registration-photo'
-            loading='lazy'
-          />
-          <div className='registration-right'>
-            <div>
-              <p className='registration-title'>
-                {decideLanguage(
-                  i18n.language,
-                  news?.registration.title_pl,
-                  news?.registration.title_en
-                )}
-              </p>
-              <p className='registration-content'>
-                {decideLanguage(
-                  i18n.language,
-                  news?.registration.text_pl,
-                  news?.registration.text_en
-                )}
-              </p>
-            </div>
-            <p className='registration-date'>
-              {new Date(
-                Date.parse(news?.registration.date || '')
-              ).toLocaleDateString()}
-            </p>
-          </div>
-        </div>
-      </NewsCard>
-    )
-  }
 
   function RegistrationSmall() {
     return (
@@ -218,7 +170,7 @@ function NewsSection() {
     return (
       <Paper sx={{ overflow: 'auto' }}>
         <div className='news-container'>
-          {smallScreen ? <RegistrationSmall /> : <RegistrationBig />}
+          <RegistrationSmall />
           {news?.other.map((value, index) => {
             return (
               <NewsCard
@@ -275,15 +227,17 @@ function About() {
     <div className='main-about-wrapper'>
       <Card
         className='main-about-card'
-        sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
+        sx={{ backgroundColor: 'rgb(197, 61, 99)' }}
       >
         <div className='main-about-card-content-wrapper'>
-          <p className='main-about-card-title'>
-            {t('mainPage.AboutConferenceTitle')}
-          </p>
-          <p className='main-about-card-content'>
-            {t('mainPage.AboutConference')}
-          </p>
+          <div>
+            <p className='main-about-card-title' style={{ color: 'white' }}>
+              {t('mainPage.AboutConferenceTitle')}
+            </p>
+            <p className='main-about-card-content' style={{ color: 'white' }}>
+              {t('mainPage.AboutConference')}
+            </p>
+          </div>
         </div>
       </Card>
       <Card
@@ -291,22 +245,23 @@ function About() {
         sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
       >
         <div className='main-about-card-content-wrapper'>
-          <p className='main-about-card-title'>
-            {t('mainPage.AboutCompetitionTitle')}
-          </p>
-          <p className='main-about-card-content'>
-            {t('mainPage.AboutCompetition')}
-          </p>
-          <div className='main-about-card-button-wrapper'>
-            <p>➔</p>
-            <Button onClick={() => window.open(competitionRegistrationLink)}>
-              {t('navbar.Register')}
-            </Button>
+          <div>
+            <p className='main-about-card-title'>
+              {t('mainPage.AboutCompetitionTitle')}
+            </p>
+            <p className='main-about-card-content'>
+              {t('mainPage.AboutCompetition')}
+            </p>
           </div>
           <div className='main-about-card-button-wrapper'>
-            <p>➔</p>
-            <Button onClick={() => window.open(rulesLink)}>
+            <Button variant='contained' onClick={() => window.open(rulesLink)}>
               {t('mainPage.ConferenceRules')}
+            </Button>
+            <Button
+              variant='contained'
+              onClick={() => window.open(competitionRegistrationLink)}
+            >
+              {t('navbar.Register')}
             </Button>
           </div>
         </div>

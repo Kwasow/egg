@@ -1,5 +1,6 @@
 import { Button, Card, ImageList, Tab, Tabs, Toolbar } from '@mui/material'
 import { createTheme, styled } from '@mui/material/styles'
+import '../index.css'
 
 const colorPrimary = '#c53d63'
 const colorSecondary = '#f50057'
@@ -12,6 +13,9 @@ export const eggTheme = createTheme({
     secondary: {
       main: colorSecondary,
     },
+  },
+  typography: {
+    fontFamily: ['"Open Sans"'].join(','),
   },
 })
 
@@ -28,6 +32,9 @@ export const navigationTabsTheme = createTheme({
       secondary: '#ffffff',
       disabled: '#ffffff',
     },
+  },
+  typography: {
+    fontFamily: ['"Open Sans"'].join(','),
   },
 })
 

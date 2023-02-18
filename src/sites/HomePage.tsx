@@ -105,9 +105,65 @@ function Sponsors() {
   )
 }
 
+function NewsTile(props: {
+  news: News | undefined
+  registration?: boolean
+  onClick: () => void
+}) {
+  const { news, registration, onClick } = props
+  const { i18n } = useTranslation()
+
+  return (
+    <NewsCard
+      onClick={onClick}
+      sx={{
+        cursor: registration ? 'auto' : 'pointer',
+      }}
+    >
+      <div
+        className='news-other'
+        style={{
+          backgroundColor: registration ? '#c53d63' : '#e8e8e8',
+        }}
+      >
+        <div>
+          <img
+            src={newsPrefix + news?.image}
+            className='other-photo'
+            loading='lazy'
+          />
+          <p
+            className='other-title'
+            style={{
+              color: registration ? 'white' : 'black',
+            }}
+          >
+            {decideLanguage(i18n.language, news?.title_pl, news?.title_en)}
+          </p>
+          <p
+            className='other-content'
+            style={{
+              color: registration ? 'white' : 'black',
+            }}
+          >
+            {decideLanguage(i18n.language, news?.text_pl, news?.text_en)}
+          </p>
+        </div>
+        <p
+          className='other-date'
+          style={{
+            color: registration ? 'lightgray' : 'darkgray',
+          }}
+        >
+          {new Date(Date.parse(news?.date || '')).toLocaleDateString()}
+        </p>
+      </div>
+    </NewsCard>
+  )
+}
+
 function NewsSection() {
   const newsURL = newsPrefix + 'news.json'
-  const { i18n } = useTranslation()
   const [news, setNews] = useState<NewsJSON>()
   // 0 - not loaded
   // 1 - loaded
@@ -128,46 +184,6 @@ function NewsSection() {
       })
   }, [])
 
-  function RegistrationSmall() {
-    return (
-      <NewsCard>
-        <div
-          className='news-other'
-          style={{
-            backgroundColor: '#c53d63',
-          }}
-        >
-          <div>
-            <img
-              src={newsPrefix + news?.registration.image}
-              className='other-photo'
-              loading='lazy'
-            />
-            <p className='other-title' style={{ color: 'white' }}>
-              {decideLanguage(
-                i18n.language,
-                news?.registration.title_pl,
-                news?.registration.title_en
-              )}
-            </p>
-            <p className='other-content' style={{ color: 'white' }}>
-              {decideLanguage(
-                i18n.language,
-                news?.registration.text_pl,
-                news?.registration.text_en
-              )}
-            </p>
-          </div>
-          <p className='other-date' style={{ color: 'white' }}>
-            {new Date(
-              Date.parse(news?.registration.date || '')
-            ).toLocaleDateString()}
-          </p>
-        </div>
-      </NewsCard>
-    )
-  }
-
   function closeDialog() {
     setDialogNews(null)
   }
@@ -176,41 +192,18 @@ function NewsSection() {
     return (
       <Paper sx={{ overflow: 'auto' }}>
         <div className='news-container'>
-          <RegistrationSmall />
+          <NewsTile
+            news={news?.registration}
+            onClick={closeDialog}
+            registration
+          />
           {news?.other.map((value, index) => {
             return (
-              <NewsCard
+              <NewsTile
                 key={index}
+                news={value}
                 onClick={() => setDialogNews(value)}
-                sx={{ cursor: 'pointer' }}
-              >
-                <div className='news-other'>
-                  <div>
-                    <img
-                      src={newsPrefix + value.image}
-                      className='other-photo'
-                      loading='lazy'
-                    />
-                    <p className='other-title'>
-                      {decideLanguage(
-                        i18n.language,
-                        value.title_pl,
-                        value.title_en
-                      )}
-                    </p>
-                    <p className='other-content'>
-                      {decideLanguage(
-                        i18n.language,
-                        value.text_pl,
-                        value.text_en
-                      )}
-                    </p>
-                  </div>
-                  <p className='other-date'>
-                    {new Date(Date.parse(value.date)).toLocaleDateString()}
-                  </p>
-                </div>
-              </NewsCard>
+              />
             )
           })}
         </div>

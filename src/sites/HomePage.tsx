@@ -90,11 +90,17 @@ function Sponsors() {
           title={t('sponsor.STN.Title') || ''}
         />
       </Grid>
-      {/* NOTE: Temporarily removed as we don't have any sponsors yet */}
-      {/* <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
-    <div className='sponsors-container'>
-      
-    </div> */}
+      <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
+      <Grid container spacing={0} className='sponsors-container'>
+        <SponsorImage
+          image='/static/sponsors/medipage.webp'
+          imageAlt='MediPage logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/wnl.webp'
+          imageAlt='Więcej niż LEK logo'
+        />
+      </Grid>
     </>
   )
 }

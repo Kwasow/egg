@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Grid, Paper } from '@mui/material'
+import { Button, Card, Grid, Paper } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Countdown } from '../components/Countdown'
 import { Slideshow, Slide } from '../components/Slideshow'
 import { NewsCard } from '../utils/MUITheme'
+import { competitionRegistrationLink, rulesLink } from '../components/Shared'
 import './HomePage.css'
 
 const slides: Slide[] = [
@@ -272,12 +273,60 @@ function News() {
   }
 }
 
+function About() {
+  const { t } = useTranslation()
+
+  return (
+    <div className='main-about-wrapper'>
+      <Card
+        className='main-about-card'
+        sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
+      >
+        <div className='main-about-card-content-wrapper'>
+          <p className='main-about-card-title'>
+            {t('mainPage.AboutConferenceTitle')}
+          </p>
+          <p className='main-about-card-content'>
+            {t('mainPage.AboutConference')}
+          </p>
+        </div>
+      </Card>
+      <Card
+        className='main-about-card'
+        sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
+      >
+        <div className='main-about-card-content-wrapper'>
+          <p className='main-about-card-title'>
+            {t('mainPage.AboutCompetitionTitle')}
+          </p>
+          <p className='main-about-card-content'>
+            {t('mainPage.AboutCompetition')}
+          </p>
+          <div className='main-about-card-button-wrapper'>
+            <p>➔</p>
+            <Button onClick={() => window.open(competitionRegistrationLink)}>
+              {t('navbar.Register')}
+            </Button>
+          </div>
+          <div className='main-about-card-button-wrapper'>
+            <p>➔</p>
+            <Button onClick={() => window.open(rulesLink)}>
+              {t('mainPage.ConferenceRules')}
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  )
+}
+
 function HomePage() {
   return (
     <>
       <Slideshow slides={slides} />
       <Countdown date={new Date('2023-04-14T16:00:00+02:00')} />
       <News />
+      <About />
       <Sponsors />
     </>
   )

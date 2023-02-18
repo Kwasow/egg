@@ -8,9 +8,10 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import './Dialogs.css'
-
-const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
-const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'
+import {
+  competitionRegistrationLink,
+  conferenceRegistrationLink,
+} from './Shared'
 
 export function RegisterNotAvailableDialog(props: {
   open: boolean

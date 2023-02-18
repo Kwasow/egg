@@ -134,3 +134,49 @@
   font-weight: lighter;
   margin-top: 0;
 }
+
+.main-about-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.main-about-card {
+  width: 48%;
+}
+
+.main-about-card-content-wrapper {
+  padding: 20px;
+}
+
+.main-about-card-title {
+  font-size: larger;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+}
+
+.main-about-card-content {
+  text-align: justify;
+}
+
+.main-about-card-button-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-about-wrapper {
+    flex-direction: column;
+  }
+
+  .main-about-wrapper {
+    padding-top: 30px;
+  }
+
+  .main-about-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

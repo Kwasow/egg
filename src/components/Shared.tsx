@@ -3,6 +3,10 @@ import './Shared.css'
 
 export const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 
+export const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
+export const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'
+export const rulesLink = '/static/documents/regulamin.pdf'
+
 export function FacebookIconLink(props: {
   style?: React.CSSProperties
   white?: boolean

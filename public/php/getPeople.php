@@ -3,6 +3,7 @@
   // 200 - ok
   header("Content-Type: application/json");
   header("Access-Control-Allow-Origin: *");
+  header("Cache-control: no-cache, no-store");
   http_response_code(200);
 
   if($argc > 1) {

@@ -21,7 +21,7 @@ async function loadPhotos(): Promise<PhotoGroup[]> {
       : process.env.PUBLIC_URL + 'php/getPhotos.php'
 
   return new Promise((resolve, reject) => {
-    fetch(phpUrl, { cache: 'no-store' })
+    fetch(phpUrl)
       .then((res) => res.json())
       .then((res: ResponseJSON) => {
         res.folders.sort((a, b) => (a.name < b.name ? -1 : 1))

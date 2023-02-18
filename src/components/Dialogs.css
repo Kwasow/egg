@@ -6,3 +6,21 @@ table {
   font-weight: bold;
   text-align: center;
 }
+
+.dialog-news-image {
+  max-width: 80%;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.dialog-news-title {
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.dialog-news-content {
+  text-align: justify;
+}

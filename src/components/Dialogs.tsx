@@ -8,9 +8,13 @@ import {
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import './Dialogs.css'
-
-const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
-const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'
+import {
+  competitionRegistrationLink,
+  conferenceRegistrationLink,
+  decideLanguage,
+  News,
+  newsPrefix,
+} from './Shared'
 
 export function RegisterNotAvailableDialog(props: {
   open: boolean
@@ -76,6 +80,28 @@ export function RegistrationDialog(props: {
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>OK</Button>
+      </DialogActions>
+    </Dialog>
+  )
+}
+
+export function NewsDialog(props: { news: News | null; onClose: () => void }) {
+  const { news, onClose } = props
+  const { i18n, t } = useTranslation()
+
+  return (
+    <Dialog onClose={onClose} open={news !== null}>
+      <DialogContent>
+        <img src={newsPrefix + news?.image} className='dialog-news-image' />
+        <p className='dialog-news-title'>
+          {decideLanguage(i18n.language, news?.title_pl, news?.title_en)}
+        </p>
+        <p className='dialog-news-content'>
+          {decideLanguage(i18n.language, news?.text_pl, news?.text_en)}
+        </p>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>{t('dialog.Close')}</Button>
       </DialogActions>
     </Dialog>
   )

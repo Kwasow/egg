@@ -31,16 +31,17 @@ interface PersonJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl =
-    !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-      ? process.env.PUBLIC_URL + 'php/getPeople-' + type + '.json'
-      : process.env.PUBLIC_URL + 'php/getPeople.php?type=' + type
+  const phpUrl = process.env.PUBLIC_URL + 'php/getPeople-' + type + '.json'
+  // const phpUrl =
+  //   !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+  //     ? process.env.PUBLIC_URL + 'php/getPeople-' + type + '.json'
+  //     : process.env.PUBLIC_URL + 'php/getPeople.php?type=' + type
   const directory = process.env.PUBLIC_URL + 'static/' + type
 
   console.log(phpUrl)
 
   return new Promise((resolve, reject) => {
-    fetch(phpUrl)
+    fetch(phpUrl, { cache: 'no-store' })
       .then((res) => res.json())
       .then((description: Description) => {
         const urls = description.list.map((value) => directory + '/' + value)

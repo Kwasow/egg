@@ -121,7 +121,7 @@ function NewsTile(props: {
       }}
     >
       <div
-        className='news-other'
+        className='news'
         style={{
           backgroundColor: registration ? '#c53d63' : '#e8e8e8',
         }}
@@ -129,11 +129,11 @@ function NewsTile(props: {
         <div>
           <img
             src={newsPrefix + news?.image}
-            className='other-photo'
+            className='news-photo'
             loading='lazy'
           />
           <p
-            className='other-title'
+            className='news-title'
             style={{
               color: registration ? 'white' : 'black',
             }}
@@ -141,7 +141,7 @@ function NewsTile(props: {
             {decideLanguage(i18n.language, news?.title_pl, news?.title_en)}
           </p>
           <p
-            className='other-content'
+            className='news-content'
             style={{
               color: registration ? 'white' : 'black',
             }}
@@ -150,7 +150,7 @@ function NewsTile(props: {
           </p>
         </div>
         <p
-          className='other-date'
+          className='news-date'
           style={{
             color: registration ? 'lightgray' : 'darkgray',
           }}

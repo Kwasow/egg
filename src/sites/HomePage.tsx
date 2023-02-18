@@ -4,8 +4,16 @@ import { useTranslation } from 'react-i18next'
 import { Countdown } from '../components/Countdown'
 import { Slideshow, Slide } from '../components/Slideshow'
 import { NewsCard } from '../utils/MUITheme'
-import { competitionRegistrationLink, rulesLink } from '../components/Shared'
+import {
+  competitionRegistrationLink,
+  decideLanguage,
+  News,
+  NewsJSON,
+  newsPrefix,
+  rulesLink,
+} from '../components/Shared'
 import './HomePage.css'
+import { NewsDialog } from '../components/Dialogs'
 
 const slides: Slide[] = [
   {
@@ -33,28 +41,6 @@ const slides: Slide[] = [
     link: '/photos',
   },
 ]
-
-interface News {
-  title_pl: string
-  title_en: string
-  text_pl: string
-  text_en: string
-  image: string
-  date: string
-}
-
-interface NewsJSON {
-  registration: News
-  other: News[]
-}
-
-function decideLanguage(
-  language: string,
-  pl: string | undefined,
-  en: string | undefined
-) {
-  return language === 'pl' ? pl : en
-}
 
 function SponsorImage(props: {
   image: string
@@ -113,8 +99,7 @@ function Sponsors() {
   )
 }
 
-function News() {
-  const newsPrefix = process.env.PUBLIC_URL + 'static/news/'
+function NewsSection() {
   const newsURL = newsPrefix + 'news.json'
   const { i18n } = useTranslation()
   const [news, setNews] = useState<NewsJSON>()
@@ -123,6 +108,7 @@ function News() {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   const [smallScreen, setSmallScreen] = useState(false)
+  const [dialogNews, setDialogNews] = useState<News | null>(null)
 
   function updateScreenSize() {
     if (window.innerWidth < 500) {
@@ -224,6 +210,10 @@ function News() {
     )
   }
 
+  function closeDialog() {
+    setDialogNews(null)
+  }
+
   if (loaded == 1) {
     return (
       <Paper sx={{ overflow: 'auto' }}>
@@ -231,7 +221,11 @@ function News() {
           {smallScreen ? <RegistrationSmall /> : <RegistrationBig />}
           {news?.other.map((value, index) => {
             return (
-              <NewsCard key={index}>
+              <NewsCard
+                key={index}
+                onClick={() => setDialogNews(value)}
+                sx={{ cursor: 'pointer' }}
+              >
                 <div className='news-other'>
                   <div>
                     <img
@@ -262,6 +256,7 @@ function News() {
             )
           })}
         </div>
+        <NewsDialog onClose={closeDialog} news={dialogNews} />
       </Paper>
     )
   } else if (loaded == 2) {
@@ -325,7 +320,7 @@ function HomePage() {
     <>
       <Slideshow slides={slides} />
       <Countdown date={new Date('2023-04-14T16:00:00+02:00')} />
-      <News />
+      <NewsSection />
       <About />
       <Sponsors />
     </>

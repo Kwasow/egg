@@ -73,5 +73,7 @@
   "registrationDialog.Mandatory": "(OBOWIĄZKOWA)",
   "registrationDialog.Optional": "(OPCJONALNA)",
   "registrationDialog.RegistrationConference": "Rejestracja na konferencję",
-  "registrationDialog.RegistrationCompetition": "Rejestracja na konkurs"
+  "registrationDialog.RegistrationCompetition": "Rejestracja na konkurs",
+
+  "dialog.Close": "Zamknij"
 }

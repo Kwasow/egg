@@ -73,5 +73,7 @@
   "registrationDialog.Mandatory": "(MANDATORY)",
   "registrationDialog.Optional": "(OPTIONAL)",
   "registrationDialog.RegistrationConference": "Conference registration",
-  "registrationDialog.RegistrationCompetition": "Competition registration"
+  "registrationDialog.RegistrationCompetition": "Competition registration",
+
+  "dialog.Close": "Close"
 }

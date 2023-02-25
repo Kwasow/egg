@@ -146,7 +146,7 @@ function NewsTile(props: {
               color: registration ? 'white' : 'black',
             }}
           >
-            {decideLanguage(i18n.language, news?.text_pl, news?.text_en)}
+            {decideLanguage(i18n.language, news?.text_pl[0], news?.text_en[0])}
           </p>
         </div>
         <p

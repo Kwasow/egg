@@ -147,6 +147,22 @@ export function NewsDialog(props: { news: News | null; onClose: () => void }) {
   const { news, onClose } = props
   const { i18n, t } = useTranslation()
 
+  function Paragraphs(props: { paragraphs: string[] }) {
+    const { paragraphs } = props
+
+    return (
+      <>
+        {paragraphs.map((value, index) => {
+          return (
+            <p className='dialog-news-content' key={index}>
+              {value}
+            </p>
+          )
+        })}
+      </>
+    )
+  }
+
   return (
     <Dialog onClose={onClose} open={news !== null}>
       <DialogContent>
@@ -154,9 +170,11 @@ export function NewsDialog(props: { news: News | null; onClose: () => void }) {
         <p className='dialog-news-title'>
           {decideLanguage(i18n.language, news?.title_pl, news?.title_en)}
         </p>
-        <p className='dialog-news-content'>
-          {decideLanguage(i18n.language, news?.text_pl, news?.text_en)}
-        </p>
+        {i18n.language === 'pl' ? (
+          <Paragraphs paragraphs={news?.text_pl || []} />
+        ) : (
+          <Paragraphs paragraphs={news?.text_en || []} />
+        )}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{t('dialog.Close')}</Button>

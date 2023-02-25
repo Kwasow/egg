@@ -31,7 +31,7 @@ function Footer() {
               <p className='contact-title'>{t('footer.Contact')}</p>
               <a
                 href='mailto:konsekretyonkologii4takt@gmail.com'
-                className='contact'
+                className='contact white-link'
               >
                 sekretyonkologii4@gmail.com<br></br>
               </a>

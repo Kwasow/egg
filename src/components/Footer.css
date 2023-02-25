@@ -89,14 +89,14 @@
   margin: 0;
 }
 
-a:link {
+a.white-link:link {
   color: #ffffff;
 }
 
-a:visited {
+a.white-link:visited {
   color: #ffffff;
 }
 
-a:hover {
+a.white-link:hover {
   color: #ffffff;
 }

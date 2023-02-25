@@ -7,7 +7,6 @@ import {
   Button,
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import './Dialogs.css'
 import {
   competitionRegistrationLink,
   conferenceRegistrationLink,
@@ -15,6 +14,9 @@ import {
   News,
   newsPrefix,
 } from './Shared'
+import { LinkItUrl } from 'react-linkify-it'
+
+import './Dialogs.css'
 
 export function RegisterNotAvailableDialog(props: {
   open: boolean
@@ -154,9 +156,9 @@ export function NewsDialog(props: { news: News | null; onClose: () => void }) {
       <>
         {paragraphs.map((value, index) => {
           return (
-            <p className='dialog-news-content' key={index}>
-              {value}
-            </p>
+            <LinkItUrl className='default-link' key={index}>
+              <p className='dialog-news-content'>{value}</p>
+            </LinkItUrl>
           )
         })}
       </>

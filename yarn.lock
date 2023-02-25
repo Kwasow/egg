@@ -7952,6 +7952,11 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-linkify-it@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-linkify-it/-/react-linkify-it-1.0.7.tgz#80486c0176644691345b19722678e4d716de5384"
+  integrity sha512-B0Vy0KCAdpkT7Ql/bOpPuAP4l20f78Eaq1yD/q9J2RltPSwD900I0GzQPXaH6gnoWX/qmkBXL42Q3jTnWw8KCw==
+
 react-photo-view@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/react-photo-view/-/react-photo-view-1.2.3.tgz#436f81ad0a611dfaa43bbc72a4fef26a057b5aef"

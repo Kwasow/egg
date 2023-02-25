@@ -233,7 +233,10 @@ function NavigationBar(props: { route: string }) {
               >
                 <MenuIcon />
               </IconButton>
-              <a className='appbar-navigate-home-container' href='/home'>
+              <a
+                className='appbar-navigate-home-container white-link'
+                href='/home'
+              >
                 <img
                   className='appbar-logo'
                   alt={t('navbar.LogoAlt') || ''}

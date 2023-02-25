@@ -131,3 +131,15 @@
     display: none;
   }
 }
+
+a.white-link:link {
+  color: #ffffff;
+}
+
+a.white-link:visited {
+  color: #ffffff;
+}
+
+a.white-link:hover {
+  color: #ffffff;
+}

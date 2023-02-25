@@ -145,8 +145,12 @@ export function RegistrationDialog(props: {
   )
 }
 
-export function NewsDialog(props: { news: News | null; onClose: () => void }) {
-  const { news, onClose } = props
+export function NewsDialog(props: {
+  news: News | null
+  open: boolean
+  onClose: () => void
+}) {
+  const { news, open, onClose } = props
   const { i18n, t } = useTranslation()
 
   function Paragraphs(props: { paragraphs: string[] }) {
@@ -166,7 +170,7 @@ export function NewsDialog(props: { news: News | null; onClose: () => void }) {
   }
 
   return (
-    <Dialog onClose={onClose} open={news !== null}>
+    <Dialog onClose={onClose} open={open}>
       <DialogContent>
         <img src={newsPrefix + news?.image} className='dialog-news-image' />
         <p className='dialog-news-title'>

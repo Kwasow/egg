@@ -170,6 +170,7 @@ function NewsSection() {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   const [dialogNews, setDialogNews] = useState<News | null>(null)
+  const [newsDialogOpen, setNewsDialogOpen] = useState(false)
 
   useEffect(() => {
     fetch(newsURL, { cache: 'no-store' })
@@ -185,7 +186,7 @@ function NewsSection() {
   }, [])
 
   function closeDialog() {
-    setDialogNews(null)
+    setNewsDialogOpen(false)
   }
 
   if (loaded == 1) {
@@ -202,12 +203,19 @@ function NewsSection() {
               <NewsTile
                 key={index}
                 news={value}
-                onClick={() => setDialogNews(value)}
+                onClick={() => {
+                  setDialogNews(value)
+                  setNewsDialogOpen(true)
+                }}
               />
             )
           })}
         </div>
-        <NewsDialog onClose={closeDialog} news={dialogNews} />
+        <NewsDialog
+          onClose={closeDialog}
+          open={newsDialogOpen}
+          news={dialogNews}
+        />
       </Paper>
     )
   } else if (loaded == 2) {

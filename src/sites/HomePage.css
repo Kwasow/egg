@@ -10,12 +10,6 @@
   width: fit-content;
 }
 
-@media screen and (max-width: 600px) {
-  .news-container {
-    padding-left: 0px;
-  }
-}
-
 .news {
   height: 400px;
   width: 350px;
@@ -127,13 +121,26 @@
 @media screen and (max-width: 1000px) {
   .main-about-wrapper {
     flex-direction: column;
-  }
-
-  .main-about-wrapper {
     padding-top: 30px;
   }
 
   .main-about-card {
     width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .news-container {
+    padding-left: 0px;
+  }
+
+  .main-about-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-about-card {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }

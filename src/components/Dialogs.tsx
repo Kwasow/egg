@@ -7,7 +7,6 @@ import {
   Button,
 } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import './Dialogs.css'
 import {
   competitionRegistrationLink,
   conferenceRegistrationLink,
@@ -15,6 +14,9 @@ import {
   News,
   newsPrefix,
 } from './Shared'
+import { LinkItUrl } from 'react-linkify-it'
+
+import './Dialogs.css'
 
 export function RegisterNotAvailableDialog(props: {
   open: boolean
@@ -143,20 +145,42 @@ export function RegistrationDialog(props: {
   )
 }
 
-export function NewsDialog(props: { news: News | null; onClose: () => void }) {
-  const { news, onClose } = props
+export function NewsDialog(props: {
+  news: News | null
+  open: boolean
+  onClose: () => void
+}) {
+  const { news, open, onClose } = props
   const { i18n, t } = useTranslation()
 
+  function Paragraphs(props: { paragraphs: string[] }) {
+    const { paragraphs } = props
+
+    return (
+      <>
+        {paragraphs.map((value, index) => {
+          return (
+            <LinkItUrl className='default-link' key={index}>
+              <p className='dialog-news-content'>{value}</p>
+            </LinkItUrl>
+          )
+        })}
+      </>
+    )
+  }
+
   return (
-    <Dialog onClose={onClose} open={news !== null}>
+    <Dialog onClose={onClose} open={open}>
       <DialogContent>
         <img src={newsPrefix + news?.image} className='dialog-news-image' />
         <p className='dialog-news-title'>
           {decideLanguage(i18n.language, news?.title_pl, news?.title_en)}
         </p>
-        <p className='dialog-news-content'>
-          {decideLanguage(i18n.language, news?.text_pl, news?.text_en)}
-        </p>
+        {i18n.language === 'pl' ? (
+          <Paragraphs paragraphs={news?.text_pl || []} />
+        ) : (
+          <Paragraphs paragraphs={news?.text_en || []} />
+        )}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{t('dialog.Close')}</Button>

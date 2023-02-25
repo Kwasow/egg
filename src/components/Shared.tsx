@@ -11,8 +11,8 @@ export const rulesLink = '/static/documents/regulamin.pdf'
 export interface News {
   title_pl: string
   title_en: string
-  text_pl: string
-  text_en: string
+  text_pl: string[]
+  text_en: string[]
   image: string
   date: string
 }

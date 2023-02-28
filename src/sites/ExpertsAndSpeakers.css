@@ -131,6 +131,12 @@
     width: auto;
     margin-top: 10px;
   }
+
+  .top-person-image {
+    margin-right: 0px;
+    max-width: 90%;
+    object-fit: contain;
+  }
 }
 
 .about-us-card {

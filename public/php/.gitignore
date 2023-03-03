@@ -1,2 +1,3 @@
 // Ignore preprocessed json files
 *.json*
+generatePasswordHash.php

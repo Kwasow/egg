@@ -24,8 +24,15 @@
     die('Connection failed: '.mysqli_connect_error());
   }
 
-  $query = 'SELECT passwd_hash FROM User WHERE username=\''.$username.'\'';
-  $result = mysqli_query($conn, $query);
+  $stmt = mysqli_prepare(
+    $conn,
+    'SELECT passwd_hash FROM User WHERE username = ?'
+  );
+  mysqli_stmt_bind_param($stmt, 's', $username);
+  mysqli_stmt_execute($stmt);
+
+  $result = $stmt->get_result();
+  $stmt->close();
 
   if (mysqli_num_rows($result) != 1) {
     echo '{session_id: ""}';
@@ -38,8 +45,13 @@
       $session_id = hash('sha256', $username.$date);
 
       // Save session id in database
-      $query = 'INSERT INTO Session VALUES (\''.$session_id.'\',\''.$username.'\',NOW())';
-      mysqli_query($conn, $query);
+      $stmt = mysqli_prepare(
+        $conn,
+        'INSERT INTO Session VALUES (?, ?, NOW())'
+      );
+      mysqli_stmt_bind_param($stmt, 'ss', $session_id, $username);
+      mysqli_stmt_execute($stmt);
+      $stmt->close();
 
       echo '{session_id: "'.$session_id.'"}';
     } else {

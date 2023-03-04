@@ -24,13 +24,25 @@
   }
 
   // Check if the session exists in the database
-  $query = 'SELECT * FROM Session WHERE session_id=\''.$token.'\'';
-  $result = mysqli_query($conn, $query);
+  $stmt = mysqli_prepare(
+    $conn,
+    'SELECT * FROM Session WHERE session_id = ?'
+  );
+  mysqli_stmt_bind_param($stmt, 's', $token);
+  mysqli_stmt_execute($stmt);
+
+  $result = $stmt->get_result();
+  $stmt->close();
 
   if (mysqli_num_rows($result) > 0) {
     // Update last used
-    $query = 'UPDATE Session SET last_used=NOW() WHERE session_id=\''.$token.'\'';
-    $result = mysqli_query($conn, $query);
+    $stmt = mysqli_prepare(
+      $conn,
+      'UPDATE Session SET last_used = NOW() WHERE session_id = ?'
+    );
+    mysqli_stmt_bind_param($stmt, 's', $token);
+    mysqli_stmt_execute($stmt);
+    $stmt->close();
 
     echo '{valid: true}';
   } else {

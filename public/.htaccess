@@ -1,13 +1,26 @@
-# DISABLE CACHING 
+# Protect password file
+<Files "php/database.txt">
+  Require all denied
+</Files>
+<Files "php/username.txt">
+  Require all denied
+</Files>
+<Files "php/password.txt">
+  Require all denied
+</Files>
+
+# Disable caching
 <IfModule mod_headers.c> 	
 Header set Cache-Control "no-cache, no-store, must-revalidate" 	
 Header set Pragma "no-cache" 	
 Header set Expires 0 
-</IfModule> 
+</IfModule>
 
+# Force https
 RewriteEngine On
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.weekendzginekologia\.org.pl [NC]
 RewriteRule ^(.*)$ https://weekendzginekologia.org.pl/$1 [L,R=301]
 
+# Handle errors on our own
 ErrorDocument 404 /404

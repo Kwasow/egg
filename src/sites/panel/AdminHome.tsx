@@ -7,6 +7,8 @@ export default function AdminHome() {
 
   if (!authentication.token) {
     return <Navigate replace to={'/login'} />
+  } else {
+    // TODO: Check if token valid - maybe external function
   }
 
   return <p>AdminHome</p>

@@ -1,3 +1,7 @@
 // Ignore preprocessed json files
 *.json*
-generatePasswordHash.php
+
+// Protected files
+database.txt
+username.txt
+password.txt

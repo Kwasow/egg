@@ -11,5 +11,11 @@ export default function AdminHome() {
     // TODO: Check if token valid - maybe external function
   }
 
-  return <p>AdminHome</p>
+  return (
+    <>
+      <p>AdminHome</p>
+      <p>Your username is {authentication.token.username}</p>
+      <p>Your token is {authentication.token.token}</p>
+    </>
+  )
 }

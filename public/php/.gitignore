@@ -1,7 +1,2 @@
 // Ignore preprocessed json files
 *.json*
-
-// Protected files
-database.txt
-username.txt
-password.txt

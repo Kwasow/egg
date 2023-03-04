@@ -9,8 +9,7 @@
     parse_str(implode('&', array_slice($argv, 1)), $_GET);
   }
 
-
-  $username = $_GET['username'];
+  $username = base64_decode($_GET['username']);
   $token = $_GET['token'];
 
   $db_address = file_get_contents(__DIR__.'/db_details/db_address.txt');
@@ -25,12 +24,12 @@
   }
 
   // Check if the session exists in the database
-  $query = 'SELECT * FROM Session WHERE session_id='.$token;
+  $query = 'SELECT * FROM Session WHERE session_id=\''.$token.'\'';
   $result = mysqli_query($conn, $query);
 
-  if ($mysqli_num_rows($result) > 0) {
+  if (mysqli_num_rows($result) > 0) {
     // Update last used
-    $query = 'UPDATE Session SET last_used=NOW() WHERE session_id='.$token;
+    $query = 'UPDATE Session SET last_used=NOW() WHERE session_id=\''.$token.'\'';
     $result = mysqli_query($conn, $query);
 
     echo '{valid: true}';
@@ -38,6 +37,6 @@
     echo '{valid: false}';
   }
 
-  $mysqli_close($conn);
+  mysqli_close($conn);
   exit();
 ?>

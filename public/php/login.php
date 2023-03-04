@@ -6,13 +6,17 @@
   // 200 - ok
   http_response_code(200);
 
-  $username = $_GET['username'];
-  $password = $_GET['password'];
+  if($argc > 1) {
+    parse_str(implode('&', array_slice($argv, 1)), $_GET);
+  }
+
+  $username = base64_decode($_GET['username']);
+  $password = base64_decode($_GET['password']);
 
   $db_address = file_get_contents(__DIR__.'/db_details/db_address.txt');
   $db_username = file_get_contents(__DIR__.'/db_details/db_username.txt');
   $db_password = file_get_contents(__DIR__.'/db_details/db_password.txt');
-  $db_database = file_get_contents(__DIR__.'/db_details/db_name.txt');
+  $db_database = file_get_contents(__DIR__.'/db_details/db_database.txt');
 
   $conn = mysqli_connect($db_address, $db_username, $db_password, $db_database);
 
@@ -20,10 +24,10 @@
     die('Connection failed: '.mysqli_connect_error());
   }
 
-  $query = 'SELECT passwd_hash FROM Session WHERE username='.$username;
+  $query = 'SELECT passwd_hash FROM User WHERE username=\''.$username.'\'';
   $result = mysqli_query($conn, $query);
 
-  if ($mysqli_num_rows($result) != 1) {
+  if (mysqli_num_rows($result) != 1) {
     echo '{session_id: ""}';
   } else {
     $row = mysqli_fetch_assoc($result);
@@ -34,7 +38,8 @@
       $session_id = hash('sha256', $username.$date);
 
       // Save session id in database
-      $query = 'INSERT INTO Session VALUES ('.$session_id.','.$username.',NOW())';
+      $query = 'INSERT INTO Session VALUES (\''.$session_id.'\',\''.$username.'\',NOW())';
+      mysqli_query($conn, $query);
 
       echo '{session_id: "'.$session_id.'"}';
     } else {
@@ -42,6 +47,6 @@
     }
   }
 
-  $mysqli_close($conn);
+  mysqli_close($conn);
   exit();
 ?>

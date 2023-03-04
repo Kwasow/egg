@@ -1,26 +1,47 @@
-import React from 'react'
-import { Button, TextField } from '@mui/material'
+import React, { useState } from 'react'
+import { Button, Snackbar, TextField } from '@mui/material'
 import { Navigate } from 'react-router-dom'
 import { useAuthentication } from '../../utils/useAuthentication'
 
 import './Login.css'
 
-export default function LoginPage() {
-  if (useAuthentication().token) {
-    // TODO: Check if token valid
+type LoginResponse = {
+  session_id: string
+}
 
+export default function LoginPage() {
+  const authentication = useAuthentication()
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
+  const [isAuthenticating, setIsAuthenticating] = useState(false)
+
+  if (authentication.token) {
     return <Navigate replace to={'/admin'} />
   }
 
   // This is more efficient than using useState(), because it doesn't cause the
   // components to be redrawn
-  let login = ''
+  let username = ''
   let password = ''
 
-  function submit() {
-    // Do something with login and password
-    console.log(login)
-    console.log(password)
+  async function submit() {
+    setIsAuthenticating(true)
+
+    await fetch('/php/login.php?username=' + username + '&password=' + password)
+      .then((res) => res.json())
+      .then((res: LoginResponse) => {
+        if (res.session_id.length == 0) {
+          setSnackbarOpen(true)
+        } else {
+          authentication.setToken(username, res.session_id)
+          // TOOD: Navigate to /admin
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        setSnackbarOpen(true)
+      })
+
+    setIsAuthenticating(false)
   }
 
   return (
@@ -32,17 +53,26 @@ export default function LoginPage() {
         label='Login'
         type={'text'}
         sx={{ marginBottom: '20px' }}
-        onChange={(event) => (login = event.target.value)}
+        onChange={(event) => (username = event.target.value)}
+        disabled={isAuthenticating}
       />
       <TextField
         label='Hasło'
         type={'password'}
         sx={{ marginBottom: '20px' }}
         onChange={(event) => (password = event.target.value)}
+        disabled={isAuthenticating}
       />
-      <Button type='submit' onClick={submit}>
+      <Button type='submit' onClick={submit} disabled={isAuthenticating}>
         Zaloguj
       </Button>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        message='Logowanie nie powiodło się'
+      />
     </div>
   )
 }

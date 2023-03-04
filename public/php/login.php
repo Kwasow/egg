@@ -9,10 +9,10 @@
   $username = $_GET['username'];
   $password = $_GET['password'];
 
-  $db_address = file_get_contents('db_details/db_address.txt');
-  $db_username = file_get_contents('db_details/db_username.txt');
-  $db_password = file_get_contents('db_details/db_password.txt');
-  $db_database = file_get_contents('db_details/db_name.txt');
+  $db_address = file_get_contents(__DIR__.'/db_details/db_address.txt');
+  $db_username = file_get_contents(__DIR__.'/db_details/db_username.txt');
+  $db_password = file_get_contents(__DIR__.'/db_details/db_password.txt');
+  $db_database = file_get_contents(__DIR__.'/db_details/db_name.txt');
 
   $conn = mysqli_connect($db_address, $db_username, $db_password, $db_database);
 

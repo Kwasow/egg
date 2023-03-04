@@ -26,7 +26,12 @@ export default function LoginPage() {
   async function submit() {
     setIsAuthenticating(true)
 
-    await fetch('/php/login.php?username=' + username + '&password=' + password)
+    const username64 = Buffer.from(username).toString('base64')
+    const password64 = Buffer.from(password).toString('base64')
+
+    await fetch(
+      '/php/login.php?username=' + username64 + '&password=' + password64
+    )
       .then((res) => res.json())
       .then((res: LoginResponse) => {
         if (res.session_id.length == 0) {

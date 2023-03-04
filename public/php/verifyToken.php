@@ -23,6 +23,14 @@
     die('Connection failed: '.mysqli_connect_error());
   }
 
+  // Delete expired tokens
+  $stmt = mysqli_prepare(
+    $conn,
+    'DELETE FROM Session WHERE HOUR(TIMEDIFF(NOW(), last_used)) > 168'
+  );
+  mysqli_stmt_execute($stmt);
+  $stmt->close();
+
   // Check if the session exists in the database
   $stmt = mysqli_prepare(
     $conn,

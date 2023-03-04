@@ -42,7 +42,7 @@
 
     if (password_verify($password, $hash)) {
       $date = date('Y-m-d H:i:s');
-      $session_id = hash('sha256', $username.$date);
+      $session_id = hash('sha256', $username.$date.$password);
 
       // Save session id in database
       $stmt = mysqli_prepare(

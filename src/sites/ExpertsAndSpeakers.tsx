@@ -41,7 +41,8 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl, { cache: 'no-store' })
-      .then((res) => res.json())
+      .then((res) => res.text())
+      .then((res) => JSON.parse(res))
       .then((description: Description) => {
         const urls = description.list.map((value) => directory + '/' + value)
         const requests = urls.map((url) => {

@@ -52,9 +52,9 @@
     mysqli_stmt_execute($stmt);
     $stmt->close();
 
-    echo '{valid: true}';
+    echo '{"valid": true}';
   } else {
-    echo '{valid: false}';
+    echo '{"valid": false}';
   }
 
   mysqli_close($conn);

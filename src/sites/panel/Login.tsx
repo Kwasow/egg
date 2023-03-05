@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Snackbar, TextField } from '@mui/material'
 import { Navigate } from 'react-router-dom'
 import { LoginResponse, useAuthentication } from '../../utils/useAuthentication'
+import { Buffer } from 'buffer'
 
 import './Login.css'
 
@@ -16,8 +17,8 @@ export default function LoginPage() {
 
   // This is more efficient than using useState(), because it doesn't cause the
   // components to be redrawn
-  let username = ''
-  let password = ''
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   async function submit() {
     setIsAuthenticating(true)
@@ -54,14 +55,14 @@ export default function LoginPage() {
         label='Login'
         type={'text'}
         sx={{ marginBottom: '20px' }}
-        onChange={(event) => (username = event.target.value)}
+        onChange={(event) => setUsername(event.target.value)}
         disabled={isAuthenticating}
       />
       <TextField
         label='Hasło'
         type={'password'}
         sx={{ marginBottom: '20px' }}
-        onChange={(event) => (password = event.target.value)}
+        onChange={(event) => setPassword(event.target.value)}
         disabled={isAuthenticating}
       />
       <Button type='submit' onClick={submit} disabled={isAuthenticating}>

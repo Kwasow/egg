@@ -35,7 +35,7 @@
   $stmt->close();
 
   if (mysqli_num_rows($result) != 1) {
-    echo '{session_id: ""}';
+    echo '{"session_id": ""}';
   } else {
     $row = mysqli_fetch_assoc($result);
     $hash = $row['passwd_hash'];
@@ -53,9 +53,9 @@
       mysqli_stmt_execute($stmt);
       $stmt->close();
 
-      echo '{session_id: "'.$session_id.'"}';
+      echo '{"session_id": "'.$session_id.'"}';
     } else {
-      echo '{session_id: ""}';
+      echo '{"session_id": ""}';
     }
   }
 

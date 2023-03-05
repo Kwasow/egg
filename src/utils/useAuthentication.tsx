@@ -91,7 +91,7 @@ export function LoginProtected(
     const token = authentication.tokenDetails.token
 
     // Verify token validity
-    fetch('/php/verifyToken.php?token=' + token)
+    fetch('/php/verifyToken.php?token=' + token, { cache: 'no-store' })
       .then((res) => res.json())
       .then((res: VerifyResponse) => {
         if (!res.valid) {

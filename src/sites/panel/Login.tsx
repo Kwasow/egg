@@ -28,7 +28,8 @@ export default function LoginPage() {
     const password64 = Buffer.from(password).toString('base64')
 
     await fetch(
-      '/php/login.php?username=' + username64 + '&password=' + password64
+      '/php/login.php?username=' + username64 + '&password=' + password64,
+      { cache: 'no-store' }
     )
       .then((res) => {
         if (res.ok) {

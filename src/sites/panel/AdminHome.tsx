@@ -17,7 +17,9 @@ export default function AdminHome() {
   async function signOut() {
     setLogoutInProgress(true)
 
-    await fetch('/php/logout.php?token=' + authentication.tokenDetails?.token)
+    await fetch('/php/logout.php?token=' + authentication.tokenDetails?.token, {
+      cache: 'no-store',
+    })
       .then((res) => {
         if (res.ok) {
           authentication.clearToken()

@@ -14,10 +14,12 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "buffer": "^6.0.3",
     "i18next": "^22.0.7",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.0.2",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.0.0",
     "react-linkify-it": "^1.0.7",
@@ -42,7 +44,7 @@
     "pretty": "yarn prettier --write .",
     "pretty-check": "yarn prettier --check .",
     "prepare": "husky install",
-    "copy-release-subsites": "cp build/index.html build/home && cp build/index.html build/program && cp build/index.html build/speakers && cp build/index.html build/photos && cp build/index.html build/404"
+    "copy-release-subsites": "cp build/index.html build/home && cp build/index.html build/program && cp build/index.html build/speakers && cp build/index.html build/photos && cp build/index.html build/404 && cp build/index.html build/login && cp build/index.html build/admin"
   },
   "eslintConfig": {
     "extends": [

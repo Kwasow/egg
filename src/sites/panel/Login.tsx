@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import { Button, Snackbar, TextField } from '@mui/material'
 import { Navigate } from 'react-router-dom'
-import { useAuthentication } from '../../utils/useAuthentication'
+import { LoginResponse, useAuthentication } from '../../utils/useAuthentication'
 
 import './Login.css'
-
-type LoginResponse = {
-  session_id: string
-}
 
 export default function LoginPage() {
   const authentication = useAuthentication()
   const [snackbarOpen, setSnackbarOpen] = useState(false)
   const [isAuthenticating, setIsAuthenticating] = useState(false)
 
-  if (authentication.token) {
+  if (authentication.tokenDetails) {
     return <Navigate replace to={'/admin'} />
   }
 
@@ -38,7 +34,7 @@ export default function LoginPage() {
           setSnackbarOpen(true)
         } else {
           authentication.setToken(username, res.session_id)
-          // TOOD: Navigate to /admin
+          window.open('/admin')
         }
       })
       .catch((err) => {

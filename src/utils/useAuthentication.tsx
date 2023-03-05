@@ -1,43 +1,83 @@
 import { useState } from 'react'
 
-type TokenDetails = {
+export type TokenDetails = {
   username: string
-  token: string
+  tokenDetails: string
 }
 
-export function useAuthentication() {
-  function getToken(): TokenDetails | null {
-    const tokenString = localStorage.getItem('token')
+export type LoginResponse = {
+  session_id: string
+}
 
-    if (tokenString) {
-      return JSON.parse(tokenString)
+export type VerifyResponse = {
+  valid: boolean
+}
+
+export type TokenControl = {
+  setToken: (username: string, token: string) => void
+  clearToken: () => void
+  tokenDetails: TokenDetails | null
+}
+
+const LOCAL_STORAGE_TOKEN_DETAILS = 'tokenDetails'
+
+export function useAuthentication(): TokenControl {
+  function getToken(): TokenDetails | null {
+    const tokenDetailsString = localStorage.getItem(LOCAL_STORAGE_TOKEN_DETAILS)
+
+    if (tokenDetailsString) {
+      return JSON.parse(tokenDetailsString)
     } else {
       return null
     }
   }
 
-  const [token, setToken] = useState(getToken())
+  const [tokenDetails, setTokenDetails] = useState(getToken())
 
   function saveToken(username: string, token: string) {
     const tokenDetails: TokenDetails = {
       username,
-      token,
+      tokenDetails: token,
     }
 
-    localStorage.setItem('token', JSON.stringify(tokenDetails))
-    setToken(tokenDetails)
+    localStorage.setItem(
+      LOCAL_STORAGE_TOKEN_DETAILS,
+      JSON.stringify(tokenDetails)
+    )
+    setTokenDetails(tokenDetails)
+  }
+
+  function clearToken() {
+    localStorage.removeItem(LOCAL_STORAGE_TOKEN_DETAILS)
   }
 
   return {
     setToken: saveToken,
-    token,
+    clearToken,
+    tokenDetails,
   }
 }
 
-export function verifyToken(_tokenDetails: TokenDetails) {
-  return true
-}
+export async function loginProtectedPreload() {
+  const authentication = useAuthentication()
 
-export function login(_username: string, _password: string) {
-  return ''
+  if (!authentication.tokenDetails) {
+    return
+  }
+
+  const username64 = Buffer.from(authentication.tokenDetails.username).toString(
+    'base64'
+  )
+  const token = authentication.tokenDetails.tokenDetails
+
+  // Verify token validity
+  await fetch('/php/verifyToken.php?username=' + username64 + '&token=' + token)
+    .then((res) => res.json())
+    .then((res: VerifyResponse) => {
+      if (!res.valid) {
+        authentication.clearToken()
+      }
+    })
+    .catch((err) => console.log(err))
+  // TODO: Should probably do something else apart from juts logging the error
 }

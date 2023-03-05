@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Snackbar, TextField } from '@mui/material'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { LoginResponse, useAuthentication } from '../../utils/useAuthentication'
 import { Buffer } from 'buffer'
 
@@ -8,6 +8,7 @@ import './Login.css'
 
 export default function LoginPage() {
   const authentication = useAuthentication()
+  const navigate = useNavigate()
   const [snackbarOpen, setSnackbarOpen] = useState(false)
   const [isAuthenticating, setIsAuthenticating] = useState(false)
 
@@ -35,7 +36,7 @@ export default function LoginPage() {
           setSnackbarOpen(true)
         } else {
           authentication.setToken(username, res.session_id)
-          window.open('/admin')
+          navigate('/admin')
         }
       })
       .catch((err) => {

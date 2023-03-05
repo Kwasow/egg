@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import { Buffer } from 'buffer'
 
+import './useAuthentication.css'
+
 export type TokenDetails = {
   username: string
   tokenDetails: string
@@ -118,7 +120,7 @@ export function LoginProtected(
   switch (verified) {
     case 0:
       return (
-        <div>
+        <div className='message-wrapper'>
           <CircularProgress />
         </div>
       )
@@ -126,7 +128,7 @@ export function LoginProtected(
       return <div className={className}>{children}</div>
     case 3:
       return (
-        <div>
+        <div className='message-wrapper'>
           <p>Sesja wygasła</p>
           <Button onClick={navigateToLoginPage}>
             Wróć na stronę logowania
@@ -135,7 +137,7 @@ export function LoginProtected(
       )
     default:
       return (
-        <div>
+        <div className='message-wrapper'>
           <p>Coś się popsuło...</p>
           <Button onClick={navigateToLoginPage}>
             Wróć na stronę logowania

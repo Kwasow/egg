@@ -1,0 +1,13 @@
+.main-wrapper {
+  padding: 20px;
+}
+
+.header-style {
+  margin-top: 0px;
+}
+
+.top-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -3,13 +3,12 @@ import { Button, CircularProgress } from '@mui/material'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
-import { Buffer } from 'buffer'
 
 import './useAuthentication.css'
 
 export type TokenDetails = {
   username: string
-  tokenDetails: string
+  token: string
 }
 
 export type LoginResponse = {
@@ -48,7 +47,7 @@ export function useAuthentication(): TokenControl {
   function saveToken(username: string, token: string) {
     const tokenDetails: TokenDetails = {
       username,
-      tokenDetails: token,
+      token,
     }
 
     setCookie(LOCAL_STORAGE_TOKEN_DETAILS, tokenDetails, {
@@ -89,14 +88,10 @@ export function LoginProtected(
       navigate('/login')
       return
     }
-
-    const username64 = Buffer.from(
-      authentication.tokenDetails.username
-    ).toString('base64')
-    const token = authentication.tokenDetails.tokenDetails
+    const token = authentication.tokenDetails.token
 
     // Verify token validity
-    fetch('/php/verifyToken.php?username=' + username64 + '&token=' + token)
+    fetch('/php/verifyToken.php?token=' + token)
       .then((res) => res.json())
       .then((res: VerifyResponse) => {
         if (!res.valid) {

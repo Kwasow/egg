@@ -30,21 +30,24 @@ export default function LoginPage() {
     await fetch(
       '/php/login.php?username=' + username64 + '&password=' + password64
     )
-      .then((res) => res.json())
-      .then((res: LoginResponse) => {
-        if (res.session_id.length == 0) {
-          setSnackbarOpen(true)
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
         } else {
+          throw new Error('Server responded: ' + res.status)
+        }
+      })
+      .then((res: LoginResponse) => {
+        if (res.session_id.length > 0) {
           authentication.setToken(username, res.session_id)
           navigate('/admin')
         }
       })
-      .catch((err) => {
-        console.log(err)
-        setSnackbarOpen(true)
-      })
+      .catch((err) => console.error(err))
 
+    // Login failed if we reached this point
     setIsAuthenticating(false)
+    setSnackbarOpen(true)
   }
 
   return (

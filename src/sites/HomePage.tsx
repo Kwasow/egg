@@ -261,7 +261,12 @@ function About() {
             </p>
           </div>
           <div className='main-about-card-button-wrapper'>
-            <Button variant='contained' onClick={() => window.open(rulesLink)}>
+            <Button
+              variant='contained'
+              onClick={() =>
+                window.open(rulesLink + '?cachePrevent=' + Date.now())
+              }
+            >
               {t('mainPage.ConferenceRules')}
             </Button>
             <Button

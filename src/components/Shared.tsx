@@ -38,7 +38,7 @@ export function FacebookIconLink(props: {
 
   return (
     <a
-      href='https://www.facebook.com/profile.php?id=100057690391510'
+      href='https://www.facebook.com/weekendzginekologia'
       target='_blank'
       rel='noreferrer'
       style={style}

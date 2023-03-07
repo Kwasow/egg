@@ -40,7 +40,7 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   console.log(phpUrl)
 
   return new Promise((resolve, reject) => {
-    fetch(phpUrl, { cache: 'no-store' })
+    fetch(phpUrl + '&cachePrevent=' + Date.now(), { cache: 'no-store' })
       .then((res) => res.text())
       .then((res) => JSON.parse(res))
       .then((description: Description) => {

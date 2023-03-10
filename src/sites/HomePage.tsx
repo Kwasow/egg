@@ -194,6 +194,7 @@ function NewsSection() {
     fetch(newsURL, { cache: 'no-store' })
       .then((res) => res.json())
       .then((json: NewsJSON) => {
+        json.other.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
         setNews(json)
         setLoaded(1)
       })

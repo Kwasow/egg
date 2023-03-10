@@ -89,6 +89,11 @@ function Sponsors() {
           imageAlt={t('sponsor.STN.Alt') || ''}
           title={t('sponsor.STN.Title') || ''}
         />
+        <SponsorImage
+          image='/static/sponsors/ss_wum.webp'
+          imageAlt={t('sponsor.SSWUM.Alt') || ''}
+          title={t('sponsor.SSWUM.Title') || ''}
+        />
       </Grid>
       <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
       <Grid container spacing={0} className='sponsors-container'>
@@ -99,6 +104,19 @@ function Sponsors() {
         <SponsorImage
           image='/static/sponsors/wnl.webp'
           imageAlt='Więcej niż LEK logo'
+        />
+        <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
+        <SponsorImage
+          image='/static/sponsors/kwiat-kobiecosci.webp'
+          imageAlt='Kwiat Kobiecości'
+        />
+        <SponsorImage
+          image='/static/sponsors/pars.webp'
+          imageAlt='Ruch Społeczny Polskie Amazonki'
+        />
+        <SponsorImage
+          image='/static/sponsors/mppl.webp'
+          imageAlt='Medycyna Praktyczna mp.pl'
         />
       </Grid>
     </>

@@ -18,10 +18,6 @@ interface TabPanelProps {
   value: number
 }
 
-interface Description {
-  list: string[]
-}
-
 interface PersonJSON {
   position: number
   name: string
@@ -30,39 +26,22 @@ interface PersonJSON {
   picture: string
 }
 
-async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const phpUrl =
-    !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-      ? process.env.PUBLIC_URL + 'php/getPeople-' + type + '.json'
-      : process.env.PUBLIC_URL + 'php/getPeople.php?type=' + type
-  const directory = process.env.PUBLIC_URL + 'static/' + type
+interface PeopleJSON {
+  list: PersonJSON[]
+}
 
-  console.log(phpUrl)
+async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
+  const jsonURL = process.env.PUBLIC_URL + `/static/${type}/list.json`
+
+  console.log(jsonURL)
 
   return new Promise((resolve, reject) => {
-    fetch(phpUrl + '&cachePrevent=' + Date.now(), { cache: 'no-store' })
+    fetch(jsonURL, { cache: 'no-store' })
       .then((res) => res.text())
-      .then((res) => JSON.parse(res))
-      .then((description: Description) => {
-        const urls = description.list.map((value) => directory + '/' + value)
-        const requests = urls.map((url) => {
-          return fetch(url, { cache: 'no-store' })
-            .then((res) => res.json())
-            .catch((reason) => reject(reason))
-        })
-
-        Promise.all(requests)
-          .then((results: PersonJSON[]) => {
-            results.sort((a, b) => a.position - b.position)
-
-            for (let i = 0; i < results.length; i++) {
-              results[i].position = i + 1
-            }
-
-            resolve(results)
-          })
-          .catch((reason) => reject(reason))
+      .then((res) => {
+        return JSON.parse(res)
       })
+      .then((people: PeopleJSON) => resolve(people.list))
       .catch((reason) => reject(reason))
   })
 }

@@ -125,8 +125,8 @@ function Sponsors() {
           imageAlt='Lepolek logo'
         />
         <SponsorImage
-          image='/static/sponsors/medantiers.webp'
-          imageAlt='Medantiers logo'
+          image='/static/sponsors/medantlers.webp'
+          imageAlt='Medantlers logo'
         />
         <SponsorImage
           image='/static/sponsors/medcases.png'

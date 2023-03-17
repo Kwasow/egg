@@ -47,11 +47,11 @@
 
 .sponsors-container {
   align-items: center;
-  justify-content: space-around;
-  padding-bottom: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
-.single-sponsor-container {
+.single-partner-container {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -64,21 +64,29 @@
   font-weight: bolder;
 }
 
-.sponsor-image {
+.partner-image {
   height: 250px;
   object-fit: contain;
 }
 
-.sponsor-title {
+.partner-title {
   text-align: center;
   font-size: large;
   margin-bottom: 0;
 }
 
-.sponsor-subtitle {
+.partner-subtitle {
   text-align: center;
   font-weight: lighter;
   margin-top: 0;
+}
+
+.sponsor-image {
+  width: 200px;
+  height: 120px;
+  object-fit: contain;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .main-about-wrapper {

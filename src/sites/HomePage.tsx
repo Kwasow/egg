@@ -42,26 +42,39 @@ const slides: Slide[] = [
   },
 ]
 
-function SponsorImage(props: {
+function Partner(props: {
   image: string
-  title?: string
+  title: string
   secondary?: string
-  imageAlt?: string
+  imageAlt: string
 }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { image, title, secondary, imageAlt } = props
   const alt = imageAlt === undefined ? title : ''
 
   return (
-    <div className='single-sponsor-container'>
+    <div className='single-partner-container'>
       <img
         src={process.env.PUBLIC_URL + image}
         alt={alt}
-        className='sponsor-image'
+        className='partner-image'
       />
-      <p className='sponsor-title'>{title}</p>
-      <p className='sponsor-subtitle'>{secondary}</p>
+      <p className='partner-title'>{title}</p>
+      <p className='partner-subtitle'>{secondary}</p>
     </div>
+  )
+}
+
+function SponsorImage(props: { image: string; imageAlt: string }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { image, imageAlt } = props
+
+  return (
+    <img
+      src={process.env.PUBLIC_URL + image}
+      alt={imageAlt}
+      className='sponsor-image'
+    />
   )
 }
 
@@ -72,51 +85,96 @@ function Sponsors() {
     <>
       <p className='sponsors-header'>{t('mainPage.Partners')}</p>
       <Grid container spacing={0} className='sponsors-container'>
-        <SponsorImage
+        <Partner
           image='/static/sponsors/wum.webp'
           imageAlt={t('sponsor.WUM.Alt') || ''}
           title={t('sponsor.WUM.Title') || ''}
           secondary={t('sponsor.WUM.Subtitle') || ''}
         />
-        <SponsorImage
+        <Partner
           image='/static/sponsors/lek.webp'
           imageAlt={t('sponsor.Lek.Alt') || ''}
           title={t('sponsor.Lek.Title') || ''}
           secondary={t('sponsor.Lek.Subtitle') || ''}
         />
-        <SponsorImage
+        <Partner
           image='/static/sponsors/stn.webp'
           imageAlt={t('sponsor.STN.Alt') || ''}
           title={t('sponsor.STN.Title') || ''}
         />
-        <SponsorImage
+        <Partner
           image='/static/sponsors/ss_wum.webp'
           imageAlt={t('sponsor.SSWUM.Alt') || ''}
           title={t('sponsor.SSWUM.Title') || ''}
         />
       </Grid>
+
       <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
       <Grid container spacing={0} className='sponsors-container'>
+        <SponsorImage
+          image='/static/sponsors/edra.webp'
+          imageAlt='Edra Urban & Partner logo'
+        />
+        <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
+        <SponsorImage
+          image='/static/sponsors/kwiat-kobiecosci.webp'
+          imageAlt='Kwiat Kobiecości logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/lepolek.png'
+          imageAlt='Lepolek logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/medantlers.webp'
+          imageAlt='Medantlers logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/medcases.png'
+          imageAlt='Medcases logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/medesign.png'
+          imageAlt='Medesign logo'
+        />
         <SponsorImage
           image='/static/sponsors/medipage.webp'
           imageAlt='MediPage logo'
         />
         <SponsorImage
-          image='/static/sponsors/wnl.webp'
-          imageAlt='Więcej niż LEK logo'
+          image='/static/sponsors/mppl.webp'
+          imageAlt='Medycyna Praktyczna mp.pl logo'
         />
-        <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
         <SponsorImage
-          image='/static/sponsors/kwiat-kobiecosci.webp'
-          imageAlt='Kwiat Kobiecości'
+          image='/static/sponsors/medtube.png'
+          imageAlt='MedTube logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/opm.webp'
+          imageAlt='Ogólnopolski Przegląd Medyczny logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/remedium.webp'
+          imageAlt='Remedium logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/rozowa.webp'
+          imageAlt='Różowa Skrzyneczka logo'
         />
         <SponsorImage
           image='/static/sponsors/pars.webp'
-          imageAlt='Ruch Społeczny Polskie Amazonki'
+          imageAlt='Ruch Społeczny Polskie Amazonki logo'
         />
         <SponsorImage
-          image='/static/sponsors/mppl.webp'
-          imageAlt='Medycyna Praktyczna mp.pl'
+          image='/static/sponsors/sis.webp'
+          imageAlt='Sis Underwear logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/termedia.png'
+          imageAlt='Termedia logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/wnl.webp'
+          imageAlt='Więcej niż LEK logo'
         />
       </Grid>
     </>

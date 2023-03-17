@@ -2,7 +2,7 @@ import React from 'react'
 import './Shared.css'
 
 export const imageUrl = process.env.PUBLIC_URL + '/static/images/'
-export const newsPrefix = process.env.PUBLIC_URL + 'static/news/'
+export const newsPrefix = process.env.PUBLIC_URL + '/static/news/'
 
 export const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
 export const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'

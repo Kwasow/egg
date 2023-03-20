@@ -69,6 +69,10 @@ export function useAuthentication(): TokenControl {
   }
 }
 
+type VerifyPhpBody = {
+  token: string
+}
+
 export function LoginProtected(
   props: PropsWithChildren<{
     className?: string
@@ -88,10 +92,17 @@ export function LoginProtected(
       navigate('/login')
       return
     }
-    const token = authentication.tokenDetails.token
+
+    const body: VerifyPhpBody = {
+      token: authentication.tokenDetails.token,
+    }
 
     // Verify token validity
-    fetch('/php/verifyToken.php?token=' + token, { cache: 'no-store' })
+    fetch('/php/verifyToken.php', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      cache: 'no-store',
+    })
       .then((res) => res.json())
       .then((res: VerifyResponse) => {
         if (!res.valid) {

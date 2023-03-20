@@ -8,6 +8,10 @@ import {
 
 import './AdminHome.css'
 
+type LogoutPhpBody = {
+  token: string
+}
+
 export default function AdminHome() {
   const authentication = useAuthentication()
   const navigate = useNavigate()
@@ -17,7 +21,13 @@ export default function AdminHome() {
   async function signOut() {
     setLogoutInProgress(true)
 
-    await fetch('/php/logout.php?token=' + authentication.tokenDetails?.token, {
+    const body: LogoutPhpBody = {
+      token: authentication.tokenDetails?.token || '',
+    }
+
+    await fetch('/php/logout.php', {
+      method: 'POST',
+      body: JSON.stringify(body),
       cache: 'no-store',
     })
       .then((res) => {

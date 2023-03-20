@@ -5,11 +5,17 @@ header('Cache-control: no-cache, no-store');
 // 200 - ok
 http_response_code(200);
 
-if ($argc > 1) {
-  parse_str(implode('&', array_slice($argv, 1)), $_GET);
+$body = file_get_contents('php://input');
+$body_json = json_decode($body, true);
+
+if ($body_json == null || !array_key_exists('token', $body_json)) {
+  // Bad requests
+  http_response_code(400);
+  echo 'Body must include a json object with a token field';
+  die('Bad request');
 }
 
-$token = $_GET['token'];
+$token = $body_json['token'];
 
 $db_address = file_get_contents(__DIR__ . '/db_details/db_address.txt');
 $db_username = file_get_contents(__DIR__ . '/db_details/db_username.txt');

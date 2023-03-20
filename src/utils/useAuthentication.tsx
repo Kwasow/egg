@@ -25,6 +25,20 @@ export type TokenControl = {
   tokenDetails: TokenDetails | null
 }
 
+export type LoginPostBody = {
+  username: string
+  password: string
+}
+
+export type VerifyPhpBody = {
+  token: string
+}
+
+export type OnLogin = {
+  before?: () => void
+  onError?: () => void
+}
+
 const LOCAL_STORAGE_TOKEN_DETAILS = 'tokenDetails'
 
 export function useAuthentication(): TokenControl {
@@ -69,8 +83,61 @@ export function useAuthentication(): TokenControl {
   }
 }
 
-type VerifyPhpBody = {
-  token: string
+export function LoginButton(props: {
+  className?: string
+  username: string
+  password: string
+  onLogin?: OnLogin
+}) {
+  const { className, username, password, onLogin } = props
+  const authentication = useAuthentication()
+  const [isAuthenticating, setIsAuthenticating] = useState(false)
+  const navigate = useNavigate()
+
+  async function submit() {
+    onLogin?.before?.apply({})
+    setIsAuthenticating(true)
+
+    const body: LoginPostBody = {
+      username,
+      password,
+    }
+
+    await fetch('/php/login.php', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      cache: 'no-store',
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('Server responded: ' + res.status)
+        }
+      })
+      .then((res: LoginResponse) => {
+        if (res.session_id.length > 0) {
+          authentication.setToken(username, res.session_id)
+          navigate('/admin')
+        }
+      })
+      .catch((err) => console.error(err))
+
+    // Login failed if we reached this point
+    setIsAuthenticating(false)
+    onLogin?.onError?.apply({})
+  }
+
+  return (
+    <Button
+      className={className}
+      type='submit'
+      onClick={submit}
+      disabled={isAuthenticating}
+    >
+      Zaloguj
+    </Button>
+  )
 }
 
 export function LoginProtected(

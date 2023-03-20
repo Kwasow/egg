@@ -6,6 +6,11 @@ import { Buffer } from 'buffer'
 
 import './Login.css'
 
+type LoginPostBody = {
+  username: string
+  password: string
+}
+
 export default function LoginPage() {
   const authentication = useAuthentication()
   const navigate = useNavigate()
@@ -24,13 +29,16 @@ export default function LoginPage() {
   async function submit() {
     setIsAuthenticating(true)
 
-    const username64 = Buffer.from(username).toString('base64')
-    const password64 = Buffer.from(password).toString('base64')
+    const body: LoginPostBody = {
+      username: Buffer.from(username).toString(),
+      password: Buffer.from(password).toString(),
+    }
 
-    await fetch(
-      '/php/login.php?username=' + username64 + '&password=' + password64,
-      { cache: 'no-store' }
-    )
+    await fetch('/php/login.php', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      cache: 'no-store',
+    })
       .then((res) => {
         if (res.ok) {
           return res.json()

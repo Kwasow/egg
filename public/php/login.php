@@ -10,8 +10,22 @@
     parse_str(implode('&', array_slice($argv, 1)), $_GET);
   }
 
-  $username = base64_decode($_GET['username']);
-  $password = base64_decode($_GET['password']);
+  $body = file_get_contents('php://input');
+  $body_json = json_decode($body, true);
+
+  if (
+    $body_json == null
+    || !array_key_exists('username', $body_json)
+    || !array_key_exists('password', $body_json)
+  ) {
+    // Bad requests
+    http_response_code(400);
+    echo 'Body must include a json object with a username and password field';
+    die('Bad request');
+  }
+
+  $username = $body_json['username'];
+  $password = $body_json['password'];
 
   $db_address = file_get_contents(__DIR__.'/db_details/db_address.txt');
   $db_username = file_get_contents(__DIR__.'/db_details/db_username.txt');

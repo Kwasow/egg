@@ -25,12 +25,16 @@ export type TokenControl = {
   tokenDetails: TokenDetails | null
 }
 
-export type LoginPostBody = {
+export type LoginPhpBody = {
   username: string
   password: string
 }
 
 export type VerifyPhpBody = {
+  token: string
+}
+
+export type LogoutPhpBody = {
   token: string
 }
 
@@ -98,7 +102,7 @@ export function LoginButton(props: {
     onLogin?.before?.apply({})
     setIsAuthenticating(true)
 
-    const body: LoginPostBody = {
+    const body: LoginPhpBody = {
       username,
       password,
     }
@@ -136,6 +140,55 @@ export function LoginButton(props: {
       disabled={isAuthenticating}
     >
       Zaloguj
+    </Button>
+  )
+}
+
+export function LogoutButton(props: {
+  className?: string
+  onError?: () => void
+}) {
+  const { className, onError } = props
+  const authentication = useAuthentication()
+  const [logoutInProgress, setLogoutInProgress] = useState(false)
+  const navigate = useNavigate()
+
+  async function logout() {
+    setLogoutInProgress(true)
+
+    const body: LogoutPhpBody = {
+      token: authentication.tokenDetails?.token || '',
+    }
+
+    await fetch('/php/logout.php', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      cache: 'no-store',
+    })
+      .then((res) => {
+        if (res.ok) {
+          authentication.clearToken()
+          console.log('here')
+          navigate('/login')
+        } else {
+          throw new Error('Server responded: ' + res.status)
+        }
+      })
+      .catch((err) => console.error(err))
+
+    // Logout failed if we reached this point
+    setLogoutInProgress(false)
+    onError?.apply({})
+  }
+
+  return (
+    <Button
+      className={className}
+      type='submit'
+      onClick={logout}
+      disabled={logoutInProgress}
+    >
+      Wyloguj
     </Button>
   )
 }

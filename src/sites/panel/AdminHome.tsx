@@ -1,50 +1,16 @@
 import React, { useState } from 'react'
 import { Button, Snackbar } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import {
   LoginProtected,
+  LogoutButton,
   useAuthentication,
 } from '../../utils/useAuthentication'
 
 import './AdminHome.css'
 
-type LogoutPhpBody = {
-  token: string
-}
-
 export default function AdminHome() {
   const authentication = useAuthentication()
-  const navigate = useNavigate()
-  const [logoutInProgress, setLogoutInProgress] = useState(false)
   const [snackbarOpen, setSnackbarOpen] = useState(false)
-
-  async function signOut() {
-    setLogoutInProgress(true)
-
-    const body: LogoutPhpBody = {
-      token: authentication.tokenDetails?.token || '',
-    }
-
-    await fetch('/php/logout.php', {
-      method: 'POST',
-      body: JSON.stringify(body),
-      cache: 'no-store',
-    })
-      .then((res) => {
-        if (res.ok) {
-          authentication.clearToken()
-          console.log('here')
-          navigate('/login')
-        } else {
-          throw new Error('Server responded: ' + res.status)
-        }
-      })
-      .catch((err) => console.error(err))
-
-    // Logout failed if we reached this point
-    setLogoutInProgress(false)
-    setSnackbarOpen(true)
-  }
 
   return (
     <LoginProtected className='main-wrapper'>
@@ -52,13 +18,7 @@ export default function AdminHome() {
         <h1 className='header-style'>
           Witaj, {authentication.tokenDetails?.username}!
         </h1>
-        <Button
-          onClick={signOut}
-          disabled={logoutInProgress}
-          variant='outlined'
-        >
-          Wyloguj
-        </Button>
+        <LogoutButton onError={() => setSnackbarOpen(true)} />
       </div>
 
       <table>

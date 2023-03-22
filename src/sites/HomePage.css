@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  padding-top: 0px;
 }
 
 .single-partner-container {
@@ -62,6 +63,7 @@
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
+  margin-bottom: 0;
 }
 
 .partner-image {

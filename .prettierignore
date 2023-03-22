@@ -1,6 +1,7 @@
 build/
 node_modules/
-public/
+public/locales/
+public/static/
 package.json
 tsconfig.json
 yarn-error.log

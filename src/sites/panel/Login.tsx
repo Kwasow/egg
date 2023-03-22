@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
-import { Button, Snackbar, TextField } from '@mui/material'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { LoginResponse, useAuthentication } from '../../utils/useAuthentication'
-import { Buffer } from 'buffer'
+import React, { useRef, useState } from 'react'
+import { Snackbar, TextField } from '@mui/material'
+import { Navigate } from 'react-router-dom'
+import {
+  LoginButton,
+  OnLogin,
+  useAuthentication,
+} from '../../utils/useAuthentication'
 
 import './Login.css'
 
 export default function LoginPage() {
   const authentication = useAuthentication()
-  const navigate = useNavigate()
-  const [snackbarOpen, setSnackbarOpen] = useState(false)
   const [isAuthenticating, setIsAuthenticating] = useState(false)
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
   if (authentication.tokenDetails) {
     return <Navigate replace to={'/admin'} />
@@ -21,35 +23,15 @@ export default function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  async function submit() {
-    setIsAuthenticating(true)
-
-    const username64 = Buffer.from(username).toString('base64')
-    const password64 = Buffer.from(password).toString('base64')
-
-    await fetch(
-      '/php/login.php?username=' + username64 + '&password=' + password64,
-      { cache: 'no-store' }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error('Server responded: ' + res.status)
-        }
-      })
-      .then((res: LoginResponse) => {
-        if (res.session_id.length > 0) {
-          authentication.setToken(username, res.session_id)
-          navigate('/admin')
-        }
-      })
-      .catch((err) => console.error(err))
-
-    // Login failed if we reached this point
-    setIsAuthenticating(false)
-    setSnackbarOpen(true)
-  }
+  const onLogin = useRef<OnLogin>({
+    before: () => {
+      setIsAuthenticating(true)
+    },
+    onError: () => {
+      setIsAuthenticating(false)
+      setSnackbarOpen(true)
+    },
+  })
 
   return (
     <div className='login-wrapper'>
@@ -70,9 +52,11 @@ export default function LoginPage() {
         onChange={(event) => setPassword(event.target.value)}
         disabled={isAuthenticating}
       />
-      <Button type='submit' onClick={submit} disabled={isAuthenticating}>
-        Zaloguj
-      </Button>
+      <LoginButton
+        username={username}
+        password={password}
+        onLogin={onLogin.current}
+      />
 
       <Snackbar
         open={snackbarOpen}

@@ -122,48 +122,38 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     return <AvailableSoon />
   }
 
+  function Description(props: { paragraphs: string[] }) {
+    const { paragraphs } = props
+
+    return (
+      <>
+        {paragraphs.map((paragraph, index) => {
+          return <p key={index}>{paragraph}</p>
+        })}
+      </>
+    )
+  }
+
   if (screenSize === ScreenSize.BIG) {
     return (
-      <div>
+      <div style={{}}>
         {people.map((person) => (
           <div key={person.position}>
-            <div
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-container'
-                  : 'people-left-container'
-              }
-            >
+            <div className='people-left-container'>
               <img
                 className='people-image'
                 alt={t('expertsAndSpeakers.PersonAlt') + person.name}
                 src={directory + person.picture}
                 loading='lazy'
               />
-              <div
-                className={
-                  person.position % 2 == 0 ? 'people-right-text-container' : ''
-                }
-              >
-                <p
-                  className={
-                    person.position % 2 == 0
-                      ? 'people-right-name'
-                      : 'people-left-name'
-                  }
-                >
-                  {person.name}
-                </p>
-                <p
-                  className={
-                    person.position % 2 == 0
-                      ? 'people-right-description'
-                      : 'people-left-description'
-                  }
-                >
-                  {i18n.language == 'pl'
-                    ? person.description_pl[0]
-                    : person.description_en[0]}
+              <div>
+                <p className='people-left-name'>{person.name}</p>
+                <p className='people-left-description'>
+                  {i18n.language == 'pl' ? (
+                    <Description paragraphs={person.description_pl} />
+                  ) : (
+                    <Description paragraphs={person.description_en} />
+                  )}
                 </p>
               </div>
             </div>
@@ -183,9 +173,11 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
             />
             <p className='person-small-name'>{person.name}</p>
             <p className='person-small-description'>
-              {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en}
+              {i18n.language == 'pl' ? (
+                <Description paragraphs={person.description_pl} />
+              ) : (
+                <Description paragraphs={person.description_en} />
+              )}
             </p>
           </div>
         ))}
@@ -334,7 +326,7 @@ function ExpertsAndSpeakers() {
   }
 
   return (
-    <>
+    <div>
       <TopPerson />
       <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
         <SpeakersTab
@@ -348,7 +340,7 @@ function ExpertsAndSpeakers() {
       </SpeakersTabs>
       <Experts value={tab} index={0} />
       <Speakers value={tab} index={1} />
-    </>
+    </div>
   )
 }
 

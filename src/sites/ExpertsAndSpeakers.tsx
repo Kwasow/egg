@@ -21,8 +21,8 @@ interface TabPanelProps {
 interface PersonJSON {
   position: number
   name: string
-  description_pl: string
-  description_en: string
+  description_pl: string[]
+  description_en: string[]
   picture: string
 }
 
@@ -86,8 +86,8 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
             <p className='grid-person-title'>{person.name}</p>
             <p className='grid-person-subtitle'>
               {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en}
+                ? person.description_pl[0]
+                : person.description_en[0]}
             </p>
           </div>
         )
@@ -162,8 +162,8 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
                   }
                 >
                   {i18n.language == 'pl'
-                    ? person.description_pl
-                    : person.description_en}
+                    ? person.description_pl[0]
+                    : person.description_en[0]}
                 </p>
               </div>
             </div>

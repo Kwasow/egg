@@ -83,7 +83,7 @@ function Sponsors() {
 
   return (
     <>
-      <p className='sponsors-header'>{t('mainPage.Partners')}</p>
+      <p className='sponsors-header'>{t('mainPage.Patrons')}</p>
       <Grid container spacing={0} className='sponsors-container'>
         <Partner
           image='/static/sponsors/wum.webp'
@@ -106,6 +106,28 @@ function Sponsors() {
           image='/static/sponsors/ss_wum.webp'
           imageAlt={t('sponsor.SSWUM.Alt') || ''}
           title={t('sponsor.SSWUM.Title') || ''}
+        />
+      </Grid>
+      <Grid container spacing={0} className='sponsors-container'>
+        <SponsorImage
+          image='/static/sponsors/medtube.png'
+          imageAlt='MedTube logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/opm.webp'
+          imageAlt='Ogólnopolski Przegląd Medyczny logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/pars.webp'
+          imageAlt='Ruch Społeczny Polskie Amazonki logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/remedium.webp'
+          imageAlt='Remedium logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/termedia.png'
+          imageAlt='Termedia logo'
         />
       </Grid>
 
@@ -145,32 +167,12 @@ function Sponsors() {
           imageAlt='Medycyna Praktyczna mp.pl logo'
         />
         <SponsorImage
-          image='/static/sponsors/medtube.png'
-          imageAlt='MedTube logo'
-        />
-        <SponsorImage
-          image='/static/sponsors/opm.webp'
-          imageAlt='Ogólnopolski Przegląd Medyczny logo'
-        />
-        <SponsorImage
-          image='/static/sponsors/remedium.webp'
-          imageAlt='Remedium logo'
-        />
-        <SponsorImage
           image='/static/sponsors/rozowa.webp'
           imageAlt='Różowa Skrzyneczka logo'
         />
         <SponsorImage
-          image='/static/sponsors/pars.webp'
-          imageAlt='Ruch Społeczny Polskie Amazonki logo'
-        />
-        <SponsorImage
           image='/static/sponsors/sis.webp'
           imageAlt='Sis Underwear logo'
-        />
-        <SponsorImage
-          image='/static/sponsors/termedia.png'
-          imageAlt='Termedia logo'
         />
         <SponsorImage
           image='/static/sponsors/wnl.webp'

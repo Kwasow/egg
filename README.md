@@ -1,5 +1,9 @@
 # egg
 
+[![build](https://github.com/Kwasow/egg/actions/workflows/build.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/build.yml)
+[![eslint](https://github.com/Kwasow/egg/actions/workflows/eslint.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/eslint.yml)
+[![prettier](https://github.com/Kwasow/egg/actions/workflows/prettier.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/prettier.yml)
+
 The source code for the official website of the student conference organized by
 the gynecology student association at Warsaw Medical University.
 

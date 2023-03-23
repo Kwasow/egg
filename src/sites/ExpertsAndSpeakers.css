@@ -1,14 +1,14 @@
-.people-left-container {
+.people-container {
   display: flex;
   flex-direction: row;
   padding-left: 10%;
-  padding-right: 25%;
+  padding-right: 20%;
   padding-top: 3%;
   padding-bottom: 3%;
   align-items: center;
 }
 
-.people-left-name {
+.people-name {
   margin-top: 0;
   margin-bottom: 0;
   font-weight: bold;
@@ -16,7 +16,7 @@
   padding-left: 40px;
 }
 
-.people-left-description {
+.people-description {
   text-align: justify;
   text-align-last: left;
   padding-left: 40px;
@@ -30,51 +30,37 @@
   border-radius: 10px;
 }
 
-.people-right-container {
-  display: flex;
-  flex-direction: row-reverse;
-  padding-left: 30%;
-  padding-right: 10%;
-  align-items: center;
-  font-weight: lighter;
-}
-
-.people-right-text-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.people-right-name {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: bold;
-  font-size: xx-large;
-  padding-right: 40px;
-}
-
-.people-right-description {
-  text-align: justify;
-  align-self: flex-end;
-  padding-right: 40px;
-}
-
 @media screen and (max-width: 1500px) {
-  .people-right-description {
-    width: 80%;
-  }
-
-  .people-left-description {
-    width: 80%;
+  .people-container {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 
 @media screen and (max-width: 1100px) {
-  .people-right-description {
-    width: auto;
+  .people-container {
+    flex-direction: column;
   }
 
-  .people-left-description {
-    width: auto;
+  .people-name {
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 0px;
+  }
+
+  .people-description {
+    padding-left: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .people-description {
+    display: none;
+  }
+
+  .people-name {
+    font-weight: lighter;
+    padding-bottom: 40px;
   }
 }
 

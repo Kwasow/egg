@@ -96,27 +96,10 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   )
 }
 
-enum ScreenSize {
-  BIG,
-  SMALL,
-}
-
 function PeopleListView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
-  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
-
-  function updateScreenSize() {
-    if (window.innerWidth < 900) {
-      setScreenSize(ScreenSize.SMALL)
-    } else {
-      setScreenSize(ScreenSize.BIG)
-    }
-  }
-
-  window.addEventListener('resize', updateScreenSize)
-  useEffect(updateScreenSize, [])
 
   if (people.length === 0) {
     return <AvailableSoon />
@@ -134,56 +117,32 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     )
   }
 
-  if (screenSize === ScreenSize.BIG) {
-    return (
-      <div style={{}}>
-        {people.map((person) => (
-          <div key={person.position}>
-            <div className='people-left-container'>
-              <img
-                className='people-image'
-                alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-                src={directory + person.picture}
-                loading='lazy'
-              />
-              <div>
-                <p className='people-left-name'>{person.name}</p>
-                <p className='people-left-description'>
-                  {i18n.language == 'pl' ? (
-                    <Description paragraphs={person.description_pl} />
-                  ) : (
-                    <Description paragraphs={person.description_en} />
-                  )}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        {people.map((person) => (
-          <div key={person.position} className='person-small-container'>
+  return (
+    <div>
+      {people.map((person) => (
+        <div key={person.position}>
+          <div className='people-container'>
             <img
               className='people-image'
               alt={t('expertsAndSpeakers.PersonAlt') + person.name}
               src={directory + person.picture}
+              loading='lazy'
             />
-            <p className='person-small-name'>{person.name}</p>
-            <p className='person-small-description'>
-              {i18n.language == 'pl' ? (
-                <Description paragraphs={person.description_pl} />
-              ) : (
-                <Description paragraphs={person.description_en} />
-              )}
-            </p>
+            <div>
+              <p className='people-name'>{person.name}</p>
+              <p className='people-description'>
+                {i18n.language == 'pl' ? (
+                  <Description paragraphs={person.description_pl} />
+                ) : (
+                  <Description paragraphs={person.description_en} />
+                )}
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-    )
-  }
+        </div>
+      ))}
+    </div>
+  )
 }
 
 function Experts(props: TabPanelProps) {

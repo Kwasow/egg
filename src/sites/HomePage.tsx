@@ -109,21 +109,27 @@ function Sponsors() {
         />
       </Grid>
       <Grid container spacing={0} className='sponsors-container'>
-        <SponsorImage
-          image='/static/sponsors/medtube.png'
-          imageAlt='MedTube logo'
-        />
+        <a href='https://medtube.pl' target='_blank' rel='noreferrer'>
+          <SponsorImage
+            image='/static/sponsors/medtube.png'
+            imageAlt='MedTube logo'
+          />
+        </a>
         <SponsorImage
           image='/static/sponsors/opm.webp'
           imageAlt='Ogólnopolski Przegląd Medyczny logo'
         />
         <SponsorImage
-          image='/static/sponsors/pars.webp'
-          imageAlt='Ruch Społeczny Polskie Amazonki logo'
+          image='/static/sponsors/figo.webp'
+          imageAlt='Polskie Towarzystwo Ginekologów i Położników logo'
         />
         <SponsorImage
           image='/static/sponsors/remedium.webp'
           imageAlt='Remedium logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/pars.webp'
+          imageAlt='Ruch Społeczny Polskie Amazonki logo'
         />
         <SponsorImage
           image='/static/sponsors/termedia.png'
@@ -133,6 +139,10 @@ function Sponsors() {
 
       <p className='sponsors-header'>{t('mainPage.Sponsors')}</p>
       <Grid container spacing={0} className='sponsors-container'>
+        <SponsorImage
+          image='/static/sponsors/cocomed.webp'
+          imageAlt='Cocomed logo'
+        />
         <SponsorImage
           image='/static/sponsors/edra.webp'
           imageAlt='Edra Urban & Partner logo'

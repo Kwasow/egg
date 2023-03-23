@@ -109,10 +109,12 @@ function Sponsors() {
         />
       </Grid>
       <Grid container spacing={0} className='sponsors-container'>
-        <SponsorImage
-          image='/static/sponsors/medtube.png'
-          imageAlt='MedTube logo'
-        />
+        <a href='https://medtube.pl' target='_blank' rel='noreferrer'>
+          <SponsorImage
+            image='/static/sponsors/medtube.png'
+            imageAlt='MedTube logo'
+          />
+        </a>
         <SponsorImage
           image='/static/sponsors/opm.webp'
           imageAlt='Ogólnopolski Przegląd Medyczny logo'

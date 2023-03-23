@@ -21,8 +21,8 @@ interface TabPanelProps {
 interface PersonJSON {
   position: number
   name: string
-  description_pl: string
-  description_en: string
+  description_pl: string[]
+  description_en: string[]
   picture: string
 }
 
@@ -86,8 +86,8 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
             <p className='grid-person-title'>{person.name}</p>
             <p className='grid-person-subtitle'>
               {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en}
+                ? person.description_pl[0]
+                : person.description_en[0]}
             </p>
           </div>
         )
@@ -96,102 +96,53 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   )
 }
 
-enum ScreenSize {
-  BIG,
-  SMALL,
-}
-
 function PeopleListView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
-  const [screenSize, setScreenSize] = useState(ScreenSize.BIG)
-
-  function updateScreenSize() {
-    if (window.innerWidth < 900) {
-      setScreenSize(ScreenSize.SMALL)
-    } else {
-      setScreenSize(ScreenSize.BIG)
-    }
-  }
-
-  window.addEventListener('resize', updateScreenSize)
-  useEffect(updateScreenSize, [])
 
   if (people.length === 0) {
     return <AvailableSoon />
   }
 
-  if (screenSize === ScreenSize.BIG) {
+  function Description(props: { paragraphs: string[] }) {
+    const { paragraphs } = props
+
     return (
-      <div>
-        {people.map((person) => (
-          <div key={person.position}>
-            <div
-              className={
-                person.position % 2 == 0
-                  ? 'people-right-container'
-                  : 'people-left-container'
-              }
-            >
-              <img
-                className='people-image'
-                alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-                src={directory + person.picture}
-                loading='lazy'
-              />
-              <div
-                className={
-                  person.position % 2 == 0 ? 'people-right-text-container' : ''
-                }
-              >
-                <p
-                  className={
-                    person.position % 2 == 0
-                      ? 'people-right-name'
-                      : 'people-left-name'
-                  }
-                >
-                  {person.name}
-                </p>
-                <p
-                  className={
-                    person.position % 2 == 0
-                      ? 'people-right-description'
-                      : 'people-left-description'
-                  }
-                >
-                  {i18n.language == 'pl'
-                    ? person.description_pl
-                    : person.description_en}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <>
+        {paragraphs.map((paragraph, index) => {
+          return <p key={index}>{paragraph}</p>
+        })}
+      </>
     )
-  } else {
-    return (
-      <div>
-        {people.map((person) => (
-          <div key={person.position} className='person-small-container'>
+  }
+
+  return (
+    <div>
+      {people.map((person) => (
+        <div key={person.position}>
+          <div className='people-container'>
             <img
               className='people-image'
               alt={t('expertsAndSpeakers.PersonAlt') + person.name}
               src={directory + person.picture}
+              loading='lazy'
             />
-            <p className='person-small-name'>{person.name}</p>
-            <p className='person-small-description'>
-              {i18n.language == 'pl'
-                ? person.description_pl
-                : person.description_en}
-            </p>
+            <div>
+              <p className='people-name'>{person.name}</p>
+              <p className='people-description'>
+                {i18n.language == 'pl' ? (
+                  <Description paragraphs={person.description_pl} />
+                ) : (
+                  <Description paragraphs={person.description_en} />
+                )}
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-    )
-  }
+        </div>
+      ))}
+    </div>
+  )
 }
 
 function Experts(props: TabPanelProps) {
@@ -334,7 +285,7 @@ function ExpertsAndSpeakers() {
   }
 
   return (
-    <>
+    <div>
       <TopPerson />
       <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
         <SpeakersTab
@@ -348,7 +299,7 @@ function ExpertsAndSpeakers() {
       </SpeakersTabs>
       <Experts value={tab} index={0} />
       <Speakers value={tab} index={1} />
-    </>
+    </div>
   )
 }
 

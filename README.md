@@ -1,5 +1,9 @@
 # egg
 
+[![build](https://github.com/Kwasow/egg/actions/workflows/build.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/build.yml)
+[![eslint](https://github.com/Kwasow/egg/actions/workflows/eslint.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/eslint.yml)
+[![prettier](https://github.com/Kwasow/egg/actions/workflows/prettier.yml/badge.svg)](https://github.com/Kwasow/egg/actions/workflows/prettier.yml)
+
 The source code for the official website of the student conference organized by
 the gynecology student association at Warsaw Medical University.
 
@@ -34,19 +38,6 @@ To run the project run:
 
 `yarn start`
 
-## About
-
-The front-end is a client-side rendered React app. POST and GET requests are
-handled by PHP.
-
-This is indeed a weird way to design a website, but I wanted to use React as it
-significantly shortens development time and I find it easier to build visually
-pleasing interfaces with it. The problem is that React uses client-side
-rendering which makes it difficult to interact with server files (the `public`
-directory). Using PHP instead of something like nodejs allows us to use cheap
-website hosting services instead of more costly vistual servers that would allow
-us to use the latter.
-
 ## Project structure
 
 Included files:
@@ -54,6 +45,9 @@ Included files:
 - `src/` - frontend, the client-side rendered React app
 - `public/locales` - contains translations for strings (PL/EN)
 - `public/static/images` - static assets
+- `public/static/program` - the conference program
+- `public/static/documents` - important documents
+- `public/static/sponsors` - sponsors' logos
 - `public/php` - backend PHP scripts
 
 Not included (placed on server):
@@ -64,12 +58,13 @@ Not included (placed on server):
 {
   "position": 2,
   "name": "Jan Kowalski",
-  "description": "Lorem ipsum dolor sit amet, consectetur..",
+  "description_pl": ["Lorem ipsum dolor sit amet, consectetur.."],
+  "description_en": ["Lorem ipsum dolor sit amet, consectetur.."],
   "picture": "1.jpeg"
 }
 ```
 
-- `public/static/speakers` - same as organisers
+- `public/static/speakers` - same as experts
 - `public/static/gallery` - photos (organised in folders) to be shown in
   the photo gallery tab
-- `public/static/news`
+- `public/static/news` - news presented on the main page

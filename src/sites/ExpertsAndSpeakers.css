@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.experts-container {
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
 .people-name {
   margin-top: 0;
   margin-bottom: 0;

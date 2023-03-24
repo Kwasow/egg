@@ -7,6 +7,21 @@
 
   border-bottom: 1px solid gray;
   border-top: 1px solid gray;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 700px) {
+  .countdown-wrapper {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .countdown-wrapper {
+    background-size: contain;
+  }
 }
 
 .countdown-element {

@@ -73,7 +73,14 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   }
 
   return (
-    <Grid container spacing={0} className='grid-container'>
+    <Grid
+      container
+      spacing={0}
+      className='grid-container'
+      style={{
+        backgroundImage: 'url(static/images/background.svg)',
+      }}
+    >
       {people.map((person) => {
         return (
           <div key={person.position} className='grid-person-container'>
@@ -118,7 +125,12 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
   }
 
   return (
-    <div>
+    <div
+      className='experts-container'
+      style={{
+        backgroundImage: 'url(static/images/background.svg)',
+      }}
+    >
       {people.map((person) => (
         <div key={person.position}>
           <div className='people-container'>
@@ -253,24 +265,28 @@ function TopPerson() {
   const { t } = useTranslation()
 
   return (
-    <div className='top-person-wrap'>
-      <img
-        className='top-person-image'
-        src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
-      />
-      <div className='top-person-text'>
-        <p className='top-person-name'>dr Nicolò Bizzarri</p>
-        <p className='top-person-subtext'>
-          {t('expertsAndSpeakers.SpecialGuest')}
-        </p>
-        <p>{topPersonDescription}</p>
-        <p className='top-person-speech'>
-          {t('expertsAndSpeakers.InauguralSpeech')}
-        </p>
-        <p className='top-person-subtext'>
-          {t('expertsAndSpeakers.InauguralDate')}
-        </p>
-        <p>{topPersonInauguralTitle}</p>
+    <div>
+      <div className='people-container'>
+        <img
+          className='people-image top-person-image'
+          src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
+        />
+        <div>
+          <p className='people-name top-person-name'>dr Nicolò Bizzarri</p>
+          <p className='people-description top-person-description'>
+            <p className='top-person-subtext'>
+              {t('expertsAndSpeakers.SpecialGuest')}
+            </p>
+            <p className='top-person-text'>{topPersonDescription}</p>
+            <p className='top-person-speech'>
+              {t('expertsAndSpeakers.InauguralSpeech')}
+            </p>
+            <p className='top-person-subtext'>
+              {t('expertsAndSpeakers.InauguralDate')}
+            </p>
+            <p className='top-person-text'>{topPersonInauguralTitle}</p>
+          </p>
+        </div>
       </div>
     </div>
   )

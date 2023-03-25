@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.experts-container {
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
 .people-name {
   margin-top: 0;
   margin-bottom: 0;
@@ -23,11 +28,23 @@
   font-weight: lighter;
 }
 
+.top-person-subtext {
+  margin-top: 0;
+  font-style: italic;
+  margin-top: 0;
+  color: gray;
+}
+
+.top-person-image {
+  margin-top: 20px;
+}
+
 .people-image {
   height: 400px;
   width: 275px;
   object-fit: cover;
   border-radius: 10px;
+  border: 1px solid #000000;
 }
 
 @media screen and (max-width: 1500px) {
@@ -51,6 +68,21 @@
   .people-description {
     padding-left: 0px;
   }
+
+  .top-person-description {
+    padding-top: 0;
+    margin-top: 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-person-text {
+    margin-top: 0;
+    text-align-last: center;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -58,9 +90,17 @@
     display: none;
   }
 
+  .top-person-description {
+    display: flex;
+  }
+
   .people-name {
     font-weight: lighter;
     padding-bottom: 40px;
+  }
+
+  .top-person-name {
+    padding-bottom: 0;
   }
 }
 
@@ -68,58 +108,6 @@
   display: flex;
   justify-content: center;
   margin-top: 2%;
-}
-
-.top-person-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin: 20px;
-}
-
-.top-person-name {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: bold;
-  font-size: xx-large;
-}
-
-.top-person-image {
-  height: 360px;
-  width: 360px;
-  margin-right: 40px;
-  border-radius: 10px;
-}
-
-.top-person-text {
-  width: 50%;
-  text-align: left;
-  font-weight: lighter;
-}
-
-.top-person-subtext {
-  font-style: italic;
-  margin-top: 0;
-  color: gray;
-}
-
-@media screen and (max-width: 900px) {
-  .top-person-wrap {
-    flex-direction: column;
-  }
-
-  .top-person-text {
-    text-align: center;
-    width: auto;
-    margin-top: 10px;
-  }
-
-  .top-person-image {
-    margin-right: 0px;
-    max-width: 90%;
-    object-fit: contain;
-  }
 }
 
 .about-us-card {
@@ -198,6 +186,8 @@
 .grid-container {
   align-items: center;
   justify-content: center;
+  background-repeat: repeat-y;
+  background-size: cover;
 }
 
 .grid-person-container {
@@ -212,6 +202,8 @@
   width: 200px;
   height: 320px;
   object-fit: cover;
+  border: 1px solid #000000;
+  border-radius: 10px;
 }
 
 .grid-person-title {
@@ -226,45 +218,6 @@
   color: gray;
   margin-top: 0px;
   text-align: center;
-}
-
-.person-small-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.person-small-name {
-  font-weight: bold;
-  font-size: xx-large;
-  margin: 20px;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.person-small-description {
-  text-align: center;
-  margin: 20px;
-  margin-top: 0;
-  margin-bottom: 60px;
-  font-weight: lighter;
-}
-
-@media screen and (max-width: 600px) {
-  .person-small-container {
-    padding: 20px;
-  }
-
-  .person-small-name {
-    padding-top: 10px;
-    font-size: x-large;
-  }
-
-  .person-small-description {
-    display: none;
-  }
 }
 
 .top-person-speech {

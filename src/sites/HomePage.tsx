@@ -147,10 +147,15 @@ function Sponsors() {
           image='/static/sponsors/edra.webp'
           imageAlt='Edra Urban & Partner logo'
         />
+        <SponsorImage image='/static/sponsors/erbe.png' imageAlt='Erbe logo' />
         <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
         <SponsorImage
           image='/static/sponsors/kwiat-kobiecosci.webp'
           imageAlt='Kwiat Kobiecości logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/lady_planer.webp'
+          imageAlt='Lady planner logo'
         />
         <SponsorImage
           image='/static/sponsors/lepolek.png'
@@ -175,6 +180,10 @@ function Sponsors() {
         <SponsorImage
           image='/static/sponsors/mppl.webp'
           imageAlt='Medycyna Praktyczna mp.pl logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/nestmedic.webp'
+          imageAlt='Nestmedic logo'
         />
         <SponsorImage
           image='/static/sponsors/rozowa.webp'

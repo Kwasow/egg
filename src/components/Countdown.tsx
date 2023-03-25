@@ -50,7 +50,12 @@ export function Countdown(props: { date: Date }) {
   })
 
   return (
-    <div className='countdown-wrapper'>
+    <div
+      className='countdown-wrapper'
+      style={{
+        backgroundImage: 'url(static/images/background_countdown.svg)',
+      }}
+    >
       <div className='countdown-element'>
         <p className='countdown-count'>{getNumberString(timeLeft.days)}</p>
         <p className='countdown-label'>{t('countdown.Days')}</p>

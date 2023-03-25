@@ -182,7 +182,7 @@ function Sponsors() {
           imageAlt='Medycyna Praktyczna mp.pl logo'
         />
         <SponsorImage
-          image='/static/sponsors/nestmedic.png'
+          image='/static/sponsors/nestmedic.webp'
           imageAlt='Nestmedic logo'
         />
         <SponsorImage

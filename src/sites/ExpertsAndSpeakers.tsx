@@ -1,5 +1,6 @@
 import React, { useEffect, useState, SyntheticEvent } from 'react'
-import { Card, CircularProgress, Grid } from '@mui/material'
+import { Button, Card, CircularProgress, Grid } from '@mui/material'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
@@ -38,10 +39,11 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
       .then((res) => res.text())
-      .then((res) => {
-        return JSON.parse(res)
+      .then((res) => JSON.parse(res))
+      .then((people: PeopleJSON) => {
+        people.list.sort((a, b) => a.position - b.position)
+        resolve(people.list)
       })
-      .then((people: PeopleJSON) => resolve(people.list))
       .catch((reason) => reject(reason))
   })
 }
@@ -66,10 +68,32 @@ function AvailableSoon() {
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
+  const [sunshineCount, setSunshineCount] = useState(0)
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
+  }
+
+  function SinglePerson(props: { person: PersonJSON; onClick?: () => void }) {
+    const { person, onClick } = props
+
+    return (
+      <div className='grid-person-container' onClick={onClick}>
+        <img
+          className='grid-person-image'
+          src={directory + person.picture}
+          alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+          loading='lazy'
+        />
+        <p className='grid-person-title'>{person.name}</p>
+        <p className='grid-person-subtitle'>
+          {i18n.language == 'pl'
+            ? person.description_pl[0]
+            : person.description_en[0]}
+        </p>
+      </div>
+    )
   }
 
   return (
@@ -82,22 +106,22 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
       }}
     >
       {people.map((person) => {
-        return (
-          <div key={person.position} className='grid-person-container'>
-            <img
-              className='grid-person-image'
-              src={directory + person.picture}
-              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-              loading='lazy'
+        if (person.name === 'Weronika Jędrzejczak') {
+          return (
+            <SinglePerson
+              key={person.position}
+              person={person}
+              onClick={() => {
+                setSunshineCount(sunshineCount + 1)
+                if (sunshineCount === 9) {
+                  window.open('/sunshine', '_self')
+                }
+              }}
             />
-            <p className='grid-person-title'>{person.name}</p>
-            <p className='grid-person-subtitle'>
-              {i18n.language == 'pl'
-                ? person.description_pl[0]
-                : person.description_en[0]}
-            </p>
-          </div>
-        )
+          )
+        } else {
+          return <SinglePerson key={person.position} person={person} />
+        }
       })}
     </Grid>
   )
@@ -164,8 +188,20 @@ function Experts(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
+  const [bigScreen, setBigScreen] = useState(false)
+  const { t } = useTranslation()
+
+  function updateScreenSize() {
+    if (1300 < window.innerWidth) {
+      setBigScreen(true)
+    } else {
+      setBigScreen(false)
+    }
+  }
 
   useEffect(() => {
+    updateScreenSize()
+
     getPeopleSorted(type)
       .then((res) => {
         setPeople(res)
@@ -176,10 +212,33 @@ function Experts(props: TabPanelProps) {
         setLoaded(2)
       })
   }, [])
+  window.addEventListener('resize', updateScreenSize)
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} type={type} />
+      return (
+        <>
+          <div style={{}}>
+            <Button
+              onClick={() => window.open('/static/images/plan.png')}
+              variant={'outlined'}
+              style={{
+                position: bigScreen ? 'absolute' : 'inherit',
+                right: 0,
+                width: bigScreen ? 'auto' : '90%',
+                margin: bigScreen ? 10 : '5%',
+                marginBottom: 0,
+                marginTop: 10,
+                backgroundColor: 'white',
+              }}
+            >
+              <p>{t('expertsAndSpeakers.PlanButton')}</p>
+              <OpenInNewIcon />
+            </Button>
+          </div>
+          <PeopleListView people={people} type={type} />
+        </>
+      )
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {

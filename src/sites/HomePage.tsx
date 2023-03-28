@@ -170,6 +170,10 @@ function Sponsors() {
           imageAlt='Medcases logo'
         />
         <SponsorImage
+          image='/static/sponsors/medelight.webp'
+          imageAlt='Medelight logo'
+        />
+        <SponsorImage
           image='/static/sponsors/medesign.png'
           imageAlt='Medesign logo'
         />

@@ -189,6 +189,7 @@ function Experts(props: TabPanelProps) {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   const [bigScreen, setBigScreen] = useState(false)
+  const { t } = useTranslation()
 
   function updateScreenSize() {
     if (1300 < window.innerWidth) {
@@ -231,7 +232,7 @@ function Experts(props: TabPanelProps) {
                 backgroundColor: 'white',
               }}
             >
-              <p>Zobacz podział ekspertów na sesje</p>
+              <p>{t('expertsAndSpeakers.PlanButton')}</p>
               <OpenInNewIcon />
             </Button>
           </div>

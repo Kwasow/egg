@@ -38,10 +38,11 @@ async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
       .then((res) => res.text())
-      .then((res) => {
-        return JSON.parse(res)
+      .then((res) => JSON.parse(res))
+      .then((people: PeopleJSON) => {
+        people.list.sort((a, b) => a.position - b.position)
+        resolve(people.list)
       })
-      .then((people: PeopleJSON) => resolve(people.list))
       .catch((reason) => reject(reason))
   })
 }

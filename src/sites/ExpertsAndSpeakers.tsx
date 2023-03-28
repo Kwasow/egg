@@ -67,10 +67,32 @@ function AvailableSoon() {
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
+  const [sunshineCount, setSunshineCount] = useState(0)
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
+  }
+
+  function SinglePerson(props: { person: PersonJSON; onClick?: () => void }) {
+    const { person, onClick } = props
+
+    return (
+      <div className='grid-person-container' onClick={onClick}>
+        <img
+          className='grid-person-image'
+          src={directory + person.picture}
+          alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+          loading='lazy'
+        />
+        <p className='grid-person-title'>{person.name}</p>
+        <p className='grid-person-subtitle'>
+          {i18n.language == 'pl'
+            ? person.description_pl[0]
+            : person.description_en[0]}
+        </p>
+      </div>
+    )
   }
 
   return (
@@ -83,22 +105,22 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
       }}
     >
       {people.map((person) => {
-        return (
-          <div key={person.position} className='grid-person-container'>
-            <img
-              className='grid-person-image'
-              src={directory + person.picture}
-              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-              loading='lazy'
+        if (person.name === 'Weronika Jędrzejczak') {
+          return (
+            <SinglePerson
+              key={person.position}
+              person={person}
+              onClick={() => {
+                setSunshineCount(sunshineCount + 1)
+                if (sunshineCount === 9) {
+                  window.open('/sunshine', '_self')
+                }
+              }}
             />
-            <p className='grid-person-title'>{person.name}</p>
-            <p className='grid-person-subtitle'>
-              {i18n.language == 'pl'
-                ? person.description_pl[0]
-                : person.description_en[0]}
-            </p>
-          </div>
-        )
+          )
+        } else {
+          return <SinglePerson key={person.position} person={person} />
+        }
       })}
     </Grid>
   )

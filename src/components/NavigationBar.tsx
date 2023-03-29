@@ -22,7 +22,6 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
-import './NavigationBar.css'
 import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
 import {
   Menu as MenuIcon,
@@ -32,6 +31,7 @@ import {
   Camera as CameraIcon,
 } from '@mui/icons-material'
 import { RegistrationDialog } from './Dialogs'
+import './NavigationBar.css'
 
 type MenuItem = {
   translationString: string

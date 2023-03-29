@@ -141,7 +141,9 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     return (
       <>
         {paragraphs.map((paragraph, index) => {
-          return <p key={index}>{paragraph}</p>
+          return (
+            <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+          )
         })}
       </>
     )

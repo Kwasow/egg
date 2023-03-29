@@ -13,4 +13,4 @@ RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 # Handle errors on our own
-ErrorDocument 404 /404
+ErrorDocument 404 /index.html

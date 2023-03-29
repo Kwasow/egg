@@ -1,0 +1,19 @@
+.sunshine-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.sunshine-text-primary {
+  font-size: 8em;
+  color: black;
+  font-weight: lighter;
+  margin-bottom: 0;
+}
+
+.sunshine-text-secondary {
+  font-size: 1em;
+  color: black;
+  margin-top: 0;
+}

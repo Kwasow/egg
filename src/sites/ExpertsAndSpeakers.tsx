@@ -1,6 +1,5 @@
 import React, { useEffect, useState, SyntheticEvent } from 'react'
-import { Button, Card, CircularProgress, Grid } from '@mui/material'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import { Card, CircularProgress, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
@@ -142,9 +141,38 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     return (
       <>
         {paragraphs.map((paragraph, index) => {
-          return <p key={index}>{paragraph}</p>
+          return (
+            <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+          )
         })}
       </>
+    )
+  }
+
+  function Person(props: { person: PersonJSON }) {
+    const { person } = props
+
+    return (
+      <div>
+        <div className='people-container'>
+          <img
+            className='people-image'
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+            src={directory + person.picture}
+            loading='lazy'
+          />
+          <div>
+            <p className='people-name'>{person.name}</p>
+            <p className='people-description'>
+              {i18n.language == 'pl' ? (
+                <Description paragraphs={person.description_pl} />
+              ) : (
+                <Description paragraphs={person.description_en} />
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
     )
   }
 
@@ -156,26 +184,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
       }}
     >
       {people.map((person) => (
-        <div key={person.position}>
-          <div className='people-container'>
-            <img
-              className='people-image'
-              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-              src={directory + person.picture}
-              loading='lazy'
-            />
-            <div>
-              <p className='people-name'>{person.name}</p>
-              <p className='people-description'>
-                {i18n.language == 'pl' ? (
-                  <Description paragraphs={person.description_pl} />
-                ) : (
-                  <Description paragraphs={person.description_en} />
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
+        <Person person={person} key={person.position} />
       ))}
     </div>
   )
@@ -188,20 +197,8 @@ function Experts(props: TabPanelProps) {
   // 1 - loaded
   // 2 - error
   const [loaded, setLoaded] = useState(0)
-  const [bigScreen, setBigScreen] = useState(false)
-  const { t } = useTranslation()
-
-  function updateScreenSize() {
-    if (1300 < window.innerWidth) {
-      setBigScreen(true)
-    } else {
-      setBigScreen(false)
-    }
-  }
 
   useEffect(() => {
-    updateScreenSize()
-
     getPeopleSorted(type)
       .then((res) => {
         setPeople(res)
@@ -212,33 +209,10 @@ function Experts(props: TabPanelProps) {
         setLoaded(2)
       })
   }, [])
-  window.addEventListener('resize', updateScreenSize)
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return (
-        <>
-          <div style={{}}>
-            <Button
-              onClick={() => window.open('/static/images/plan.png')}
-              variant={'outlined'}
-              style={{
-                position: bigScreen ? 'absolute' : 'inherit',
-                right: 0,
-                width: bigScreen ? 'auto' : '90%',
-                margin: bigScreen ? 10 : '5%',
-                marginBottom: 0,
-                marginTop: 10,
-                backgroundColor: 'white',
-              }}
-            >
-              <p>{t('expertsAndSpeakers.PlanButton')}</p>
-              <OpenInNewIcon />
-            </Button>
-          </div>
-          <PeopleListView people={people} type={type} />
-        </>
-      )
+      return <PeopleListView people={people} type={type} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -361,6 +335,7 @@ function ExpertsAndSpeakers() {
 
   return (
     <div>
+      ``
       <TopPerson />
       <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
         <SpeakersTab

@@ -8,7 +8,7 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
+  // TableHead,
   TableRow,
 } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
@@ -26,7 +26,7 @@ type Activity = {
   end: string
   location_pl: string
   location_en: string
-  highlight: boolean
+  type: string
 }
 
 type Workshop = {
@@ -61,63 +61,98 @@ function Row(props: { activity: Activity }) {
   const [open, setOpen] = useState(false)
   const isClickable = activity.about_pl.length > 0
 
-  const timeStart = new Date(Date.parse(activity.start)).toLocaleTimeString(
-    [],
-    timeFormat
-  )
+  const timeStart =
+    activity.start.length == 0
+      ? ''
+      : new Date(Date.parse(activity.start)).toLocaleTimeString([], timeFormat)
   const timeEnd =
-    activity.end.length > 0
-      ? new Date(Date.parse(activity.end)).toLocaleTimeString([], timeFormat)
-      : ''
+    activity.end.length == 0
+      ? ''
+      : new Date(Date.parse(activity.end)).toLocaleTimeString([], timeFormat)
 
-  return (
-    <>
+  if (activity.type === 'session') {
+    return (
       <TableRow
-        onClick={() => isClickable && setOpen(!open)}
         sx={{
-          cursor: isClickable ? 'pointer' : 'auto',
-          backgroundColor: activity.highlight
-            ? 'rgba(197, 61, 99, 0.10)'
-            : 'white',
+          backgroundColor: 'rgb(197, 61, 99)',
         }}
       >
-        <TableCell>
-          {isClickable && (
-            <IconButton
-              aria-label='expand row'
-              size='small'
-              onClick={() => setOpen(!open)}
-            >
-              {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-            </IconButton>
-          )}
-        </TableCell>
-        <TableCell>
-          <>
-            {timeStart}
-            <br />
-            {timeEnd}
-          </>
-        </TableCell>
-        <TableCell>
-          {decideLanguage(activity.title_pl, activity.title_en)}
-        </TableCell>
-        <TableCell>{activity.speaker}</TableCell>
-        <TableCell>
-          {decideLanguage(activity.location_pl, activity.location_en)}
+        <TableCell colSpan={5}>
+          <p
+            style={{
+              fontSize: '2em',
+              color: 'white',
+              margin: 0,
+              textAlign: 'center',
+            }}
+          >
+            {decideLanguage(activity.title_pl, activity.title_en)}
+          </p>
+          <p
+            style={{
+              textAlign: 'center',
+              color: 'white',
+              margin: 0,
+              fontSize: '1.5em',
+              fontWeight: 'lighter',
+            }}
+          >
+            {activity.speaker}
+          </p>
         </TableCell>
       </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout='auto' unmountOnExit>
-            <p style={{ margin: '2%', textAlign: 'justify' }}>
-              {decideLanguage(activity.about_pl, activity.about_en)}
-            </p>
-          </Collapse>
-        </TableCell>
-      </TableRow>
-    </>
-  )
+    )
+  } else {
+    return (
+      <>
+        <TableRow
+          onClick={() => isClickable && setOpen(!open)}
+          sx={{
+            cursor: isClickable ? 'pointer' : 'auto',
+            backgroundColor:
+              activity.type === 'highlight'
+                ? 'rgba(197, 61, 99, 0.10)'
+                : 'white',
+          }}
+        >
+          <TableCell sx={{ width: '5%' }}>
+            {isClickable && (
+              <IconButton
+                aria-label='expand row'
+                size='small'
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+              </IconButton>
+            )}
+          </TableCell>
+          <TableCell sx={{ width: '10%' }}>
+            <>
+              {timeStart}
+              <br />
+              {timeEnd}
+            </>
+          </TableCell>
+          <TableCell sx={{ width: '35%' }}>
+            {decideLanguage(activity.title_pl, activity.title_en)}
+          </TableCell>
+          <TableCell sx={{ width: '15%' }}>{activity.speaker}</TableCell>
+          <TableCell sx={{ width: '35%' }}>
+            {decideLanguage(activity.location_pl, activity.location_en)}
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+            <Collapse in={open} timeout='auto' unmountOnExit>
+              <p style={{ margin: '2%', textAlign: 'justify' }}>
+                {decideLanguage(activity.about_pl, activity.about_en)}
+              </p>
+            </Collapse>
+          </TableCell>
+        </TableRow>
+      </>
+    )
+  }
 }
 
 function WorkshopsDetails(props: { workshops: Workshop[] }) {
@@ -213,23 +248,6 @@ function Day(props: { day: DayObject }) {
       </p>
       <TableContainer component={Paper} sx={{ width: '90%', marginLeft: '5%' }}>
         <Table aria-label='collapsible table'>
-          <TableHead>
-            <TableRow sx={{ backgroundColor: 'rgba(197, 61, 99, 0.30)' }}>
-              <TableCell sx={{ width: '5%' }} />
-              <TableCell sx={{ width: '10%' }}>
-                {t('program.Activity.Time')}
-              </TableCell>
-              <TableCell sx={{ width: '35%' }}>
-                {t('program.Activity.Name')}
-              </TableCell>
-              <TableCell sx={{ width: '15%' }}>
-                {t('program.Activity.Speaker')}
-              </TableCell>
-              <TableCell sx={{ width: '35%' }}>
-                {t('program.Activity.Place')}
-              </TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
             {day.activities.map((value, index) => {
               return <Row activity={value} key={index} />

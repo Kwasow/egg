@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "yarn preprocess-php && react-scripts start",
-    "build": "yarn clean-preprocess && react-scripts build && yarn copy-release-subsites",
+    "build": "yarn clean-preprocess && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext '.js,.ts,.tsx' src/",
@@ -41,8 +41,7 @@
     "clean-preprocess": "rm -f public/php/*.json",
     "pretty": "yarn prettier --write .",
     "pretty-check": "yarn prettier --check .",
-    "prepare": "husky install",
-    "copy-release-subsites": "cp build/index.html build/home && cp build/index.html build/program && cp build/index.html build/speakers && cp build/index.html build/photos && cp build/index.html build/404 && cp build/index.html build/login && cp build/index.html build/admin"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [

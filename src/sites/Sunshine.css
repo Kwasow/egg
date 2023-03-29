@@ -1,0 +1,15 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-primary {
+  font-size: 8em;
+  color: black;
+  font-weight: lighter;
+}
+
+.text-secondary {
+  font-size: 1em;
+  color: black;
+}

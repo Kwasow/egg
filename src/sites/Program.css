@@ -47,6 +47,21 @@
   margin-top: 2%;
 }
 
+.session-header {
+  font-size: 2em;
+  color: white;
+  margin: 0px;
+  text-align: center;
+}
+
+.session-experts {
+  text-align: center;
+  color: white;
+  margin: 0px;
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
 .inner-table {
   margin-left: 5%;
   margin-right: 5%;

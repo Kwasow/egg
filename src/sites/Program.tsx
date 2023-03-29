@@ -75,30 +75,15 @@ function Row(props: { activity: Activity }) {
       <TableRow
         sx={{
           backgroundColor: 'rgb(197, 61, 99)',
+          cursor: 'pointer',
         }}
+        onClick={() => window.open('/speakers', '_self')}
       >
         <TableCell colSpan={5}>
-          <p
-            style={{
-              fontSize: '2em',
-              color: 'white',
-              margin: 0,
-              textAlign: 'center',
-            }}
-          >
+          <p className='session-header'>
             {decideLanguage(activity.title_pl, activity.title_en)}
           </p>
-          <p
-            style={{
-              textAlign: 'center',
-              color: 'white',
-              margin: 0,
-              fontSize: '1.5em',
-              fontWeight: 'lighter',
-            }}
-          >
-            {activity.speaker}
-          </p>
+          <p className='session-experts'>{activity.speaker}</p>
         </TableCell>
       </TableRow>
     )

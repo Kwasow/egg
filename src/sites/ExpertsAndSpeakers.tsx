@@ -147,6 +147,33 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     )
   }
 
+  function Person(props: { person: PersonJSON }) {
+    const { person } = props
+
+    return (
+      <div>
+        <div className='people-container'>
+          <img
+            className='people-image'
+            alt={t('expertsAndSpeakers.PersonAlt') + person.name}
+            src={directory + person.picture}
+            loading='lazy'
+          />
+          <div>
+            <p className='people-name'>{person.name}</p>
+            <p className='people-description'>
+              {i18n.language == 'pl' ? (
+                <Description paragraphs={person.description_pl} />
+              ) : (
+                <Description paragraphs={person.description_en} />
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div
       className='experts-container'
@@ -155,26 +182,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
       }}
     >
       {people.map((person) => (
-        <div key={person.position}>
-          <div className='people-container'>
-            <img
-              className='people-image'
-              alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-              src={directory + person.picture}
-              loading='lazy'
-            />
-            <div>
-              <p className='people-name'>{person.name}</p>
-              <p className='people-description'>
-                {i18n.language == 'pl' ? (
-                  <Description paragraphs={person.description_pl} />
-                ) : (
-                  <Description paragraphs={person.description_en} />
-                )}
-              </p>
-            </div>
-          </div>
-        </div>
+        <Person person={person} key={person.position} />
       ))}
     </div>
   )
@@ -325,6 +333,7 @@ function ExpertsAndSpeakers() {
 
   return (
     <div>
+      ``
       <TopPerson />
       <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
         <SpeakersTab

@@ -58,8 +58,11 @@ function decideLanguage(pl: string, en: string) {
 
 function Row(props: { activity: Activity }) {
   const { activity } = props
+  const { i18n, t } = useTranslation()
   const [open, setOpen] = useState(false)
-  const isClickable = activity.about_pl.length > 0
+  const isClickable =
+    (activity.about_pl.length > 0 && i18n.language === 'pl') ||
+    (activity.about_en.length > 0 && i18n.language === 'en')
 
   const timeStart =
     activity.start.length == 0
@@ -83,7 +86,11 @@ function Row(props: { activity: Activity }) {
           <p className='session-header'>
             {decideLanguage(activity.title_pl, activity.title_en)}
           </p>
-          <p className='session-experts'>{activity.speaker}</p>
+          {activity.speaker.length > 0 && (
+            <p className='session-experts'>
+              {t('program.Experts.Label')}: {activity.speaker}
+            </p>
+          )}
         </TableCell>
       </TableRow>
     )
@@ -129,7 +136,10 @@ function Row(props: { activity: Activity }) {
         <TableRow>
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
             <Collapse in={open} timeout='auto' unmountOnExit>
-              <p style={{ margin: '2%', textAlign: 'justify' }}>
+              {activity.type === 'lecture' && (
+                <p className='abstract-label'>{t('program.Abstract')}</p>
+              )}
+              <p className='abstract-paragraph'>
                 {decideLanguage(activity.about_pl, activity.about_en)}
               </p>
             </Collapse>

@@ -89,3 +89,14 @@
     right: 20px;
   }
 }
+
+.abstract-label {
+  margin: 2%;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.abstract-paragraph {
+  margin: 2%;
+  text-align: justify;
+}

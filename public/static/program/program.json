@@ -129,7 +129,7 @@
         {
           "title_pl": "Neoadjuwantowa chemioterapia a pierwotna operacja cytoredukcyjna w zaawansowanym nabłonkowym raku jajnika",
           "title_en": "Neoadjuvant Chemotherapy vs Primary Cytoreduction Surgery in Advanced Epithelial Ovarian Cancer",
-          "about_pl": "",
+          "about_pl": "Rak jajnika to drugi, po raku trzonu macicy, najczęstszy nowotwór żeńskich narządów rodnych. W 2020 roku stwierdzono 4669 nowych zachorowań (5. miejsce pod względem częstości zachorowań na nowotwory u kobiet) oraz prawie 3100 zgonów (4. miejsce pod względem zgonów na nowotwory u kobiet) w Polsce. Współcześnie główną metodą, na której koncentruje się leczenie nabłonkowych raków jajnika w stopniu zaawansowanym jest pierwotna operacja cytoredukcyjna. Pogarszający się stan ogólny pacjentki z nabłonkowym rakiem jajnika w stopniu zaawansowania III lub IV w klasyfikacji FIGO jest wskazaniem do wykorzystania drugiej metody postępowania tzn. chemioterapii neoadjuwantowej, będącej pierwszą linią leczenia w rakach jajnika potwierdzonych histopatologicznie. Czy obie metody są równie skuteczne? Która z nich wyraźnie wydłuża czas życia pacjentek i czas wolny od wznowy?",
           "about_en": "",
           "speaker": "Damian Zdanowski",
           "start": "2023-04-15T10:00",
@@ -141,7 +141,7 @@
         {
           "title_pl": "Operacja cytoredukcyjna u pacjentek z nawrotowym rakiem jajnika",
           "title_en": "Cytoreduction Surgery in Patients with Relapsed Ovarian Cancer",
-          "about_pl": "",
+          "about_pl": "Rak jajnika jest częstym nowotworem u kobiet, charakteryzującym się późną wykrywalnością. Najczęściej rozpoznawany jest w stadium III lub IV w skali FIGO. W nawrotowym raku jajnika stosowana jest wtórna operacja cytoredukcyjna, oparta na modelach predykcyjnych, które pozwalają uzyskać całkowitą cytoredukcję u 70-80% chorych. Wyniki badań retrospektywnych i dane z badania AGO-Desktop III wskazują, że wtórna operacja cytoredukcyjna w nawrotowym platynowrażliwym raku jajnika wiąże się z poprawą czasu przeżycia u chorych, w porównaniu z samą chemioterapią. Korzyść ta, jest bardziej widoczna u chorych, u których choroba ma charakter zlokalizowany oraz u których wykonano pierwotną operację usunięcia guza z całkowitą cytoredukcją. Udowodniono, że chirurgia małoinwazyjna pozwala uzyskać korzystne efekty w leczeniu, zmniejszając odsetek powikłań około- i pooperacyjnych.",
           "about_en": "",
           "speaker": "Julia Dróżdż",
           "start": "2023-04-15T10:25",
@@ -153,7 +153,7 @@
         {
           "title_pl": "Rola dootrzewnowej chemioterapii perfuzyjnej w hipertermii (HIPEC) w leczeniu raka jajnika",
           "title_en": "The Role of Hyperthermic Intraperitoneal Chemotherapy (HIPEC) in Ovarian Cancer Treatment",
-          "about_pl": "",
+          "about_pl": "Dootrzewnowa chemioterapia perfuzyjna w hipertermii znalazła zastosowanie w leczeniu onkologicznym ze względu na lepszą dostępność leku bezpośrednio w miejscu rozsiewu nowotworowego w otrzewnej. Dodatkowe zastosowanie hipertermii pozwala na zwiększenie podatności komórek nowotworowych na zastosowane leczenie. Kluczową procedurą w leczeniu raka jajnika jest doszczętna operacja cytoredukcyjną. Z tego powodu procedurę HIPEC stosuje się zawsze po wykonaniu resekcji zmian nowotworowych. Dootrzewnowa chemioterapia podawana jest podczas tego samego zabiegu operacyjnego. Ze względu na niejednoznaczne wyniki badań na temat skuteczności HIPEC w leczeniu raka jajnika obecne zalecenia rekomendują stosowanie tej metody wyłącznie u pacjentek włączanych do badań klinicznych.",
           "about_en": "",
           "speaker": "Paulina Przybysz",
           "start": "2023-04-15T10:50",
@@ -201,7 +201,7 @@
         {
           "title_pl": "Postępowanie w raku trzonu macicy z uwzględnieniem klasyfikacji molekularnej - zalecenia ESGO/ESTRO/ESP",
           "title_en": "Treatment Procedure of Uterine Cancer in View of Molecular Classification — ESGO/ESTRO/ESP recommendations",
-          "about_pl": "",
+          "about_pl": "Rak endometrium jako najczęstszy typ nowotworu ginekologicznego w Europie stanowi wyzwanie diagnostyczne i kliniczne. Dostępne są różne metody leczenia takie jak histerektomia z obustronną salpingo-owariektomią, leczenie adjuwantowe, radioterapia, chemioterapia i leczenie hormonalne. Do wyboru odpowiedniej terapii konieczna jest ocena typu histopatologicznego guza, stopnia złośliwości, głębokości nacieku i zajęcia przestrzeni limfo-naczyniowej. Obecnie, istotne znaczenie nabrała klasyfikacja immunohistochemiczna i molekularna guza, w której oceniane są markery: MSH6, PMS2 i p53 w połączeniu z analizą genu POLE. Pomocna diagnostycznie jest również analiza statusu białek: MLH1, PMS2, MSH6, MSH2, ponieważ zmiany w nich świadczą o zwiększonym ryzyku zespołu Lyncha. Dostępna dotąd wiedza odnośnie postępowania w raku endometrium została podsumowana i przedstawiona w postaci zaktualizowanych wytycznych przez Europejskie Towarzystwo Ginekologii Onkologicznej (ESGO), Europejskiego Towarzystwo Radioterapii i Onkologii (ESTRO) i Europejskie Towarzystwo Patologii (ESP).",
           "about_en": "",
           "speaker": "Aleksandra Barabasz",
           "start": "2023-04-15T12:10",
@@ -213,7 +213,7 @@
         {
           "title_pl": "Leczenie oszczędzające płodność - zalecenia ESGO-ESHRE-ESGE 2022",
           "title_en": "Fertility Sparing Treatment - ESGO-ESHRE-ESGE 2022 recommendations ",
-          "about_pl": "",
+          "about_pl": "Rak endometrium najczęściej występuje u kobiet po menopauzie, jednak liczba przypadków diagnozowanych w wieku rozrodczym wzrasta. Europejskie towarzystwa naukowe wypracowały wspólne zalecenia dotyczące postępowania u chorych we wczesnym stadium bez przerzutów pragnących zachować płodność. Przed zakwalifikowaniem pacjentki do tego postępowania terapeutycznego należy wykluczyć naciekanie mięśniówki macicy, np. przy wykorzystaniu obrazowania metodą rezonansu magnetycznego. Najskuteczniejsze jest podejście skojarzone polegające na histeroskopowym wycięciu zmian z następczą terapią doustnymi progestagenami i/lub wkładką wewnątrzmaciczną uwalniającą lewonorgestrel. Zalecany czas trwania leczenia wynosi 6-12 miesięcy, w ciągu których powinna zostać osiągnięta całkowita remisja. Gdy tylko zostanie uzyskana całkowita odpowiedź, pacjentki należy zachęcać do aktywnego dążenia do poczęcia. Po zakończeniu rozrodu zalecane jest wykonanie uzupełniającej histerektomii.",
           "about_en": "",
           "speaker": "Adrian Kruszewski",
           "start": "2023-04-15T12:35",
@@ -237,7 +237,7 @@
         {
           "title_pl": "Nowe doniesienia naukowe nt. możliwości terapeutycznych w raku endometrium",
           "title_en": "New Scientific Reports on Therapeutic Possibilities of Endometrial Cancer",
-          "about_pl": "",
+          "about_pl": "Mimo względnie dużej skuteczności leczenia i często niskiego stopnia zaawansowania raka endometrium w momencie jego rozpoznania, liczba zgonów w Polsce nadal przewyższa średnią europejską i z roku na rok zwiększa się. Podkreśla to konieczność poszukiwania i implementowania nowych możliwości diagnostycznych i terapeutycznych do schematów leczenia tego nowotworu. Intensywnemu rozwojowi podlega zwłaszcza dziedzina immunoterapii, która zaczyna odgrywać coraz istotniejszą rolę we współczesnej onkologii. Może ona stanowić bardziej indywidualne podejście terapeutyczne, zwłaszcza dla grup chorych wyodrębnianych poprzez upowszechniające się metody diagnostyki molekularnej. Zaakceptowanie przez FDA i EMA pierwszych przeciwciał monoklonalnych anty-PDL-1 (dostarlimabu i pembrolizumabu) oraz inhibitorów kinazy tyrozynowej (lenwatynibu) do stosowania w leczeniu raka endometrium stanowi pierwszy krok do zaktualizowania i być może zrewolucjonizowania schematów terapii tego nowotworu. Stanowi to dużą zmianę dla pacjentek z ciężkim, nawrotowym lub zaawansowanym rakiem endometrium z lub bez (w zależności od rodzaju leczenia) upośledzeniem mechanizmu naprawy niesparowanych zasad (dMMR) lub wysoką niestabilnością mikrosatelitarną (MSI-H).",
           "about_en": "",
           "speaker": "Natalia Rosół",
           "start": "2023-04-15T13:25",
@@ -285,7 +285,7 @@
         {
           "title_pl": "Leczenie operacyjne raka szyjki macicy 5 lat po publikacji wyników LACC trial",
           "title_en": "Surgical Treatment of Cervical Cancer 5 Years After LACC Trial Results Publication",
-          "about_pl": "",
+          "about_pl": "Głównym sposobem leczenia raka szyjki macicy we wczesnym stadium zaawansowania jest radykalna histerektomia. Do czasu opublikowania rezultatów wieloośrodkowego prospektywnego badania LACC trial w 2018 r. metodą z wyboru była operacja z zastosowaniem chirurgii małoinwazyjnej (laparoskopia lub chirurgia robotyczna). Jednakże nowo uzyskane wyniki wykazały, że podejście małoinwazyjne w przypadku tego nowotworu wiąże się z wyższym odsetkiem nawrotów oraz krótszym czasem przeżycia bez choroby. Okazało się również, że metoda ta związana jest ze skróceniem całkowitego czasu przeżycia w porównaniu z zastosowaniem laparotomii. Wnioski wyciągnięte z LACC trial doprowadziły do zmiany oficjalnych rekomendacji dotyczących leczenia raka szyjki macicy oraz wskazały nowy kierunek badań naukowych.",
           "about_en": "",
           "speaker": "Katarzyna Mączka",
           "start": "2023-04-15T15:30",
@@ -297,7 +297,7 @@
         {
           "title_pl": "Zalecenia ESGO-ESTRO-ESP 2022",
           "title_en": "ESGO-ESTRO-ESP recommendations 2022",
-          "about_pl": "",
+          "about_pl": "Praca przedstawia najnowsze, uaktualnione zalecenia leczenia raka szyjki macicy opracowane przez europejskie towarzystwa naukowe ESGO-ESTRO-ESP i zaprezentowane podczas kongresu ESGO w Berlinie w 2022 r. Wytyczne dla procesu terapeutycznego nowotworu szyjki macicy, oparte na aktualnych doniesieniach naukowych zostały przygotowane przez multidyscyplinarny zespół specjalistów i specjalistek z dziedzin ginekologii onkologicznej, radioterapii, radiologii, urologii oraz chirurgii plastycznej. Dzięki skoordynowanej pracy oraz zaangażowania specjalistów określone zostały procedury diagnostyki i leczenia nowotworu w oparciu o klasyfikację TNM. Praca podzielona jest na dwie główne części; leczenie systemowe raka szyjki macicy oraz leczenie chirurgiczne raka szyjki macicy. Szczegółowo opisane zostały uaktualnione rekomendacje leczenia chirurgicznego dla stadiów: T1a1, T1a2, T1b1/T1b2/T2a1 oraz terapii adjuwantowej. Uwzględnione zostały zalecenia postępowania mającego na celu oszczędzenie płodności.. W zaleceniach uwzględniony został stopień rekomendacji (A, B, C, D).",
           "about_en": "",
           "speaker": "Julia Rudnicka",
           "start": "2023-04-15T15:55",
@@ -309,7 +309,7 @@
         {
           "title_pl": "Rola immunoterapii w leczeniu raka szyjki macicy",
           "title_en": "The Role of Immunotherapy in Cervical Cancer Treatment",
-          "about_pl": "",
+          "about_pl": "Immunoterapia w leczeniu raka szyjki macicy jest dziedziną dość nową, ale prężnie się rozwijającą. Znaczącą rolę odgrywają w niej dwa leki, czyli bewacyzumab i pembrolizumab. Oba te preparaty znajdują się już w europejskich, a pembrolizumab również w amerykańskich, standardach leczenia pierwszej linii. Zarówno pembrolizumab, jak i bewacyzumab łączy się z chemioterapią z wykorzystaniem cisplatyny i paclitakselu, a ten pierwszy dodatkowo jest stosowany w monoterapii. W przeprowadzonych badaniach oba schematy leczenia znacząco wydłużyły medianę przeżycia całkowitego pacjentek z zaawansowanym procesem chorobowym w przebiegu raka szyjki macicy. Według najnowszych doniesień, naukowcy pokładają również duże nadzieje w wykorzystaniu innych prócz pembrolizumabu przeciwciał monoklonalnych skierowanych przeciwko receptorowi PD-1 i jego ligandowi PD-L1 w leczeniu raka szyjki macicy.",
           "about_en": "",
           "speaker": "Marta Bombała",
           "start": "2023-04-15T16:20",
@@ -341,7 +341,7 @@
         {
           "title_pl": "Ciążowa choroba trofoblastyczna",
           "title_en": "Gestational Trophoblastic Disease",
-          "about_pl": "",
+          "about_pl": "Ciążową chorobą trofoblastyczną nazywamy zespoły patologicznych rozrostowych zmian trofoblastu o różnym stopniu złośliwości, które mogą poprzedzać rozwój nowotworu lub są nowotworem złośliwym. Zmiany niezłośliwe dotyczą zaśniadu groniastego całkowitego i częściowego. Zmiany złośliwe nazywane ciążową neoplazją trofoblastu (GTN – gestational trophoblastic neoplasia) obejmują zaśniad inwazyjny, raka kosmówki, guz miejsca łożyskowego i nabłonkowy guz trofoblastu. Nowotwór trofoblastu może się rozwinąć po poronieniu, ciąży zaśniadowej, ciąży pozamacicznej, a także ciąży donoszonej zakończonej urodzeniem zdrowego dziecka, a więc jest on ściśle związany z ciążą. Schorzenia patologicznej proliferacji trofoblastu zaliczane do GTD wywodzą się z tkanek cytotrofoblastu i syncytiotrofoblastu, nie zalicza się do tego guz miejsca łożyskowego wywodzący się z pośredniego cytotrofoblastu, dzięki czemu produkują one czuły marker nazywany ludzką gonadotropiną kosmówkową (hCG).",
           "about_en": "",
           "speaker": "Jana Krasowska",
           "start": "2023-04-16T09:00",
@@ -353,7 +353,7 @@
         {
           "title_pl": "Rak sromu",
           "title_en": "Vulvar Cancer",
-          "about_pl": "",
+          "about_pl": "Rak sromu jest rzadkim nowotworem ginekologicznym, który dotyka głównie kobiety po menopauzie. Nie ma swoistych badań przesiewowych, a najskuteczniejszą metodą zmniejszania zachorowalności na raka sromu jest właściwe leczenie zmian predysponujących i przednowotworowych związanych z jego rozwojem. Podczas gdy rak sromu może przebiegać bezobjawowo, większość kobiet zgłasza się ze świądem, bólem, guzkiem lub owrzodzeniem na sromie. Każda podejrzana zmiana sromu powinna zostać poddana biopsji, aby wykluczyć inwazję. Najczęstszym podtypem jest rak płaskonabłonkowy. Leczenie raka sromu zależy przede wszystkim od jego typu i stopnia zaawansowania. Leczenie jest głównie typu chirurgicznego, szczególnie w przypadku raka płaskonabłonkowego, chociaż jednoczesna chemioterapia i radioterapia jest skuteczną alternatywą, szczególnie w przypadku zaawansowanych nowotworów.",
           "about_en": "",
           "speaker": "Julia Jeridi",
           "start": "2023-04-16T09:25",
@@ -365,7 +365,7 @@
         {
           "title_pl": "Rak pochwy",
           "title_en": "Vaginal Cancer",
-          "about_pl": "",
+          "about_pl": "Rak pochwy jest niezwykle rzadkim nowotworem rozwijającym się w tkance pochwy. Nadal stanowi on wyzwanie w diagnostyce klinicznej i radiologicznej, a jego powstawanie, profilaktyka i leczenie są dopiero poznawane. Z tych względów zmiany często mogą pozostać niezauważone lub wykryte dopiero w zaawansowanym stadium. Poszerzoną diagnostykę morfologiczną nowotworu prowadzi się za pomocą tomografii komputerowej i rezonansu magnetycznego. Umożliwia to dokładne poznanie topografii i charakteru zmian oraz zwiększa możliwości wykrycia głębiej położonego nowotworu, w przeciwieństwie do ograniczonych metod obserwacji powierzchownych za pomocą wziernika lub kolposkopii i waginoskopii. W zależności od stopnia rozwoju nowotworu wyróżnia się różne stadia choroby, do których dostosowany powinien zostać sposób leczenia. Jako podstawowe opcje terapeutyczne w stadium I wymienić można radioterapię i operacyjne usunięcie zmian, w stadium II i III najczęściej stosowaną strategią leczenia jest łączenie brachyterapii i napromieniania miednicy wiązką zewnętrzną (ang. external beam radiation therapy, ERBT). Wybór metody leczenia raka pochwy zależy również od wielu innych czynników, takich jak anatomiczne umiejscowienie zmiany, struktura histologiczna, objętość guza oraz wiek pacjentki.",
           "about_en": "",
           "speaker": "Weronika Jędrzejczak",
           "start": "2023-04-16T09:50",
@@ -377,7 +377,7 @@
         {
           "title_pl": "Nowotwór a ciąża",
           "title_en": "Cancer and pregnancy",
-          "about_pl": "",
+          "about_pl": "Stwierdzenie zmiany nowotworowej u kobiety będącej w ciąży można określić mianem sytuacji szczególnej. Lekarz musi ocenić ryzyko kontynuacji ciąży oraz wybrać odpowiedni sposób leczenia. W czasie ciąży zaobserwować możemy zarówno nowotwory łagodne, jak i złośliwe. Nowotwory złośliwe w ciąży częściej lokalizują się w szyjce macicy, piersi i jajniku, nie rzadko spotykany jest również czerniak. Zmiany zachodzące w przebiegu rozwijającego się procesu nowotworowego są często trudne do odróżnienia od zmian zachodzących w organizmie ciężarnej kobiety. Poziom niektórych biomarkerów wzrasta istotnie w okresie ciąży, a diagnostyka obrazowa staje się utrudniona. Jednak dzięki częstym badaniom położniczym większość nowotworów narządu rodnego zostaje rozpoznana już w I trymestrze ciąży. Ciąża nie jest przeciwwskazaniem do podejmowania działań z zakresu chirurgicznego leczenia nowotworowego oraz stosowania leków cytotoksycznych w II i III trymestrze. Pacjentka po przebytym i leczonym nowotworze ma szansę zajść ponownie w ciążę.",
           "about_en": "",
           "speaker": "Zuzanna Tomczewska",
           "start": "2023-04-16T10:15",
@@ -425,7 +425,7 @@
         {
           "title_pl": "Zastosowanie chirurgii robotowej w ginekologii onkologicznej",
           "title_en": "Application of Robot-Assisted Surgery in Oncological Gynaecology",
-          "about_pl": "",
+          "about_pl": "Zastosowanie chirurgii robotycznej w ginekologii onkologicznej to stosunkowo nowa gałąź medycyny, która wykorzystuje zaawansowane technologie do leczenia chirurgicznego. W pracy omówiono zastosowanie robotyki w chirurgii ginekologicznej, opisano robota chirurgicznego, jego budowę i funkcje, a także scharakteryzowano jego zalety i wady. Najistotniejszą zmianą jest możliwość uzyskania większej dokładności i stabilności rąk operatora podczas zabiegu, co bezpośrednio przekłada się na precyzję ruchów w trakcie procedury i minimalizowanie ryzyka zabiegowego. W porównaniu z tradycyjnymi metodami chirurgicznymi, takimi jak laparoskopia czy metody otwarte, chirurgia robotyczna w rękach wprawnego operatora, często przynosi lepsze wyniki, przekładające się na krótszy czas rekonwalescencji, mniejsze ryzyko powikłań i zmniejszone dolegliwości bólowe. W ostatnim akapicie pracy przedstawiono perspektywy rozwoju chirurgii robotycznej w ginekologii onkologicznej. Aktualne trendy wskazują, że technologia ta będzie nadal udoskonalana, umożliwiając wykonywanie coraz bardziej skomplikowanych i precyzyjnych operacji. Dzięki postępowi, którego osobiście jesteśmy świadkami, dziedzina chirurgii zmierza w kierunku minimalizowania ryzyka powikłań, podnoszenia komfortu pacjentek oraz zwiększania szans na pomyślny efekt terapeutyczny zabiegu.",
           "about_en": "",
           "speaker": "Elena Sztemberg",
           "start": "2023-04-16T11:35",
@@ -437,7 +437,7 @@
         {
           "title_pl": "Postępowanie w przypadku powikłań leczenia systemowego",
           "title_en": "Procedures in Case of Systemic Treatment Complications",
-          "about_pl": "",
+          "about_pl": "Chemioterapia to jedna z możliwości leczenia systemowego nowotworów za pomocą cytostatyków. Nie działają one wybiórczo na komórki nowotworowe, lecz działają na cały organizm człowieka, co sprawia, że podczas terapii występuje wiele efektów ubocznych. Te powikłania, oprócz redukcji jakości życia pacjenta, wpływają również negatywnie na jego zdrowie oraz wynik terapii. Celem terapii nowotworowej, oprócz zniszczenia komórek nowotworowych, jest zminimalizowanie jej działań ubocznych oraz ich profilaktyka.",
           "about_en": "",
           "speaker": "Ewa Jagodzińska",
           "start": "2023-04-16T12:00",

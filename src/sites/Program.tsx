@@ -59,8 +59,11 @@ function decideLanguage(pl: string, en: string) {
 
 function Row(props: { activity: Activity }) {
   const { activity } = props
+  const { i18n } = useTranslation()
   const [open, setOpen] = useState(false)
-  const isClickable = activity.about_pl.length > 0
+  const isClickable =
+    (activity.about_pl.length > 0 && i18n.language === 'pl') ||
+    (activity.about_en.length > 0 && i18n.language === 'en')
 
   const timeStart =
     activity.start.length == 0

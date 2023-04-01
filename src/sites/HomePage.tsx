@@ -190,6 +190,10 @@ function Sponsors() {
           imageAlt='Nestmedic logo'
         />
         <SponsorImage
+          image='/static/sponsors/noshi.webp'
+          imageAlt='NOSHI logo'
+        />
+        <SponsorImage
           image='/static/sponsors/rozowa.webp'
           imageAlt='Różowa Skrzyneczka logo'
         />

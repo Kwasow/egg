@@ -86,9 +86,11 @@ function Row(props: { activity: Activity }) {
           <p className='session-header'>
             {decideLanguage(activity.title_pl, activity.title_en)}
           </p>
-          <p className='session-experts'>
-            {t('program.Experts.Label')}: {activity.speaker}
-          </p>
+          {activity.speaker.length > 0 && (
+            <p className='session-experts'>
+              {t('program.Experts.Label')}: {activity.speaker}
+            </p>
+          )}
         </TableCell>
       </TableRow>
     )

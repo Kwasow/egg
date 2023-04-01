@@ -15,6 +15,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useTranslation } from 'react-i18next'
 import './Program.css'
+import { t } from 'i18next'
 
 type Activity = {
   title_pl: string
@@ -83,7 +84,9 @@ function Row(props: { activity: Activity }) {
           <p className='session-header'>
             {decideLanguage(activity.title_pl, activity.title_en)}
           </p>
-          <p className='session-experts'>{activity.speaker}</p>
+          <p className='session-experts'>
+            {t('program.Experts.Label')}: {activity.speaker}
+          </p>
         </TableCell>
       </TableRow>
     )

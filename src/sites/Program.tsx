@@ -15,7 +15,6 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useTranslation } from 'react-i18next'
 import './Program.css'
-import { t } from 'i18next'
 
 type Activity = {
   title_pl: string
@@ -59,7 +58,7 @@ function decideLanguage(pl: string, en: string) {
 
 function Row(props: { activity: Activity }) {
   const { activity } = props
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
   const [open, setOpen] = useState(false)
   const isClickable =
     (activity.about_pl.length > 0 && i18n.language === 'pl') ||
@@ -135,7 +134,10 @@ function Row(props: { activity: Activity }) {
         <TableRow>
           <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
             <Collapse in={open} timeout='auto' unmountOnExit>
-              <p style={{ margin: '2%', textAlign: 'justify' }}>
+              {activity.type === 'lecture' && (
+                <p className='abstract-label'>{t('program.Abstract')}</p>
+              )}
+              <p className='abstract-paragraph'>
                 {decideLanguage(activity.about_pl, activity.about_en)}
               </p>
             </Collapse>

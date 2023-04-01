@@ -136,7 +136,7 @@
           "end": "2023-04-15T10:20",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Operacja cytoredukcyjna u pacjentek z nawrotowym rakiem jajnika",
@@ -148,7 +148,7 @@
           "end": "2023-04-15T10:45",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Rola dootrzewnowej chemioterapii perfuzyjnej w hipertermii (HIPEC) w leczeniu raka jajnika",
@@ -160,7 +160,7 @@
           "end": "2023-04-15T11:10",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Inhibitory PARP w terapii raka jajnika",
@@ -172,7 +172,7 @@
           "end": "2023-04-15T11:35",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Przerwa kawowa",
@@ -208,7 +208,7 @@
           "end": "2023-04-15T12:30",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Leczenie oszczędzające płodność - zalecenia ESGO-ESHRE-ESGE 2022",
@@ -220,7 +220,7 @@
           "end": "2023-04-15T12:55",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Procedura węzła wartowniczego w raku endometrium",
@@ -232,7 +232,7 @@
           "end": "2023-04-15T13:20",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Nowe doniesienia naukowe nt. możliwości terapeutycznych w raku endometrium",
@@ -244,7 +244,7 @@
           "end": "2023-04-15T13:45",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Przerwa obiadowa",
@@ -280,7 +280,7 @@
           "end": "2023-04-15T15:20",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Leczenie operacyjne raka szyjki macicy 5 lat po publikacji wyników LACC trial",
@@ -292,7 +292,7 @@
           "end": "2023-04-15T15:50",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Zalecenia ESGO-ESTRO-ESP 2022",
@@ -304,7 +304,7 @@
           "end": "2023-04-15T16:15",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Rola immunoterapii w leczeniu raka szyjki macicy",
@@ -316,7 +316,7 @@
           "end": "2023-04-15T16:40",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         }
       ],
       "classes_start": "",
@@ -348,7 +348,7 @@
           "end": "2023-04-16T09:20",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Rak sromu",
@@ -360,7 +360,7 @@
           "end": "2023-04-16T09:45",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Rak pochwy",
@@ -372,7 +372,7 @@
           "end": "2023-04-16T10:10",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Nowotwór a ciąża",
@@ -384,7 +384,7 @@
           "end": "2023-04-15T10:35",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Przerwa kawowa",
@@ -420,7 +420,7 @@
           "end": "2023-04-16T11:30",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Zastosowanie chirurgii robotowej w ginekologii onkologicznej",
@@ -432,7 +432,7 @@
           "end": "2023-04-16T11:55",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Postępowanie w przypadku powikłań leczenia systemowego",
@@ -444,7 +444,7 @@
           "end": "2023-04-16T12:20",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Opieka paliatywna",
@@ -456,7 +456,7 @@
           "end": "2023-04-16T12:45",
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
-          "type": "normal"
+          "type": "lecture"
         },
         {
           "title_pl": "Przerwa artystyczna",

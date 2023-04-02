@@ -10,7 +10,7 @@
 
 .experts-container {
   background-repeat: repeat-y;
-  background-size: contain;
+  background-size: cover;
 }
 
 .people-name {

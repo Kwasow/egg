@@ -17,3 +17,118 @@
   color: black;
   margin-top: 0;
 }
+
+.ronia-image {
+  margin: 20px;
+  width: 250px;
+  border-radius: 20px;
+}
+
+.image-sub {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ronia-text-center {
+  text-align: center;
+}
+
+.splitter {
+  display: flex;
+  flex-direction: row;
+}
+
+.ronia-div-split {
+  width: 50%;
+  margin: 20px;
+  text-align: justify;
+}
+
+@media screen and (max-width: 800px) {
+  .splitter {
+    flex-direction: column;
+  }
+
+  .ronia-div-split {
+    width: auto;
+  }
+}
+
+.ronia-div-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ronia-section-header {
+  font-weight: bold;
+  font-size: 1.8em;
+  margin-bottom: 0;
+}
+
+.screen-image {
+  width: 70%;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+
+.screen-image-subtext {
+  margin-bottom: 30px;
+  font-style: italic;
+  text-align: center;
+}
+
+.corner-text {
+  position: absolute;
+  right: 20px;
+  font-style: italic;
+}
+
+.peek-image {
+  height: 300px;
+  border-radius: 10px;
+}
+
+.peek-text {
+  writing-mode: vertical-lr;
+  text-align: center;
+  font-style: italic;
+  margin-left: 0;
+  transform: rotate(180deg);
+}
+
+.peek-container {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  left: 0;
+  top: 130px;
+  z-index: -1;
+  transform: translateX(-55%) rotate(30deg);
+}
+
+.sign-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sign-label {
+  text-align: center;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.sign {
+  text-align: center;
+  font-family: 'Moontime';
+  font-size: 3em;
+  margin-top: 0;
+}
+
+.rose-svg {
+  width: 50%;
+}

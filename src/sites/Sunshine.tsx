@@ -97,6 +97,13 @@ function Sunshine() {
             Cieszę się, że mamy teraz to doświadczenie robienia czegoś razem. To
             jest dobre doświadczenie ❤️
           </p>
+          <div className='sign-container'>
+            <img className='rose-svg' src='/static/images/rose.svg' />
+            <div>
+              <p className='sign-label'>Twój kochający</p>
+              <p className='sign'>Karol</p>
+            </div>
+          </div>
         </div>
         <div className='ronia-div-split ronia-div-right'>
           <img className='screen-image' src='/static/images/screen1.png' />

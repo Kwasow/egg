@@ -1,4 +1,4 @@
-import React, { useEffect, useState, SyntheticEvent } from 'react'
+import React, { useEffect, useState, SyntheticEvent, useRef } from 'react'
 import { Card, CircularProgress, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
@@ -67,7 +67,7 @@ function AvailableSoon() {
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
   const { t, i18n } = useTranslation()
-  const [sunshineCount, setSunshineCount] = useState(0)
+  const sunshineCount = useRef(0)
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
@@ -111,8 +111,8 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
               key={person.position}
               person={person}
               onClick={() => {
-                setSunshineCount(sunshineCount + 1)
-                if (sunshineCount === 9) {
+                sunshineCount.current = sunshineCount.current + 1
+                if (sunshineCount.current === 9) {
                   window.open('/sunshine', '_self')
                 }
               }}

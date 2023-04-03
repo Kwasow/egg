@@ -125,12 +125,16 @@ function Row(props: { activity: Activity }) {
               {timeEnd}
             </>
           </TableCell>
-          <TableCell sx={{ width: '35%' }}>
+          <TableCell sx={{ width: '45%' }}>
             {decideLanguage(activity.title_pl, activity.title_en)}
+            {activity.type === 'lecture' && <i> +&nbsp;komentarz eksperta</i>}
           </TableCell>
-          <TableCell sx={{ width: '15%' }}>{activity.speaker}</TableCell>
           <TableCell sx={{ width: '35%' }}>
-            {decideLanguage(activity.location_pl, activity.location_en)}
+            {activity.type === 'normal' ? (
+              <b>{activity.speaker}</b>
+            ) : (
+              activity.speaker
+            )}
           </TableCell>
         </TableRow>
         <TableRow>

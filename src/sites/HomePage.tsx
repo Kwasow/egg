@@ -120,6 +120,10 @@ function Sponsors() {
           imageAlt='Ogólnopolski Przegląd Medyczny logo'
         />
         <SponsorImage
+          image='/static/sponsors/okregowa_izba.webp'
+          imageAlt='Okręgowa Izba Lekarska w Warszawie im. Jana Nielubowicza'
+        />
+        <SponsorImage
           image='/static/sponsors/figo.webp'
           imageAlt='Polskie Towarzystwo Ginekologów i Położników logo'
         />
@@ -144,11 +148,19 @@ function Sponsors() {
           imageAlt='Cocomed logo'
         />
         <SponsorImage
+          image='/static/sponsors/corpus_mind.webp'
+          imageAlt='Corpus mind logo'
+        />
+        <SponsorImage
           image='/static/sponsors/edra.webp'
           imageAlt='Edra Urban & Partner logo'
         />
         <SponsorImage image='/static/sponsors/erbe.png' imageAlt='Erbe logo' />
         <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
+        <SponsorImage
+          image='/static/sponsors/ksm.webp'
+          imageAlt='Fundacja Koło medyków logo'
+        />
         <SponsorImage
           image='/static/sponsors/kwiat-kobiecosci.webp'
           imageAlt='Kwiat Kobiecości logo'
@@ -194,12 +206,20 @@ function Sponsors() {
           imageAlt='NOSHI logo'
         />
         <SponsorImage
+          image='/static/sponsors/oskroba.webp'
+          imageAlt='Oskroba logo'
+        />
+        <SponsorImage
           image='/static/sponsors/rozowa.webp'
           imageAlt='Różowa Skrzyneczka logo'
         />
         <SponsorImage
           image='/static/sponsors/sis.webp'
           imageAlt='Sis Underwear logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/bear.webp'
+          imageAlt='The White Bear Coffee logo'
         />
         <SponsorImage
           image='/static/sponsors/wnl.webp'

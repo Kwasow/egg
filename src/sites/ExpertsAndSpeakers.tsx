@@ -181,6 +181,8 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
       className='experts-container'
       style={{
         backgroundImage: 'url(static/images/background.svg)',
+        backgroundRepeat: 'repeat-y',
+        backgroundSize: '100% auto',
       }}
     >
       {people.map((person) => (

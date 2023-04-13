@@ -74,7 +74,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
     return <AvailableSoon />
   }
 
-  function SinglePerson(props: { person: PersonJSON; onClick?: () => void }) {
+  function Person(props: { person: PersonJSON; onClick?: () => void }) {
     const { person, onClick } = props
 
     return (
@@ -107,7 +107,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
       {people.map((person) => {
         if (person.name === 'Weronika Jędrzejczak') {
           return (
-            <SinglePerson
+            <Person
               key={person.position}
               person={person}
               onClick={() => {
@@ -119,7 +119,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
             />
           )
         } else {
-          return <SinglePerson key={person.position} person={person} />
+          return <Person key={person.position} person={person} />
         }
       })}
     </Grid>

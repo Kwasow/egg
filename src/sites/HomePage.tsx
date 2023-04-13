@@ -156,10 +156,21 @@ function Sponsors() {
           imageAlt='Edra Urban & Partner logo'
         />
         <SponsorImage image='/static/sponsors/erbe.png' imageAlt='Erbe logo' />
-        <SponsorImage image='/static/sponsors/ifmsa.webp' imageAlt='IFMSA' />
+        <SponsorImage
+          image='/static/sponsors/ifmsa.webp'
+          imageAlt='IFMSA logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/inwhite.webp'
+          imageAlt='InWhite logo'
+        />
         <SponsorImage
           image='/static/sponsors/ksm.webp'
           imageAlt='Fundacja Koło medyków logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/kangoomed.webp'
+          imageAlt='Kangoomed logo'
         />
         <SponsorImage
           image='/static/sponsors/kwiat-kobiecosci.webp'
@@ -194,6 +205,14 @@ function Sponsors() {
           imageAlt='MediPage logo'
         />
         <SponsorImage
+          image='/static/sponsors/medpharm.webp'
+          imageAlt='MedPharm Polska logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/meduses.webp'
+          imageAlt='Meduses logo'
+        />
+        <SponsorImage
           image='/static/sponsors/mppl.webp'
           imageAlt='Medycyna Praktyczna mp.pl logo'
         />
@@ -218,12 +237,20 @@ function Sponsors() {
           imageAlt='Sis Underwear logo'
         />
         <SponsorImage
+          image='/static/sponsors/skyn.webp'
+          imageAlt='SKYN® logo'
+        />
+        <SponsorImage
           image='/static/sponsors/bear.webp'
           imageAlt='The White Bear Coffee logo'
         />
         <SponsorImage
           image='/static/sponsors/wnl.webp'
           imageAlt='Więcej niż LEK logo'
+        />
+        <SponsorImage
+          image='/static/sponsors/wumshop.webp'
+          imageAlt='WUMshop logo'
         />
       </Grid>
     </>

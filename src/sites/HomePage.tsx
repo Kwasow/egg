@@ -225,10 +225,6 @@ function Sponsors() {
           imageAlt='NOSHI logo'
         />
         <SponsorImage
-          image='/static/sponsors/oskroba.webp'
-          imageAlt='Oskroba logo'
-        />
-        <SponsorImage
           image='/static/sponsors/rozowa.webp'
           imageAlt='Różowa Skrzyneczka logo'
         />

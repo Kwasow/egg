@@ -47,43 +47,71 @@
           "title_pl": "Warsztaty szycia chirurgicznego",
           "title_en": "Surgical suturing workshop",
           "speaker": "IFMSA Poland",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "112 (CBI)",
+          "location_en": "112 (LIC)"
         },
         {
           "title_pl": "Warsztaty badania ginekologicznego i badania piersi",
           "title_en": "Gynecological examination and breast examination workshop",
           "speaker": "SKN Endokrynologii Ginekologicznej",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "1DE002 (SP)",
+          "location_en": "1DE002 (PH)"
         },
         {
           "title_pl": "Dostępy naczyniowe pod kontrolą USG",
           "title_en": "Vascular access under ultrasonographic supervision",
           "speaker": "Ankona B",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "140 (CD)",
+          "location_en": "140 (DC)"
         },
         {
           "title_pl": "Warsztaty KTG",
           "title_en": "CTG workshop",
           "speaker": "SKN Karowa",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "3AH001 (SP)",
+          "location_en": "3AH001 (PH)"
         },
         {
           "title_pl": "Warsztaty laparoskopowe",
           "title_en": "Laparoscopy workshop",
           "speaker": "SKN Graft",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "126 (CD)",
+          "location_en": "126 (DC)"
         },
         {
           "title_pl": "Interpretacja wyników USG w położnictwie",
           "title_en": "Interpretation of ultrasound results in obstetrics",
           "speaker": "SKN Terapii Płodu i Perinatologii",
-          "location_pl": "N/A",
-          "location_en": "N/A"
+          "location_pl": "1AH001 (SP)",
+          "location_en": "1AH001 (PH)"
+        },
+        {
+          "title_pl": "",
+          "title_en": "",
+          "speaker": "",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "CBI - Centrum Biblioteczno-Informatyczne",
+          "title_en": "LIC - Library and Information Center",
+          "speaker": "",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "SP - Szpital Pediatryczny",
+          "title_en": "PH - Pediatric Hospital",
+          "speaker": "",
+          "location_pl": "",
+          "location_en": ""
+        },
+        {
+          "title_pl": "CD - Centrum Dydaktyczne",
+          "title_en": "DC - Didactic Center",
+          "speaker": "",
+          "location_pl": "",
+          "location_en": ""
         }
       ]
     },

@@ -201,6 +201,10 @@ function Sponsors() {
           imageAlt='Medesign logo'
         />
         <SponsorImage
+          image='/static/sponsors/medi-breath.webp'
+          imageAlt='MediBreath logo'
+        />
+        <SponsorImage
           image='/static/sponsors/medipage.webp'
           imageAlt='MediPage logo'
         />
@@ -223,10 +227,6 @@ function Sponsors() {
         <SponsorImage
           image='/static/sponsors/noshi.webp'
           imageAlt='NOSHI logo'
-        />
-        <SponsorImage
-          image='/static/sponsors/oskroba.webp'
-          imageAlt='Oskroba logo'
         />
         <SponsorImage
           image='/static/sponsors/rozowa.webp'

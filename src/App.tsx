@@ -8,17 +8,20 @@ import Login from './routes/admin/Login'
 import AdminHome from './routes/admin/AdminHome'
 import NotFound from './routes/NotFound'
 import Sunshine from './routes/sunshine/Sunshine'
-import NavigationBar from './components/NavigationBar'
+import NavigationBar from './components/navigation/NavigationBar'
 import Footer from './components/Footer'
 import { EggToolbar } from './utils/MUITheme'
 import './App.css'
+import { useAppDispatch } from './utils/redux/hooks'
+import { setRoute } from './components/navigation/redux/slice'
 
 function App() {
-  const currentRoute = window.location.pathname
+  const dispatch = useAppDispatch()
+  dispatch(setRoute(window.location.pathname))
 
   return (
     <>
-      <NavigationBar route={currentRoute} />
+      <NavigationBar />
       <div className='flex-wrapper'>
         <div>
           {/* This toolbar is required to add the appropriate padding on top */}

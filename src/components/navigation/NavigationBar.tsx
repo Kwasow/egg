@@ -18,11 +18,10 @@ import {
   AppBarActionButton,
   EggToolbar,
   navigationTabsTheme,
-} from '../utils/MUITheme'
+} from '../../utils/MUITheme'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { TFunction } from 'i18next'
-import { FacebookIconLink, InstagramIconLink, imageUrl } from './Shared'
+import { FacebookIconLink, InstagramIconLink, imageUrl } from '../Shared'
 import {
   Menu as MenuIcon,
   Home as HomeIcon,
@@ -30,8 +29,10 @@ import {
   Person as PersonIcon,
   Camera as CameraIcon,
 } from '@mui/icons-material'
-import { RegistrationDialog } from './Dialogs'
+import { RegistrationDialog } from '../Dialogs'
 import './NavigationBar.css'
+import { useAppDispatch, useAppSelector } from '../../utils/redux/hooks'
+import { setRoute } from './redux/slice'
 
 type MenuItem = {
   translationString: string
@@ -168,31 +169,30 @@ function checkRoute(route: string) {
   return false
 }
 
-function NavigationTabs(props: { route: string; t: TFunction }) {
-  const [value, setValue] = useState(props.route)
+function NavigationTabs() {
+  const dispatch = useAppDispatch()
+  const currentRoute = useAppSelector((state) => state.navigation.currentRoute)
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
-  if (value == '/') {
-    setValue('/home')
+  if (currentRoute == '/') {
+    dispatch(setRoute('/home'))
   }
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     navigate(menuItems[newValue].link[0])
-    setValue(menuItems[newValue].link[0])
+    dispatch(setRoute(menuItems[newValue].link[0]))
   }
 
   return (
     <Box sx={{ alignSelf: 'flex-end' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <ThemeProvider theme={navigationTabsTheme}>
-          <Tabs value={checkRoute(value)} onChange={handleChange}>
-            <Tab label={props.t('navbar.HomePage')} {...a11yProps(0)} />
-            <Tab label={props.t('navbar.Program')} {...a11yProps(1)} />
-            <Tab
-              label={props.t('navbar.ExpertsAndSpeakers')}
-              {...a11yProps(2)}
-            />
-            <Tab label={props.t('navbar.Photos')} {...a11yProps(4)} />
+          <Tabs value={checkRoute(currentRoute)} onChange={handleChange}>
+            <Tab label={t('navbar.HomePage')} {...a11yProps(0)} />
+            <Tab label={t('navbar.Program')} {...a11yProps(1)} />
+            <Tab label={t('navbar.ExpertsAndSpeakers')} {...a11yProps(2)} />
+            <Tab label={t('navbar.Photos')} {...a11yProps(4)} />
           </Tabs>
         </ThemeProvider>
       </Box>
@@ -200,9 +200,7 @@ function NavigationTabs(props: { route: string; t: TFunction }) {
   )
 }
 
-function NavigationBar(props: { route: string }) {
-  const { route } = props
-
+function NavigationBar() {
   const { t } = useTranslation()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
@@ -250,7 +248,7 @@ function NavigationBar(props: { route: string }) {
             </div>
 
             <div className='appbar-middle'>
-              <NavigationTabs route={route} t={t} />
+              <NavigationTabs />
             </div>
 
             <div className='appbar-right'>

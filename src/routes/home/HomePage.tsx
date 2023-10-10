@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Grid, Paper } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { Countdown } from '../../components/Countdown'
-import { Slideshow, Slide } from '../../components/Slideshow'
+import { Countdown } from './components/Countdown'
+import { Slideshow, Slide } from './components/Slideshow'
 import { NewsCard } from '../../utils/MUITheme'
 import {
   competitionRegistrationLink,

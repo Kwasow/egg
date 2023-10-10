@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSwipeable } from 'react-swipeable'
-import i18n from '../utils/i18n'
+import i18n from '../../../utils/i18n'
 import './Slideshow.css'
 
 const delay = 15000

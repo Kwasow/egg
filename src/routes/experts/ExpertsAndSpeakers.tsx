@@ -1,7 +1,7 @@
 import React, { useEffect, useState, SyntheticEvent, useRef } from 'react'
 import { Card, CircularProgress, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { SpeakersTab, SpeakersTabs } from '../utils/MUITheme'
+import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
 
 const topPersonDescription =

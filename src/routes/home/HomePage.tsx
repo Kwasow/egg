@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Grid, Paper } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-import { Countdown } from '../components/Countdown'
-import { Slideshow, Slide } from '../components/Slideshow'
-import { NewsCard } from '../utils/MUITheme'
+import { Countdown } from '../../components/Countdown'
+import { Slideshow, Slide } from '../../components/Slideshow'
+import { NewsCard } from '../../utils/MUITheme'
 import {
   competitionRegistrationLink,
   decideLanguage,
@@ -11,9 +11,9 @@ import {
   NewsJSON,
   newsPrefix,
   rulesLink,
-} from '../components/Shared'
+} from '../../components/Shared'
 import './HomePage.css'
-import { NewsDialog } from '../components/Dialogs'
+import { NewsDialog } from '../../components/Dialogs'
 
 const slides: Slide[] = [
   {

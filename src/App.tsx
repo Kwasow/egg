@@ -1,24 +1,27 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import HomePage from './sites/HomePage'
-import Program from './sites/Program'
-import ExpertsAndSpeakers from './sites/ExpertsAndSpeakers'
-import Photos from './sites/Photos'
-import Login from './sites/panel/Login'
-import AdminHome from './sites/panel/AdminHome'
-import NotFound from './sites/NotFound'
-import Sunshine from './sites/Sunshine'
-import NavigationBar from './components/NavigationBar'
+import HomePage from './routes/home/HomePage'
+import Program from './routes/program/Program'
+import ExpertsAndSpeakers from './routes/experts/ExpertsAndSpeakers'
+import Photos from './routes/photos/Photos'
+import Login from './routes/admin/Login'
+import AdminHome from './routes/admin/AdminHome'
+import NotFound from './routes/NotFound'
+import Sunshine from './routes/sunshine/Sunshine'
+import NavigationBar from './components/navigation/NavigationBar'
 import Footer from './components/Footer'
 import { EggToolbar } from './utils/MUITheme'
 import './App.css'
+import { useAppDispatch } from './utils/redux/hooks'
+import { setRoute } from './components/navigation/redux/slice'
 
 function App() {
-  const currentRoute = window.location.pathname
+  const dispatch = useAppDispatch()
+  dispatch(setRoute(window.location.pathname))
 
   return (
     <>
-      <NavigationBar route={currentRoute} />
+      <NavigationBar />
       <div className='flex-wrapper'>
         <div>
           {/* This toolbar is required to add the appropriate padding on top */}

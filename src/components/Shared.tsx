@@ -25,7 +25,7 @@ export interface NewsJSON {
 export function decideLanguage(
   lang: string,
   pl: string | undefined,
-  en: string | undefined
+  en: string | undefined,
 ) {
   return lang === 'pl' ? pl : en
 }

@@ -9,7 +9,7 @@ the gynecology student association at Warsaw Medical University.
 
 ## Prerequisites
 
-`Node.js` in version 18.x (LTS) is recommended. You can download it here:
+`Node.js` in version 20.x (LTS) is recommended. You can download it here:
 https://nodejs.org/
 
 It is recommended to develop on Linux/macOS or the WSL.

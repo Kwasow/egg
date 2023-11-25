@@ -23,26 +23,30 @@ $db_password = getenv('POSTGRES_PASSWORD');
 $db_database = getenv('POSTGRES_DB');
 
 $conn = pg_connect(
-  'host='.$db_address.
-  ' dbname='.$db_database.
-  ' user='.$db_username.
-  ' password='.$db_password
+  'host=' .
+    $db_address .
+    ' dbname=' .
+    $db_database .
+    ' user=' .
+    $db_username .
+    ' password=' .
+    $db_password
 );
 
 if (!$conn) {
   // 500 - server error
   http_response_code(500);
-  die("Could not connect to database: ".pg_last_error());
+  die('Could not connect to database: ' . pg_last_error());
 }
 
 // Delete the given token
 $query = 'DELETE FROM Session WHERE session_id = $1';
-$result = pg_query_params($conn, $query, array($token));
+$result = pg_query_params($conn, $query, [$token]);
 
 if (!$result) {
   // 500 - server error
   http_response_code(500);
-  die("Could not delete session: ".pg_last_error());
+  die('Could not delete session: ' . pg_last_error());
 }
 
 exit();

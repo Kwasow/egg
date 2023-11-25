@@ -34,7 +34,7 @@ export default function AdminHome() {
         </tr>
         <tr>
           <td>
-            <p>Eksperci i mówcy</p>
+            <p>Eksperci</p>
           </td>
           <td>
             <Button variant='contained' disabled={true}>
@@ -44,7 +44,7 @@ export default function AdminHome() {
         </tr>
         <tr>
           <td>
-            <p>Aktualności</p>
+            <p>Mówcy</p>
           </td>
           <td>
             <Button variant='contained' disabled={true}>

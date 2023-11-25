@@ -1,6 +1,14 @@
 FROM node:20-bookworm
 
-ENTRYPOINT [ "/bin/sh" ]
+# Setup working directory
 WORKDIR /egg/app
+ENV PATH /egg/app/node_modules/.bin:$PATH
 
-RUN apt update && apt install -y yarnpkg
+# Install missing packages
+RUN apt update && apt install -y yarnpkg php
+
+# Run the webapp
+EXPOSE 3000
+COPY . .
+RUN yarn install
+CMD [ "yarn", "start" ]

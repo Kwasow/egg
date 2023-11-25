@@ -43,7 +43,7 @@
     "clean-preprocess": "rm -f public/php/*.json",
     "pretty": "yarn prettier --write .",
     "pretty-check": "yarn prettier --check .",
-    "prepare": "husky install"
+    "prepare": "cd .. && husky install app/.husky"
   },
   "eslintConfig": {
     "extends": [

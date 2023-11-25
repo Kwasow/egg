@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  database:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./scripts/postgres:/docker-entrypoint-initdb.d/
+    env_file:
+      - env/development.env
+  
+  egg:
+    build: app/
+    restart: always
+    volumes:
+      - ./app:/egg/app
+    ports:
+      - 3000:3000
+    env_file:
+      - env/development.env

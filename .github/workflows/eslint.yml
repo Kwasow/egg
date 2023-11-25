@@ -12,10 +12,13 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-      - run: yarn install
+          node-version: 20
+      - run: |
+          cd app
+          yarn install
       - uses: sibiraj-s/action-eslint@v2
         with:
-          eslint-args: '--ignore-path=.gitignore --quiet'
+          root-dir: app/
+          eslint-args: '--ignore-path=app/.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true

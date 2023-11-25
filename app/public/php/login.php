@@ -29,22 +29,28 @@ $db_password = getenv('POSTGRES_PASSWORD');
 $db_database = getenv('POSTGRES_DB');
 
 $conn = pg_connect(
-  'host='.$db_address.
-  ' dbname='.$db_database.
-  ' user='.$db_username.
-  ' password='.$db_password
+  'host=' .
+    $db_address .
+    ' dbname=' .
+    $db_database .
+    ' user=' .
+    $db_username .
+    ' password=' .
+    $db_password
 );
 
 if (!$conn) {
   // 500 - server error
   http_response_code(500);
-  die("Could not connect to database: ".pg_last_error());
+  die('Could not connect to database: ' . pg_last_error());
 }
 
 $query = 'SELECT passwd_hash FROM EggUser WHERE username = $1';
-$result = pg_query_params($conn, $query, array($username));
+$result = pg_query_params($conn, $query, [$username]);
 
 if (pg_num_rows($result) != 1) {
+  // 401 - unauthorized
+  http_response_code(401);
   echo '{"session_id": ""}';
 } else {
   $row = pg_fetch_assoc($result);
@@ -56,10 +62,12 @@ if (pg_num_rows($result) != 1) {
 
     // Save session id in database
     $query = 'INSERT INTO Session VALUES ($1, $2, NOW())';
-    $result = pg_query_params($conn, $query, array($session_id, $username));
+    $result = pg_query_params($conn, $query, [$session_id, $username]);
 
     echo '{"session_id": "' . $session_id . '"}';
   } else {
+    // 401 - unauthorized
+    http_response_code(401);
     echo '{"session_id": ""}';
   }
 }

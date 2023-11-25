@@ -219,7 +219,7 @@ export function LoginProtected(
     }
 
     // Verify token validity
-    fetch('/php/verifyToken.php', {
+    fetch(phpPrefix + '/verifyToken.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',

@@ -41,7 +41,7 @@ if (!$conn) {
   die("Could not connect to database: ".pg_last_error());
 }
 
-$query = 'SELECT passwd_hash FROM User WHERE username = $1';
+$query = 'SELECT passwd_hash FROM EggUser WHERE username = $1';
 $result = pg_query_params($conn, $query, array($username));
 
 if (pg_num_rows($result) != 1) {

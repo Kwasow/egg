@@ -5,6 +5,8 @@ services:
   database:
     image: postgres:latest
     restart: always
+    volumes:
+      - ./scripts/postgres:/docker-entrypoint-initdb.d/
     env_file:
       - env/development.env
   

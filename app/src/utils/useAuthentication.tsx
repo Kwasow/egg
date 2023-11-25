@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
 import './useAuthentication.css'
+import { phpPrefix } from '../components/Shared'
 
 export type TokenDetails = {
   username: string
@@ -107,7 +108,7 @@ export function LoginButton(props: {
       password,
     }
 
-    await fetch('/php/login.php', {
+    await fetch(phpPrefix + '/login.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',
@@ -160,7 +161,7 @@ export function LogoutButton(props: {
       token: authentication.tokenDetails?.token || '',
     }
 
-    await fetch('/php/logout.php', {
+    await fetch(phpPrefix + '/logout.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',

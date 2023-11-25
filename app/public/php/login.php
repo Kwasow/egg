@@ -23,33 +23,31 @@ if (
 $username = $body_json['username'];
 $password = $body_json['password'];
 
-$db_address = file_get_contents(__DIR__ . '/db_details/db_address.txt');
-$db_username = file_get_contents(__DIR__ . '/db_details/db_username.txt');
-$db_password = file_get_contents(__DIR__ . '/db_details/db_password.txt');
-$db_database = file_get_contents(__DIR__ . '/db_details/db_database.txt');
+$db_address = getenv('DB_ADDRESS');
+$db_username = getenv('POSTGRES_USER');
+$db_password = getenv('POSTGRES_PASSWORD');
+$db_database = getenv('POSTGRES_DB');
 
-$conn = mysqli_connect($db_address, $db_username, $db_password, $db_database);
+$conn = pg_connect(
+  'host='.$db_address.
+  ' dbname='.$db_database.
+  ' user='.$db_username.
+  ' password='.$db_password
+);
 
 if (!$conn) {
   // 500 - server error
   http_response_code(500);
-  die('Connection failed: ' . mysqli_connect_error());
+  die("Could not connect to database: ".pg_last_error());
 }
 
-$stmt = mysqli_prepare(
-  $conn,
-  'SELECT passwd_hash FROM User WHERE username = ?'
-);
-mysqli_stmt_bind_param($stmt, 's', $username);
-mysqli_stmt_execute($stmt);
+$query = 'SELECT passwd_hash FROM User WHERE username = $1';
+$result = pg_query_params($conn, $query, array($username));
 
-$result = $stmt->get_result();
-$stmt->close();
-
-if (mysqli_num_rows($result) != 1) {
+if (pg_num_rows($result) != 1) {
   echo '{"session_id": ""}';
 } else {
-  $row = mysqli_fetch_assoc($result);
+  $row = pg_fetch_assoc($result);
   $hash = $row['passwd_hash'];
 
   if (password_verify($password, $hash)) {
@@ -57,10 +55,8 @@ if (mysqli_num_rows($result) != 1) {
     $session_id = hash('sha256', $username . $date . $password);
 
     // Save session id in database
-    $stmt = mysqli_prepare($conn, 'INSERT INTO Session VALUES (?, ?, NOW())');
-    mysqli_stmt_bind_param($stmt, 'ss', $session_id, $username);
-    mysqli_stmt_execute($stmt);
-    $stmt->close();
+    $query = 'INSERT INTO Session VALUES ($1, $2, NOW())';
+    $result = pg_query_params($conn, $query, array($session_id, $username));
 
     echo '{"session_id": "' . $session_id . '"}';
   } else {
@@ -68,6 +64,5 @@ if (mysqli_num_rows($result) != 1) {
   }
 }
 
-mysqli_close($conn);
 exit();
 ?>

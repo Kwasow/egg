@@ -17,26 +17,33 @@ if ($body_json == null || !array_key_exists('token', $body_json)) {
 
 $token = $body_json['token'];
 
-$db_address = file_get_contents(__DIR__ . '/db_details/db_address.txt');
-$db_username = file_get_contents(__DIR__ . '/db_details/db_username.txt');
-$db_password = file_get_contents(__DIR__ . '/db_details/db_password.txt');
-$db_database = file_get_contents(__DIR__ . '/db_details/db_database.txt');
+$db_address = getenv('DB_ADDRESS');
+$db_username = getenv('POSTGRES_USER');
+$db_password = getenv('POSTGRES_PASSWORD');
+$db_database = getenv('POSTGRES_DB');
 
-$conn = mysqli_connect($db_address, $db_username, $db_password, $db_database);
+$conn = pg_connect(
+  'host='.$db_address.
+  ' dbname='.$db_database.
+  ' user='.$db_username.
+  ' password='.$db_password
+);
 
 if (!$conn) {
   // 500 - server error
   http_response_code(500);
-  die('Connection failed: ' . mysqli_connect_error());
+  die("Could not connect to database: ".pg_last_error());
 }
 
 // Delete the given token
-$stmt = mysqli_prepare($conn, 'DELETE FROM Session WHERE session_id = ?');
-mysqli_stmt_bind_param($stmt, 's', $token);
-mysqli_stmt_execute($stmt);
+$query = 'DELETE FROM Session WHERE session_id = $1';
+$result = pg_query_params($conn, $query, array($token));
 
-$result = $stmt->get_result();
-$stmt->close();
+if (!$result) {
+  // 500 - server error
+  http_response_code(500);
+  die("Could not delete session: ".pg_last_error());
+}
 
 exit();
 ?>

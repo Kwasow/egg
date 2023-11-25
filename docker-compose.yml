@@ -5,8 +5,8 @@ services:
   database:
     image: postgres:latest
     restart: always
-    environment:
-      - POSTGRES_PASSWORD=dev-password
+    env_file:
+      - env/development.env
   
   egg:
     build: app/
@@ -15,3 +15,5 @@ services:
       - ./app:/egg/app
     ports:
       - 3000:3000
+    env_file:
+      - env/development.env

@@ -196,7 +196,7 @@ export function LogoutButton(props: {
 export function LoginProtected(
   props: PropsWithChildren<{
     className?: string
-  }>
+  }>,
 ) {
   const { children, className } = props
   // 0 - in progress

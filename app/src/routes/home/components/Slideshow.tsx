@@ -32,7 +32,7 @@ export function Slideshow(props: { slides: Slide[] }) {
     resetTimeout()
     timeoutRef.current = setTimeout(
       () => setIndex((prevIndex) => (prevIndex + 1) % slides.length),
-      delay
+      delay,
     )
 
     return () => {

@@ -9,13 +9,10 @@ the gynecology student association at Warsaw Medical University.
 
 ## Prerequisites
 
-`Node.js` in version 20.x (LTS) is recommended. You can download it here:
-https://nodejs.org/
-
-It is recommended to develop on Linux/macOS or the WSL.
-
-You'll also need `php` installed for development, because php files are
-preprocessed in development builds.
+The app runs in a docker container alongside a postgres database using docker
+compose. You can find install instructions here:
+ - https://docs.docker.com/engine/install/
+ - https://docs.docker.com/compose/install/
 
 ## Code style
 
@@ -30,13 +27,16 @@ Code style rules include:
 
 ## Running
 
-To install all the dependencies run:
+To build all the necessary docker images run:
 
-`yarn`
+`docker compose build`
 
 To run the project run:
 
-`yarn start`
+`docker compose up`
+
+Webpack should watch for files changes that you do on the host machine and
+automatically recompile the app. This feature has been tested on Linux.
 
 ## Project structure
 

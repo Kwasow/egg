@@ -52,7 +52,7 @@ if (pg_num_rows($result) != 1) {
 
   if (password_verify($password, $hash)) {
     $date = date('Y-m-d H:i:s');
-    $session_id = hash('sha256', $username . $date . $password);
+    $session_id = hash('sha256', random_bytes(128));
 
     // Save session id in database
     $query = 'INSERT INTO Session VALUES ($1, $2, NOW())';

@@ -17,50 +17,47 @@ if ($body_json == null || !array_key_exists('token', $body_json)) {
 
 $token = $body_json['token'];
 
-$db_address = file_get_contents(__DIR__ . '/db_details/db_address.txt');
-$db_username = file_get_contents(__DIR__ . '/db_details/db_username.txt');
-$db_password = file_get_contents(__DIR__ . '/db_details/db_password.txt');
-$db_database = file_get_contents(__DIR__ . '/db_details/db_database.txt');
+$db_address = getenv('DB_ADDRESS');
+$db_username = getenv('POSTGRES_USER');
+$db_password = getenv('POSTGRES_PASSWORD');
+$db_database = getenv('POSTGRES_DB');
 
-$conn = mysqli_connect($db_address, $db_username, $db_password, $db_database);
+$conn = pg_connect(
+  'host=' .
+    $db_address .
+    ' dbname=' .
+    $db_database .
+    ' user=' .
+    $db_username .
+    ' password=' .
+    $db_password
+);
 
 if (!$conn) {
   // 500 - server error
   http_response_code(500);
-  die('Connection failed: ' . mysqli_connect_error());
+  die('Could not connect to database: ' . pg_last_error());
 }
 
 // Delete expired tokens
-$stmt = mysqli_prepare(
-  $conn,
-  'DELETE FROM Session WHERE HOUR(TIMEDIFF(NOW(), last_used)) > 72'
-);
-mysqli_stmt_execute($stmt);
-$stmt->close();
+$query = 'DELETE FROM Session WHERE HOUR(TIMEDIFF(NOW(), last_used)) > 72';
+$result = pg_query_params($conn, $query, []);
 
 // Check if the session exists in the database
-$stmt = mysqli_prepare($conn, 'SELECT * FROM Session WHERE session_id = ?');
-mysqli_stmt_bind_param($stmt, 's', $token);
-mysqli_stmt_execute($stmt);
+$query = 'SELECT * FROM Session WHERE session_id = $1';
+$result = pg_query_params($conn, $query, [$token]);
 
-$result = $stmt->get_result();
-$stmt->close();
-
-if (mysqli_num_rows($result) > 0) {
+if (pg_num_rows($result) > 0) {
   // Update last used
-  $stmt = mysqli_prepare(
-    $conn,
-    'UPDATE Session SET last_used = NOW() WHERE session_id = ?'
-  );
-  mysqli_stmt_bind_param($stmt, 's', $token);
-  mysqli_stmt_execute($stmt);
-  $stmt->close();
+  $query = 'UPDATE Session SET last_used = NOW() WHERE session_id = $1';
+  $result = pg_query_params($conn, $query, [$token]);
 
   echo '{"valid": true}';
 } else {
+  // 401 - unauthorized
+  http_response_code(401);
   echo '{"valid": false}';
 }
 
-mysqli_close($conn);
 exit();
 ?>

@@ -9,6 +9,17 @@ services:
       - ./scripts/postgres:/docker-entrypoint-initdb.d/
     env_file:
       - env/development.env
+
+  php-microservice:
+    build: php-microservice/
+    restart: always
+    volumes:
+      - ./app/public/php:/usr/local/apache2/htdocs/php
+      - ./app/public/static:/usr/local/apache2/htdocs/static
+    ports:
+      - 3001:3001
+    env_file:
+      - env/development.env
   
   egg:
     build: app/

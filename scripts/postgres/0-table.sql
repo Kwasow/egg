@@ -18,4 +18,4 @@ CREATE TABLE EggUser (
 --   - login: admin
 --   - password: admin
 INSERT INTO EggUser (username, passwd_hash)
-VALUES ('admin', '$2y$10$4H5RHFBkc0qs1ZLHMjqcp../MneknqoyLM44YkC4QoAPw3a70qsZm');
+VALUES ('admin', '$2y$10$Mbhv49o0OwWcb1uOv3YaB.cyMhfygftmpjZgwBrv65tYcZzh2tXs2');

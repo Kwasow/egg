@@ -10,3 +10,4 @@ src/fonts
 .prettierignore
 public/.htaccess
 .husky/
+Dockerfile

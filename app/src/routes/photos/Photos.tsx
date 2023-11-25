@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import './Photos.css'
 import 'react-photo-view/dist/react-photo-view.css'
+import { phpPrefix } from '../../components/Shared'
 
 type PhotoGroup = {
   name: string
@@ -15,10 +16,7 @@ type ResponseJSON = {
 }
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const phpUrl =
-    !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-      ? process.env.PUBLIC_URL + 'php/getPhotos.json'
-      : process.env.PUBLIC_URL + 'php/getPhotos.php'
+  const phpUrl = phpPrefix + '/getPhotos.php'
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl, { cache: 'no-store' })

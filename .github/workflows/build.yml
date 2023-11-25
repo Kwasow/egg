@@ -13,5 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: yarn install
-      - run: yarn build
+      - run: |
+          cd app
+          yarn install
+          yarn build

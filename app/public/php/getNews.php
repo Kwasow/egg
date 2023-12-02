@@ -28,19 +28,20 @@ if (!$conn) {
   die('Could not connect to database: ' . pg_last_error());
 }
 
-$query = 'SELECT * FROM Experts ORDER BY position';
+$query = 'SELECT * FROM News';
 $result = pg_query_params($conn, $query, []);
 $data = pg_fetch_all($result);
 
 $first = true;
 
-echo '{"list":[';
-foreach ($data as $speaker) {
-  $position = $speaker['position'];
-  $name = $speaker['name'];
-  $description_pl = $speaker['description_pl'];
-  $description_en = $speaker['description_en'];
-  $picture = $speaker['picture'];
+echo '{"news":[';
+foreach ($data as $news) {
+  $title_pl = $news['title_pl'];
+  $title_en = $news['title_en'];
+  $text_pl = $news['text_pl'];
+  $text_en = $news['text_en'];
+  $image = $news['image'];
+  $date = $news['published_date'];
 
   if ($first) {
     $first = false;
@@ -49,11 +50,12 @@ foreach ($data as $speaker) {
   }
 
   echo '{';
-  echo '"position":' . $position . ',';
-  echo '"name":"' . $name . '",';
-  echo '"description_pl": "' . $description_pl . '",';
-  echo '"description_en": "' . $description_en . '",';
-  echo '"picture":"' . $picture . '"';
+  echo '"title_pl":"' . $title_pl . '",';
+  echo '"title_en":"' . $title_en . '",';
+  echo '"text_pl": "' . $text_pl . '",';
+  echo '"text_en": "' . $text_en . '",';
+  echo '"image":"' . $image . '",';
+  echo '"date":"' . $date . '"';
   echo '}';
 }
 echo ']}';

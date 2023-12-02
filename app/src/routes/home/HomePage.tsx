@@ -328,7 +328,7 @@ function NewsSection() {
     fetch(newsURL, { cache: 'no-store' })
       .then((res) => res.json())
       .then((json: NewsJSON) => {
-        json.other.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+        json.news.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
         setNews(json)
         setLoaded(1)
       })
@@ -346,12 +346,7 @@ function NewsSection() {
     return (
       <Paper sx={{ overflow: 'auto' }}>
         <div className='news-container'>
-          <NewsTile
-            news={news?.registration}
-            onClick={closeDialog}
-            registration
-          />
-          {news?.other.map((value, index) => {
+          {news?.news.map((value, index) => {
             return (
               <NewsTile
                 key={index}
@@ -360,6 +355,7 @@ function NewsSection() {
                   setDialogNews(value)
                   setNewsDialogOpen(true)
                 }}
+                registration={index === 0}
               />
             )
           })}

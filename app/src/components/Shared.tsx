@@ -22,8 +22,7 @@ export interface News {
 }
 
 export interface NewsJSON {
-  registration: News
-  other: News[]
+  news: News[]
 }
 
 export function decideLanguage(

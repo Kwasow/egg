@@ -3,6 +3,7 @@ import { Card, CircularProgress, Grid } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
+import { phpPrefix } from '../../components/Shared'
 
 const topPersonDescription =
   'ENYGO President, Fondazione Policlinico \
@@ -31,9 +32,8 @@ interface PeopleJSON {
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
-  const jsonURL = process.env.PUBLIC_URL + `/static/${type}/list.json`
-
-  console.log(jsonURL)
+  const jsonURL =
+    phpPrefix + (type === 'speakers' ? 'getSpeakers.php' : 'getExperts.php')
 
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
@@ -88,8 +88,8 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
         <p className='grid-person-title'>{person.name}</p>
         <p className='grid-person-subtitle'>
           {i18n.language == 'pl'
-            ? person.description_pl[0]
-            : person.description_en[0]}
+            ? person.description_pl
+            : person.description_en}
         </p>
       </div>
     )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Button, Snackbar } from '@mui/material'
 import {
   LoginProtected,
@@ -21,38 +21,14 @@ export default function AdminHome() {
         <LogoutButton onError={() => setSnackbarOpen(true)} />
       </div>
 
-      <table>
-        <tr>
-          <td>
-            <p>Aktualności</p>
-          </td>
-          <td>
-            <Button variant='contained' disabled={true}>
-              Edytuj
-            </Button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Eksperci i mówcy</p>
-          </td>
-          <td>
-            <Button variant='contained' disabled={true}>
-              Edytuj
-            </Button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>Aktualności</p>
-          </td>
-          <td>
-            <Button variant='contained' disabled={true}>
-              Edytuj
-            </Button>
-          </td>
-        </tr>
-      </table>
+      <SettingsList>
+        <SettingsItem name='Aktualności' active={false} />
+        <SettingsItem name='Strona główna' active={false} />
+        <SettingsItem name='Eksperci' active={false} />
+        <SettingsItem name='Mówcy' active={false} />
+        <SettingsItem name='Sponsorzy' active={false} />
+        <SettingsItem name='Program' active={false} />
+      </SettingsList>
 
       <Snackbar
         open={snackbarOpen}
@@ -61,5 +37,24 @@ export default function AdminHome() {
         message='Wylogowanie nie powiodło się'
       />
     </LoginProtected>
+  )
+}
+
+function SettingsList(props: { children: Iterable<ReactNode> | ReactNode }) {
+  return <table>${props.children}</table>
+}
+
+function SettingsItem(props: { name: string; active: boolean }) {
+  return (
+    <tr>
+      <td>
+        <p>${props.name}</p>
+      </td>
+      <td>
+        <Button variant='contained' disabled={!props.active}>
+          Edytuj
+        </Button>
+      </td>
+    </tr>
   )
 }

@@ -9,7 +9,7 @@ the gynecology student association at Warsaw Medical University.
 
 ## Prerequisites
 
-The app runs in a docker container alongside a postgres database using docker
+During development the app runs in a docker container alongside a postgres database using docker
 compose. You can find install instructions here:
  - https://docs.docker.com/engine/install/
  - https://docs.docker.com/compose/install/

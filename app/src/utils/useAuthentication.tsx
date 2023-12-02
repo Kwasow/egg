@@ -133,6 +133,18 @@ export function LoginButton(props: {
     onLogin?.onError?.apply({})
   }
 
+  useEffect(() => {
+    function enterDownHandler(event: KeyboardEvent) {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+
+        submit()
+      }
+    }
+
+    document.addEventListener('keydown', enterDownHandler)
+  }, [])
+
   return (
     <Button
       className={className}

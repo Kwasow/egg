@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, TextField } from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
 import {
   LoginProtected,
+  TokenControl,
   useAuthentication,
 } from '../../../utils/useAuthentication'
-import { phpPrefix } from '../../../components/Shared'
+import { phpPrefix, resourcesPrefix } from '../../../components/Shared'
 
 export default function ResourceEditor() {
   const dispatch = useAppDispatch()
@@ -33,6 +34,17 @@ export default function ResourceEditor() {
 
 function AddResource() {
   const authentication = useAuthentication()
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    if (searchParams.has('add_success')) {
+      if (searchParams.get('add_success') === 'true') {
+        alert('Dodawanie zasobu udane')
+      } else {
+        alert('Dodawanie zasobu nie powiodło się')
+      }
+    }
+  })
 
   return (
     <div>
@@ -76,6 +88,15 @@ interface Resource {
   path: string
 }
 
+function deleteResource(id: number, authentication: TokenControl) {
+  const headers = new Headers()
+  headers.append('EggAuth', authentication.tokenDetails?.token || '')
+
+  fetch(phpPrefix + '/deleteResource.php?id=' + id, {
+    headers: headers,
+  }).then((_) => window.location.reload())
+}
+
 function EditResources() {
   const [resources, setResources] = useState(Array<Resource>())
   const authentication = useAuthentication()
@@ -112,8 +133,22 @@ function EditResources() {
                 <td>{value.id}</td>
                 <td>{value.name}</td>
                 <td>{value.originalFileName}</td>
-                <td>todo</td>
-                <td>todo</td>
+                <td>
+                  <Button
+                    onClick={() =>
+                      window.open(resourcesPrefix + value.path, '_blank')
+                    }
+                  >
+                    Pokaż
+                  </Button>
+                </td>
+                <td>
+                  <Button
+                    onClick={() => deleteResource(value.id, authentication)}
+                  >
+                    Usuń
+                  </Button>
+                </td>
               </tr>
             )
           })}

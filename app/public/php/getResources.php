@@ -30,7 +30,7 @@ foreach ($data as $resource) {
   $id = $resource['id'];
   $name = $resource['name'];
   $original_file_name = $resource['original_file_name'];
-  $file_path = $resource['file_path'];
+  $file_path = $resource['file_path'] . $id;
 
   if ($first) {
     $first = false;
@@ -42,7 +42,7 @@ foreach ($data as $resource) {
   echo '"id":' . $id . ',';
   echo '"name":"' . $name . '",';
   echo '"originalFileName":"' . $original_file_name . '",';
-  echo '"file_path": "' . $file_path . '"';
+  echo '"path": "' . $file_path . '"';
   echo '}';
 }
 echo ']';

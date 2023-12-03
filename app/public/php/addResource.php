@@ -42,6 +42,11 @@ $result = pg_query_params($conn, $query, [$name, $original_file_name, $path]);
 if (!$result) {
   // 500 - server error
   http_response_code(500);
+  header(
+    'Location: ' .
+      $_SERVER['HTTP_REFERER'] .
+      'admin/resources?add_success=false'
+  );
   die('Failed to save resource to database: ' . pg_last_error());
 }
 
@@ -49,14 +54,21 @@ $id = pg_fetch_assoc($result)['id'];
 $full_path = __DIR__ . '/..' . $path . $id;
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
-  echo '{"success": true}';
+  header(
+    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/resources?add_success=true'
+  );
 } else {
   $query = 'DELETE FROM Resources WHERE id = $1';
   $result = pg_query_params($conn, $query, [$id]);
 
   // 500 - server error
   http_response_code(500);
-  die('{"success": false}');
+  header(
+    'Location: ' .
+      $_SERVER['HTTP_REFERER'] .
+      'admin/resources?add_success=false'
+  );
+  die('Failed to save resource');
 }
 
 exit();

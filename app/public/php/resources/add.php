@@ -1,6 +1,6 @@
 <?php
-require __DIR__ . '/helper/database.php';
-require __DIR__ . '/helper/token.php';
+require __DIR__ . '/../helper/database.php';
+require __DIR__ . '/../helper/token.php';
 
 // Set default values
 header('Content-Type: application/json');
@@ -51,7 +51,7 @@ if (!$result) {
 }
 
 $id = pg_fetch_assoc($result)['id'];
-$full_path = __DIR__ . '/..' . $path . $id;
+$full_path = __DIR__ . '/../..' . $path . $id;
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
   header(

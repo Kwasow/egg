@@ -50,7 +50,7 @@ function AddResource() {
     <div>
       <h1>Dodaj zasób</h1>
       <form
-        action={phpPrefix + '/addResource.php'}
+        action={phpPrefix + 'resources/add.php'}
         method='POST'
         encType='multipart/form-data'
         style={{
@@ -92,7 +92,7 @@ function deleteResource(id: number, authentication: TokenControl) {
   const headers = new Headers()
   headers.append('EggAuth', authentication.tokenDetails?.token || '')
 
-  fetch(phpPrefix + '/deleteResource.php?id=' + id, {
+  fetch(phpPrefix + 'resources/delete.php?id=' + id, {
     headers: headers,
   }).then((_) => window.location.reload())
 }
@@ -105,7 +105,7 @@ function EditResources() {
     const headers = new Headers()
     headers.append('EggAuth', authentication.tokenDetails?.token || '')
 
-    fetch(phpPrefix + '/getResources.php', {
+    fetch(phpPrefix + 'resources/get.php', {
       headers: headers,
     })
       .then((res) => res.json())

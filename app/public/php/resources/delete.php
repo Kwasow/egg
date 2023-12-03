@@ -1,6 +1,6 @@
 <?php
-require __DIR__ . '/helper/database.php';
-require __DIR__ . '/helper/token.php';
+require __DIR__ . '/../helper/database.php';
+require __DIR__ . '/../helper/token.php';
 
 // Set default values
 header('Content-Type: application/json');

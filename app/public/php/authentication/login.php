@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/helper/database.php';
+require __DIR__ . '/../helper/database.php';
 
 // Set default values
 header('Content-Type: application/json');

@@ -13,13 +13,20 @@ CREATE TABLE EggUser (
   passwd_hash VARCHAR(60)
 );
 
+CREATE TABLE Resources (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  original_file_name TEXT,
+  file_path TEXT
+);
+
 CREATE TABLE Speakers (
   id SERIAL PRIMARY KEY,
   position Integer,
   name Text,
   description_pl Text,
   description_en Text,
-  picture Text
+  picture INTEGER references Resources(id)
 );
 
 CREATE TABLE Experts (
@@ -28,7 +35,7 @@ CREATE TABLE Experts (
   name Text,
   description_pl Text,
   description_en Text,
-  picture Text
+  picture INTEGER references Resources(id)
 );
 
 CREATE TABLE News (
@@ -37,15 +44,8 @@ CREATE TABLE News (
   title_en TEXT,
   text_pl TEXT,
   text_en TEXT,
-  image TEXT,
+  image INTEGER references Resources(id),
   published_date TEXT
-);
-
-CREATE TABLE Resources (
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  type TEXT,
-  file_path TEXT
 );
 
 -- Create test user

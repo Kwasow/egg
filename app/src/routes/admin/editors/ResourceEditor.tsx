@@ -1,5 +1,5 @@
-import { Button, TextField } from '@mui/material'
 import React from 'react'
+import { Button, TextField } from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
 import { useNavigate } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
@@ -32,18 +32,24 @@ function AddResource() {
     <div>
       <h1>Dodaj zasób</h1>
       <form
-        encType='multipart/form-data'
         action='https://webhook.site/32a503e0-0bce-45d8-a146-8611f0b7fc71'
-        method='post'
+        method='POST'
+        encType='multipart/form-data'
         style={{
           display: 'flex',
           flexDirection: 'column',
+          width: '30%',
         }}
       >
-        <TextField variant='outlined' label='Nazwa' name='name' />
+        <TextField
+          variant='outlined'
+          label='Nazwa wewnętrzna'
+          name='name'
+          required
+        />
 
         <label>Wybierz plik</label>
-        <input type='file' name='file' />
+        <input type='file' name='file' required />
 
         <Button type='submit'>Prześlij</Button>
       </form>

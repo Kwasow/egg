@@ -1,7 +1,7 @@
 {
   "navbar.Title.Line1": "Weekend z ginekologią",
-  "navbar.Title.Line2": "Sekrety onkologii",
-  "navbar.LogoAlt": "Logo czwartego weekendu z ginekologią",
+  "navbar.Title.Line2": "Ciekawe przypadki",
+  "navbar.LogoAlt": "Logo weekendu z ginekologią",
   "navbar.HomePage": "Strona główna",
   "navbar.Program": "Program",
   "navbar.ExpertsAndSpeakers": "Eksperci i mówcy",
@@ -9,7 +9,7 @@
   "navbar.Register": "ZAREJESTRUJ SIĘ",
 
   "program.Date.Label": "Termin",
-  "program.Date.Value": "14-16 kwietnia",
+  "program.Date.Value": "19 maja 2024",
   "program.Venue.Label": "Adres",
   "program.Venue.Value.Line1": "Centrum Dydaktyczne WUM",
   "program.Venue.Value.Line2": "ul. Księcia Trojdena 2a, Warszawa",
@@ -57,7 +57,7 @@
   "mainPage.Sponsors": "Sponsorzy",
 
   "footer.Contact": "Kontakt",
-  "footer.Copyright": "2023 © Studenckie Koło Naukowe Położnictwa i Ginekologii  WUM",
+  "footer.Copyright": "2023-2024 © Studenckie Koło Naukowe Położnictwa i Ginekologii  WUM",
 
   "sponsor.WUM.Alt": "Logo Warszawskiego Uniwersytetu Medycznego",
   "sponsor.WUM.Title": "Rektor Warszawskiego Uniwersytetu Medycznego",

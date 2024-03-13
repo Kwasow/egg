@@ -2,7 +2,7 @@ import { Button, Card, ImageList, Tab, Tabs, Toolbar } from '@mui/material'
 import { createTheme, styled } from '@mui/material/styles'
 import '../index.css'
 
-const colorPrimary = '#c53d63'
+const colorPrimary = '#ff246b'
 const colorSecondary = '#f50057'
 
 export const eggTheme = createTheme({

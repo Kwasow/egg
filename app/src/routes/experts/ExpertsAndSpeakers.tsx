@@ -1,5 +1,5 @@
 import React, { useEffect, useState, SyntheticEvent, useRef } from 'react'
-import { Card, CircularProgress, Grid } from '@mui/material'
+import { Card, CircularProgress, Grid, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
@@ -237,6 +237,8 @@ function Speakers(props: TabPanelProps) {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   const { t } = useTranslation()
+  const theme = useTheme()
+  const color = theme.palette.primary.main
 
   useEffect(() => {
     getPeopleSorted(type)
@@ -254,7 +256,7 @@ function Speakers(props: TabPanelProps) {
     if (loaded === 1) {
       return (
         <>
-          <Card className='about-us-card' sx={{ backgroundColor: '#c53d63' }}>
+          <Card className='about-us-card' sx={{ backgroundColor: color }}>
             <div className='about-us-card-left-container'>
               <p className='about-us-title'>
                 {t('expertsAndSpeakers.AboutUs')}

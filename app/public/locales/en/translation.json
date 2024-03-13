@@ -1,6 +1,6 @@
 {
   "navbar.Title.Line1": "Weekend with gynecology",
-  "navbar.Title.Line2": "Secrets of oncology",
+  "navbar.Title.Line2": "Interesting cases",
   "navbar.LogoAlt": "The conference's logo",
   "navbar.HomePage": "Home",
   "navbar.Program": "Program",
@@ -9,7 +9,7 @@
   "navbar.Register": "REGISTER",
 
   "program.Date.Label": "Date",
-  "program.Date.Value": "April 14th-16th",
+  "program.Date.Value": "May 19th 2024",
   "program.Venue.Label": "Address",
   "program.Venue.Value.Line1": "Warsaw Medical University Didactic Center",
   "program.Venue.Value.Line2": "Księcia Trojdena 2a, Warsaw",
@@ -57,7 +57,7 @@
   "mainPage.Sponsors": "Sponsors",
 
   "footer.Contact": "Contact",
-  "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM",
+  "footer.Copyright": "2023-2024 © Student Association of Obstetrics and Gynecology WUM",
 
   "sponsor.WUM.Alt": "Logo of the Medical University of Warsaw",
   "sponsor.WUM.Title": "Rector of the Medical University of Warsaw",

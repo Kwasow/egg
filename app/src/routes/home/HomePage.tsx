@@ -18,9 +18,9 @@ import { NewsDialog } from '../../components/Dialogs'
 const slides: Slide[] = [
   {
     image: process.env.PUBLIC_URL + '/static/images/main0.webp',
-    title_pl: 'V Edycja - Sekrety onkologii',
+    title_pl: 'V Edycja',
     subtitle_pl: 'Kliknij by zobaczyć program wykładów i warsztatów',
-    title_en: '5th edition - Interesting cases',
+    title_en: '5th edition',
     subtitle_en: 'Click to view the conference program',
     link: '/speakers',
   },
@@ -407,7 +407,7 @@ function About() {
       </Card>
       <Card
         className='main-about-card'
-        sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
+        sx={{ backgroundColor: '#e8e8e8' }}
       >
         <div className='main-about-card-content-wrapper'>
           <div>

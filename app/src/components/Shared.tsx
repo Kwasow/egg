@@ -8,8 +8,8 @@ export const phpPrefix =
     ? 'http://localhost:3001/php/'
     : process.env.PUBLIC_URL + 'php/'
 
-export const conferenceRegistrationLink = 'https://forms.gle/wTtXxs4Y5smXFzrs5'
-export const competitionRegistrationLink = 'https://forms.gle/fuuxtqesUna84M2r7'
+export const conferenceRegistrationLink = 'https://forms.gle/bBwm7pgEkJ4mibCU6'
+export const competitionRegistrationLink = 'https://forms.gle/KRGaGmi4o6Ud8Tmt9'
 export const rulesLink = '/static/documents/regulamin.pdf'
 
 export interface News {

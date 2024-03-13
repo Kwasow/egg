@@ -10,6 +10,7 @@ import {
   TableContainer,
   // TableHead,
   TableRow,
+  useTheme,
 } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
@@ -59,10 +60,13 @@ function decideLanguage(pl: string, en: string) {
 function Row(props: { activity: Activity }) {
   const { activity } = props
   const { i18n, t } = useTranslation()
+  const theme = useTheme()
   const [open, setOpen] = useState(false)
   const isClickable =
     (activity.about_pl.length > 0 && i18n.language === 'pl') ||
     (activity.about_en.length > 0 && i18n.language === 'en')
+
+  const color = theme.palette.primary.main
 
   const timeStart =
     activity.start.length == 0
@@ -76,10 +80,7 @@ function Row(props: { activity: Activity }) {
   if (activity.type === 'session') {
     return (
       <TableRow
-        sx={{
-          backgroundColor: 'rgb(197, 61, 99)',
-          cursor: 'pointer',
-        }}
+        sx={{ backgroundColor: color, cursor: 'pointer'}}
         onClick={() => window.open('/speakers', '_self')}
       >
         <TableCell colSpan={5}>

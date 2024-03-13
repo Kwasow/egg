@@ -49,7 +49,7 @@ export const SpeakersTabs = styled(Tabs)(() => ({
 
 export const SpeakersTab = styled(Tab)(() => ({
   '&.Mui-selected': {
-    background: 'rgba(197, 61, 99, 0.15)',
+    background: '#ffe6ee',
   },
 }))
 

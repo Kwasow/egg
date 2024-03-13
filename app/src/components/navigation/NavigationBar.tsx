@@ -110,7 +110,7 @@ export function EggDrawer(props: {
               }}
               sx={{
                 backgroundColor: value.link.includes(window.location.pathname)
-                  ? 'rgba(197, 61, 99, 0.15)'
+                  ? '#ffe6ee'
                   : 'white',
               }}
             >

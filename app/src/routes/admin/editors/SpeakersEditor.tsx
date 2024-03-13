@@ -1,9 +1,10 @@
-import React from 'react'
-import { LoginProtected } from '../../../utils/useAuthentication'
+import React, { useEffect, useState } from 'react'
+import { LoginProtected, useAuthentication } from '../../../utils/useAuthentication'
 import { Box, Button, TextField } from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
 import { useNavigate } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
+import { FormControl, Select } from '@mui/base'
 
 export default function SpeakersEditor() {
   const dispatch = useAppDispatch()
@@ -28,17 +29,41 @@ export default function SpeakersEditor() {
 }
 
 function AddSpeakerView() {
+  const [resources, setResources] = useState(Array<Resource>())
+  const authentication = useAuthentication()
+
+  useEffect(() => {
+    const headers = new Headers()
+    headers.append('EggAuth', authentication.tokenDetails?.token || '')
+
+    fetch(phpPrefix + 'resources/get.php', {
+      headers: headers,
+    })
+      .then((res) => res.json())
+      .then((res) => setResources(res))
+      .catch(/* TODO */)
+  }, [])
+
   return (
     <>
       <h1>Dodaj mówcę</h1>
-      <Box component='form'>
+      <FormControl>
         <TextField
           id='speaker-name'
           label='Imię i nazwisko'
           variant='outlined'
         />
         <TextField id='speaker-subtitle' label='Podtytuł' variant='outlined' />
-      </Box>
+
+        <Select
+          label="Zdjęcie"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
     </>
   )
 }

@@ -26,6 +26,13 @@ export interface NewsJSON {
   news: News[]
 }
 
+export interface ResourceJSON {
+  id: number
+  name: string
+  originalFileName: string
+  path: string
+}
+
 export function decideLanguage(
   lang: string,
   pl: string | undefined,

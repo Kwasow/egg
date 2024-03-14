@@ -390,10 +390,7 @@ function About() {
 
   return (
     <div className='main-about-wrapper'>
-      <Card
-        className='main-about-card'
-        sx={{ backgroundColor: color }}
-      >
+      <Card className='main-about-card' sx={{ backgroundColor: color }}>
         <div className='main-about-card-content-wrapper'>
           <div>
             <p className='main-about-card-title' style={{ color: 'white' }}>
@@ -405,10 +402,7 @@ function About() {
           </div>
         </div>
       </Card>
-      <Card
-        className='main-about-card'
-        sx={{ backgroundColor: '#e8e8e8' }}
-      >
+      <Card className='main-about-card' sx={{ backgroundColor: '#e8e8e8' }}>
         <div className='main-about-card-content-wrapper'>
           <div>
             <p className='main-about-card-title'>

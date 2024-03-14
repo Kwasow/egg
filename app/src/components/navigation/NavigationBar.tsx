@@ -114,10 +114,8 @@ export function EggDrawer(props: {
                   : 'white',
               }}
             >
-              <ListItemIcon sx={{color}}>
-                {value.icon}
-              </ListItemIcon>
-              <ListItemText sx={{color}}>
+              <ListItemIcon sx={{ color }}>{value.icon}</ListItemIcon>
+              <ListItemText sx={{ color }}>
                 {(t(value.translationString) || '').toUpperCase()}
               </ListItemText>
             </ListItemButton>

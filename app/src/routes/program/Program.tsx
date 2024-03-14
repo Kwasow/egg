@@ -80,7 +80,7 @@ function Row(props: { activity: Activity }) {
   if (activity.type === 'session') {
     return (
       <TableRow
-        sx={{ backgroundColor: color, cursor: 'pointer'}}
+        sx={{ backgroundColor: color, cursor: 'pointer' }}
         onClick={() => window.open('/speakers', '_self')}
       >
         <TableCell colSpan={5}>

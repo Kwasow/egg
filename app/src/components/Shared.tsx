@@ -3,10 +3,11 @@ import './Shared.css'
 
 export const imageUrl = process.env.PUBLIC_URL + '/static/images/'
 export const newsPrefix = process.env.PUBLIC_URL + '/static/news/'
-export const phpPrefix =
+export const resourcesPrefix =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3001/php/'
-    : process.env.PUBLIC_URL + 'php/'
+    ? 'http://localhost:3001/'
+    : process.env.PUBLIC_URL
+export const phpPrefix = resourcesPrefix + 'php/'
 
 export const conferenceRegistrationLink = 'https://forms.gle/bBwm7pgEkJ4mibCU6'
 export const competitionRegistrationLink = 'https://forms.gle/KRGaGmi4o6Ud8Tmt9'
@@ -23,6 +24,13 @@ export interface News {
 
 export interface NewsJSON {
   news: News[]
+}
+
+export interface ResourceJSON {
+  id: number
+  name: string
+  originalFileName: string
+  path: string
 }
 
 export function decideLanguage(

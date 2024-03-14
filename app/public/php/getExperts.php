@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/helper/database.php';
+
 // Set default values
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
@@ -6,27 +8,7 @@ header('Cache-control: no-cache, no-store');
 // 200 - ok
 http_response_code(200);
 
-$db_address = getenv('DB_ADDRESS');
-$db_username = getenv('POSTGRES_USER');
-$db_password = getenv('POSTGRES_PASSWORD');
-$db_database = getenv('POSTGRES_DB');
-
-$conn = pg_connect(
-  'host=' .
-    $db_address .
-    ' dbname=' .
-    $db_database .
-    ' user=' .
-    $db_username .
-    ' password=' .
-    $db_password
-);
-
-if (!$conn) {
-  // 500 - server error
-  http_response_code(500);
-  die('Could not connect to database: ' . pg_last_error());
-}
+$conn = openConnection();
 
 $query = 'SELECT * FROM Experts ORDER BY position';
 $result = pg_query_params($conn, $query, []);

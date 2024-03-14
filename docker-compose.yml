@@ -1,14 +1,22 @@
 version: '3.8'
 
+networks:
+  internal:
+    driver: bridge
+
 services:
 
   database:
-    image: postgres:latest
+    image: mysql:latest
     restart: always
     volumes:
-      - ./scripts/postgres:/docker-entrypoint-initdb.d/
+      - ./scripts/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
     env_file:
       - env/development.env
+    networks:
+      - internal
 
   php-microservice:
     build: php-microservice/
@@ -20,6 +28,8 @@ services:
       - 3001:3001
     env_file:
       - env/development.env
+    networks:
+      - internal
   
   egg:
     build: app/

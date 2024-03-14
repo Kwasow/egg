@@ -108,7 +108,7 @@ export function LoginButton(props: {
       password,
     }
 
-    await fetch(phpPrefix + '/login.php', {
+    await fetch(phpPrefix + 'authentication/login.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',
@@ -173,7 +173,7 @@ export function LogoutButton(props: {
       token: authentication.tokenDetails?.token || '',
     }
 
-    await fetch(phpPrefix + '/logout.php', {
+    await fetch(phpPrefix + 'authentication/logout.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',
@@ -231,7 +231,7 @@ export function LoginProtected(
     }
 
     // Verify token validity
-    fetch(phpPrefix + '/verifyToken.php', {
+    fetch(phpPrefix + 'authentication/verifyToken.php', {
       method: 'POST',
       body: JSON.stringify(body),
       cache: 'no-store',

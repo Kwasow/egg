@@ -3,28 +3,28 @@ import { Card, CircularProgress, Grid, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
-import { phpPrefix } from '../../components/Shared'
+import { phpPrefix, resourcesPrefix } from '../../components/Shared'
 
 interface TabPanelProps {
   index: number
   value: number
 }
 
-interface PersonJSON {
+export interface PersonJSON {
+  id: number
   position: number
   name: string
-  description_pl: string[]
-  description_en: string[]
+  description: string[]
   picture: string
 }
 
-interface PeopleJSON {
+export interface PeopleJSON {
   list: PersonJSON[]
 }
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   const jsonURL =
-    phpPrefix + (type === 'speakers' ? 'getSpeakers.php' : 'getExperts.php')
+    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'getExperts.php')
 
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
@@ -56,10 +56,9 @@ function AvailableSoon() {
 }
 
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
-  const { people, type } = props
-  const { t, i18n } = useTranslation()
+  const { people } = props
+  const { t } = useTranslation()
   const sunshineCount = useRef(0)
-  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
@@ -72,16 +71,12 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
       <div className='grid-person-container' onClick={onClick}>
         <img
           className='grid-person-image'
-          src={directory + person.picture}
+          src={resourcesPrefix + person.picture}
           alt={t('expertsAndSpeakers.PersonAlt') + person.name}
           loading='lazy'
         />
         <p className='grid-person-title'>{person.name}</p>
-        <p className='grid-person-subtitle'>
-          {i18n.language == 'pl'
-            ? person.description_pl
-            : person.description_en}
-        </p>
+        <p className='grid-person-subtitle'>{person.description[0]}</p>
       </div>
     )
   }
@@ -119,7 +114,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
 
 function PeopleListView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
@@ -155,11 +150,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
           <div>
             <p className='people-name'>{person.name}</p>
             <p className='people-description'>
-              {i18n.language == 'pl' ? (
-                <Description paragraphs={person.description_pl} />
-              ) : (
-                <Description paragraphs={person.description_en} />
-              )}
+              <Description paragraphs={person.description} />
             </p>
           </div>
         </div>

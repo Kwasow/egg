@@ -7,6 +7,9 @@ import {
 } from '../../utils/useAuthentication'
 
 import './AdminHome.css'
+import { useAppDispatch } from '../../utils/redux/hooks'
+import { setRoute } from '../../components/navigation/redux/slice'
+import { useNavigate } from 'react-router'
 
 export default function AdminHome() {
   const authentication = useAuthentication()
@@ -22,12 +25,13 @@ export default function AdminHome() {
       </div>
 
       <SettingsList>
-        <SettingsItem name='Aktualności' active={false} />
-        <SettingsItem name='Strona główna' active={false} />
-        <SettingsItem name='Eksperci' active={false} />
-        <SettingsItem name='Mówcy' active={false} />
-        <SettingsItem name='Sponsorzy' active={false} />
-        <SettingsItem name='Program' active={false} />
+        <SettingsItem name='Aktualności' route='' />
+        <SettingsItem name='Strona główna' route='' />
+        <SettingsItem name='Eksperci' route='' />
+        <SettingsItem name='Mówcy' route='speakers' />
+        <SettingsItem name='Sponsorzy' route='' />
+        <SettingsItem name='Program' route='' />
+        <SettingsItem name='Zasoby' route='resources' />
       </SettingsList>
 
       <Snackbar
@@ -41,17 +45,28 @@ export default function AdminHome() {
 }
 
 function SettingsList(props: { children: Iterable<ReactNode> | ReactNode }) {
-  return <table>${props.children}</table>
+  return <table>{props.children}</table>
 }
 
-function SettingsItem(props: { name: string; active: boolean }) {
+function SettingsItem(props: { name: string; route: string }) {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  const fullRoute = '/admin/' + props.route
+
   return (
     <tr>
       <td>
-        <p>${props.name}</p>
+        <p>{props.name}</p>
       </td>
       <td>
-        <Button variant='contained' disabled={!props.active}>
+        <Button
+          variant='contained'
+          disabled={props.route.length == 0}
+          onClick={() => {
+            navigate(fullRoute)
+            dispatch(setRoute(fullRoute))
+          }}
+        >
           Edytuj
         </Button>
       </td>

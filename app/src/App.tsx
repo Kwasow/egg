@@ -14,6 +14,8 @@ import { EggToolbar } from './utils/MUITheme'
 import './App.css'
 import { useAppDispatch } from './utils/redux/hooks'
 import { setRoute } from './components/navigation/redux/slice'
+import SpeakersEditor from './routes/admin/editors/SpeakersEditor'
+import ResourceEditor from './routes/admin/editors/ResourceEditor'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -35,6 +37,8 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/sunshine' element={<Sunshine />} />
             <Route path='/admin' element={<AdminHome />} />
+            <Route path='/admin/speakers' element={<SpeakersEditor />} />
+            <Route path='/admin/resources' element={<ResourceEditor />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>

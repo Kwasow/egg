@@ -16,7 +16,7 @@ type ResponseJSON = {
 }
 
 async function loadPhotos(): Promise<PhotoGroup[]> {
-  const phpUrl = phpPrefix + '/getPhotos.php'
+  const phpUrl = phpPrefix + '/photos/get.php'
 
   return new Promise((resolve, reject) => {
     fetch(phpUrl, { cache: 'no-store' })

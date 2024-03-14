@@ -1,18 +1,9 @@
 import React, { useEffect, useState, SyntheticEvent, useRef } from 'react'
-import { Card, CircularProgress, Grid } from '@mui/material'
+import { Card, CircularProgress, Grid, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
 import { phpPrefix } from '../../components/Shared'
-
-const topPersonDescription =
-  'ENYGO President, Fondazione Policlinico \
-Universitario A. Gemelli, IRCCS, UOC Ginecologia Oncologica, Dipartimento per \
-la Salute della Donna e del Bambino e della Salute Pubblica, Rome, Italy'
-
-const topPersonInauguralTitle =
-  'Building a Personalized Medicine \
-Infrastructure for Gynecological Oncology Patients in a High-Volume Hospital'
 
 interface TabPanelProps {
   index: number
@@ -237,6 +228,8 @@ function Speakers(props: TabPanelProps) {
   // 2 - error
   const [loaded, setLoaded] = useState(0)
   const { t } = useTranslation()
+  const theme = useTheme()
+  const color = theme.palette.primary.main
 
   useEffect(() => {
     getPeopleSorted(type)
@@ -254,7 +247,7 @@ function Speakers(props: TabPanelProps) {
     if (loaded === 1) {
       return (
         <>
-          <Card className='about-us-card' sx={{ backgroundColor: '#c53d63' }}>
+          <Card className='about-us-card' sx={{ backgroundColor: color }}>
             <div className='about-us-card-left-container'>
               <p className='about-us-title'>
                 {t('expertsAndSpeakers.AboutUs')}
@@ -296,36 +289,37 @@ function a11yProps(index: number) {
   }
 }
 
-function TopPerson() {
-  const { t } = useTranslation()
+// Leftover from 2023 edition - might become useful in the future
+// function TopPerson() {
+//   const { t } = useTranslation()
 
-  return (
-    <div>
-      <div className='people-container'>
-        <img
-          className='people-image top-person-image'
-          src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
-        />
-        <div>
-          <p className='people-name top-person-name'>dr Nicolò Bizzarri</p>
-          <p className='people-description top-person-description'>
-            <p className='top-person-subtext'>
-              {t('expertsAndSpeakers.SpecialGuest')}
-            </p>
-            <p className='top-person-text'>{topPersonDescription}</p>
-            <p className='top-person-speech'>
-              {t('expertsAndSpeakers.InauguralSpeech')}
-            </p>
-            <p className='top-person-subtext'>
-              {t('expertsAndSpeakers.InauguralDate')}
-            </p>
-            <p className='top-person-text'>{topPersonInauguralTitle}</p>
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <div className='people-container'>
+//         <img
+//           className='people-image top-person-image'
+//           src={process.env.PUBLIC_URL + '/static/images/top-guest.webp'}
+//         />
+//         <div>
+//           <p className='people-name top-person-name'>dr Nicolò Bizzarri</p>
+//           <p className='people-description top-person-description'>
+//             <p className='top-person-subtext'>
+//               {t('expertsAndSpeakers.SpecialGuest')}
+//             </p>
+//             <p className='top-person-text'>{topPersonDescription}</p>
+//             <p className='top-person-speech'>
+//               {t('expertsAndSpeakers.InauguralSpeech')}
+//             </p>
+//             <p className='top-person-subtext'>
+//               {t('expertsAndSpeakers.InauguralDate')}
+//             </p>
+//             <p className='top-person-text'>{topPersonInauguralTitle}</p>
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
 
 function ExpertsAndSpeakers() {
   const { t } = useTranslation()
@@ -337,8 +331,7 @@ function ExpertsAndSpeakers() {
 
   return (
     <div>
-      ``
-      <TopPerson />
+      {/* <TopPerson /> */}
       <SpeakersTabs value={tab} onChange={handleChange} variant='fullWidth'>
         <SpeakersTab
           label={t('expertsAndSpeakers.Experts')}

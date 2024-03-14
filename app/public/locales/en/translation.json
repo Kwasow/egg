@@ -1,6 +1,6 @@
 {
   "navbar.Title.Line1": "Weekend with gynecology",
-  "navbar.Title.Line2": "Secrets of oncology",
+  "navbar.Title.Line2": "Interesting cases",
   "navbar.LogoAlt": "The conference's logo",
   "navbar.HomePage": "Home",
   "navbar.Program": "Program",
@@ -9,7 +9,7 @@
   "navbar.Register": "REGISTER",
 
   "program.Date.Label": "Date",
-  "program.Date.Value": "April 14th-16th",
+  "program.Date.Value": "May 19th 2024",
   "program.Venue.Label": "Address",
   "program.Venue.Value.Line1": "Warsaw Medical University Didactic Center",
   "program.Venue.Value.Line2": "Księcia Trojdena 2a, Warsaw",
@@ -28,9 +28,6 @@
   "expertsAndSpeakers.Experts": "Experts",
   "expertsAndSpeakers.Speakers": "Speakers",
   "expertsAndSpeakers.PersonAlt": "A picture of ",
-  "expertsAndSpeakers.SpecialGuest": "Special guest",
-  "expertsAndSpeakers.InauguralSpeech": "Inaugural Speech",
-  "expertsAndSpeakers.InauguralDate": "Saturday, 9:00 15th April 2023, Lecture hall A (online)",
   "expertsAndSpeakers.AboutUs": "About us",
   "expertsAndSpeakers.AboutUsText": "The Studen Association at the II Department and Clinic of Obstetrics and Gynaecology of the Medical University of Warsaw has been established in 1982. The association is lead by wonderful doctors: dr hab. n. med. Ewa Romejko-Wolniewicz, dr n. med. Agnieszka Dobrowowska-Redo and dr n. med. Joannę Kacperczyk-Bartnik. The meetings take place every two weeks at the Princess Anna Mazowiecka Hospital on Karowa St. in Warsaw. The issues discussed at the meetings definitely go beyond the knowledge provided to students during everyday classes at the university, at the same time not limited to the subject of gynaecology - internists, scientists, emergency medicine doctors and anesthesiologists have already given lectures.",
   "expertsAndSpeakers.LogoAlt": "Logo of Student Association of Obstetrics and Gynecology WUM",
@@ -49,15 +46,15 @@
   "slideshow.BackgroundPhoto.Alt": "Background Photo",
 
   "mainPage.AboutConferenceTitle": "About the conference",
-  "mainPage.AboutConference": "\"Weekend with Gynecology - Secrets of Oncology\" is an international student scientific conference organized by members of the Gynecology and Obstetrics Student Association of the Medical University of Warsaw. Interested in the subject of gynecological oncology, we decided to collect and present the latest reports in this field in an accessible form of lectures and workshops. Conference participants will be able to learn about the prevention, diagnosis and treatment of cancer affecting the female reproductive system. Working with the best specialists in Poland, we have developed a program of lectures related to the challenges facing modern gynecology. Additional interesting workshops, e.g. on vascular access under ultrasonographic supervision or perinatology will be a unique opportunity to test your skills and acquire useful practical knowledge.",
+  "mainPage.AboutConference": "\"Weekend with Gynecology - Interesting Cases\" is an international student scientific conference organized by members of the Student Scientific Society at the 2nd Department of Gynecology and Obstetrics of the Warsaw Medical University. Interested in the field of gynecology, we have decided to gather and present the latest reports from this area in an accessible form of lectures. Conference participants will be able to familiarize themselves with the prevention, diagnosis, and treatment of diseases involving the female reproductive system. Collaborating with the best specialists in Poland, we have developed a lecture program related to the challenges facing modern gynecology.",
   "mainPage.AboutCompetitionTitle": "The medical cases contest",
-  "mainPage.AboutCompetition": "Are you interested in the subject of gynecological oncology? Would you like to improve your public speaking skills? We have something for you! A unique competition organized as part of the 4th Weekend with Gynecology! Write a paper and win a one-week internship in the University Hospital in Umeå, Sweden! The motto of the competition is: \"Unknown faces of cancer\". Remember that your abstract can't be longer than 250 words. More details can be found in the conference rules below.",
+  "mainPage.AboutCompetition": "Are you interested in the field of gynecology? Would you like to improve your public speaking skills? We have something for you! An exceptional competition is being organized as part of the 5th Weekend with Gynecology! Write a paper and win the main prize! The theme of the competition session is: \"Interesting Cases\". Remember that your abstract should not exceed 250 words. Detailed information can be found in our regulations.",
   "mainPage.ConferenceRules": "Conference rules",
   "mainPage.Patrons": "Patrons",
   "mainPage.Sponsors": "Sponsors",
 
   "footer.Contact": "Contact",
-  "footer.Copyright": "2023 © Student Association of Obstetrics and Gynecology WUM",
+  "footer.Copyright": "2023-2024 © Weronika Jędrzejczak, Karol Wąsowski",
 
   "sponsor.WUM.Alt": "Logo of the Medical University of Warsaw",
   "sponsor.WUM.Title": "Rector of the Medical University of Warsaw",

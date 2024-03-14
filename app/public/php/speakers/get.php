@@ -12,12 +12,6 @@ http_response_code(200);
 $token = $_SERVER['HTTP_EGGAUTH'];
 $conn = openConnection();
 
-// Validate token
-if (!verifyToken($token, $conn)) {
-  http_response_code(401);
-  die('Unauthorized token: ' . $token);
-}
-
 // Return resources
 $stmt = mysqli_prepare($conn, 'SELECT * FROM Speakers ORDER BY position;');
 mysqli_stmt_execute($stmt);
@@ -34,7 +28,7 @@ while ($resource = mysqli_fetch_assoc($result)) {
   $name = $resource['name'];
   $description_pl = $resource['description_pl'];
   $description_en = $resource['description_en'];
-  $picture = $resource['picture'];
+  $picture = '/resources/' . $resource['picture'];
 
   if ($first) {
     $first = false;

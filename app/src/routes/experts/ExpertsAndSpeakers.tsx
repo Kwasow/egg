@@ -3,7 +3,7 @@ import { Card, CircularProgress, Grid, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SpeakersTab, SpeakersTabs } from '../../utils/MUITheme'
 import './ExpertsAndSpeakers.css'
-import { phpPrefix } from '../../components/Shared'
+import { phpPrefix, resourcesPrefix } from '../../components/Shared'
 
 interface TabPanelProps {
   index: number
@@ -56,10 +56,9 @@ function AvailableSoon() {
 }
 
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
-  const { people, type } = props
+  const { people } = props
   const { t, i18n } = useTranslation()
   const sunshineCount = useRef(0)
-  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
@@ -72,7 +71,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
       <div className='grid-person-container' onClick={onClick}>
         <img
           className='grid-person-image'
-          src={directory + person.picture}
+          src={resourcesPrefix + person.picture}
           alt={t('expertsAndSpeakers.PersonAlt') + person.name}
           loading='lazy'
         />

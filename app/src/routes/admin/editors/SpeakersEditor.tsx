@@ -5,10 +5,7 @@ import {
 } from '../../../utils/useAuthentication'
 import {
   Button,
-  FormControl,
-  MenuItem,
   Select,
-  SelectChangeEvent,
   TextField
 } from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
@@ -56,30 +53,66 @@ function AddSpeakerView() {
       .catch(/* TODO */)
   }, [])
 
-  function handleChange(event: SelectChangeEvent) {
-    console.log(event.target)
-  }
-
   return (
     <>
-      <h1>Dodaj mówcę</h1>
-      <FormControl>
-        <TextField
-          id='speaker-name'
-          label='Imię i nazwisko'
-          variant='outlined'
-        />
-        <TextField id='speaker-subtitle' label='Podtytuł' variant='outlined' />
-
-        <Select
-          label="Zdjęcie"
-          onChange={handleChange}
+      <div>
+        <h1>Dodaj mówcę</h1>
+        <form
+          action={phpPrefix + 'speakers/add.php'}
+          method='POST'
+          encType='multipart/form-data'
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '30%',
+          }}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
+          <TextField
+            variant='outlined'
+            label='Imię i nazwisko'
+            name='name'
+            required
+          />
+
+          <TextField
+            variant='outlined'
+            label='Podtytuł'
+            name='description'
+            required
+          />
+
+          <TextField
+            variant='outlined'
+            label='Pozycja'
+            name='position'
+            type='number'
+            required
+          />
+
+          <Select
+            variant='outlined'
+            label='Zasób'
+            name='picture'
+            required
+          >
+            {resources.map((resource) => (
+              <option
+                key={resource.id}
+                value={resource.id}>
+                ({resource.id}) {resource.name}
+              </option>
+            ))}
+          </Select>
+
+          <input
+            type='hidden'
+            name='token'
+            value={authentication.tokenDetails?.token}
+          />
+
+          <Button type='submit'>Dodaj</Button>
+        </form>
+      </div>
     </>
   )
 }

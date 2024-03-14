@@ -27,32 +27,40 @@ $password = $body_json['password'];
 
 $conn = openConnection();
 
-$query = 'SELECT passwd_hash FROM EggUser WHERE username = $1';
-$result = pg_query_params($conn, $query, [$username]);
+// Get password hash
+$stmt = mysqli_prepare(
+  $conn,
+  'SELECT passwd_hash FROM EggUser WHERE username = ?'
+);
+mysqli_stmt_bind_param($stmt, 's', $username);
+mysqli_stmt_execute($stmt);
 
-if (pg_num_rows($result) != 1) {
-  // 401 - unauthorized
-  http_response_code(401);
+$result = $stmt->get_result();
+$stmt->close();
+
+// Verify password
+if (mysqli_num_rows($result) != 1) {
   echo '{"session_id": ""}';
 } else {
-  $row = pg_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);
   $hash = $row['passwd_hash'];
 
   if (password_verify($password, $hash)) {
     $date = date('Y-m-d H:i:s');
-    $session_id = hash('sha256', random_bytes(128));
+    $session_id = hash('sha256', $username . $date . $password);
 
     // Save session id in database
-    $query = 'INSERT INTO Session VALUES ($1, $2, NOW())';
-    $result = pg_query_params($conn, $query, [$session_id, $username]);
+    $stmt = mysqli_prepare($conn, 'INSERT INTO Session VALUES (?, ?, NOW())');
+    mysqli_stmt_bind_param($stmt, 'ss', $session_id, $username);
+    mysqli_stmt_execute($stmt);
+    $stmt->close();
 
     echo '{"session_id": "' . $session_id . '"}';
   } else {
-    // 401 - unauthorized
-    http_response_code(401);
     echo '{"session_id": ""}';
   }
 }
 
+mysqli_close($conn);
 exit();
 ?>

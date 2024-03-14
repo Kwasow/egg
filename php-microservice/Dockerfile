@@ -7,7 +7,7 @@ WORKDIR /usr/local/apache2/htdocs/resources
 WORKDIR /usr/local/apache2/htdocs/
 
 # Install missing packages
-RUN apt update && apt install -y php8.2 php8.2-pgsql libapache2-mod-php8.2
+RUN apt update && apt install -y php8.2 php8.2-mysql libapache2-mod-php8.2
 RUN a2enmod php8.2
 
 # Setup resources

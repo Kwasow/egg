@@ -13,11 +13,7 @@ $token = $_POST['token'];
 $conn = openConnection();
 
 // Validate token
-if (verifyToken($token, $conn)) {
-  // Update last used
-  $query = 'UPDATE Session SET last_used = NOW() WHERE session_id = $1';
-  $result = pg_query_params($conn, $query, [$token]);
-} else {
+if (!verifyToken($token, $conn)) {
   // 401 - unauthorized
   http_response_code(401);
   die('Unauthorized token');
@@ -35,9 +31,15 @@ $name = $_POST['name'];
 $path = '/resources/';
 $original_file_name = $_FILES['file']['name'];
 
-$query =
-  'INSERT INTO Resources(name, original_file_name, file_path) VALUES ($1, $2, $3) RETURNING ID';
-$result = pg_query_params($conn, $query, [$name, $original_file_name, $path]);
+$stmt = mysqli_prepare(
+  $conn,
+  'INSERT INTO Resources(name, original_file_name, file_path) VALUES (?, ?, ?);'
+);
+mysqli_stmt_bind_param($stmt, 'sss', $name, $original_file_name, $path);
+mysqli_stmt_execute($stmt);
+
+$result = $stmt->get_result();
+$stmt->close();
 
 if (!$result) {
   // 500 - server error
@@ -47,10 +49,9 @@ if (!$result) {
       $_SERVER['HTTP_REFERER'] .
       'admin/resources?add_success=false'
   );
-  die('Failed to save resource to database: ' . pg_last_error());
 }
 
-$id = pg_fetch_assoc($result)['id'];
+$id = mysqli_insert_id($conn);
 $full_path = __DIR__ . '/../..' . $path . $id;
 
 if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
@@ -58,8 +59,12 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
     'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/resources?add_success=true'
   );
 } else {
-  $query = 'DELETE FROM Resources WHERE id = $1';
-  $result = pg_query_params($conn, $query, [$id]);
+  $stmt = mysqli_prepare($conn, 'DELETE FROM Resources WHERE id = ?');
+  mysqli_stmt_bind_param($stmt, 'i', $id);
+  mysqli_stmt_execute($stmt);
+  
+  $result = $stmt->get_result();
+  $stmt->close();
 
   // 500 - server error
   http_response_code(500);
@@ -68,6 +73,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
       $_SERVER['HTTP_REFERER'] .
       'admin/resources?add_success=false'
   );
+
   die('Failed to save resource');
 }
 

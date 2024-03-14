@@ -22,14 +22,12 @@ $token = $body_json['token'];
 $conn = openConnection();
 
 // Delete the given token
-$query = 'DELETE FROM Session WHERE session_id = $1';
-$result = pg_query_params($conn, $query, [$token]);
+$stmt = mysqli_prepare($conn, 'DELETE FROM Session WHERE session_id = ?');
+mysqli_stmt_bind_param($stmt, 's', $token);
+mysqli_stmt_execute($stmt);
 
-if (!$result) {
-  // 500 - server error
-  http_response_code(500);
-  die('Could not delete session: ' . pg_last_error());
-}
+$result = $stmt->get_result();
+$stmt->close();
 
 exit();
 ?>

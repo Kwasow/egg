@@ -14,32 +14,32 @@ $id = $_GET['id'];
 $conn = openConnection();
 
 // Validate token
-if (verifyToken($token, $conn)) {
-  // Update last used
-  $query = 'UPDATE Session SET last_used = NOW() WHERE session_id = $1';
-  $result = pg_query_params($conn, $query, [$token]);
-} else {
+if (!verifyToken($token, $conn)) {
   // 401 - unauthorized
   http_response_code(401);
+
   die('Unauthorized token');
 }
 
 // Delete resource
-$name = $_POST['name'];
-$path = '/resources/';
-$original_file_name = $_FILES['file']['name'];
+$stmt = mysqli_prepare($conn, 'DELETE FROM Resources WHERE id = ?;');
+mysqli_stmt_bind_param($stmt, 'i', $id);
+mysqli_stmt_execute($stmt);
 
-$query = 'DELETE FROM Resources WHERE id = $1 RETURNING file_path';
-$result = pg_query_params($conn, $query, [$id]);
+$result = $stmt->get_result();
 
-if (!$result) {
+if (mysqli_stmt_affected_rows($stmt) != 1) {
   // 500 - server error
   http_response_code(500);
-  die('Failed to delete resource from database: ' . pg_last_error());
+
+  $stmt->close();
+  die('Failed to delete resource from database: ' . mysqli_error($conn));
 }
 
-$file_path = pg_fetch_assoc($result)['file_path'];
-$full_path = __DIR__ . '/..' . $path . $id;
+$stmt->close();
+
+$path = '/resources/';
+$full_path = __DIR__ . '/../..' . $path . $id;
 
 unlink($full_path);
 

@@ -19,14 +19,16 @@ if (!verifyToken($token, $conn)) {
 }
 
 // Return resources
-$query = 'SELECT * FROM Resources';
-$result = pg_query_params($conn, $query, []);
-$data = pg_fetch_all($result);
+$stmt = mysqli_prepare($conn, 'SELECT * FROM Resources');
+mysqli_stmt_execute($stmt);
+
+$result = $stmt->get_result();
+$stmt->close();
 
 $first = true;
 
 echo '[';
-foreach ($data as $resource) {
+while ($resource = mysqli_fetch_assoc($result)) {
   $id = $resource['id'];
   $name = $resource['name'];
   $original_file_name = $resource['original_file_name'];

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, Grid, Paper } from '@mui/material'
+import { Button, Card, Grid, Paper, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { Countdown } from './components/Countdown'
 import { Slideshow, Slide } from './components/Slideshow'
@@ -18,17 +18,17 @@ import { NewsDialog } from '../../components/Dialogs'
 const slides: Slide[] = [
   {
     image: process.env.PUBLIC_URL + '/static/images/main0.webp',
-    title_pl: 'IV Edycja - Sekrety onkologii',
+    title_pl: 'V Edycja',
     subtitle_pl: 'Kliknij by zobaczyć program wykładów i warsztatów',
-    title_en: 'Secrets of oncology',
+    title_en: '5th edition',
     subtitle_en: 'Click to view the conference program',
     link: '/speakers',
   },
   {
     image: process.env.PUBLIC_URL + '/static/images/main1.webp',
-    title_pl: 'Lista mówców już dostępna!',
+    title_pl: 'Lista mówców dostępna wkrótce!',
     subtitle_pl: 'Kliknij by dowiedzieć się więcej...',
-    title_en: 'Speakers list is now available!',
+    title_en: 'Speakers list will be available soon!',
     subtitle_en: 'Press to learn more...',
     link: '/speakers',
   },
@@ -264,6 +264,7 @@ function NewsTile(props: {
 }) {
   const { news, registration, onClick } = props
   const { i18n } = useTranslation()
+  const theme = useTheme()
 
   return (
     <NewsCard
@@ -275,7 +276,9 @@ function NewsTile(props: {
       <div
         className='news'
         style={{
-          backgroundColor: registration ? '#c53d63' : '#e8e8e8',
+          backgroundColor: registration
+            ? theme.palette.primary.main
+            : '#e8e8e8',
         }}
       >
         <div>
@@ -378,13 +381,12 @@ function NewsSection() {
 
 function About() {
   const { t } = useTranslation()
+  const theme = useTheme()
+  const color = theme.palette.primary.main
 
   return (
     <div className='main-about-wrapper'>
-      <Card
-        className='main-about-card'
-        sx={{ backgroundColor: 'rgb(197, 61, 99)' }}
-      >
+      <Card className='main-about-card' sx={{ backgroundColor: color }}>
         <div className='main-about-card-content-wrapper'>
           <div>
             <p className='main-about-card-title' style={{ color: 'white' }}>
@@ -396,10 +398,7 @@ function About() {
           </div>
         </div>
       </Card>
-      <Card
-        className='main-about-card'
-        sx={{ backgroundColor: 'rgba(197, 61, 99, 0.15)' }}
-      >
+      <Card className='main-about-card' sx={{ backgroundColor: '#e8e8e8' }}>
         <div className='main-about-card-content-wrapper'>
           <div>
             <p className='main-about-card-title'>
@@ -435,7 +434,7 @@ function HomePage() {
   return (
     <>
       <Slideshow slides={slides} />
-      <Countdown date={new Date('2023-04-14T16:00:00+02:00')} />
+      <Countdown date={new Date('2024-05-19T08:00:00+02:00')} />
       <NewsSection />
       <About />
       <Sponsors />

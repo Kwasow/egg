@@ -12,6 +12,7 @@ import {
   ListItemText,
   Button,
   Divider,
+  useTheme,
 } from '@mui/material'
 import { ThemeProvider } from '@mui/system'
 import {
@@ -85,6 +86,8 @@ export function EggDrawer(props: {
   const navigate = useNavigate()
   const { drawerOpen, setDrawerOpen, setDialogOpen } = props
   const { t } = useTranslation()
+  const theme = useTheme()
+  const color = theme.palette.primary.main
 
   return (
     <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
@@ -107,22 +110,12 @@ export function EggDrawer(props: {
               }}
               sx={{
                 backgroundColor: value.link.includes(window.location.pathname)
-                  ? 'rgba(197, 61, 99, 0.15)'
+                  ? '#ffe6ee'
                   : 'white',
               }}
             >
-              <ListItemIcon
-                sx={{
-                  color: '#c53d63',
-                }}
-              >
-                {value.icon}
-              </ListItemIcon>
-              <ListItemText
-                sx={{
-                  color: '#c53d63',
-                }}
-              >
+              <ListItemIcon sx={{ color }}>{value.icon}</ListItemIcon>
+              <ListItemText sx={{ color }}>
                 {(t(value.translationString) || '').toUpperCase()}
               </ListItemText>
             </ListItemButton>

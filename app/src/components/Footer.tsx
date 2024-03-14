@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next'
 
 import './Footer.css'
 import { FacebookIconLink, InstagramIconLink } from './Shared'
+import { useTheme } from '@mui/material'
 
 function Footer() {
   const { t } = useTranslation()
   const [smallScreen, setSmallScreen] = useState(false)
+  const theme = useTheme()
+  const color = theme.palette.primary.main
 
   function updateScreenSize() {
     if (window.innerWidth < 1100) {
@@ -19,7 +22,7 @@ function Footer() {
   useEffect(updateScreenSize, [])
 
   return (
-    <footer>
+    <footer style={{ backgroundColor: color }}>
       <div className='footer-container'>
         <div className='footer-top'>
           <p className='conference-title'>{t('navbar.Title.Line1')}</p>

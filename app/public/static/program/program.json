@@ -74,6 +74,66 @@
           "location_pl": "Aula A",
           "location_en": "Lecture hall A",
           "type": "highlight"
+        },
+        {
+          "title_pl": "Sesja II - Nowotwory w ciąży",
+          "title_en": "Session II - Tumors in pregnancy",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "",
+          "end": "",
+          "location_pl": "",
+          "location_en": "",
+          "type": "session"
+        },
+        {
+          "title_pl": "Sesja III - Ciekawe przypadki z oddziału patologii ciąży",
+          "title_en": "Session III - Interesting cases from the pregnancy pathology department",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "",
+          "end": "",
+          "location_pl": "",
+          "location_en": "",
+          "type": "session"
+        },
+        {
+          "title_pl": "Sesja IV - Nowotwory onkologiczne",
+          "title_en": "Session IV - Oncological tumors",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "",
+          "end": "",
+          "location_pl": "",
+          "location_en": "",
+          "type": "session"
+        },
+        {
+          "title_pl": "Sesja V - Ginekologia",
+          "title_en": "Session V - Gynecology",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "",
+          "end": "",
+          "location_pl": "",
+          "location_en": "",
+          "type": "session"
+        },
+        {
+          "title_pl": "Sesja VI - Endometrioza i niepołodność",
+          "title_en": "Session VI - Endometriosis and infertility",
+          "about_pl": "",
+          "about_en": "",
+          "speaker": "",
+          "start": "",
+          "end": "",
+          "location_pl": "",
+          "location_en": "",
+          "type": "session"
         }
       ],
       "classes_start": "",

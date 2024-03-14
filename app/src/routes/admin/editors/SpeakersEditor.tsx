@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { LoginProtected, useAuthentication } from '../../../utils/useAuthentication'
-import { Box, Button, TextField } from '@mui/material'
+import {
+  LoginProtected,
+  useAuthentication
+} from '../../../utils/useAuthentication'
+import {
+  Button,
+  FormControl,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+  TextField
+} from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
 import { useNavigate } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
-import { FormControl, Select } from '@mui/base'
+import { phpPrefix } from '../../../components/Shared'
+import { Resource } from './ResourceEditor'
 
 export default function SpeakersEditor() {
   const dispatch = useAppDispatch()
@@ -29,6 +40,7 @@ export default function SpeakersEditor() {
 }
 
 function AddSpeakerView() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [resources, setResources] = useState(Array<Resource>())
   const authentication = useAuthentication()
 
@@ -43,6 +55,10 @@ function AddSpeakerView() {
       .then((res) => setResources(res))
       .catch(/* TODO */)
   }, [])
+
+  function handleChange(event: SelectChangeEvent) {
+    console.log(event.target)
+  }
 
   return (
     <>

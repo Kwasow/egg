@@ -81,6 +81,13 @@ function AddResource() {
   )
 }
 
+export interface Resource {
+  id: number
+  name: string
+  originalFileName: string
+  path: string
+}
+
 function deleteResource(id: number, authentication: TokenControl) {
   const headers = new Headers()
   headers.append('EggAuth', authentication.tokenDetails?.token || '')
@@ -91,7 +98,7 @@ function deleteResource(id: number, authentication: TokenControl) {
 }
 
 function EditResources() {
-  const [resources, setResources] = useState(Array<ResourceJSON>())
+  const [resources, setResources] = useState(Array<Resource>())
   const authentication = useAuthentication()
 
   useEffect(() => {

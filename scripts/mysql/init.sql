@@ -26,8 +26,7 @@ CREATE TABLE Speakers (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   position Integer,
   name Text,
-  description_pl Text,
-  description_en Text,
+  description Text,
   picture INT,
   FOREIGN KEY (picture) REFERENCES Resources(id)
 );
@@ -36,18 +35,15 @@ CREATE TABLE Experts (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   position Integer,
   name Text,
-  description_pl Text,
-  description_en Text,
+  description Text,
   picture INT,
   FOREIGN KEY (picture) REFERENCES Resources(id)
 );
 
 CREATE TABLE News (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  title_pl TEXT,
-  title_en TEXT,
-  text_pl TEXT,
-  text_en TEXT,
+  title TEXT,
+  body TEXT,
   published_date TEXT,
   picture INT,
   FOREIGN KEY (picture) REFERENCES Resources(id)

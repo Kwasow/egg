@@ -24,7 +24,7 @@ interface PeopleJSON {
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   const jsonURL =
-    phpPrefix + (type === 'speakers' ? 'getSpeakers.php' : 'getExperts.php')
+    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'getExperts.php')
 
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })

@@ -26,8 +26,7 @@ while ($resource = mysqli_fetch_assoc($result)) {
   $id = $resource['id'];
   $position = $resource['position'];
   $name = $resource['name'];
-  $description_pl = $resource['description_pl'];
-  $description_en = $resource['description_en'];
+  $description = $resource['description'];
   $picture = '/resources/' . $resource['picture'];
 
   if ($first) {
@@ -40,8 +39,7 @@ while ($resource = mysqli_fetch_assoc($result)) {
   echo '"id": ' . $id . ',';
   echo '"position": ' . $position . ',';
   echo '"name": "' . $name . '",';
-  echo '"description_pl": "' . $description_pl . '",';
-  echo '"description_en": "' . $description_en . '",';
+  echo '"description": ["' . $description . '"],';
   echo '"picture": "' . $picture . '"';
   echo '}';
 }

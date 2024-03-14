@@ -10,15 +10,15 @@ interface TabPanelProps {
   value: number
 }
 
-interface PersonJSON {
+export interface PersonJSON {
+  id: number,
   position: number
   name: string
-  description_pl: string[]
-  description_en: string[]
+  description: string[]
   picture: string
 }
 
-interface PeopleJSON {
+export interface PeopleJSON {
   list: PersonJSON[]
 }
 
@@ -57,7 +57,7 @@ function AvailableSoon() {
 
 function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   const { people } = props
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const sunshineCount = useRef(0)
 
   if (people.length === 0) {
@@ -76,11 +76,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
           loading='lazy'
         />
         <p className='grid-person-title'>{person.name}</p>
-        <p className='grid-person-subtitle'>
-          {i18n.language == 'pl'
-            ? person.description_pl
-            : person.description_en}
-        </p>
+        <p className='grid-person-subtitle'>{person.description[0]}</p>
       </div>
     )
   }
@@ -118,7 +114,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
 
 function PeopleListView(props: { people: PersonJSON[]; type: string }) {
   const { people, type } = props
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
@@ -154,11 +150,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
           <div>
             <p className='people-name'>{person.name}</p>
             <p className='people-description'>
-              {i18n.language == 'pl' ? (
-                <Description paragraphs={person.description_pl} />
-              ) : (
-                <Description paragraphs={person.description_en} />
-              )}
+              <Description paragraphs={person.description} />
             </p>
           </div>
         </div>

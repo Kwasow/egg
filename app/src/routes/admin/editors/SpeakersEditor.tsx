@@ -11,8 +11,9 @@ import {
 import { useAppDispatch } from '../../../utils/redux/hooks'
 import { useNavigate } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
-import { phpPrefix } from '../../../components/Shared'
+import { phpPrefix, resourcesPrefix } from '../../../components/Shared'
 import { Resource } from './ResourceEditor'
+import { PersonJSON } from '../../experts/ExpertsAndSpeakers'
 
 export default function SpeakersEditor() {
   const dispatch = useAppDispatch()
@@ -31,7 +32,7 @@ export default function SpeakersEditor() {
       </Button>
 
       <AddSpeakerView />
-      <h1>Edytuj kolejność</h1>
+      <EditSpeakersView />
     </LoginProtected>
   )
 }
@@ -114,5 +115,79 @@ function AddSpeakerView() {
         </form>
       </div>
     </>
+  )
+}
+
+function EditSpeakersView() {
+  const [speakers, setSpeakers] = useState<PersonJSON[]>([])
+  const authentication = useAuthentication()
+
+  useEffect(() => {
+    const headers = new Headers()
+    headers.append('EggAuth', authentication.tokenDetails?.token || '')
+
+    fetch(phpPrefix + 'speakers/get.php', {
+      headers: headers,
+    })
+      .then((res) => res.json())
+      .then((res) => setSpeakers(res.list))
+      .catch(/* TODO */)
+  }, [])
+
+  function deleteSpeaker(id: number) {
+    const headers = new Headers()
+    headers.append('EggAuth', authentication.tokenDetails?.token || '')
+
+    fetch(phpPrefix + 'speakers/delete.php?id=' + id, {
+      headers: headers,
+    }).then((_) => window.location.reload())
+  }
+
+  function showPicture(picture: string) {
+    window.open(resourcesPrefix + picture, '_blank')
+  }
+
+  return (
+    <div>
+      <h1>Mówcy</h1>
+      {speakers.length === 0 ? (
+        <p>Lista mówców jest pusta</p>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Pozycja</th>
+              <th>Imię i naziwsko</th>
+              <th>Opis</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            {speakers.map(value => {
+              return (
+                <tr key={value.id}>
+                  <td>{value.position}</td>
+                  <td>{value.name}</td>
+                  <td>{value.description[0]}</td>
+                  <td>
+                    <Button
+                      onClick={() => deleteSpeaker(value.id)}
+                    >
+                      Usuń
+                    </Button>
+
+                    <Button
+                      onClick={() => showPicture(value.picture)}
+                    >
+                      Zdjęcie
+                    </Button>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      )}
+    </div>
   )
 }

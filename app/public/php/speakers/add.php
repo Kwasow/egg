@@ -21,14 +21,16 @@ if (!verifyToken($token, $conn)) {
 
 // Validate form details
 if (
-    !isset($_POST['name'])  or
-    !isset($_POST['description']) or
-    !isset($_POST['picture']) or
-    !isset($_POST['position'])
+  !isset($_POST['name']) or
+  !isset($_POST['description']) or
+  !isset($_POST['picture']) or
+  !isset($_POST['position'])
 ) {
   // 400 - bad request
   http_response_code(400);
-  die('Request required "name", "description", "picture" and "position" arguments');
+  die(
+    'Request required "name", "description", "picture" and "position" arguments'
+  );
 }
 
 // Save resource
@@ -51,15 +53,11 @@ if (!$result) {
   // 500 - server error
   http_response_code(500);
   header(
-    'Location: ' .
-      $_SERVER['HTTP_REFERER'] .
-      'admin/speakers?add_success=false'
+    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/speakers?add_success=false'
   );
 } else {
   header(
-    'Location: ' .
-      $_SERVER['HTTP_REFERER'] .
-      'admin/speakers?add_success=true'
+    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/speakers?add_success=true'
   );
 }
 

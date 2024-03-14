@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {
   LoginProtected,
-  useAuthentication
+  useAuthentication,
 } from '../../../utils/useAuthentication'
-import {
-  Button,
-  Select,
-  TextField
-} from '@mui/material'
+import { Button, Select, TextField } from '@mui/material'
 import { useAppDispatch } from '../../../utils/redux/hooks'
 import { useNavigate } from 'react-router-dom'
 import { setRoute } from '../../../components/navigation/redux/slice'
@@ -90,16 +86,9 @@ function AddSpeakerView() {
             required
           />
 
-          <Select
-            variant='outlined'
-            label='Zasób'
-            name='picture'
-            required
-          >
+          <Select variant='outlined' label='Zasób' name='picture' required>
             {resources.map((resource) => (
-              <option
-                key={resource.id}
-                value={resource.id}>
+              <option key={resource.id} value={resource.id}>
                 ({resource.id}) {resource.name}
               </option>
             ))}
@@ -163,22 +152,18 @@ function EditSpeakersView() {
             </tr>
           </thead>
           <tbody>
-            {speakers.map(value => {
+            {speakers.map((value) => {
               return (
                 <tr key={value.id}>
                   <td>{value.position}</td>
                   <td>{value.name}</td>
                   <td>{value.description[0]}</td>
                   <td>
-                    <Button
-                      onClick={() => deleteSpeaker(value.id)}
-                    >
+                    <Button onClick={() => deleteSpeaker(value.id)}>
                       Usuń
                     </Button>
 
-                    <Button
-                      onClick={() => showPicture(value.picture)}
-                    >
+                    <Button onClick={() => showPicture(value.picture)}>
                       Zdjęcie
                     </Button>
                   </td>

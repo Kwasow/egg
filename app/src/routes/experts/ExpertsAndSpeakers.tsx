@@ -11,7 +11,7 @@ interface TabPanelProps {
 }
 
 export interface PersonJSON {
-  id: number,
+  id: number
   position: number
   name: string
   description: string[]

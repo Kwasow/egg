@@ -62,7 +62,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $full_path)) {
   $stmt = mysqli_prepare($conn, 'DELETE FROM Resources WHERE id = ?');
   mysqli_stmt_bind_param($stmt, 'i', $id);
   mysqli_stmt_execute($stmt);
-  
+
   $result = $stmt->get_result();
   $stmt->close();
 

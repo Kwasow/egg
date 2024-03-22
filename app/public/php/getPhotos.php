@@ -6,7 +6,7 @@ header('Cache-control: no-cache, no-store');
 // 200 - ok
 http_response_code(200);
 
-$folder = '../../static/gallery';
+$folder = '../static/gallery';
 
 $dirs_arr = scandir($folder);
 $dirs_arr = array_diff($dirs_arr, ['.', '..']);

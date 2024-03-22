@@ -13,6 +13,8 @@ export const conferenceRegistrationLink = 'https://forms.gle/bBwm7pgEkJ4mibCU6'
 export const competitionRegistrationLink = 'https://forms.gle/KRGaGmi4o6Ud8Tmt9'
 export const rulesLink = '/static/documents/regulamin.pdf'
 
+// TODO: Move all types from this file and the entire project to a types.ts file
+
 export interface News {
   title_pl: string
   title_en: string

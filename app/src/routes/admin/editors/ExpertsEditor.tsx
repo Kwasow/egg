@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   LoginProtected,
   useAuthentication,
@@ -10,6 +10,8 @@ import { setRoute } from '../../../components/navigation/redux/slice'
 import { phpPrefix, resourcesPrefix } from '../../../components/Shared'
 import { Resource } from './ResourceEditor'
 import { PersonJSON } from '../../experts/ExpertsAndSpeakers'
+import { Editor } from '@tinymce/tinymce-react'
+import { Editor as TinyMCEEditor } from 'tinymce'
 
 export default function ExpertsEditor() {
   const dispatch = useAppDispatch()
@@ -27,16 +29,17 @@ export default function ExpertsEditor() {
         Panel główny
       </Button>
 
-      <AddSpeakerView />
-      <EditSpeakersView />
+      <AddExpertView />
+      <EditExpertsView />
     </LoginProtected>
   )
 }
 
-function AddSpeakerView() {
+function AddExpertView() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [resources, setResources] = useState(Array<Resource>())
   const authentication = useAuthentication()
+  const editorRef = useRef<TinyMCEEditor | null>(null)
 
   useEffect(() => {
     const headers = new Headers()
@@ -55,7 +58,7 @@ function AddSpeakerView() {
       <div>
         <h1>Dodaj eksperta</h1>
         <form
-          action={phpPrefix + 'speakers/add.php'}
+          action={phpPrefix + 'experts/add.php'}
           method='POST'
           encType='multipart/form-data'
           style={{
@@ -87,6 +90,24 @@ function AddSpeakerView() {
             ))}
           </Select>
 
+          <Editor
+            id='description'
+            apiKey='kkvcdf3j0mz4l7uzakhifu4q0ofay836xha0zizu9dhnomb7'
+            onInit={(_, editor) => editorRef.current = editor}
+            init={{
+              plugins: 'lists export',
+              toolbar: 'undo redo | bold italic underline strikethrough | \
+                numlist bullist indent outdent | removeformat'
+            }}
+            initialValue="Opis"
+          />
+
+          <input
+            type='hidden'
+            name='description'
+            value={editorRef.current?.getContent()}
+          />
+
           <input
             type='hidden'
             name='token'
@@ -100,7 +121,7 @@ function AddSpeakerView() {
   )
 }
 
-function EditSpeakersView() {
+function EditExpertsView() {
   const [speakers, setSpeakers] = useState<PersonJSON[]>([])
   const authentication = useAuthentication()
 
@@ -108,7 +129,7 @@ function EditSpeakersView() {
     const headers = new Headers()
     headers.append('EggAuth', authentication.tokenDetails?.token || '')
 
-    fetch(phpPrefix + 'speakers/get.php', {
+    fetch(phpPrefix + 'experts/get.php', {
       headers: headers,
     })
       .then((res) => res.json())
@@ -120,7 +141,7 @@ function EditSpeakersView() {
     const headers = new Headers()
     headers.append('EggAuth', authentication.tokenDetails?.token || '')
 
-    fetch(phpPrefix + 'speakers/delete.php?id=' + id, {
+    fetch(phpPrefix + 'experts/delete.php?id=' + id, {
       headers: headers,
     }).then((_) => window.location.reload())
   }

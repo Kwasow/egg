@@ -14,7 +14,7 @@ export interface PersonJSON {
   id: number
   position: number
   name: string
-  description: string[]
+  description: string
   picture: string
 }
 
@@ -24,7 +24,7 @@ export interface PeopleJSON {
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   const jsonURL =
-    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'getExperts.php')
+    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'experts/get.php')
 
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
@@ -76,7 +76,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
           loading='lazy'
         />
         <p className='grid-person-title'>{person.name}</p>
-        <p className='grid-person-subtitle'>{person.description[0]}</p>
+        <p className='grid-person-subtitle'>{person.description}</p>
       </div>
     )
   }
@@ -121,20 +121,6 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
     return <AvailableSoon />
   }
 
-  function Description(props: { paragraphs: string[] }) {
-    const { paragraphs } = props
-
-    return (
-      <>
-        {paragraphs.map((paragraph, index) => {
-          return (
-            <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
-          )
-        })}
-      </>
-    )
-  }
-
   function Person(props: { person: PersonJSON }) {
     const { person } = props
 
@@ -150,7 +136,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
           <div>
             <p className='people-name'>{person.name}</p>
             <p className='people-description'>
-              <Description paragraphs={person.description} />
+              {person.description}
             </p>
           </div>
         </div>

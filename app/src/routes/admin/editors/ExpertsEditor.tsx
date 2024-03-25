@@ -73,13 +73,6 @@ function AddSpeakerView() {
 
           <TextField
             variant='outlined'
-            label='Podtytuł'
-            name='description'
-            required
-          />
-
-          <TextField
-            variant='outlined'
             label='Pozycja'
             name='position'
             type='number'

@@ -39,7 +39,7 @@ while ($resource = mysqli_fetch_assoc($result)) {
   echo '"id": ' . $id . ',';
   echo '"position": ' . $position . ',';
   echo '"name": "' . $name . '",';
-  echo '"description": ["' . $description . '"],';
+  echo '"description": "' . $description . '",';
   echo '"picture": "' . $picture . '"';
   echo '}';
 }

@@ -27,7 +27,7 @@ export default function AdminHome() {
       <SettingsList>
         <SettingsItem name='Aktualności' route='' />
         <SettingsItem name='Strona główna' route='' />
-        <SettingsItem name='Eksperci' route='' />
+        <SettingsItem name='Eksperci' route='experts' />
         <SettingsItem name='Mówcy' route='speakers' />
         <SettingsItem name='Sponsorzy' route='' />
         <SettingsItem name='Program' route='' />

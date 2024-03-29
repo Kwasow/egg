@@ -14,7 +14,7 @@ export interface PersonJSON {
   id: number
   position: number
   name: string
-  description: string[]
+  description: string
   picture: string
 }
 
@@ -24,7 +24,7 @@ export interface PeopleJSON {
 
 async function getPeopleSorted(type: string): Promise<PersonJSON[]> {
   const jsonURL =
-    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'getExperts.php')
+    phpPrefix + (type === 'speakers' ? 'speakers/get.php' : 'experts/get.php')
 
   return new Promise((resolve, reject) => {
     fetch(jsonURL, { cache: 'no-store' })
@@ -55,7 +55,7 @@ function AvailableSoon() {
   )
 }
 
-function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
+function PeopleGridView(props: { people: PersonJSON[] }) {
   const { people } = props
   const { t } = useTranslation()
   const sunshineCount = useRef(0)
@@ -76,7 +76,7 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
           loading='lazy'
         />
         <p className='grid-person-title'>{person.name}</p>
-        <p className='grid-person-subtitle'>{person.description[0]}</p>
+        <p className='grid-person-subtitle'>{person.description}</p>
       </div>
     )
   }
@@ -112,27 +112,12 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   )
 }
 
-function PeopleListView(props: { people: PersonJSON[]; type: string }) {
-  const { people, type } = props
+function PeopleListView(props: { people: PersonJSON[] }) {
+  const { people } = props
   const { t } = useTranslation()
-  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
-  }
-
-  function Description(props: { paragraphs: string[] }) {
-    const { paragraphs } = props
-
-    return (
-      <>
-        {paragraphs.map((paragraph, index) => {
-          return (
-            <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
-          )
-        })}
-      </>
-    )
   }
 
   function Person(props: { person: PersonJSON }) {
@@ -144,14 +129,15 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
           <img
             className='people-image'
             alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-            src={directory + person.picture}
+            src={resourcesPrefix + person.picture}
             loading='lazy'
           />
           <div>
             <p className='people-name'>{person.name}</p>
-            <p className='people-description'>
-              <Description paragraphs={person.description} />
-            </p>
+            <p
+              className='people-description'
+              dangerouslySetInnerHTML={{ __html: person.description }}
+            />
           </div>
         </div>
       </div>
@@ -196,7 +182,7 @@ function Experts(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} type={type} />
+      return <PeopleListView people={people} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -256,7 +242,7 @@ function Speakers(props: TabPanelProps) {
             </div>
             <img className='about-us-image' src='/static/images/us.webp' />
           </Card>
-          <PeopleGridView people={people} type={type} />
+          <PeopleGridView people={people} />
         </>
       )
     } else if (loaded == 2) {

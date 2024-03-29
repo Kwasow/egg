@@ -34,7 +34,6 @@ export default function SpeakersEditor() {
 }
 
 function AddSpeakerView() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [resources, setResources] = useState(Array<Resource>())
   const authentication = useAuthentication()
 

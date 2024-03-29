@@ -2,6 +2,7 @@ build/
 node_modules/
 public/locales/
 public/static/
+public/tinymce/
 package.json
 tsconfig.json
 yarn-error.log

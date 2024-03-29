@@ -222,6 +222,7 @@ export function LoginProtected(
 
   useEffect(() => {
     if (!authentication.tokenDetails) {
+      authentication.clearToken()
       navigate('/login')
       return
     }

@@ -12,6 +12,13 @@ import { Resource } from './ResourceEditor'
 import { PersonJSON } from '../../experts/ExpertsAndSpeakers'
 import tinymce from 'tinymce/tinymce'
 
+function addslashes(str: string): string {
+  return str
+    .replaceAll('\\', '\\\\')
+    .replaceAll('"', '\\"')
+    .replaceAll('\n', '')
+}
+
 export default function ExpertsEditor() {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -35,7 +42,6 @@ export default function ExpertsEditor() {
 }
 
 function AddExpertView() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [resources, setResources] = useState(Array<Resource>())
   const [description, setDescription] = useState('')
   const authentication = useAuthentication()
@@ -58,11 +64,12 @@ function AddExpertView() {
         numlist bullist indent outdent | removeformat',
       promotion: false,
       menubar: false,
-      setup: (editor) => editor.on('init', () => {
-        editor.on('change', () => {
-          editor.save()
-        })
-      }),
+      setup: (editor) => {
+        editor.on(
+          'KeyDown KeyUp Paste Cut Undo Redo SetContent Remove Redo NodeChange',
+          () => setDescription(addslashes(editor.getContent()))
+        )
+      }
     })
   }, [])
 
@@ -103,10 +110,7 @@ function AddExpertView() {
             ))}
           </Select>
 
-          <textarea
-            id='tinymce_description'
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder='Opis'/>
+          <textarea id='tinymce_description' placeholder='Opis'/>
 
           <input
             type='hidden'
@@ -176,7 +180,7 @@ function EditExpertsView() {
                 <tr key={value.id}>
                   <td>{value.position}</td>
                   <td>{value.name}</td>
-                  <td>{value.description[0]}</td>
+                  <td dangerouslySetInnerHTML={{__html: value.description}}/>
                   <td>
                     <Button onClick={() => deleteSpeaker(value.id)}>
                       Usuń

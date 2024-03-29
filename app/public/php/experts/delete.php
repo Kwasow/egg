@@ -22,7 +22,7 @@ if (!verifyToken($token, $conn)) {
 }
 
 // Delete resource
-$stmt = mysqli_prepare($conn, 'DELETE FROM Speakers WHERE id = ?;');
+$stmt = mysqli_prepare($conn, 'DELETE FROM Experts WHERE id = ?;');
 mysqli_stmt_bind_param($stmt, 'i', $id);
 mysqli_stmt_execute($stmt);
 

@@ -19,6 +19,6 @@ jobs:
       - uses: sibiraj-s/action-eslint@v2
         with:
           root-dir: app/
-          eslint-args: '--ignore-path=app/.gitignore --quiet'
+          eslint-args: '--ignore-path=app/.gitignore --ignore-path=app/public/static/tinymce --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true

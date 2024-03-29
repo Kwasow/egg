@@ -136,7 +136,8 @@ function PeopleListView(props: { people: PersonJSON[] }) {
             <p className='people-name'>{person.name}</p>
             <p
               className='people-description'
-              dangerouslySetInnerHTML={{__html: person.description}}/>
+              dangerouslySetInnerHTML={{ __html: person.description }}
+            />
           </div>
         </div>
       </div>

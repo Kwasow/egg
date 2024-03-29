@@ -56,20 +56,21 @@ function AddExpertView() {
       .then((res) => res.json())
       .then((res) => setResources(res))
       .catch(/* TODO */)
-    
+
     tinymce.init({
       selector: 'textarea#tinymce_description',
       plugins: 'lists',
-      toolbar: 'undo redo | bold italic underline strikethrough | \
+      toolbar:
+        'undo redo | bold italic underline strikethrough | \
         numlist bullist indent outdent | removeformat',
       promotion: false,
       menubar: false,
       setup: (editor) => {
         editor.on(
           'KeyDown KeyUp Paste Cut Undo Redo SetContent Remove Redo NodeChange',
-          () => setDescription(addslashes(editor.getContent()))
+          () => setDescription(addslashes(editor.getContent())),
         )
-      }
+      },
     })
   }, [])
 
@@ -110,12 +111,9 @@ function AddExpertView() {
             ))}
           </Select>
 
-          <textarea id='tinymce_description' placeholder='Opis'/>
+          <textarea id='tinymce_description' placeholder='Opis' />
 
-          <input
-            type='hidden'
-            name='description'
-            value={description}/>
+          <input type='hidden' name='description' value={description} />
 
           <input
             type='hidden'
@@ -180,7 +178,7 @@ function EditExpertsView() {
                 <tr key={value.id}>
                   <td>{value.position}</td>
                   <td>{value.name}</td>
-                  <td dangerouslySetInnerHTML={{__html: value.description}}/>
+                  <td dangerouslySetInnerHTML={{ __html: value.description }} />
                   <td>
                     <Button onClick={() => deleteSpeaker(value.id)}>
                       Usuń

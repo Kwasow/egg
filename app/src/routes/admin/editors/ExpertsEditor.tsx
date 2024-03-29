@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   LoginProtected,
   useAuthentication,
@@ -10,8 +10,7 @@ import { setRoute } from '../../../components/navigation/redux/slice'
 import { phpPrefix, resourcesPrefix } from '../../../components/Shared'
 import { Resource } from './ResourceEditor'
 import { PersonJSON } from '../../experts/ExpertsAndSpeakers'
-import { Editor } from '@tinymce/tinymce-react'
-import { Editor as TinyMCEEditor } from 'tinymce'
+import tinymce from 'tinymce/tinymce'
 
 export default function ExpertsEditor() {
   const dispatch = useAppDispatch()
@@ -38,8 +37,8 @@ export default function ExpertsEditor() {
 function AddExpertView() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [resources, setResources] = useState(Array<Resource>())
+  const [description, setDescription] = useState('')
   const authentication = useAuthentication()
-  const editorRef = useRef<TinyMCEEditor | null>(null)
 
   useEffect(() => {
     const headers = new Headers()
@@ -51,6 +50,20 @@ function AddExpertView() {
       .then((res) => res.json())
       .then((res) => setResources(res))
       .catch(/* TODO */)
+    
+    tinymce.init({
+      selector: 'textarea#tinymce_description',
+      plugins: 'lists',
+      toolbar: 'undo redo | bold italic underline strikethrough | \
+        numlist bullist indent outdent | removeformat',
+      promotion: false,
+      menubar: false,
+      setup: (editor) => editor.on('init', () => {
+        editor.on('change', () => {
+          editor.save()
+        })
+      }),
+    })
   }, [])
 
   return (
@@ -90,23 +103,15 @@ function AddExpertView() {
             ))}
           </Select>
 
-          <Editor
-            id='description'
-            apiKey='kkvcdf3j0mz4l7uzakhifu4q0ofay836xha0zizu9dhnomb7'
-            onInit={(_, editor) => editorRef.current = editor}
-            init={{
-              plugins: 'lists export',
-              toolbar: 'undo redo | bold italic underline strikethrough | \
-                numlist bullist indent outdent | removeformat'
-            }}
-            initialValue="Opis"
-          />
+          <textarea
+            id='tinymce_description'
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder='Opis'/>
 
           <input
             type='hidden'
             name='description'
-            value={editorRef.current?.getContent()}
-          />
+            value={description}/>
 
           <input
             type='hidden'

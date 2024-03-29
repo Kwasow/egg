@@ -41,7 +41,7 @@ $picture = $_POST['picture'];
 
 $stmt = mysqli_prepare(
   $conn,
-  'INSERT INTO Speakers(position, name, description, picture) VALUES (?, ?, ?, ?);'
+  'INSERT INTO Experts(position, name, description, picture) VALUES (?, ?, ?, ?);'
 );
 mysqli_stmt_bind_param($stmt, 'issi', $position, $name, $description, $picture);
 mysqli_stmt_execute($stmt);
@@ -53,11 +53,11 @@ if (!$result) {
   // 500 - server error
   http_response_code(500);
   header(
-    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/speakers?add_success=false'
+    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/experts?add_success=false'
   );
 } else {
   header(
-    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/speakers?add_success=true'
+    'Location: ' . $_SERVER['HTTP_REFERER'] . 'admin/experts?add_success=true'
   );
 }
 

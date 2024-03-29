@@ -9,18 +9,16 @@ header('Cache-control: no-cache, no-store');
 // 200 - ok
 http_response_code(200);
 
-$token = $_SERVER['HTTP_EGGAUTH'];
 $conn = openConnection();
 
 // Return resources
-$stmt = mysqli_prepare($conn, 'SELECT * FROM Speakers ORDER BY position;');
+$stmt = mysqli_prepare($conn, 'SELECT * FROM Experts ORDER BY position;');
 mysqli_stmt_execute($stmt);
 
 $result = $stmt->get_result();
 $stmt->close();
 
 $first = true;
-
 echo '{ "list": [';
 while ($resource = mysqli_fetch_assoc($result)) {
   $id = $resource['id'];

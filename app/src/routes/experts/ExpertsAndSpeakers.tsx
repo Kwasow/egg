@@ -55,7 +55,7 @@ function AvailableSoon() {
   )
 }
 
-function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
+function PeopleGridView(props: { people: PersonJSON[] }) {
   const { people } = props
   const { t } = useTranslation()
   const sunshineCount = useRef(0)
@@ -112,10 +112,9 @@ function PeopleGridView(props: { people: PersonJSON[]; type: string }) {
   )
 }
 
-function PeopleListView(props: { people: PersonJSON[]; type: string }) {
-  const { people, type } = props
+function PeopleListView(props: { people: PersonJSON[] }) {
+  const { people } = props
   const { t } = useTranslation()
-  const directory = process.env.PUBLIC_URL + 'static/' + type + '/'
 
   if (people.length === 0) {
     return <AvailableSoon />
@@ -130,7 +129,7 @@ function PeopleListView(props: { people: PersonJSON[]; type: string }) {
           <img
             className='people-image'
             alt={t('expertsAndSpeakers.PersonAlt') + person.name}
-            src={directory + person.picture}
+            src={resourcesPrefix + person.picture}
             loading='lazy'
           />
           <div>
@@ -182,7 +181,7 @@ function Experts(props: TabPanelProps) {
 
   if (props.index == props.value) {
     if (loaded === 1) {
-      return <PeopleListView people={people} type={type} />
+      return <PeopleListView people={people} />
     } else if (loaded == 2) {
       return <p>Loading failed</p>
     } else {
@@ -242,7 +241,7 @@ function Speakers(props: TabPanelProps) {
             </div>
             <img className='about-us-image' src='/static/images/us.webp' />
           </Card>
-          <PeopleGridView people={people} type={type} />
+          <PeopleGridView people={people} />
         </>
       )
     } else if (loaded == 2) {
